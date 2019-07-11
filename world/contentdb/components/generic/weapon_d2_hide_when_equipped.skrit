@@ -1,0 +1,22 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// FILE: weapon_d2_hide_when_equipped.skrit
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+property bool   _server_only$   = false;
+property string _doc$		    = "Skrit component to hide weapon when equipped only.";
+
+property string hidden_texture$ = "b_w_hidden"  doc = "";
+property int    texture_index$  = 0             doc = "";
+
+owner = GoSkritComponent;
+
+string defaultTexture$ = "";
+
+trigger OnGoHandleMessage$(WE_CONSTRUCTED) {
+    String.Assign(defaultTexture$, owner.Go.Aspect.GetCurrentAspectTexture(texture_index$));
+}
+trigger OnGoHandleMessage$(WE_EQUIPPED) {
+    owner.Go.Aspect.SetCurrentAspectTexture(texture_index$, hidden_texture$);
+}
+trigger OnGoHandleMessage$(WE_DROPPED) {
+    owner.Go.Aspect.SetCurrentAspectTexture(texture_index$, defaultTexture$);
+}

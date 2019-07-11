@@ -1,0 +1,954 @@
+/*
+[t:template,n:ring_d2_01]
+{
+	doc = "Diablo 2 ring 01";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		//screen_name = "Jeweled Ring";
+		screen_name = "Ring";
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_d2_01;
+		equip_requirements = uber:#item_level;
+		use_class = IST_ALL;
+	}
+	[pcontent]
+	{
+		[base]
+		{
+ 	 	 	item_level = 7;
+		}
+		[var1]
+		{
+ 	 	 	item_level = 29;
+		}
+		[var2]
+		{
+ 	 	 	item_level = 65;
+		}
+		[var3]
+		{
+ 	 	 	item_level = 84;
+		}
+		[var4]
+		{
+ 	 	 	item_level = 92;
+		}
+	}
+}
+
+[t:template,n:ring_d2_02]
+{
+	doc = "Diablo 2 ring 02";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		//screen_name = "Intricate Ring";
+		screen_name = "Ring";
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_d2_02;
+		equip_requirements = uber:#item_level;
+		use_class = IST_ALL;
+	}
+	[pcontent]
+	{
+		[base]
+		{
+ 	 	 	item_level = 9;
+		}
+		[var1]
+		{
+ 	 	 	item_level = 31;
+		}
+		[var2]
+		{
+ 	 	 	item_level = 67;
+		}
+		[var3]
+		{
+ 	 	 	item_level = 86;
+		}
+		[var4]
+		{
+ 	 	 	item_level = 94;
+		}
+	}
+}
+
+[t:template,n:ring_d2_03]
+{
+	doc = "Diablo 2 ring 03";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		//screen_name = "Delicate Ring";
+		screen_name = "Ring";
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_d2_03;
+		equip_requirements = uber:#item_level;
+		use_class = IST_ALL;
+	}
+	[pcontent]
+	{
+		[base]
+		{
+ 	 	 	item_level = 10;
+		}
+		[var1]
+		{
+ 	 	 	item_level = 32;
+		}
+		[var2]
+		{
+ 	 	 	item_level = 68;
+		}
+		[var3]
+		{
+ 	 	 	item_level = 87;
+		}
+		[var4]
+		{
+ 	 	 	item_level = 95;
+		}
+	}
+}
+
+[t:template,n:ring_d2_04]
+{
+	doc = "Diablo 2 ring 04";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		//screen_name = "Adorned Ring";
+		screen_name = "Ring";
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_d2_04;
+		equip_requirements = uber:#item_level;
+		use_class = IST_ALL;
+	}
+	[pcontent]
+	{
+		[base]
+		{
+ 	 	 	item_level = 12;
+		}
+		[var1]
+		{
+ 	 	 	item_level = 34;
+		}
+		[var2]
+		{
+ 	 	 	item_level = 70;
+		}
+		[var3]
+		{
+ 	 	 	item_level = 89;
+		}
+		[var4]
+		{
+ 	 	 	item_level = 97;
+		}
+	}
+}
+
+[t:template,n:ring_d2_05]
+{
+	doc = "Diablo 2 ring 05";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		//screen_name = "Ornate Ring";
+		screen_name = "Ring";
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_d2_05;
+		equip_requirements = uber:#item_level;
+		use_class = IST_ALL;
+	}
+	[pcontent]
+	{
+		[base]
+		{
+ 	 	 	item_level = 13;
+		}
+		[var1]
+		{
+ 	 	 	item_level = 35;
+		}
+		[var2]
+		{
+ 	 	 	item_level = 71;
+		}
+		[var3]
+		{
+ 	 	 	item_level = 90;
+		}
+		[var4]
+		{
+ 	 	 	item_level = 98;
+		}
+	}
+}
+*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : ring_unq_d2_nagelring
+//// SPECIALIZES    : ring
+//// FULL NAME      : Nagelring (Unique Ring)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:ring_unq_d2_nagelring]
+{
+	doc = "Diablo 2 Nagelring Ring";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Ring";
+		screen_name			= "Nagelring";
+		allow_modifiers		= false;
+		rarity				= UNIQUE;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_ring_d2_nagelring;
+		item_level			= 9;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MANA_STEAL;
+                value				= 7;
+                description			= "<value>% Mana Steal";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 1;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                value               = 1;
+                suite				= ba_suite_all;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_MAGIC_FIND_CHANCE;
+                value				= 30;
+                description			= "+<value>% Chance to Find Magic Items";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : ring_unq_d2_manald_heal
+//// SPECIALIZES    : ring
+//// FULL NAME      : Manald Heal (Unique Ring)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:ring_unq_d2_manald_heal]
+{
+	doc = "Diablo 2 Manald Heal Ring";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Ring";
+		screen_name			= "Manald Heal";
+		allow_modifiers		= false;
+		rarity				= UNIQUE;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_ring_d2_manald_heal;
+		item_level			= 17;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MANA_STEAL;
+                value				= 7;
+                description			= "<value>% Mana Steal";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 1;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                value               = 1;
+                suite				= ba_suite_all;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+  			{
+  				alteration			= ALTER_MAX_LIFE;
+  				value				= 1.0 * #character_level;
+  				description			= "+<value> Health (Increases with Character Level)";
+  				duration			= #infinite;
+  				is_permanent		= true;
+  				is_single_instance	= false;
+  			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : ring_unq_d2_stone_of_jordan
+//// SPECIALIZES    : ring
+//// FULL NAME      : Stone of Jordan (Unique Ring)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:ring_unq_d2_stone_of_jordan]
+{
+	doc = "Diablo 2 Stone of Jordan Ring";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Ring";
+		screen_name			= "Stone of Jordan";
+		allow_modifiers		= false;
+		rarity				= UNIQUE;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_ring_d2_stone_of_jordan;
+		item_level			= 31;
+		equip_requirements	= uber:#item_level - 2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = FOS_SUITE_ALL;
+                value               = 1;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite				= BA_SUITE_ALL;
+                value               = 1;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                // 'Increase Maximum Mana 25%' in Diablo 2.
+                // ----------------------------------------
+                alteration			= ALTER_MAX_MANA;
+                value				= (0.87 * 5.0 * #int) * 0.25; // (mp_int_scalar * mp_coefficient * int) * 0.25 (25%)
+                description			= "+25% Mana from Intelligence";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_CUSTOM_DAMAGE_LIGHTNING;
+                value				= 1;
+                max_value			= 12;
+                description			= "Adds <value> to <max_value> Lightning Damage";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+                custom_effect       = "custom_lightning_damage_soj";
+            }
+            [*]
+            {
+                alteration			= ALTER_MAX_MANA;
+                value				= 20;
+                description			= "+<value> Mana";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : ring_unq_d2_raven_frost
+//// SPECIALIZES    : ring
+//// FULL NAME      : Raven Frost (Unique Ring)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:ring_unq_d2_raven_frost]
+{
+	doc = "Diablo 2 Raven Frost Ring";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Ring";
+		screen_name			= "Raven Frost";
+		allow_modifiers		= false;
+		rarity				= UNIQUE;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_ring_d2_03;
+		item_level			= 47;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 1;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                value               = 1;
+                suite				= ba_suite_all;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_CUSTOM_DAMAGE_LIGHTNING;
+                value				= 1;
+                max_value			= 12;
+                description			= "Adds <value> to <max_value> Lightning Damage";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+                custom_effect       = "custom_lightning_damage_soj";
+            }
+            [*]
+            {
+                alteration			= ALTER_MAX_MANA;
+                value				= 40;
+                description			= "+<value> Mana";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : ring_unq_d2_bul_kathos_wedding_band
+//// SPECIALIZES    : ring
+//// FULL NAME      : Bul-Kathos' Wedding Band (Unique Ring)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:ring_unq_d2_bul_kathos_wedding_band]
+{
+	doc = "Diablo 2 Bul-Kathos Wedding Band Ring";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Ring";
+		screen_name			= "Bul-Kathos' Wedding Band";
+		allow_modifiers		= false;
+		rarity				= UNIQUE;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_ring_d2_bul_kathos_wedding_band;
+		item_level			= 60;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 1;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                value               = 1;
+                suite				= ba_suite_all;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+  			{
+  				alteration			= ALTER_MAX_LIFE;
+  				value				= 1.0 * #character_level;
+  				description			= "+<value> Health (Increases with Character Level)";
+  				duration			= #infinite;
+  				is_permanent		= true;
+  				is_single_instance	= false;
+  			}
+            [*]
+			{
+				alteration			= ALTER_LIFE_STEAL;
+				value				= 5;
+				description			= "<value>% Health Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_POWER_RELOAD;
+				value				= 0.1;
+				description			= "+10% Power Recharge Rate";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : ring_unq_d2_natures_peace
+//// SPECIALIZES    : ring
+//// FULL NAME      : Nature's Peace (Unique Ring)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:ring_unq_d2_natures_peace]
+{
+	doc = "Diablo 2 Nature's Peace Ring";
+	specializes = ring;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_ring_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Ring";
+		screen_name			= "Nature's Peace";
+		allow_modifiers		= false;
+		rarity				= UNIQUE;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_ring_d2_natures_peace;
+		item_level			= 71;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 1;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                value               = 1;
+                suite				= ba_suite_all;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+  			{
+  				alteration			= ALTER_MAX_LIFE;
+  				value				= 1.0 * #character_level;
+  				description			= "+<value> Health (Increases with Character Level)";
+  				duration			= #infinite;
+  				is_permanent		= true;
+  				is_single_instance	= false;
+  			}
+            [*]
+			{
+				alteration			= ALTER_LIFE_STEAL;
+				value				= 5;
+				description			= "<value>% Health Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_POWER_RELOAD;
+				value				= 0.1;
+				description			= "+10% Power Recharge Rate";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 1;
+				description			= "Summon When Equipped: Oak Sage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                custom_effect		= "summon_oak_sage";
+			}
+		}
+	}
+}

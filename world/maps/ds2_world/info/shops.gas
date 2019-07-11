@@ -1,0 +1,3857 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  shops.gas
+// Author(s):  Chad Queen
+//
+// Copyright � 2002 Gas Powered Games, Inc.  All rights reserved.
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+[shop_specifications]
+{
+
+// ***********************************************
+// ACT I STORES
+// ***********************************************
+
+/////////////////////////////////////////////////
+// Act I Weapon Store
+	[act_1_weapon_store]
+	{
+		[melee]
+		{
+            ////////////////////////////////////////////////////////////////////
+            /////////////////////// Diablo Melee Weapons ///////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #sd_2h_unq_d2_grandfather;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #sd_2h_rnwd_d2_breath_of_the_dying;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #sd_1h_unq_d2_lightsabre;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #sd_1h_unq_d2_azurewrath;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #sd_1h_unq_d2_griswolds_edge;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #sd_1h_unq_d2_thunderfury;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #sd_1h_unq_d2_jade_talon;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #sd_1h_rnwd_d2_chaos;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #ax_1h_rnwd_d2_grief;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #dg_1h_nrm_d2_blade;
+                count = 5;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #dg_1h_unq_d2_wizardspike;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #dg_1h_unq_d2_ghostflame;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #hm_2h_rnwd_d2_cranium_basher;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #hm_2h_rnwd_d2_call_to_arms;
+                count = 1;
+                instant_restock = true;
+            }
+		}
+		[ranged]
+		{
+            ////////////////////////////////////////////////////////////////////
+            ///////////////////// Diablo Ranged Weapons ////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            ///////////////////////// Diablo Quivers ///////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #amr_qvr_nrm_d2_quiver;
+                count = 1;
+                instant_restock = true;
+            }
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act I Armor Store
+	[act_1_armor_store]
+	{
+		[armor]
+		{
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////// Diablo Armors ///////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #amr_bdy_unq_d2_tyraels_might;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amr_bdy_rnwd_d2_enigma;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amr_bdy_rnwd_d2_chains_of_honor;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amr_bdy_rnwd_d2_fortitude;
+                count = 1;
+                instant_restock = true;
+            }
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////// Diablo Helmets //////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #amr_hlm_unq_d2_harlequin_crest;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amr_hlm_unq_d2_giant_skull;
+                count = 1;
+                instant_restock = true;
+            }
+            ////////////////////////////////////////////////////////////////////
+            /////////////////////////// Diablo Gloves //////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #amr_glv_unq_d2_frostburn;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amr_glv_unq_d2_magefist;
+                count = 1;
+                instant_restock = true;
+            }
+            ////////////////////////////////////////////////////////////////////
+            /////////////////////////// Diablo Boots ///////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #amr_bot_nrm_d2_heavy_boots;
+                count = 5;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amr_bot_unq_d2_gorefoot;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amr_bot_unq_d2_shadowdancer;
+                count = 1;
+                instant_restock = true;
+            }
+		}
+		[shield]
+		{
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////// Diablo Shields //////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #amr_shd_unq_d2_herald_of_zakarum;
+                count = 1;
+                instant_restock = true;
+            }
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act I Magic Store
+	[act_1_magic_store]
+	{
+		[nmagic]
+		{
+            ////////////////////////////////////////////////////////////////////
+            //////////////////// Diablo Nature Magic Spells ////////////////////
+            ////////////////////////////////////////////////////////////////////
+			[all*]
+			{
+				il_main = spell_d2_zeal;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_d2_holy_shield;
+				count = 1;
+				instant_restock = true;
+			}
+		}
+		[cmagic]
+		{
+            ////////////////////////////////////////////////////////////////////
+            //////////////////// Diablo Combat Magic Spells ////////////////////
+            ////////////////////////////////////////////////////////////////////
+			[all*]
+			{
+				il_main = spell_d2_burst_of_speed;
+				count = 1;
+				instant_restock = true;
+			}
+		}
+		[potion]
+		{
+			[all*]
+			{
+				il_main = potion_health_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_large;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_mana_large;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_large;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_health_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_mana_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_health_large;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_mana_large;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_large;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_health_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_mana_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_health_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_mana_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+		}
+		[misc]
+		{
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////// Diablo Amulets //////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #amulet_unq_d2_eye_of_etlich;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amulet_unq_d2_highlords_wrath;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amulet_unq_d2_maras_kaleidoscope;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #amulet_unq_d2_seraphs_hymn;
+                count = 1;
+                instant_restock = true;
+            }
+            ////////////////////////////////////////////////////////////////////
+            /////////////////////////// Diablo Rings ///////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #ring_unq_d2_nagelring;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #ring_unq_d2_manald_heal;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #ring_unq_d2_stone_of_jordan;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #ring_unq_d2_raven_frost;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #ring_unq_d2_bul_kathos_wedding_band;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #ring_unq_d2_natures_peace;
+                count = 1;
+                instant_restock = true;
+            }
+            ////////////////////////////////////////////////////////////////////
+            //////////////////////// Diablo Spell Books ////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+                il_main = #book_glb_unq_d2_hellfire_codex_melee;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #book_glb_unq_d2_hellfire_codex_ranged;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #book_glb_unq_d2_hellfire_codex_nmagic;
+                count = 1;
+                instant_restock = true;
+            }
+            [all*]
+            {
+                il_main = #book_glb_unq_d2_hellfire_codex_cmagic;
+                count = 1;
+                instant_restock = true;
+            }
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act I Reagent Store
+	[act_1_reagent_store]
+	{
+		[misc]
+		{
+            ////////////////////////////////////////////////////////////////////
+            /////////////////////////// Diablo Runes ///////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_el;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_eld;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_tir;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_nef;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_eth;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_ith;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_ral;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_ort;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_thul;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_amn;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_sol;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_shael;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_dol;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_hel;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_io;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_lum;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_ko;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_fal;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_lem;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_pul;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_um;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_mal;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_ist;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_gul;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_vex;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_ohm;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_lo;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_sur;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_ber;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_jah;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_cham;
+            	count = 1;
+            	instant_restock = true;
+            }
+            [all*]
+            {
+            	il_main = #rgt_d2_rune_zod;
+            	count = 1;
+            	instant_restock = true;
+            }
+            ////////////////////////////////////////////////////////////////////
+		}
+	}
+
+// ***********************************************
+// ACT II STORES
+// ***********************************************
+
+/////////////////////////////////////////////////
+// Act II Weapon Store
+	[act_2_weapon_store]
+	{
+		[melee]
+		{
+			[all*]
+			{
+				il_main = #dg_1h_dg:base;
+				count = 1;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #st_mg_rs:base;
+				count = 1;
+				world_specific = mercenary;
+			}
+
+			// random stuff
+			[all*]
+			{
+				il_main = #melee;
+				count = 16;
+			}
+			[all*]
+			{
+				il_main = #melee/3-24;
+				count = 8;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #melee/3-54;
+				count = 8;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #melee/3-64;
+				count = 8;
+				world_specific = elite;
+			}
+		}
+		[ranged]
+		{
+			[all*]
+			{
+				il_main = #bw_sh:base;
+				count = 1;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #th_kn:base;
+				count = 1;
+				world_specific = mercenary;
+			}
+
+			/// random stuff
+			[all*]
+			{
+				il_main = #ranged;
+				count = 12;
+			}
+			[all*]
+			{
+				il_main = #ranged/3-24;
+				count = 8;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #ranged/3-54;
+				count = 8;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #ranged/3-64;
+				count = 8;
+				world_specific = elite;
+			}
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act II Armor Store
+	[act_2_armor_store]
+	{
+		[armor]
+		{
+
+			// other stuff
+			[all*]
+			{
+				il_main = #body;
+				count = 10;
+			}
+			[all*]
+			{
+				il_main = #helm;
+				count = 10;
+			}
+			[all*]
+			{
+				il_main = #gloves;
+				count = 10;
+			}
+			[all*]
+			{
+				il_main = #boots;
+				count = 10;
+			}
+			[all*]
+			{
+				il_main = #body/3-24;
+				count = 8;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #helm/3-24;
+				count = 4;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #gloves/3-24;
+				count = 4;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #boots/3-24;
+				count = 4;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #body/3-54;
+				count = 8;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #helm/3-54;
+				count = 4;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #gloves/3-54;
+				count = 4;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #boots/3-54;
+				count = 4;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #body/3-64;
+				count = 8;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = #helm/3-64;
+				count = 4;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = #gloves/3-64;
+				count = 4;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = #boots/3-64;
+				count = 4;
+				world_specific = elite;
+			}
+		}
+		[shield]
+		{
+			[all*]
+			{
+				il_main = #shield;
+				count = 8;
+			}
+			[all*]
+			{
+				il_main = #shield/3-24;
+				count = 8;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #shield/3-54;
+				count = 8;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #shield/3-64;
+				count = 8;
+				world_specific = elite;
+			}
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act II Magic Store
+	[act_2_magic_store]
+	{
+		[nmagic]
+		{
+			[all*]
+			{
+				il_main = #nmagic;
+				count = 16;
+			}
+			[all*]
+			{
+				il_main = #nmagic/2-28;
+				count = 16;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #nmagic/2-54;
+				count = 16;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #nmagic/2-76;
+				count = 16;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = spell_town_portal;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_transmute;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_heal_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = scroll_resurrect;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_icebolt_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_summon_bracken_defender_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_earthen_embrace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_the_bear;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wind_embrace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_magic;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_spirit_embrace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_ice;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_aquatic_embrace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_the_fallen;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_life_embrace;
+				count = 1;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_ancestors;
+				count = 1;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = spell_life_embrace;
+				count = 1;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_ancestors;
+				count = 1;
+				instant_restock = true;
+				world_specific = elite;
+			}
+
+		}
+		[cmagic]
+		{
+			[all*]
+			{
+				il_main = #cmagic;
+				count = 16;
+			}
+			[all*]
+			{
+				il_main = #cmagic/2-28;
+				count = 16;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #cmagic/2-54;
+				count = 16;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #cmagic/2-76;
+				count = 16;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = spell_firebolt_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_jolt_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_summon_trasak_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_dehydrate;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_decay_armor;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_steal_magic;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_drown;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_blind;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_punishing_fire;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_infect;
+				count = 1;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = spell_cripple;
+				count = 1;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = spell_infect;
+				count = 1;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = spell_cripple;
+				count = 1;
+				instant_restock = true;
+				world_specific = elite;
+			}
+		}
+		[potion]
+		{
+			[all*]
+			{
+				il_main = potion_health_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_large;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_large;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_large;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_mana_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_health_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_mana_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_health_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_mana_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_super;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_health_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_mana_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+		}
+		[misc]
+		{
+			[all*]
+			{
+				il_main = #spellbook;
+				count = 8;
+			}
+			[all*]
+			{
+				instant_restock = true;
+				il_main = #book_glb_magic_01:base;
+				count = 2;
+			}
+
+			//random stuff
+			[all*]
+			{
+				il_main = #ring;
+				count = 8;
+			}
+			[all*]
+			{
+				il_main = #amulet;
+				count = 4;
+			}
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act II Reagent Store
+	[act_2_reagent_store]
+	{
+		[misc]
+		{
+			[all*]
+			{
+				il_main = #reagent/3-12;
+				count = 15;
+			}
+			[all*]
+			{
+				il_main = #reagent/3-27;
+				count = 10;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #reagent/3-53;
+				count = 10;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #reagent/3-75;
+				count = 10;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = #reagent;
+				count = 10;
+			}
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act II Arena Store
+	[act_2_arena_store]
+	{
+		[misc]
+		{
+			[all*]
+			{
+			}
+		}
+	}
+
+// ***********************************************
+// ACT III STORES
+// ***********************************************
+
+/////////////////////////////////////////////////
+// Act III Weapon Store
+	[act_3_weapon_store]
+	{
+		[melee]
+		{
+			[all*]
+			{
+				il_main = #dg_1h_dg:base;
+				count = 1;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #st_mg_rs:base;
+				count = 1;
+				world_specific = mercenary;
+			}
+
+			// random stuff
+			[all*]
+			{
+				il_main = #melee;
+				count = 16;
+			}
+			[all*]
+			{
+				il_main = #melee/3-36;
+				count = 8;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #melee/3-65;
+				count = 8;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #melee/3-86;
+				count = 8;
+				world_specific = elite;
+			}
+		}
+		[ranged]
+		{
+			[all*]
+			{
+				il_main = #bw_sh:base;
+				count = 1;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #th_kn:base;
+				count = 1;
+				world_specific = mercenary;
+			}
+
+			// random  items
+			[all*]
+			{
+				il_main = #ranged;
+				count = 12;
+			}
+			[all*]
+			{
+				il_main = #ranged/3-36;
+				count = 8;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #ranged/3-65;
+				count = 8;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #ranged/3-86;
+				count = 8;
+				world_specific = elite;
+			}
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act III Armor Store
+	[act_3_armor_store]
+	{
+		[armor]
+		{
+
+			// other stuff
+
+			[all*]
+			{
+				il_main = #body;
+				count = 10;
+			}
+			[all*]
+			{
+				il_main = #helm;
+				count = 10;
+			}
+			[all*]
+			{
+				il_main = #gloves;
+				count = 10;
+			}
+			[all*]
+			{
+				il_main = #boots;
+				count = 10;
+			}
+			[all*]
+			{
+				il_main = #body/3-36;
+				count = 8;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #helm/3-36;
+				count = 4;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #gloves/3-36;
+				count = 4;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #boots/3-36;
+				count = 4;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #body/3-65;
+				count = 8;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #helm/3-65;
+				count = 4;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #gloves/3-65;
+				count = 4;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #boots/3-65;
+				count = 4;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #body/3-86;
+				count = 8;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = #helm/3-86;
+				count = 4;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = #gloves/3-86;
+				count = 4;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = #boots/3-86;
+				count = 4;
+				world_specific = elite;
+			}
+		}
+		[shield]
+		{
+			[all*]
+			{
+				il_main = #shield;
+				count = 8;
+			}
+			[all*]
+			{
+				il_main = #shield/3-36;
+				count = 8;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #shield/3-65;
+				count = 8;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #shield/3-86;
+				count = 8;
+				world_specific = elite;
+			}
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act III Magic Store
+	[act_3_magic_store]
+	{
+		[nmagic]
+		{
+			[all*]
+			{
+				il_main = #nmagic;
+				count = 16;
+			}
+			[all*]
+			{
+				il_main = #nmagic/2-36;
+				count = 16;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #nmagic/2-62;
+				count = 16;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #nmagic/2-82;
+				count = 16;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = spell_town_portal;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_transmute;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_heal_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = scroll_resurrect;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_icebolt_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_summon_bracken_defender_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_earthen_embrace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_the_bear;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wind_embrace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_magic;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_spirit_embrace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_ice;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_aquatic_embrace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_the_fallen;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_life_embrace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_wrath_of_ancestors;
+				count = 1;
+				instant_restock = true;
+			}
+		}
+		[cmagic]
+		{
+			[all*]
+			{
+				il_main = #cmagic;
+				count = 16;
+			}
+			[all*]
+			{
+				il_main = #cmagic/2-36;
+				count = 16;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #cmagic/2-62;
+				count = 16;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #cmagic/2-82;
+				count = 16;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = spell_firebolt_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_jolt_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_summon_trasak_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_dehydrate;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_decay_armor;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_steal_magic;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_drown;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_blind;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_punishing_fire;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_infect;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = spell_cripple;
+				count = 1;
+				instant_restock = true;
+			}
+		}
+		[potion]
+		{
+			[all*]
+			{
+				il_main = potion_health_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_large;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_large;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_large;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_super;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_super;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_super;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_mana_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = potion_health_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_mana_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_colossal;
+				count = 2;
+				instant_restock = true;
+				world_specific = elite;
+			}
+		}
+		[misc]
+		{
+			[all*]
+			{
+				il_main = #spellbook;
+				count = 8;
+			}
+			[all*]
+			{
+				instant_restock = true;
+				il_main = #book_glb_magic_01:base;
+				count = 2;
+			}
+
+			// other random stuff
+			[all*]
+			{
+				il_main = #ring;
+				count = 8;
+			}
+			[all*]
+			{
+				il_main = #amulet;
+				count = 4;
+			}
+		}
+	}
+
+/////////////////////////////////////////////////
+// Act III Reagent Store
+	[act_3_reagent_store]
+	{
+		[misc]
+		{
+			[all*]
+			{
+				il_main = #reagent/3-12;
+				count = 15;
+			}
+			[all*]
+			{
+				il_main = #reagent/3-35;
+				count = 10;
+				world_specific = mercenary;
+			}
+			[all*]
+			{
+				il_main = #reagent/3-60;
+				count = 10;
+				world_specific = veteran;
+			}
+			[all*]
+			{
+				il_main = #reagent/3-81;
+				count = 10;
+				world_specific = elite;
+			}
+			[all*]
+			{
+				il_main = #reagent;
+				count = 10;
+			}
+		}
+	}
+
+// ***********************************************
+// DEV SUPER STORE
+// ***********************************************
+	[dev_super_store]
+	{
+		[melee]
+		{
+			[all*]
+			{
+				il_main = #melee/10-60;
+				count = 50;
+			}
+			[all*]
+			{
+				il_main = #melee;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_nor_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_nor_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_nor_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_nor_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_nor_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a2_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a2_nor_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a2_nor_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a2_nor_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a2_nor_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a2_nor_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a2_nor_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a3_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a3_nor_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a3_nor_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a3_nor_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a3_nor_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a3_nor_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_vet_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_vet_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_vet_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_vet_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_vet_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_vet_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_elt_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_elt_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_elt_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_elt_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_elt_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_elt_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+		}
+		[ranged]
+		{
+			[all*]
+			{
+				il_main = #ranged/10-60;
+				count = 50;
+			}
+			[all*]
+			{
+				il_main = #ranged;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_nor_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_nor_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_nor_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a2_nor_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a2_nor_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a3_nor_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a3_nor_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a3_nor_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_vet_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_vet_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_vet_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_elt_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_elt_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = wpn_a1_elt_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+		}
+		[armor]
+		{
+			[all*]
+			{
+				il_main = #body/10-60;
+				count = 50;
+			}
+			[all*]
+			{
+				il_main = #helm/10-60;
+				count = 50;
+			}
+			[all*]
+			{
+				il_main = #gloves/10-60;
+				count = 50;
+			}
+			[all*]
+			{
+				il_main = #boots/10-60;
+				count = 50;
+			}
+			[all*]
+			{
+				il_main = #body;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = #helm;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = #gloves;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = #boots;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = amr_a1_nor_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_nor_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_nor_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_nor_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_nor_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_nor_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_nor_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_nor_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a2_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a2_nor_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a2_nor_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a2_nor_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a2_nor_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a2_nor_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a2_nor_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a2_nor_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a3_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a3_nor_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a3_nor_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a3_nor_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a3_nor_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a3_nor_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a3_nor_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a3_nor_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_vet_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_vet_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_vet_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_vet_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_vet_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_vet_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_vet_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_vet_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_elt_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_elt_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_elt_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_elt_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_elt_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_elt_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_elt_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_elt_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+		}
+		[shield]
+		{
+			[all*]
+			{
+				il_main = #shield/10-60;
+				count = 50;
+			}
+			[all*]
+			{
+				il_main = #shield;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = amr_a1_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a2_nor_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a3_nor_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = amr_a1_vet_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+		}
+		[nmagic]
+		{
+			[all*]
+			{
+				il_main = #nmagic/10-60;
+				count = 50;
+			}
+			[all*]
+			{
+				il_main = #nmagic;
+				count = 20;
+			}
+		}
+		[cmagic]
+		{
+			[all*]
+			{
+				il_main = #cmagic/10-60;
+				count = 50;
+			}
+			[all*]
+			{
+				il_main = #cmagic;
+				count = 20;
+			}
+		}
+		[potion]
+		{
+			[all*]
+			{
+				il_main = potion_health_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_small;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_medium;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_large;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_large;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_large;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_super;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_super;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_super;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_health_colossal;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_mana_colossal;
+				count = 2;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = potion_rejuvenation_colossal;
+				count = 2;
+				instant_restock = true;
+			}
+		}
+		[misc]
+		{
+			[all*]
+			{
+				il_main = #spellbook;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = #ring;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = #amulet;
+				count = 20;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_nor_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_nor_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_nor_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_nor_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_nor_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_nor_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_nor_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_nor_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_nor_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_nor_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_nor_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_nor_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_nor_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_nor_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_nor_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_nor_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_vet_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_vet_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_vet_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_vet_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_vet_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_vet_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_vet_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_vet_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_vet_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_vet_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_vet_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_vet_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_vet_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_vet_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_vet_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_vet_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_vet_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_vet_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_vet_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_vet_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_vet_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_vet_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_vet_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_vet_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_vet_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_vet_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_vet_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_elt_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_elt_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_elt_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_elt_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_elt_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_elt_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_elt_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_elt_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_elt_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_elt_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_elt_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_elt_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_elt_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_elt_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_elt_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a2_elt_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_elt_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_elt_crafted_2;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_elt_crafted_3;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_elt_crafted_4;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_elt_crafted_5;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_elt_crafted_6;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_elt_crafted_7;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_elt_crafted_8;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a3_elt_crafted_9;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = mgc_a1_nor_crafted_1;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_pine_splinter;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_oak_branch;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_ironwood_timber;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_dryad_bead;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_elven_oil;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_quicksilver_oil;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_gral_eye;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_malachite_powder;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_spectral_dust;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_nettle_cluster;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_mandrake_root;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_ash_leaves;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_rowan_leaves;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_angelica_root;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_henbane_leaves;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_gardenia_leaves;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_valerian_root;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_wormwood_essence;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_verbena_flowers;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_raptor_tooth;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_rhinock_horn;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_trilisk_fang;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_jagged_arrowheads;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_serrated_arrowheads;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_keen_arrowheads;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_whetstone;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_mythril_alloy;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_meteoric_alloy;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_hawk_feather;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_griffon_feather;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_phoenix_feather;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_sapphire_splinter;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_sapphire_pommelstone;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_sapphire_ornament;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_coral_fragment;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_coral_spangle;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_coral_filament;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_ruby_splinter;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_ruby_pommelstone;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_ruby_ornament;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_amber_fragment;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_amber_spangle;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_amber_filament;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_crystal_splinter;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_crystal_pommelstone;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_crystal_ornament;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_diamond_fragment;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_diamond_spangle;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_diamond_filament;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_jet_splinter;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_jet_pommelstone;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_jet_ornament;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_onyx_fragment;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_onyx_spangle;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_onyx_filament;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_ivory_thorns;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_diamond_thorns;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_ensorcelled_thorns;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_wolf_jaw;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_vampire_jaw;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_demon_jaw;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_eagle_talon;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_raven_talon;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_owl_talon;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_betony_salve;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_sandalvine_tincture;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_yarrow_balm;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_sage_liniment;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_hide_fragment;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_tanned_skin;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_patterned_shell;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_carved_carapace;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_etched_chrysalis;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_scarab_husk;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_engraved_plating;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_dragon_scale;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_cobalt_bead;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_frost_charm;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_icicle_talisman;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_branded_rune;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_smoldering_rune;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_igneous_rune;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_yellow_strand;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_amber_thread;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_gold_ribbon;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_skull_fragment;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_vaikesh_figurine;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_korven_fetish;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_aegis_symbol;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_azunai_insignia;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_halfgiant_pennant;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_agallan_standard;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_stag_crest;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_lion_crest;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_griffon_crest;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_phoenix_crest;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_rainbow_trinket;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_prismatic_bauble;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_lumillas_salve;
+				count = 1;
+				instant_restock = true;
+			}
+			[all*]
+			{
+				il_main = rgt_viperclaw;
+				count = 1;
+				instant_restock = true;
+			}
+		}
+	}
+}

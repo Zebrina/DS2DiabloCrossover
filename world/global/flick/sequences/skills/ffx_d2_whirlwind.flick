@@ -1,0 +1,11 @@
+[ffx_d2_whirlwind]
+{
+	critical role Owner;
+	critical role Catalyst;
+	point CatalystDefaultPoint;
+
+	thread main
+	{
+		AttachEffectToPoint "efct_d2_whirlwind" CatalystDefaultPoint, wait;
+	}
+}

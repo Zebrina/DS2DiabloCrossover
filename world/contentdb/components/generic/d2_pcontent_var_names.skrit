@@ -1,0 +1,38 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// FILE: d2_pcontent_var_names.skrit
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+property bool   _server_only$   = false;
+property string _doc$           = "This skrit sets alternative names for pcontent items for that true Diablo feeling.";
+
+property string var1_name$  = ""    doc = "Screen name that the first variation should have. Ignored if empty.";
+property string var2_name$  = ""    doc = "Screen name that the second variation should have. Ignored if empty.";
+property string var3_name$  = ""    doc = "Screen name that the third variation should have. Ignored if empty.";
+property string var4_name$  = ""    doc = "Screen name that the fourth variation should have. Ignored if empty.";
+
+owner = GoSkritComponent;
+
+void OwnerSetScreenName$(string newName$) {
+    if (IsServerLocal()) {
+        owner.Common.SSetScreenName(newName$);
+    } else {
+        owner.Common.SetScreenName(newName$);
+    }
+}
+
+trigger OnGoHandleMessage$(WE_ENTERED_WORLD) {
+    string var$ = owner.Gui.Variation;
+    Report.ScreenF("var: %s", var$);
+    if (StringTool.SameNoCase(var$, "var", 3)) {
+        string n$ = StringTool.Right(var$, 1);
+        Report.ScreenF("n: %s", n$);
+        if (StringTool.SameWithCase(n$, "1") && !StringTool.IsEmpty(var1_name$)) {
+            OwnerSetScreenName$(var1_name$);
+        } else if (StringTool.SameWithCase(n$, "2") && !StringTool.IsEmpty(var2_name$)) {
+            OwnerSetScreenName$(var2_name$);
+        } else if (StringTool.SameWithCase(n$, "3") && !StringTool.IsEmpty(var3_name$)) {
+            OwnerSetScreenName$(var3_name$);
+        } else if (StringTool.SameWithCase(n$, "4") && !StringTool.IsEmpty(var4_name$)) {
+            OwnerSetScreenName$(var4_name$);
+        }
+    }
+}

@@ -1,0 +1,10 @@
+[t:sed,n:s_ui_d2_glovesmetal_putdown]
+{
+	sound_effect_file = s_ui_d2_glovesmetal_putdown;
+	max_simultaneous_samples = 2;
+	min_playback_rate = 0.99;
+	max_playback_rate = 1.01;
+	min_override_dist = 6;
+	max_override_dist = 30;
+	stereo_playback = False;
+}

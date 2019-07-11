@@ -1,0 +1,7 @@
+[t:tsd,n:b_w_shd_d2_herald_of_zakarum]
+{
+  b dither = true;
+  b hasalpha = false;
+	layer1texture1 = b_w_shd_d2_herald_of_zakarum;
+  i texturedetail = 1;
+}

@@ -1,0 +1,197 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amr_glv_unq_d2_frostburn
+//// SPECIALIZES    : base_gloves_nmage
+//// FULL NAME      : Frostburn (Unique Gauntlets)
+//// NOTES          : Upgraded to elite quality (requires level 64) as the stats would be a bit overpowered for level 29.
+////              Increases nature magic damage instead of physical damage.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amr_glv_unq_d2_frostburn]
+{
+	doc = "Diablo 2 Frostburn Gauntlets";
+	specializes = base_gloves_nmage;
+    [aspect]
+    {
+        [voice]
+        {
+            [put_down]
+            {
+                * = s_ui_d2_glovesmetal_putdown; // PH
+            }
+        }
+    }
+	[common]
+	{
+		screen_name = "Frostburn";
+		base_screen_name = "Gauntlets";
+		rarity = UNIQUE;
+        allow_modifiers = false;
+	}
+	[defend]
+	{
+		armor_style = d2_frostburn;
+		armor_type = type06;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level - 2;
+		inventory_icon = b_gui_ig_i_amr_gntl_type06_d2_frostburn;
+        item_level = 66;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_ARMOR_SOURCE_PERCENT;
+                value				= 0.20;
+                description			= "+20% Armor";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+			[*]
+			{
+				alteration			= ALTER_ARMOR;
+				value				= 30;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_ICE_DAMAGE_PERCENT;
+				value				= 0.05;
+				description			= "+5% Ice Magic Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+            {
+                // 'Increase Maximum Mana 40%' in Diablo 2.
+                // ----------------------------------------
+                alteration			= ALTER_MAX_MANA;
+                value				= (0.87 * 5.0 * #int) * 0.4; // (mp_int_scalar * mp_coefficient * int) * 0.4 (40%)
+                description			= "+40% Mana from Intelligence";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+			[*]
+			{
+                alteration			= ALTER_CUSTOM_DAMAGE_ICE;
+				value				= 1;
+				max_value			= 6;
+				description			= "Adds <value> to <max_value> Ice Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amr_glv_unq_d2_magefist
+//// SPECIALIZES    : base_gloves_cmage
+//// FULL NAME      : Magefist (Unique Light Gauntlets)
+//// NOTES          : Upgraded to elite quality (requires level 59) as the stats would be a bit overpowered for level 23.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amr_glv_unq_d2_magefist]
+{
+	doc = "Diablo 2 Magefist Light Gauntlets";
+	specializes = base_gloves_cmage;
+    [aspect]
+    {
+        [voice]
+        {
+            [put_down]
+            {
+                * = s_ui_d2_glovesmetal_putdown;
+            }
+        }
+    }
+	[common]
+	{
+		screen_name = "Magefist";
+		base_screen_name = "Light Gauntlets";
+		rarity = unique;
+        allow_modifiers = false;
+	}
+	[defend]
+	{
+		armor_style = d2_magefist; // PH
+		armor_type = type01;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level - 2;
+		inventory_icon = b_gui_ig_i_amr_gntl_type01_d2_magefist;
+        item_level = 59;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_ARMOR_SOURCE_PERCENT;
+                value				= 0.30;
+                description			= "+30% Armor";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+			[*]
+			{
+				alteration			= ALTER_ARMOR;
+				value				= 10;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_SKILL_SUITE;
+				suite               = cmagic_suite_3;
+				value               = 1;
+				description         = "+<value> to Devastation, Searing Flames, and Ignite";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+                alteration			= ALTER_CAST_SPEED;
+				value				= 0.8;
+                multiply_value      = true;
+				description			= "+20% Increased Cast Speed";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_MANA_RECOVERY_UNIT;
+				value				= 0.25;
+				description			= "+25% Mana Regeneration";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_CUSTOM_DAMAGE_FIRE;
+				value				= 1;
+				max_value			= 6;
+				description			= "Adds <value> to <max_value> Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}

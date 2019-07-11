@@ -1,0 +1,114 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// FILE: weapon_d2_area_weapon_damage.skrit
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+property bool   _server_only$   = true;
+property string _doc$           = "Weapon skrit component to do percent melee damage in a radius around the attacker.";
+
+property string     attacker_ffx$	    = ""		    doc = "Flick to create on attacker.";
+property string     victim_ffx$			= ""		    doc = "Flick to create on victim when hit.";
+property int        anim_fourcc$        = 0;            doc = "";
+property eAnimChore anim_chore$         = CHORE_MISC    doc = "";
+property float      trigger_chance$     = 1.0           doc = "Chance to proc. 1.0 equals 100%.";
+property float      damage_multiplier$  = 1.0           doc = "Damage multiplier.";
+property float      damage_radius$      = 1.0           doc = "Radius of aoe";
+property bool       center_victim$      = false;        doc = "Center the area around the victim instead of the attacker?";
+property float      cooldown$           = 1.0           doc = "Cooldown before the effect can trigger again";
+property bool       break_barrels$      = false         doc = "Break barrels?";
+
+owner = GoSkritComponent;
+
+startup state Ready$ {
+	event OnGoHandleMessage$(eWorldEvent e$, WorldMessage msg$) {
+        if (e$ == WE_WEAPON_DAMAGED) {
+            float randomChance$ = Math.RandomFloat(1.0);
+            if (randomChance$ < trigger_chance$) {
+                setstate WaitForCooldown$;
+
+                Goid attacker$ = msg$.SendFrom;
+
+                // Create effect on attacker.
+                if (!StringTool.IsEmpty(attacker_ffx$)) {
+                    WorldFXMgr.CreateFlickFX(attacker_ffx$, attacker$, attacker$, attacker$, true, true);
+                }
+
+                int subAnimIndex$ = attacker$.Go.Aspect.AspectHandle.Blender.GetSubAnimIndex(anim_chore$, anim_fourcc$);
+                if (subAnimIndex$ >= 0) {
+                    MCPManager.MakeRequest(attacker$, PL_PLAYANIM, anim_chore$, subAnimIndex$, 0);
+                }
+
+                bool bHitEffect$ = !StringTool.IsEmpty(victim_ffx$);
+                // Only do damage if server.
+                bool bDamage$ = IsServerLocal();
+                int i$;
+
+                Go areaCenterGo$;
+                if (center_victim$) {
+                    areaCenterGo$ = MakeGoid(msg$.Data1).Go;
+                } else {
+                    areaCenterGo$ = attacker$.Go;
+                }
+
+                if (bHitEffect$ || bDamage$) {
+                    Goid weapon$ = owner.Go.Parent.Goid;
+
+                    if (break_barrels$) {
+                        // Damage barrels.
+                        int breakablesCollId$ = CreateBreakablesInSphereCollection$(attacker$, areaCenterGo$.Placement.Position, damage_radius$);
+                        if (breakablesCollId$ != 0) {
+                            GopColl breakablesColl$ = GoBits.GetGopColl(breakablesCollId$);
+                            i$ = breakablesColl$.Size();
+                            while (i$ > 0) {
+                                i$ -= 1;
+
+                                Goid target$ = breakablesColl$.Get(i$).Goid;
+
+                                if (bHitEffect$) {
+                                    WorldFXMgr.CreateFlickFX(victim_ffx$, attacker$, attacker$, target$, false, true);
+                                }
+                                if (bDamage$) {
+                                    Rules.DamageGoMeleeMultiplier(attacker$, weapon$, target$, damage_multiplier$, true);
+                                }
+                            }
+
+                            // Cleanup GopColl.
+                            GoBits.DeleteGopColl(breakablesCollId$);
+                        }
+                    }
+
+                    // Damage enemies.
+                    int collId$ = CreateEnemiesInSphereCollection$(attacker$, areaCenterGo$.Placement.Position, damage_radius$);
+                    if (collId$ != 0) {
+                        GopColl victims$ = GoBits.GetGopColl(collId$);
+
+                        i$ = victims$.Size();
+                        while (i$ > 0) {
+                            i$ -= 1;
+
+                            Goid target$ = victims$.Get(i$).Goid;
+
+                            if (bHitEffect$) {
+                                WorldFXMgr.CreateFlickFX(victim_ffx$, attacker$, attacker$, target$, false, true);
+                            }
+                            if (bDamage$) {
+                                Rules.DamageGoMeleeMultiplier(attacker$, weapon$, target$, damage_multiplier$, true);
+                            }
+                        }
+
+                        // Cleanup GopColl.
+                        GoBits.DeleteGopColl(collId$);
+                    }
+                }
+            }
+		}
+	}
+}
+
+state WaitForCooldown$ {
+	event OnEnterState$ {
+		this.CreateTimer(1, cooldown$);
+	}
+
+	trigger OnTimer$(1) {
+        setstate Ready$;
+	}
+}

@@ -1,0 +1,139 @@
+[efct_d2_whirlwind]
+{
+skrit=[[
+property int    sfx_scriptId$		doc = "ScriptId given at effect script creation time.";
+property Goid	sfx_owner$			doc = "Effect dest goid";
+property Goid	sfx_target$			doc = "Effect dest goid";
+property int    sfx_target1$		doc = "Effect source target to start the effect at.";
+
+int CreatePrimaryEffectTarget$() {
+    int effectTarget$ = WorldFXMgr.CreateTarget();
+    WorldFXMgr.SetTargetPosition(effectTarget$,  WorldFXMgr.GetTargetPosition(sfx_target1$));
+    my vector offset$;
+    offset$.y = -0.3;
+    WorldFXMgr.SetTargetOffset(effectTarget$, offset$);
+    return effectTarget$;
+}
+
+startup state Begin$
+{
+	go$ at(0.0)
+	{
+		int effectTarget$ = CreatePrimaryEffectTarget$();
+
+        /*
+        int effectTarget2$ = WorldFXMgr.CreateTarget(effectTarget$);
+        my vector offset2$;
+        offset2$.y = 0.5;
+        WorldFXMgr.SetTargetOffset(effectTarget2$, offset2$);
+
+        int effectTarget3$ = WorldFXMgr.CreateTarget(effectTarget$);
+        my vector offset3$;
+        offset3$.y = 0.25;
+        WorldFXMgr.SetTargetOffset(effectTarget3$, offset3$);
+
+        int effectTarget4$ = WorldFXMgr.CreateTarget(effectTarget$);
+        my vector offset4$;
+        offset4$.y = -0.25;
+        WorldFXMgr.SetTargetOffset(effectTarget4$, offset4$);
+
+        int effectTarget5$ = WorldFXMgr.CreateTarget(effectTarget$);
+        my vector offset5$;
+        offset5$.y = -0.5;
+        WorldFXMgr.SetTargetOffset(effectTarget5$, offset5$);
+        */
+
+        int i$ = 0;
+
+        while (i$ < 5) {
+            my vector orient$;
+    		orient$.y = 1.0;
+            orient$.z = Math.RandomFloat(-0.3, 0.3);
+
+            float radius$ = 1.5 * (1.0 - Math.Abs((0.1 * i$) - 0.2));
+
+            int effect$ = WorldFXMgr.CreateDiscEffect(effectTarget$, 1, 0.0, orient$, radius$, radius$, 0xFF7F7F7F, 0xFF7F7F7F, 1.7, 1.7, 0.0, false);
+            WorldFXMgr.SetEffectTexture(effect$, "b_sfx_112");
+    		//WorldFXMgr.SetEffectTexture(effect$, "b_sfx_d2_whirlwind");
+    		WorldFXMgr.SetTargetDependence(effect$, true, false);
+    		WorldFXMgr.AttachSimulationf(effect$, 0.0, 0.0, "RotateInstantlyAroundTargetVector(%f, %f, %f, 1.85, false, 0.0, 2.0, 0.0)", orient$.x, orient$.y, orient$.z);
+    		WorldFXMgr.AttachSimulation(effect$, "ScaleChange(0.0, 0.0, 1.0, 0.0)", 0.0);
+    		WorldFXMgr.AttachSimulation(effect$, "AlphaChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+    		WorldFXMgr.AttachSimulation(effect$, "AlphaChange(0.6, 1.0, 0.0, 0.0)", 0.0);
+    		WorldFXMgr.SetEffectSrcBlend(effect$, PB_SRCALPHA);
+    		WorldFXMgr.SetEffectDestBlend(effect$, PB_DESTALPHA);
+
+            i$ += 1;
+
+            effectTarget$ = WorldFXMgr.CreateTarget(effectTarget$);
+            my vector offset$;
+            offset$.y = 0.15 * i$;
+            WorldFXMgr.SetTargetOffset(effectTarget$, offset$);
+        }
+
+        /*
+        orient$.y = Math.RandomFloat(orient$.y - 0.5, orient$.y + 0.5);
+
+		int effect$ = WorldFXMgr.CreateDiscEffect(effectTarget$, 1, 0.0, orient$, radius$, radius$, 0xFF7F7F7F, 0xFF7F7F7F, 1.7, 1.7, 0.0, false);
+		WorldFXMgr.SetEffectTexture(effect$, "b_sfx_d2_whirlwind");
+		WorldFXMgr.SetTargetDependence(effect$, true, false);
+		WorldFXMgr.AttachSimulationf(effect$, 0.0, 0.0, "RotateInstantlyAroundTargetVector(%f, %f, %f, 1.85, false, 0.0, 2.0, 0.0)", orient$.x, orient$.y, orient$.z);
+		WorldFXMgr.AttachSimulation(effect$, "ScaleChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect$, "AlphaChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect$, "AlphaChange(0.6, 1.0, 0.0, 0.0)", 0.0);
+		WorldFXMgr.SetEffectSrcBlend(effect$, PB_SRCALPHA);
+		WorldFXMgr.SetEffectDestBlend(effect$, PB_DESTALPHA);
+
+        int effect2$ = WorldFXMgr.CreateDiscEffect(effectTarget2$, 1, 0.0, orient$, radius$ * 0.65, radius$ * 0.65, 0xFF7F7F7F, 0xFF7F7F7F, 1.7, 1.7, 0.0, false);
+		WorldFXMgr.SetEffectTexture(effect2$, "b_sfx_d2_whirlwind");
+		WorldFXMgr.SetTargetDependence(effect2$, true, false);
+		WorldFXMgr.AttachSimulationf(effect2$, 0.0, 0.0, "RotateInstantlyAroundTargetVector(%f, %f, %f, 1.85, false, 0.0, 2.0, 0.0)", orient$.x, orient$.y, orient$.z);
+		WorldFXMgr.AttachSimulation(effect2$, "ScaleChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect2$, "AlphaChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect2$, "AlphaChange(0.6, 1.0, 0.0, 0.0)", 0.0);
+		WorldFXMgr.SetEffectSrcBlend(effect2$, PB_SRCALPHA);
+		WorldFXMgr.SetEffectDestBlend(effect2$, PB_DESTALPHA);
+
+        int effect3$ = WorldFXMgr.CreateDiscEffect(effectTarget3$, 1, 0.0, orient$, radius$ * 0.8, radius$ * 0.8, 0xFF7F7F7F, 0xFF7F7F7F, 1.7, 1.7, 0.0, false);
+		WorldFXMgr.SetEffectTexture(effect3$, "b_sfx_d2_whirlwind");
+		WorldFXMgr.SetTargetDependence(effect3$, true, false);
+		WorldFXMgr.AttachSimulationf(effect3$, 0.0, 0.0, "RotateInstantlyAroundTargetVector(%f, %f, %f, 1.85, false, 0.0, 2.0, 0.0)", orient$.x, orient$.y, orient$.z);
+		WorldFXMgr.AttachSimulation(effect3$, "ScaleChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect3$, "AlphaChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect3$, "AlphaChange(0.6, 1.0, 0.0, 0.0)", 0.0);
+		WorldFXMgr.SetEffectSrcBlend(effect3$, PB_SRCALPHA);
+		WorldFXMgr.SetEffectDestBlend(effect3$, PB_DESTALPHA);
+
+        int effect4$ = WorldFXMgr.CreateDiscEffect(effectTarget4$, 1, 0.0, orient$, radius$ * 0.8, radius$ * 0.8, 0xFF7F7F7F, 0xFF7F7F7F, 1.7, 1.7, 0.0, false);
+		WorldFXMgr.SetEffectTexture(effect4$, "b_sfx_d2_whirlwind");
+		WorldFXMgr.SetTargetDependence(effect4$, true, false);
+		WorldFXMgr.AttachSimulationf(effect4$, 0.0, 0.0, "RotateInstantlyAroundTargetVector(%f, %f, %f, 1.85, false, 0.0, 2.0, 0.0)", orient$.x, orient$.y, orient$.z);
+		WorldFXMgr.AttachSimulation(effect4$, "ScaleChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect4$, "AlphaChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect4$, "AlphaChange(0.6, 1.0, 0.0, 0.0)", 0.0);
+		WorldFXMgr.SetEffectSrcBlend(effect4$, PB_SRCALPHA);
+		WorldFXMgr.SetEffectDestBlend(effect4$, PB_DESTALPHA);
+
+        int effect5$ = WorldFXMgr.CreateDiscEffect(effectTarget5$, 1, 0.0, orient$, radius$ * 0.65, radius$ * 0.65, 0xFF7F7F7F, 0xFF7F7F7F, 1.7, 1.7, 0.0, false);
+		WorldFXMgr.SetEffectTexture(effect5$, "b_sfx_d2_whirlwind");
+		WorldFXMgr.SetTargetDependence(effect5$, true, false);
+		WorldFXMgr.AttachSimulationf(effect5$, 0.0, 0.0, "RotateInstantlyAroundTargetVector(%f, %f, %f, 1.85, false, 0.0, 2.0, 0.0)", orient$.x, orient$.y, orient$.z);
+		WorldFXMgr.AttachSimulation(effect5$, "ScaleChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect5$, "AlphaChange(0.0, 0.3, 1.0, 0.0)", 0.0);
+		WorldFXMgr.AttachSimulation(effect5$, "AlphaChange(0.6, 1.0, 0.0, 0.0)", 0.0);
+		WorldFXMgr.SetEffectSrcBlend(effect5$, PB_SRCALPHA);
+		WorldFXMgr.SetEffectDestBlend(effect5$, PB_DESTALPHA);
+        */
+
+        if (sfx_owner$.IsValid()) {
+			sfx_owner$.Go.PlayVoiceSound("s_sp_d2_whirlwind", 6.0, 30.0, false);
+		}
+	}
+
+	cleanup$ at(1.5)
+	{
+		WorldFXMgr.DestroyEffectScript(sfx_scriptId$);
+	}
+}
+]];
+}

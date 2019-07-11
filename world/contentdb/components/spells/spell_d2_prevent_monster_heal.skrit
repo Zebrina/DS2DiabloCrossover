@@ -1,0 +1,13 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+property bool _server_only$ = true;
+property string _doc$		= "Skrit component to hide template ammo when equipped (and used in melee).";
+
+owner = GoSkritComponent;
+
+startup state StartUp$
+{
+    eWorldEvent e$, WorldMessage msg$
+    event OnGoHandleMessage$(eWorldEvent e$, WorldMessage msg$) {
+        Report.ScreenF("%s received!", ToString(e$));
+    }
+}

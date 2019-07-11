@@ -1,0 +1,43 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  skill_suites.gas
+// Author(s):  Daniel Achterman, Chad Queen
+//
+// Description : Defines all the possible skill suites for use in the
+//				 ALTER_SKILL_SUITE enchantment.
+//
+// Copyright � 2004 Gas Powered Games, Inc.  All rights reserved.
+//----------------------------------------------------------------------------
+//  $Revision: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+// Syntax: suite_name = skill_name_1,skill_name2;
+// Note that you can have as little or as many skills in a suite as you need.
+
+[skill_suites]
+{
+	melee_suite_1 = aegis,toughness,reinforced_armor;
+	melee_suite_2 = fortitude,overbear,smite;
+	melee_suite_3 = critical_strike,dual_wield,alacrity;
+	ranged_suite_1 = critical_shot,dodge,survival;
+	ranged_suite_2 = biting_arrow,far_shot,shockwave;
+	ranged_suite_3 = quick_draw,bleed,penetrate;
+	nmagic_suite_1 = summon_fortitude,summon_might,summon_bond;
+	nmagic_suite_2 = aquatic_affinity,arctic_mastery,freezing;
+	nmagic_suite_3 = nurturing_gift,enveloping_embrace,feral_wrath;
+	cmagic_suite_1 = debilitation,grim_necromancy,vampirism;
+	cmagic_suite_2 = brilliance,amplified_lightning,arcing;
+	cmagic_suite_3 = devastation,searing_flames,ignite;
+	special_suite_1 = summon_alacrity,quickened_casting;
+	special_suite_2 = fortitude,toughness;
+	ba_suite_1 = exsanguinate,blood_shots;
+	ba_suite_2 = mark_mastery,rune_mastery;
+	ba_suite_all = exsanguinate,improved_weapon_enchantments,blood_shots,mark_mastery,rune_mastery,living_death;
+	fos_suite_1 = tremor,soul_of_strength;
+	fos_suite_2 = stone_affinity,soul_of_protection;
+	fos_suite_all = tremor,soul_of_strength,quake,stone_affinity,soul_of_protection,fast_recovery;
+    paladin_suite_melee = fortitude,aegis,toughness,reinforced_armor,rebuke;
+    paladin_suite_nmagic = nurturing_gift,enveloping_embrace,absorption;
+    paladin_suite_fos = stone_affinity,soul_of_protection,fast_recovery,fortitude;
+}

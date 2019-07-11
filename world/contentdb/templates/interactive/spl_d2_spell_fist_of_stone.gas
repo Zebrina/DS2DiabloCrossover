@@ -1,0 +1,210 @@
+//******************************************************************************
+// Fist of Stone Offensive Weapon Enchantments
+//******************************************************************************
+
+////////////////////////////////////////////////////////////////////////////////
+// TEMPLATE: spell_d2_zeal
+// SPELL: Zeal
+////////////////////////////////////////////////////////////////////////////////
+[t:template,n:spell_d2_zeal]
+{
+	category_name = "magic";
+	doc = "Diablo 2 zeal spell";
+	specializes = base_spell_nature;
+	[common]
+	{
+		screen_name = "Zeal";
+		description = "Melee Weapon Enhancement - Offensive\n\nWeapon enhancements magically improve the caster's weapon, granting it additional bonuses. Only one weapon enhancement may be active on a character.\n";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_m_i_d2_zeal;
+		inventory_icon = b_gui_ig_i_sp_d2_zeal;
+		mini_icon = b_gui_ig_m_chiclet-buff-up;
+		item_level = 44;
+	}
+	[magic]
+	{
+		cast_range 					= 8;
+		cast_reload_delay 			= 3.0;
+		cast_sub_animation 			= 2;
+		mana_cost 					= 0;
+		mana_cost_modifier 			= ((1.15 * #src_int) - 2.0) * ((100 - #Decreased_Mana_Cost) * .01);
+		required_level 				= 12;
+		max_level 					= 100;
+		speed_bias 					= 1;
+		target_type_flags 			= tt_self;
+		usage_context_flags 		= uc_defensive;
+		state_name 					= d2_zeal;
+		effect_duration 			= 300;
+		requires_line_of_sight 		= false;
+		apply_enchantments 			= false;
+		is_one_shot 				= true;
+		can_autocast 				= true;
+		use_intel_level 			= false;
+		require_state_check 		= true;
+		is_buff 					= true;
+		is_weapon_enchant 			= true;
+		damage_type 				= dmt_magical;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 0.0;
+				duration			= 300;
+				custom_effect		= "d2_zeal_ffx";
+				custom_effect_skrit = world\global\enchantments\actor_enchant.skrit?enchanted_ffx=ffx_fist_of_stone_buff;
+			}
+			[*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 0;
+				description			= "";
+				duration			= 300;
+				custom_effect		= "earth_burst_hit_effect";
+				custom_effect_skrit = world\global\enchantments\weapon_chance_function.skrit?chance_prct=0.1&damage=1&meleeonly=1&spellname="spell_earth_burst_ds2x"&ismagicdamage=1&hitFFX="ffx_generic_single?EffectScript=efct_earth_burst_hit";
+			}
+			[damage]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= (6 + 1.25 * (#magic + #src_melee + 15))
+									 * (1.0 + (#offensive_weapon_enchant_potency * .01))
+									 * (1 + (#Increased_Aquatic_Ice_Damage * .01));
+				description			= "Chance on Hit: Earth Blast for <value> Damage";
+				duration			= 300;
+			}
+			[a_experience_split]
+			{
+				alteration			= ALTER_MELEE_EXP_PERCENT;
+				value				= 0.7;
+				description			= "Splits Experience between Melee and Nature Magic";
+				duration			= 300;
+			}
+			[*]
+			{
+				alteration			= ALTER_NMAGIC_EXP_PERCENT;
+				value				= 0.3;
+				description			= "Alter Nature Magic Experience Percent";
+				duration			= 300;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		charge_ffx		  = ffx_generic_single;
+		charge_efct		  = efct_fist_of_stone_buff_charge;
+		radius			  = 0.0;
+		description		  = "Zeal";
+		target_friends	  = true;
+		group_charge_ffx  = false;
+	}
+}
+
+//******************************************************************************
+// Fist of Stone Defensive Weapon Enchantments
+//******************************************************************************
+
+////////////////////////////////////////////////////////////////////////////////
+// TEMPLATE: spell_d2_holy_shield
+// SPELL: Holy Shield
+////////////////////////////////////////////////////////////////////////////////
+[t:template,n:spell_d2_holy_shield]
+{
+	category_name = "magic";
+	doc = "Diablo 2 holy shield spell";
+	specializes = base_spell_nature;
+	[common]
+	{
+		screen_name = "Holy Shield";
+		description = "Melee Weapon Enhancement - Defensive\n\nWeapon enhancements magically improve the caster's weapon, granting it additional bonuses. Only one weapon enhancement may be active on a character.\n";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_m_i_d2_holy_shield;
+		inventory_icon = b_gui_ig_i_sp_d2_holy_shield;
+		mini_icon = b_gui_ig_m_chiclet-buff-up;
+		item_level = 32;
+	}
+	[magic]
+	{
+		cast_range 				= 8;
+		cast_reload_delay 		= 3.0;
+		cast_sub_animation 		= 2;
+		mana_cost 				= 0;
+		mana_cost_modifier 		= ((1.15 * #src_int) - 2.0) * ((100 - #Decreased_Mana_Cost) * .01);
+		required_level 			= 40;
+		max_level 				= 100;
+		effect_duration 		= 300;
+		target_type_flags 		= tt_self;
+		usage_context_flags 	= uc_defensive;
+		state_name 				= d2_holy_shield;
+		speed_bias 				= 1;
+		requires_line_of_sight 	= false;
+		apply_enchantments 		= false;
+		is_one_shot 			= true;
+		can_autocast 			= true;
+		use_intel_level 		= false;
+		require_state_check 	= true;
+		is_buff 				= true;
+		is_weapon_enchant 		= true;
+		[enchantments]
+		{
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 0.0;
+				duration			= 300;
+				custom_effect		= "d2_zeal_ffx";
+				custom_effect_skrit = world\global\enchantments\actor_enchant.skrit?enchanted_ffx=ffx_fist_of_stone_buff;
+			}
+			[*]
+			{
+				alteration			= ALTER_ARMOR_PERCENT;
+				value				= 0.12 * (1.0 + (#defensive_weapon_enchant_potency * .01) );
+				description			= "";
+				duration			= 300;
+			}
+			[a_experience_split]
+			{
+				alteration			= ALTER_MELEE_EXP_PERCENT;
+				value				= 0.7;
+				description			= "Splits Experience between Melee and Nature Magic";
+				duration			= 300;
+			}
+			[*]
+			{
+				alteration			= ALTER_NMAGIC_EXP_PERCENT;
+				value				= 0.3;
+				description			= "Alter Nature Magic Experience Percent";
+				duration			= 300;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		charge_ffx		  = ffx_generic_single;
+		charge_efct		  = efct_fist_of_stone_buff_charge;
+		radius		      = 0.0;
+		description		  = "Holy Shield";
+		target_friends	  = true;
+		group_charge_ffx  = false;
+	}
+}
+
+//******************************************************************************
+// Fist of Stone Spells
+//******************************************************************************
+
+////////////////////////////////////////////////////////////////////////////////
+// TEMPLATE: spell_d2_holy_bolt
+// SPELL: Holy Bolt
+////////////////////////////////////////////////////////////////////////////////
+// A bolt of divine energy that damages undead or heals allies.
+
+////////////////////////////////////////////////////////////////////////////////
+// TEMPLATE: spell_d2_blessed_hammer
+// SPELL: Blessed Hammer
+////////////////////////////////////////////////////////////////////////////////
+// Summons an ethereal hammer that spirals outwards damaging enemies it hits.
+// Deals bonus damage to undead.

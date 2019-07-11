@@ -1,0 +1,663 @@
+/*
+[t:template,n:amulet_d2_01]
+{
+	doc = "Diablo 2 amulet 01";
+	specializes = amulet;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_amulet_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		screen_name = "Amulet";
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_d2_01;
+		equip_requirements = uber:#item_level;
+		use_class = IST_ALL;
+	}
+	[pcontent]
+	{
+		[base]
+		{
+			item_level = 8;
+		}
+		[var1]
+		{
+			item_level = 18;
+		}
+		[var2]
+		{
+			item_level = 42;
+		}
+		[var3]
+		{
+			item_level = 64;
+		}
+		[var4]
+		{
+			item_level = 85;
+		}
+	}
+}
+
+[t:template,n:amulet_d2_02]
+{
+	doc = "Diablo 2 amulet 02";
+	specializes = amulet;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_amulet_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		screen_name = "Talisman";
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_d2_02;
+		equip_requirements = uber:#item_level;
+		use_class = IST_ALL;
+	}
+	[pcontent]
+	{
+		[base]
+		{
+ 	 	 	item_level = 11;
+		}
+		[var1]
+		{
+ 	 	 	item_level = 26;
+		}
+		[var2]
+		{
+ 	 	 	item_level = 54;
+		}
+		[var3]
+		{
+ 	 	 	item_level = 80;
+		}
+		[var4]
+		{
+ 	 	 	item_level = 95;
+		}
+	}
+}
+
+[t:template,n:amulet_d2_03]
+{
+	doc = "Diablo 2 amulet 03";
+	specializes = amulet;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_amulet_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		screen_name = "Pendant";
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_d2_03;
+		equip_requirements = uber:#item_level;
+		use_class = IST_ALL;
+	}
+	[pcontent]
+	{
+		[base]
+		{
+ 	 	 	item_level = 15;
+		}
+		[var1]
+		{
+ 	 	 	item_level = 37;
+		}
+		[var2]
+		{
+ 	 	 	item_level = 72;
+		}
+		[var3]
+		{
+ 	 	 	item_level = 91;
+		}
+		[var4]
+		{
+ 	 	 	item_level = 98;
+		}
+	}
+}
+*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amulet_unq_d2_eye_of_etlich
+//// SPECIALIZES    : amulet
+//// FULL NAME      : The Eye of Etlich (Unique Amulet)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amulet_unq_d2_eye_of_etlich]
+{
+	doc = "Diablo 2 The Eye of Etlich Amulet";
+	specializes = amulet;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_amulet_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Amulet";
+		screen_name			= "The Eye of Etlich";
+		allow_modifiers		= false;
+		rarity				= unique;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_amulet_d2_eye_of_etlich;
+		item_level			= 17;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 2;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                value               = 2;
+                suite				= ba_suite_all;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+  			{
+  				alteration			= alter_max_life;
+  				value				= 1.0 * #character_level;
+  				description			= "+<value> Health (Increases with Character Level)";
+  				duration			= #infinite;
+  				is_permanent		= true;
+  				is_single_instance	= false;
+  			}
+            [*]
+			{
+				alteration			= alter_life_steal;
+				value				= 5;
+				description			= "<value>% Health Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= alter_strength;
+				value				= 5;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= alter_dexterity;
+				value				= 5;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= alter_intelligence;
+				value				= 5;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amulet_unq_d2_highlords_wrath
+//// SPECIALIZES    : amulet
+//// FULL NAME      : Highlord's Wrath (Unique Amulet)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amulet_unq_d2_highlords_wrath]
+{
+	doc = "Diablo 2 Highlord's Wrath Amulet";
+	specializes = amulet;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_amulet_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Amulet";
+		screen_name			= "Highlord's Wrath";
+		allow_modifiers		= false;
+		rarity				= unique;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_amulet_d2_03;
+		item_level			= 67;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to Melee Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to Ranged Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+			[*]
+			{
+				alteration			= ALTER_MELEE_SPEED;
+				value				= 0.10;
+				description			= "+10% Melee and Ranged Attack Speed";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_RANGED_SPEED;
+				value				= 0.10;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+            {
+                alteration			= ALTER_CUSTOM_DAMAGE_LIGHTNING;
+                value				= 1;
+                max_value			= 30;
+                description			= "Adds <value> to <max_value> Lightning Damage";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+                custom_effect       = "custom_lightning_damage_highlords_wrath";
+            }
+            [*]
+            {
+                alteration          = ALTER_CRITICAL_DAMAGE_MELEE_BONUS_PERCENT;
+                value               = 0.00375 * #character_level;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_CRITICAL_DAMAGE_RANGED_BONUS_PERCENT;
+                value               = 0.00375 * #character_level;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_GENERIC;
+                value               = 0.375 * #character_level;
+                description         = "+<value>% Melee and Ranged Critical Hit Damage (Increases with Character Level)";
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+			[*]
+			{
+				alteration			= ALTER_LIGHTNING_RESISTANCE;
+				value				= 0.35;
+				description			= "+35% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_GENERIC; // TODO
+				value				= 15;
+				description			= "Attacker Takes <value> Lightning Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amulet_unq_d2_maras_kaleidoscope
+//// SPECIALIZES    : amulet
+//// FULL NAME      : Mara's Kaleidoscope (Unique Amulet)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amulet_unq_d2_maras_kaleidoscope]
+{
+	doc = "Diablo 2 Mara's Kaleidoscope Amulet";
+	specializes = amulet;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_amulet_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Amulet";
+		screen_name			= "Mara's Kaleidoscope";
+		allow_modifiers		= false;
+		rarity				= unique;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_amulet_d2_maras_kaleidoscope;
+		item_level			= 69;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 2;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                value               = 2;
+                suite				= ba_suite_all;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+			{
+                // '+5 To All Attributes' in Diablo 2.
+                // -----------------------------------
+				alteration			= ALTER_STRENGTH;
+				value				= 15;
+				description			= "+<value> All Attributes";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_DEXTERITY;
+				value				= 15;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_INTELLIGENCE;
+				value				= 15;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+                // 'All Resistances 20-30' in Diablo 2.
+                // ------------------------------------
+				alteration          = ALTER_PHYSICAL_RESISTANCE;
+				value               = 0.10;
+				description         = "+10% All Resistances";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MAGICAL_RESISTANCE;
+				value               = 0.10;
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amulet_unq_d2_seraphs_hymn
+//// SPECIALIZES    : amulet
+//// FULL NAME      : Seraph's Hymn (Unique Amulet)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amulet_unq_d2_seraphs_hymn]
+{
+	doc = "Diablo 2 Seraph's Hymn Amulet";
+	specializes = amulet;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_amulet_putdown;
+			}
+		}
+    }
+	[common]
+	{
+		base_screen_name	= "Amulet";
+		screen_name			= "Seraph's Hymn";
+		allow_modifiers		= false;
+		rarity				= unique;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_amulet_d2_02;
+		item_level			= 67;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 2;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                value               = 2;
+                suite				= ba_suite_all;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+  			{
+  				alteration			= alter_max_life;
+  				value				= 1.0 * #character_level;
+  				description			= "+<value> Health (Increases with Character Level)";
+  				duration			= #infinite;
+  				is_permanent		= true;
+  				is_single_instance	= false;
+  			}
+            [*]
+			{
+				alteration			= alter_life_steal;
+				value				= 5;
+				description			= "<value>% Health Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}

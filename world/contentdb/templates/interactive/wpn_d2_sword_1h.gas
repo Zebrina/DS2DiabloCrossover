@@ -1,0 +1,700 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : sd_1h_unq_d2_lightsabre
+//// SPECIALIZES    : base_sword_template
+//// FULL NAME      : Lightsabre (Runeword Phase Blade)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:sd_1h_unq_d2_lightsabre]
+{
+	specializes = base_sword_template;
+	doc = "Diablo 2 Lightsabre Phase Blade";
+	[aspect]
+	{
+		model = m_w_swd_d2_lightsabre;
+		tracer_texture = b_sfx_tra_generic-70;
+		[textures]
+		{
+			0 = b_w_swd_d2_lightsabre;
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_sword_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Lightsabre";
+		base_screen_name = "Phase Blade";
+		rarity = UNIQUE;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2;
+		inventory_icon = b_gui_ig_i_w_swd_d2_lightsabre;
+		inventory_height = 3;
+		inventory_width = 1;
+        item_level = 60;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= ALTER_CUSTOM_DAMAGE_LIGHTNING;
+				value				= 1;
+				max_value			= 120;
+				description			= "Adds <value> to <max_value> Lightning Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                custom_effect		= "melee_lightning";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_lightning_sword
+									  &hit_ffx			= ffx_spell_lightning_sword_hit;
+			}
+            [*]
+			{
+				alteration			= ALTER_MANA_STEAL;
+				value				= 7;
+				description			= "<value>% Mana Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+    		{
+    			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+    			suite               = spell_proc_lightning_burst_superior;
+    			value				= 0.05;
+    			//description         = "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+    			description         = "Chance on Hit: Chain Lightning";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    		}
+			[*]
+			{
+				alteration			= ALTER_MELEE_SPEED;
+				value				= 0.20;
+				description			= "+20% Increased Attack Speed";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_LIGHTNING_RESISTANCE;
+				value				= 0.25;
+				description			= "+25% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+	[loot_drop_indicator] {}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : sd_1h_unq_d2_azurewrath
+//// SPECIALIZES    : base_sword_template
+//// FULL NAME      : Azurewrath (Runeword Phase Blade)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:sd_1h_unq_d2_azurewrath]
+{
+	specializes = base_sword_template;
+	doc = "diablo 2 azurewrath phase blade";
+	[aspect]
+	{
+		model = m_w_swd_d2_lightsabre;
+		tracer_texture = b_sfx_tra_generic-72;
+		[textures]
+		{
+			0 = b_w_swd_d2_azurewrath;
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_sword_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Azurewrath";
+		base_screen_name = "Phase Blade";
+		rarity = UNIQUE;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2;
+		inventory_icon = b_gui_ig_i_w_swd_d2_azurewrath;
+		inventory_height = 3;
+		inventory_width = 1;
+        item_level = 87;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+			{
+				alteration			= ALTER_MELEE_DAMAGE_SOURCE_PERCENT;
+				value				= 0.50;
+				description			= "+50% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_MELEE_SPEED;
+				value				= 0.3;
+				description			= "+30% Increased Attack Speed";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            /*
+			[*]
+			{
+				alteration			= ALTER_CUSTOM_DAMAGE;
+				value				= 25;
+				max_value			= 50;
+				description			= "Adds <value> to <max_value> Magic Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            */
+			[*]
+			{
+				alteration			= ALTER_CUSTOM_DAMAGE_ICE;
+				value				= 25;
+				max_value			= 50;
+				description			= "Adds <value> to <max_value> Ice Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                custom_effect		= "melee_ice";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_ice_sword
+									  &projectile_ffx	= ffx_spell_ice_arrow
+									  &hit_ffx			= ffx_spell_ice_sword_hit;
+			}
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 1;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 1;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                value               = 1;
+                suite				= ba_suite_all;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 10;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_DEXTERITY;
+				value				= 10;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_INTELLIGENCE;
+				value				= 10;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 1;
+				description			= "Aura When Equipped: Sanctuary";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                custom_effect		= "aura_sanctuary";
+			}
+		}
+	}
+	[loot_drop_indicator] {}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : sd_1h_unq_d2_griswolds_edge
+//// SPECIALIZES    : base_sword_template
+//// FULL NAME      : Griswold's Edge (Unique Broad Sword)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:sd_1h_unq_d2_griswolds_edge]
+{
+	specializes = base_sword_template;
+	doc = "Diablo 2 Griswold's Edge Broad Sword";
+	[aspect]
+	{
+		model = m_w_swd_bloodletter; // PH
+		tracer_texture = b_sfx_tra_generic-47; // PH
+		[textures]
+		{
+			0 = b_w_swd_bloodletter; // PH
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_sword_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Griswold's Edge";
+		base_screen_name = "Broad Sword";
+		rarity = UNIQUE;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2;
+		inventory_icon = b_gui_ig_i_w_swd_d2_griswolds_edge;
+		inventory_height = 3;
+		inventory_width = 1;
+        item_level = 19;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_SPEED;
+                value				= 0.10;
+                description			= "+10% Increased Attack Speed";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+			{
+				alteration			= ALTER_MELEE_DAMAGE_SOURCE_PERCENT;
+				value				= 0.12;
+				description			= "+12% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_CUSTOM_DAMAGE_FIRE;
+				value				= 12;
+				max_value			= 25;
+				description			= "Adds <value> to <max_value> Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_fire";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx  = ffx_spell_fire_sword
+									  &hit_ffx	   = ffx_spell_fire_sword_hit;
+			}
+            [*]
+    		{
+                alteration          = ALTER_GENERIC;
+                value               = 0.10; // Must be non-zero.
+    			description         = "Chance on Hit: Knockback";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_griswolds_edge_knockback";
+                custom_effect_skrit = world\global\enchantments\weapon_knockback.skrit
+                                      ?chance_prct = 0.10;
+    		}
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 12;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                custom_effect		= "stat_strength";
+			    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+                                      ?weapon_ffx=ffx_spell_str_bonus_sword;
+			}
+		}
+	}
+	[loot_drop_indicator] {}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : sd_1h_unq_d2_thunderfury
+//// SPECIALIZES    : base_sword_template
+//// FULL NAME      : Thunderfury, Blessed Blade of the Windseeker (Unique Dimensional Blade)
+//// NOTES          : This weapon is originally from World of Warcraft but also appears in Diablo 3, so why not include
+////                  it in this mod.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:sd_1h_unq_d2_thunderfury]
+{
+	specializes = base_sword_template;
+	doc = "Diablo 2 Thunderfury Dimensional Blade";
+	[aspect]
+	{
+		model = m_w_swd_d2_lightsabre; // PH
+		tracer_texture = b_sfx_tra_generic-70; // PH
+		[textures]
+		{
+			0 = b_w_swd_d2_lightsabre; // PH
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_sword_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Thunderfury, Blessed Blade of the Windseeker";
+		base_screen_name = "Dimensional Blade";
+		rarity = UNIQUE;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2;
+		inventory_icon = b_gui_ig_i_w_swd_d2_thunderfury;
+		inventory_height = 4;
+		inventory_width = 1;
+        item_level = 62;
+	}
+	[magic]
+	{
+		[enchantments] // PH
+		{
+			[*]
+			{
+				alteration			= ALTER_CUSTOM_DAMAGE_LIGHTNING;
+				value				= 1;
+				max_value			= 120;
+				description			= "Adds <value> to <max_value> Lightning Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                custom_effect		= "melee_lightning";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_lightning_sword
+									  &hit_ffx			= ffx_spell_lightning_sword_hit;
+			}
+            [*]
+			{
+				alteration			= ALTER_MANA_STEAL;
+				value				= 7;
+				description			= "<value>% Mana Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+    		{
+    			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+    			suite               = spell_proc_lightning_burst_superior;
+    			value				= 0.05;
+    			//description         = "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+    			description         = "Chance on Hit: Chain Lightning";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    		}
+			[*]
+			{
+				alteration			= ALTER_LIGHTNING_RESISTANCE;
+				value				= 0.25;
+				description			= "+25% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+	[loot_drop_indicator] {}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : sd_1h_unq_d2_jade_talon
+//// SPECIALIZES    : base_sword_template
+//// FULL NAME      : Jade Talon (Unique Wrist Sword)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:sd_1h_unq_d2_jade_talon]
+{
+	specializes = base_sword_template;
+	doc = "Diablo 2 Jade Talon Wrist Sword";
+	[aspect]
+	{
+        model = m_w_swd_d2_chaos;
+		tracer_texture = b_sfx_tra_generic-50; // PH
+        [textures]
+		{
+			0 = b_w_swd_d2_jade_talon;
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_sword_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Jade Talon";
+		base_screen_name = "Wrist Sword";
+		rarity = UNIQUE;
+        allow_modifiers = false;
+	}
+	[gui]
+	{
+        active_icon = b_gui_ig_i_ic_w_d2-katar-01; // Katar awp icon.
+		equip_requirements = melee:#item_level-2;
+		inventory_icon = b_gui_ig_i_w_swd_d2_jade_talon;
+		inventory_height = 3;
+		inventory_width = 1;
+        item_level = 68;
+	}
+	[magic]
+	{
+		[enchantments] // PH
+		{
+            [*]
+    		{
+    			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+    			suite               = spell_proc_ice_burst_superior;
+    			value				= 0.10;
+    			description         = "Chance on Hit: Ice Burst for 320 - 535 Damage";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    		}
+            [*]
+    		{
+    			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+    			suite               = spell_proc_lightning_burst_superior;
+    			value				= 0.10;
+    			description         = "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    		}
+            [*]
+			{
+				alteration			= ALTER_MELEE_DAMAGE_SOURCE_PERCENT;
+				value				= 0.34;
+				description			= "+34% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+    		{
+    			alteration			= ALTER_CUSTOM_DAMAGE;
+    			value				= 21;
+    			max_value			= 47;
+    			description			= "Adds <value> to <max_value> Magic Damage";
+    			duration			= #infinite;
+    			is_permanent		= true;
+    			is_single_instance	= false;
+    		}
+            [*]
+			{
+				alteration			= ALTER_MANA_STEAL;
+				value				= 15;
+				description			= "<value>% Mana Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+	[loot_drop_indicator] {}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : sd_1h_rnwd_d2_chaos
+//// SPECIALIZES    : base_sword_template
+//// FULL NAME      : Chaos (Runeword Suwayyah)
+//// NOTES          : Whirldwind is chance on hit and deals % area damage.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:sd_1h_rnwd_d2_chaos]
+{
+	specializes = base_sword_template;
+	doc = "Diablo 2 Chaos Suwayyah";
+	[aspect]
+	{
+        model = m_w_swd_d2_chaos;
+		tracer_texture = b_sfx_tra_generic-50;
+        [textures]
+		{
+			0 = b_w_swd_d2_chaos;
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_sword_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        allow_modifiers = false;
+		screen_name = "Chaos";
+		base_screen_name = "Suwayyah";
+        description = "<c:0xFFADA156>'FalOhmUm'</c>";
+		rarity = RUNEWORD;
+		is_pcontent_allowed = true; // TODO: Change to false when done testing.
+	}
+	[gui]
+	{
+        active_icon = b_gui_ig_i_ic_w_d2-katar-01; // Katar awp icon.
+		equip_requirements = melee:#item_level-2;
+		inventory_icon = b_gui_ig_i_w_swd_d2_chaos;
+		inventory_height = 3;
+		inventory_width = 1;
+        item_level = 74;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+    		{
+    			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+    			suite               = spell_proc_ice_burst_superior;
+    			value				= 0.10;
+    			description         = "Chance on Hit: Ice Burst for 320 - 535 Damage";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    		}
+            [*]
+    		{
+    			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+    			suite               = spell_proc_lightning_burst_superior;
+    			value				= 0.10;
+    			description         = "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    		}
+            [*]
+			{
+				alteration			= ALTER_MELEE_DAMAGE_SOURCE_PERCENT;
+				value				= 0.34;
+				description			= "+34% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+    		{
+    			alteration			= ALTER_CUSTOM_DAMAGE;
+    			value				= 21;
+    			max_value			= 47;
+    			description			= "Adds <value> to <max_value> Magic Damage";
+    			duration			= #infinite;
+    			is_permanent		= true;
+    			is_single_instance	= false;
+    		}
+            [*]
+    		{
+    			alteration          = ALTER_GENERIC;
+                value               = 1;
+    			description         = "Chance on Hit: Whirlwind";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    		}
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 10;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                custom_effect		= "stat_strength";
+			    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+                                      ?weapon_ffx = ffx_spell_str_bonus_sword;
+			}
+		}
+	}
+	[weapon_d2_area_weapon_damage]
+	{
+        attacker_ffx        = "ffx_d2_whirlwind";
+        anim_fourcc         = 'ws01';
+        trigger_chance      = 0.50;
+        damage_multiplier   = 0.5;
+        damage_radius       = 2.0;
+        cooldown            = 1.5;
+	}
+}

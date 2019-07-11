@@ -1,0 +1,7 @@
+[t:tsd,n:b_gui_ig_i_w_shd_d2_herald_of_zakarum]
+{
+  b dither = true;
+  b hasalpha = true;
+	layer1texture1 = b_gui_ig_i_w_shd_d2_herald_of_zakarum;
+  i texturedetail = 0;
+}

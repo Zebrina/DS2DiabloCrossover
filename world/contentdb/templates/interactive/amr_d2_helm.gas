@@ -1,0 +1,236 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amr_hlm_unq_d2_harlequin_crest
+//// SPECIALIZES    : base_helm_cmage
+//// FULL NAME      : Harlequin Crest (Unique Shako)
+//// NOTES          : Life/mana per level increased to better fit DS2 health pools.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amr_hlm_unq_d2_harlequin_crest]
+{
+    doc = "Diablo 2 Harlequin Crest Shako";
+    specializes = base_helm_cmage;
+    [aspect]
+    {
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_cap_putdown;
+			}
+		}
+    }
+    [common]
+    {
+        screen_name = "Harlequin Crest";
+        base_screen_name = "Shako";
+        rarity = UNIQUE;
+        allow_modifiers = false;
+    }
+    [defend]
+    {
+        armor_style = d2_harlequin_crest;
+        armor_type = type01;
+    }
+    [gui]
+    {
+        equip_requirements = uber:#item_level-2;
+        inventory_icon = b_gui_ig_i_amr_hlmt_type01_d2_harlequin_crest;
+        inventory_height = 2;
+        inventory_width = 2;
+        item_level = 64;
+    }
+    [magic]
+    {
+        [enchantments]
+        {
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 2;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite				= ba_suite_all;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 2;
+				description			= "+<value> All Attributes";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_DEXTERITY;
+				value				= 2;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_INTELLIGENCE;
+				value				= 2;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+            {
+                alteration			= ALTER_MAX_LIFE;
+                value				= 3 * #character_level;
+                description			= "+<value> Health (Increases with Character Level)";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_MAX_MANA;
+                value				= 3 * #character_level;
+                description			= "+<value> Mana (Increases with Character Level)";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_PHYSICAL_RESISTANCE;
+                value               = 0.10;
+                description         = "+10% Melee and Ranged Resistance";
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_MAGIC_FIND_CHANCE;
+                value				= 50;
+                description			= "+<value>% Chance to Find Magic Items";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amr_hlm_unq_d2_giant_skull
+//// SPECIALIZES    : base_helm_fighter
+//// FULL NAME      : Giant Skull (Unique Bone Visage)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amr_hlm_unq_d2_giant_skull]
+{
+    doc = "Diablo 2 Giant Skull Bone Visage";
+    specializes = base_helm_fighter;
+    [common]
+    {
+        screen_name = "Giant Skull";
+        base_screen_name = "Bone Visage";
+        rarity = UNIQUE;
+        allow_modifiers = false;
+    }
+    [defend]
+    {
+        armor_style = d2_giant_skull;
+        armor_type = d2-01;
+    }
+    [gui]
+    {
+        equip_requirements = uber:#item_level-2;
+        inventory_icon = b_gui_ig_i_amr_hlmt_d2-01_d2_giant_skull;
+        inventory_height = 2;
+        inventory_width = 2;
+        item_level = 67;
+    }
+    [magic]
+    {
+        [enchantments]
+        {
+            [*]
+    		{
+                alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+                suite               = spell_proc_d2_crushing_blow;
+                value               = 0.10;
+    			description         = "Chance on Hit: Crushing Blow";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_crushing_blow";
+    		}
+            [*]
+    		{
+                alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+                suite               = spell_proc_d2_knockback;
+                value               = 0.10;
+    			description         = "Chance on Hit: Knockback";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_knockback";
+    		}
+			[*]
+			{
+				alteration			= ALTER_ARMOR;
+				value				= 32; // PH
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 35; // PH
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+        }
+    }
+}

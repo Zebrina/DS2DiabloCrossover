@@ -1,0 +1,310 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : dg_1h_nrm_d2_blade
+//// SPECIALIZES    : base_dagger_template
+//// FULL NAME      : Blade | Stiletto | Legend Spike
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:dg_1h_nrm_d2_blade]
+{
+	specializes = base_dagger_template;
+	doc = "Diablo 2 Blade";
+	[aspect]
+	{
+		model = m_w_dag_300; // PH
+		tracer_texture = b_sfx_tra_generic-48; // PH
+		[textures]
+		{
+			0 = b_w_dag_d2_blade; // PH
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_smallmetalweapon_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Blade";
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2;
+		inventory_icon = b_gui_ig_i_w_dgr_d2_blade;
+        inventory_height = 3;
+		inventory_width = 1;
+	}
+	[pcontent]
+	{
+		[base]
+		{
+			item_level = 3;
+		}
+		[var1]
+		{
+			item_level = 27;
+		}
+		[var2]
+		{
+			item_level = 68;
+		}
+	}
+    [d2_pcontent_var_names]
+    {
+        var1_name = "Stiletto";
+        var2_name = "Legend Spike";
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : dg_1h_unq_d2_wizardspike
+//// SPECIALIZES    : base_dagger_template
+//// FULL NAME      : Wizardspike (Unique Bone Knife)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:dg_1h_unq_d2_wizardspike]
+{
+	specializes = base_dagger_template;
+	doc = "Diablo 2 Wizardspike Bone Knife";
+	[aspect]
+	{
+		model = m_w_dag_300;
+		//tracer_texture = b_sfx_tra_generic-48; // Pink!
+        [textures]
+		{
+			0 = b_w_dag_d2_wizardspike;
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_smallmetalweapon_putdown;
+			}
+		}
+	}
+    [attack]
+    {
+        ammo_attach_bone = Bip01_L_Thigh;
+        ammo_template = dg_1h_unq_d2_wizardspike_sheathed;
+		attack_class = AC_CESTUS;
+        is_two_handed = false;
+    }
+	[common]
+	{
+		screen_name = "Wizardspike";
+		base_screen_name = "Bone Knife";
+		rarity = UNIQUE;
+        allow_modifiers = false;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level-2 | nature magic:#item_level-2;
+        //equip_slot = ES_SHIELD_HAND;
+        active_icon = b_gui_ig_i_ic_w_dagger-01;
+		inventory_icon = b_gui_ig_i_w_dgr_d2_wizardspike;
+        item_level = 63;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 1;
+				description			= "Indestructible";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+                alteration			= ALTER_CAST_SPEED;
+				value				= 0.5;
+                multiply_value      = true;
+				description			= "+50% Increased Cast Speed";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+            {
+                // 'Increase Maximum Mana 15%' in Diablo 2.
+                // ----------------------------------------
+                alteration			= ALTER_MAX_MANA;
+                value				= (0.87 * 5.0 * #int) * 0.15; // (mp_int_scalar * mp_coefficient * int) * 0.15 (15%)
+                description			= "+15% Mana from Intelligence";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_MAX_MANA;
+                value				= 4 * #character_level;
+                description			= "+<value> Mana (Increases with Character Level)";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+    		{
+    			alteration			= ALTER_MANA_RECOVERY_UNIT;
+    			value				= 0.15;
+    			description			= "+15% Mana Regeneration";
+    			duration			= #infinite;
+    			is_permanent		= true;
+    			is_single_instance	= false;
+    		}
+			[*]
+			{
+                // 'All Resistances 75' in Diablo 2.
+                // ----------------------------------------
+				alteration          = ALTER_PHYSICAL_RESISTANCE;
+				value               = 0.05;
+				description         = "+5% All Resistances";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MAGICAL_RESISTANCE;
+				value               = 0.05;
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+	[loot_drop_indicator] {}
+    [weapon_d2_hide_when_equipped] {}
+}
+[t:template,n:dg_1h_unq_d2_wizardspike_sheathed]
+{
+    specializes = ammo;
+	[aspect]
+	{
+        model = m_w_dag_300-sheathed;
+		[textures]
+		{
+			0 = b_w_dag_d2_wizardspike;
+		}
+	}
+	[attack]
+	{
+		attack_class = ac_arrow;
+	}
+	[physics] {}
+    [d2_transform_bone]
+    {
+        bone = "GRIP";
+        rx = 2.0;
+        rz = 2.0;
+        z = 1.0;
+    }
+    [debug_report_go_world_events] {}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : dg_1h_unq_d2_ghostflame
+//// SPECIALIZES    : base_dagger_template
+//// FULL NAME      : Ghostflame (Unique Ethereal Legend Spike)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:dg_1h_unq_d2_ghostflame]
+{
+	specializes = base_dagger_template;
+	doc = "Diablo 2 Ghostflame Ethereal Legend Spike";
+	[aspect]
+	{
+		model = m_w_dag_300; // PH
+		tracer_texture = b_sfx_tra_generic-48; // PH
+		[textures]
+		{
+			0 = b_w_dag_d2_wizardspike; // PH
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_smallmetalweapon_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Ghostflame";
+		base_screen_name = "Ethereal Legend Spike";
+		rarity = UNIQUE;
+        allow_modifiers = false;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2;
+		inventory_icon = b_gui_ig_i_w_dgr_d2_ghostflame;
+        inventory_height = 3;
+		inventory_width = 1;
+        item_level = 68;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+			{
+                // Ethereal bonus damage.
+                // ----------------------
+				alteration			= ALTER_MELEE_DAMAGE_SOURCE_PERCENT;
+				value				= 0.50;
+				description			= "Indestructible";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+                // '190-240% Enhanced Damage' in Diablo 2.
+                // ---------------------------------------
+				alteration			= ALTER_MELEE_DAMAGE_SOURCE_PERCENT;
+				value				= 0.24;
+				description			= "+24% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+                // '10-15% Mana Stolen Per Hit' in Diablo 2.
+                // -----------------------------------------
+				alteration			= ALTER_MANA_STEAL;
+				value				= 15;
+				description			= "<value>% Mana Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+                // 'Ignore Target's Defense' in Diablo 2.
+                // --------------------------------------
+				alteration			= ALTER_STATE_RESISTANCE;
+                suite               = "blind";
+				value				= 1.0;
+				description			= "Immune to Blind";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+    		{
+    			alteration			= ALTER_CUSTOM_DAMAGE;
+    			value				= 108;
+    			max_value			= 108;
+    			description			= "Adds <value> Magic Damage";
+    			duration			= #infinite;
+    			is_permanent		= true;
+    			is_single_instance	= false;
+    		}
+		}
+	}
+	[loot_drop_indicator] {}
+}

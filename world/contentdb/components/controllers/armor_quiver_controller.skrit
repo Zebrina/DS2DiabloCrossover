@@ -1,0 +1,50 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// File     :  hide_ornament_ds2x.skrit
+// Author(s):  Andres Mendez
+//
+// Copyright � 2004 Gas Powered Games, Inc.  All rights reserved.
+//----------------------------------------------------------------------------
+//  $Revision: #2 $              $Date: 2006/03/10 $
+//----------------------------------------------------------------------------
+//
+//	Used on monsters that will use a Spell as a ranged weapon.
+//  This component will hide the mesh of an ornament representing the weapon's mesh when the fire event is hit
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// reserved tags
+property bool			_server_only$		= false;
+property string			_doc$				= "Component that detects party members with in a radius and places them in a collection. Sends activate and deactivate messages";
+
+property string			ornament_name$		= "" doc = "This is the ornament that we want to hide";
+
+owner = GoSkritComponent;
+
+void HideRangedWeapon$(string aspectName$) {
+	owner.Go.Aspect.SHideChildSubMeshByName(aspectName$, 0);
+}
+void ShowRangedWeapon$(string aspectName$$) {
+	Owner.Go.Aspect.SShowChildSubMeshByName(aspectName$, 0);
+}
+
+startup state StartUp$
+{
+    event OnGoHandleMessage$(eWorldEvent e$, WorldMessage msg$) {
+        //Report.ScreenF("Received event: %s", ToString(e$));
+    }
+    /*
+	trigger OnGoHandleMessage$(WE_ENTERED_WORLD)
+	{
+		if (!StringTool.IsEmpty(ornament_name$)) {
+			//ShowRangedWeapon$(ornament_name$);
+		}
+	}
+	trigger OnGoHandleMessage$(WE_ANIM_WEAPON_FIRE)
+	{
+		if (!StringTool.IsEmpty(ornament_name$)) {
+			//HideRangedWeapon$(ornament_name$);
+		}
+	}
+    */
+}

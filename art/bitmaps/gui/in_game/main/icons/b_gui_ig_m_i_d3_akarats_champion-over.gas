@@ -1,0 +1,7 @@
+[t:tsd,n:b_gui_ig_m_i_d2_akarats_champion-over]
+{
+  b dither = false;
+  b hasalpha = true;
+	layer1texture1 = b_gui_ig_m_i_d2_akarats_champion-over;
+  i texturedetail = 0;
+}

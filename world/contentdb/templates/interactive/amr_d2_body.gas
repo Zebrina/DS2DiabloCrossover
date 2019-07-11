@@ -1,0 +1,599 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amr_bdy_unq_d2_tyraels_might
+//// SPECIALIZES    : base_body_fighter
+//// FULL NAME      : Tyrael's Might (Unique Sacred Armor)
+//// NOTES          : Rebalanced stats.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amr_bdy_unq_d2_tyraels_might]
+{
+	doc = "Diablo 2 Tyrael's Might Sacred Armor";
+	specializes = base_body_fighter;
+	[aspect]
+	{
+		material = MEDIUMSTEEL;
+        [armor_ornaments]
+        {
+            * = type02_quiver_01, b_c_gah_amr_orn_type02_quiver_001;
+            * = type04_shoulder_a, b_c_gah_amr_orn_type04_shoulder_d2_tyraels_might;
+        }
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_smallmetalweapon_putdown; // PH
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Tyrael's Might";
+		base_screen_name = "Sacred Armor";
+		rarity = UNIQUE;
+		allow_modifiers = false;
+	}
+	[defend]
+	{
+		armor_style = d2_tyraels_might;
+		armor_type = a4;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-10;
+		inventory_icon = b_gui_ig_i_amr_suit_a4_d2_tyraels_might;
+		inventory_height = 3;
+		inventory_width = 2;
+        item_level = 94;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 1;
+				description			= "Indestructible"; // Flavor
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 1;
+				description			= "Slain Monsters Rest in Peace"; // TODO
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_ARMOR_SOURCE_PERCENT;
+				value				= 0.40;
+				description			= "+40% Armor"; // 120-150% in Diablo 2.
+				duration			= #infinite;
+			    is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+                // +20-30 in Diablo 2.
+                // -------------------
+				alteration			= ALTER_STRENGTH;
+				value				= 90;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+                // 'All Resistances 20-30' in Diablo 2.
+                // ------------------------------------
+				alteration          = ALTER_PHYSICAL_RESISTANCE;
+				value               = 0.10;
+				description         = "+10% All Resistances";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MAGICAL_RESISTANCE;
+				value               = 0.10;
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+            [*]
+			{
+                // 'Cannot Be Frozen' in Diablo 2.
+                // -------------------------------
+				alteration			= ALTER_STATE_RESISTANCE;
+                suite               = "freeze";
+				value				= 1.0;
+				description			= "Immune to Freeze";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+                // 'Requirements -100%' in Diablo 2.
+                // ---------------------------------
+				alteration			= ALTER_GENERIC;
+				value				= -10;
+				description			= "Requirements <value>%";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amr_bdy_rnwd_d2_enigma
+//// SPECIALIZES    : base_body_fighter
+//// FULL NAME      : Enigma (Runeword <PLACEHOLDER>)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amr_bdy_rnwd_d2_enigma]
+{
+	doc = "Diablo 2 Enigma <PLACEHOLDER>";
+	specializes = base_body_fighter;
+	[aspect]
+	{
+		material = MEDIUMSPIRITUAL; // PH
+        [armor_ornaments]
+        {
+            * = type02_quiver_01,b_c_gah_amr_orn_type02_quiver_001;
+        }
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_smallmetalweapon_putdown; // PH
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Enigma";
+		base_screen_name = "PLACEHOLDER ARMOR"; // PH
+        description = "<c:0xFFADA156>'JahIthBer'</c>";
+		rarity = RUNEWORD;
+		allow_modifiers = false;
+		is_pcontent_allowed = true; // TODO: Change to false when done testing.
+	}
+	[defend]
+	{
+		armor_style = 018; // PH
+		armor_type = a5; // PH
+	}
+	[gui]
+	{
+		equip_requirements = uber:#item_level-2;
+		inventory_icon = b_gui_ig_i_amr_suit_a5_018; // PH
+		inventory_height = 3;
+		inventory_width = 2;
+        item_level = 67;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 2;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite				= ba_suite_all;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_MOVE_SPEED;
+                value				= 0.15;
+				description			= "+15% Movement Speed";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+            }
+			[*]
+			{
+				alteration			= ALTER_ARMOR;
+				value				= 75;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_STRENGTH;
+			    value				= 0.75 * #character_level;
+                description			= "+<value> Strength (Increases with Character Level)";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+            {
+                // 'Increase Maximum Life 5%' in Diablo 2.
+                // ---------------------------------------
+                alteration			= ALTER_MAX_LIFE;
+                value				= (0.5 * 5.0 * #int) * 0.25; // (hp_str_scalar * hp_coefficient * int) * 0.05 (5%)
+                description			= "+5% Health from Strength";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration          = ALTER_PHYSICAL_RESISTANCE;
+                value               = 0.08;
+                description         = "+8% Melee and Ranged Resistance";
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+			[*]
+			{
+				alteration          = ALTER_DAMAGE_TO_MANA_PERCENT;
+				value               = 0.15;
+				description         = "15% Damage Goes to Mana";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+            [*]
+            {
+                alteration			= ALTER_MAGIC_FIND_CHANCE;
+                value				= 1.0 * #character_level;
+                description			= "+<value>% Chance to Find Magic Items (Increases with Character Level)";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amr_bdy_rnwd_d2_chains_of_honor
+//// SPECIALIZES    : base_body_cmage
+//// FULL NAME      : Chains of Honor (Runeword Dusk Shroud)
+//// NOTES          : Rebalanced stats.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amr_bdy_rnwd_d2_chains_of_honor]
+{
+	doc = "Diablo 2 Chains of Honor Dusk Shroud";
+	specializes = base_body_cmage;
+	[aspect]
+	{
+		material = MEDIUMMAGICCLOTH;
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_lightarmor_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Chains of Honor";
+		base_screen_name = "Dusk Shroud";
+        description = "<c:0xFFADA156>'DolUmBerIst'</c>";
+		rarity = RUNEWORD;
+		allow_modifiers = false;
+		is_pcontent_allowed = true; // TODO: Change to false when done testing.
+	}
+	[defend]
+	{
+		armor_style = 018; // PH
+		armor_type = a5;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level-2 | combat magic:#item_level-2;
+		inventory_icon = b_gui_ig_i_amr_suit_a5_d2_chains_of_honor;
+		inventory_height = 3;
+		inventory_width = 2;
+        item_level = 65;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 2;
+                description			= "+<value> to all Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 2;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = fos_suite_all;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite				= ba_suite_all;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+			[*]
+			{
+				alteration			= ALTER_MAX_LIFE;
+			    value				= 300;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_ARMOR_SOURCE_PERCENT;
+				value				= 0.70;
+				description			= "+70% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 20;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+                // 'All Resistances 65' in Diablo 2.
+                // ---------------------------------
+				alteration          = ALTER_PHYSICAL_RESISTANCE;
+				value               = 0.20;
+				description         = "+20% All Resistances";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MAGICAL_RESISTANCE;
+				value               = 0.20;
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amr_bdy_rnwd_d2_fortitude
+//// SPECIALIZES    : base_body_fighter
+//// FULL NAME      : Fortitude (Runeword Archon Plate)
+//// NOTES          : Rebalanced stats.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amr_bdy_rnwd_d2_fortitude]
+{
+	doc = "Diablo 2 Fortitude Archon Plate";
+	specializes = base_body_fighter;
+	[aspect]
+	{
+		material = MEDIUMSTEEL;
+        [armor_ornaments]
+        {
+            * = type02_quiver_01, b_c_gah_amr_orn_type02_quiver_001;
+            * = type05_shoulder_04, b_c_gah_amr_orn_type05_shoulder_006;
+        }
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_smallmetalweapon_putdown; // PH
+			}
+		}
+	}
+    [armor_quiver_controller]
+    {
+        ornament_name = "";
+    }
+	[common]
+	{
+		screen_name = "Fortitude";
+		base_screen_name = "Archon Plate";
+        description = "<c:0xFFADA156>'ElSolDolLo'</c>";
+		rarity = RUNEWORD;
+		allow_modifiers = false;
+		is_pcontent_allowed = true; // TODO: Change to false when done testing.
+	}
+	[defend]
+	{
+		armor_style = 017; // PH
+		armor_type = a2; // PH
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2 | ranged:#item_level-2;
+		inventory_icon = b_gui_ig_i_amr_suit_a2_017; // PH
+		inventory_height = 3;
+		inventory_width = 2;
+        item_level = 61.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+                alteration			= ALTER_CAST_SPEED;
+				value				= 0.75;
+                multiply_value      = true;
+				description			= "+25% Increased Cast Speed";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+            {
+                // '300% Enhanced Damage' in Diablo 2.
+                // -----------------------------------
+                alteration			= ALTER_MELEE_DAMAGE_PERCENT;
+                value				= 0.30;
+                description			= "+30% Melee and Ranged Damage";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                alteration			= ALTER_RANGED_DAMAGE_PERCENT;
+                value				= 0.30;
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+            {
+                // '200% Enhanced Defense' in Diablo 2.
+                // ------------------------------------
+                alteration			= ALTER_ARMOR_SOURCE_PERCENT;
+                value				= 0.20;
+                description			= "+20% Armor";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+			[*]
+			{
+				alteration			= ALTER_ARMOR;
+				value				= 15;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+                // '+5% To Maximum Lightning Resist' in Diablo 2.
+                // ----------------------------------------------
+				alteration			= ALTER_LIGHTNING_RESISTANCE;
+				value				= (0.10 * #is_normal) + (0.2 * #is_veteran) + (0.4 * #is_elite);
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= (10 * #is_normal) + (20 * #is_veteran) + (40 * #is_elite);
+				description			= "+<value>% Lightning Resistance (Increases with World Difficulty)";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+                // '+1-1.5 To Life (Based on Character Level)' in Diablo 2.
+                // --------------------------------------------------------
+				alteration			= ALTER_MAX_LIFE;
+			    value				= 4.5 * #character_level;
+                description			= "+<value> Health (Increases with Character Level)";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DAMAGE_TO_MANA_PERCENT;
+				value               = 0.12;
+				description         = "12% Damage Goes to Mana";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}

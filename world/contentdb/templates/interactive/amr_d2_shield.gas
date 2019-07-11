@@ -1,0 +1,139 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : amr_shd_unq_d2_herald_of_zakarum
+//// SPECIALIZES    : base_shield
+//// FULL NAME      : Herald of Zakarum (Unique Gilded Shield)
+//// NOTES          : Upgraded to elite quality (requires level 68) and stats rebalanced. +2 to Paladin Skill includes
+////              melee, nature magic and fist of stone skills that are defensive/shield/healing related.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:amr_shd_unq_d2_herald_of_zakarum]
+{
+	doc = "Diablo 2 Herald of Zakarum Gilded Shield";
+	specializes = base_shield;
+	[aspect]
+	{
+		material = LARGESTEEL; // TODO: Test mediumwood
+		model = m_w_shd_d2_herald_of_zakarum;
+		[textures]
+		{
+			0 =  b_w_shd_d2_herald_of_zakarum;
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_metalshield_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Herald of Zakarum";
+		base_screen_name = "Gilded Shield";
+		rarity = unique;
+        allow_modifiers = false;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 2, aegis:1;
+		inventory_icon = b_gui_ig_i_w_shd_d2_herald_of_zakarum;
+		inventory_height = 4;
+		inventory_width = 2;
+        item_level = 70;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = paladin_suite_melee;
+                value               = 2;
+                description         = "+<value> to Paladin Skills";
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = paladin_suite_nmagic;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+            [*]
+            {
+                alteration          = ALTER_SKILL_SUITE;
+                suite               = paladin_suite_fos;
+                value               = 2;
+                duration            = #infinite;
+                is_permanent        = true;
+                is_single_instance  = false;
+            }
+			[*]
+			{
+				alteration			= ALTER_CHANCE_TO_BLOCK_MELEE_DAMAGE;
+				value				= 15;
+				description			= "+<value>% Chance to Block Melee and Ranged Attacks";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_CHANCE_TO_BLOCK_RANGED_DAMAGE;
+				value				= 15;
+				//description			= "+<value>% Chance to Block Ranged Attacks";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+            {
+                alteration			= ALTER_ARMOR_SOURCE_PERCENT;
+                value				= 0.2;
+                description			= "+20% Armor";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 25;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_MAX_LIFE;
+				value				= 100;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_PHYSICAL_RESISTANCE;
+				value               = 0.10;
+				description         = "+10% All Resistances";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MAGICAL_RESISTANCE;
+				value               = 0.10;
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+[t:sed,n:s_sp_d2_whirlwind]
+{
+	sound_effect_file = s_sp_d2_whirlwind;
+	max_simultaneous_samples = 3;
+	min_playback_rate = 0.9;
+	max_playback_rate = 1.1;
+	min_override_dist = 7;
+	max_override_dist = 30;
+	stereo_playback = false;
+}

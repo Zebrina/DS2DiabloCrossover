@@ -1,0 +1,678 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  world\contentdb\reagent_recipes.gas
+// Author(s):  Chad Queen, Mike Marr
+//
+//
+// Copyright � 2004 Gas Powered Games, Inc.  All rights reserved.
+//----------------------------------------------------------------------------
+//  The reagent enchantment definitions are used by the magical reagent objects.
+//  Just place whatever enchantments you want within a block that you name,
+//  and those enchantments will be attached to the reagent object that points to
+//  that definitions in the [magic] block.
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+/*
+//////////////////////////////////////////////////////////////////////////////
+// Example
+[reagent_recipes]
+{
+	[recipe_1h_to_2h]
+	{
+		// Optional field (if object_template is defined).  Can restrict what kind of item type can be used for the recipe.
+		object_type = weapon;
+
+		// Optional field (if object_type is defined).  Can allow recipe to only work with a specific template.
+		object_template = sd_1h_ss;
+
+		// Required field.  This is what the item will be replaced with after enchanting.
+		object_yield = sd_2h_ss;
+
+		// Required field(s).  List the reagents required to make this recipe.
+		reagent* = nettle_cluster;
+		reagent* = yellow_strand;
+	}
+
+	[recipe_fighter_axe_to_unique_axe]
+	{
+		object_type = weapon;
+
+		// Specifies which class of weapon/armor is allowed to be used.  Valid choices: fighter, ranger, nmage, cmage, blood_assassin, fist_of_stone.
+		object_use_class = fighter;
+
+		// Specifies the attack class (you can only use this for weapons) that the item must be in order to be enchanted.
+		// Valid choices: axe, club, dagger, hammer, mace, staff, sword, cestus, bow, minigun.
+		object_attack_class = axe;
+
+		// Only applies to melee weapons.
+		object_two_handed = true;
+
+		// Only applies to thrown weapons.
+		object_thrown = false;
+
+		reagent* = nettle_cluster;
+		reagent* = yellow_strand;
+	}
+}
+*/
+
+[reagent_recipes]
+{
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_hm_2h_rcp_01_ds2x]	 // Crusher Hammer
+	{
+		object_type = weapon;
+		object_use_class = fighter;
+		object_attack_class = hammer;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = hm_2h_rcp_01_ds2x;
+		reagent* = rgt_crystal_pommelstone;
+		reagent* = rgt_rhinock_horn;
+		reagent* = rgt_whetstone;
+		reagent* = rgt_pine_splinter;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_mc_1h_rcp_01_ds2x]	 // Champion's Defender
+	{
+		object_type = weapon;
+		object_use_class = fighter;
+		object_attack_class = mace;
+		object_two_handed = false;
+		object_thrown = false;
+		object_yield = mc_1h_rcp_01_ds2x;
+		reagent* = rgt_oak_branch;
+		reagent* = rgt_mythril_alloy;
+		reagent* = rgt_rhinock_horn;
+		reagent* = rgt_raven_talon;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_sd_2h_rcp_01_ds2x]	 // The Onslaught Flame
+	{
+		object_type = weapon;
+		object_use_class = fighter;
+		object_attack_class = sword;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = sd_2h_rcp_01_ds2x;
+		reagent* = rgt_demon_jaw;
+		reagent* = rgt_oak_branch;
+		reagent* = rgt_sapphire_pommelstone;
+		reagent* = rgt_ruby_pommelstone;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_th_rcp_01_ds2x]	 // Frostbite
+	{
+		object_type = weapon;
+		object_use_class = ranger;
+		object_attack_class = bow;
+		object_two_handed = false;
+		object_thrown = true;
+		object_yield = th_rcp_01_ds2x;
+		reagent* = rgt_elven_oil;
+		reagent* = rgt_serrated_arrowheads;
+		reagent* = rgt_coral_fragment;
+		reagent* = rgt_coral_fragment;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_th_rcp_02_ds2x]	 // Plague Razor
+	{
+		object_type = weapon;
+		object_use_class = ranger;
+		object_attack_class = bow;
+		object_two_handed = false;
+		object_thrown = true;
+		object_yield = th_rcp_02_ds2x;
+		reagent* = rgt_onyx_spangle;
+		reagent* = rgt_onyx_spangle;
+		reagent* = rgt_serrated_arrowheads;
+		reagent* = rgt_griffon_feather;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_cb_rcp_01_ds2x]	 // Fusillade
+	{
+		object_type = weapon;
+		object_use_class = ranger;
+		object_attack_class = minigun;
+		object_two_handed = false;
+		object_thrown = false;
+		object_yield = cb_rcp_01_ds2x;
+		reagent* = rgt_griffon_feather;
+		reagent* = rgt_serrated_arrowheads;
+		reagent* = rgt_serrated_arrowheads;
+		reagent* = rgt_amber_spangle;
+		reagent* = rgt_hawk_feather;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_bw_rcp_01_ds2x]	 // Rune Slayer
+	{
+		object_type = weapon;
+		object_use_class = ranger;
+		object_attack_class = bow;
+		object_two_handed = false;
+		object_thrown = false;
+		object_yield = bw_rcp_01_ds2x;
+		reagent* = rgt_demon_jaw;
+		reagent* = rgt_owl_talon;
+		reagent* = rgt_onyx_spangle;
+		reagent* = rgt_serrated_arrowheads;
+		reagent* = rgt_wolf_jaw;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_st_mg_rcp_01_ds2x]	 // Druid's Walking Stick
+	{
+		object_type = weapon;
+		object_use_class = nmage;
+		object_attack_class = staff;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = st_mg_rcp_01_ds2x;
+		reagent* = rgt_valerian_root;
+		reagent* = rgt_malachite_powder;
+		reagent* = rgt_gardenia_leaves;
+		reagent* = rgt_eagle_talon;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_st_mg_set_ss3_01_ds2x]	 // Beastmaster Staff
+	{
+		object_type = weapon;
+		object_use_class = nmage;
+		object_attack_class = staff;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = st_mg_set_ss3_01_ds2x;
+		reagent* = rgt_wormwood_essence;
+		reagent* = rgt_vampire_jaw;
+		reagent* = rgt_raven_talon;
+		reagent* = rgt_wolf_jaw;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_ce_rcp_01_ds2x]	 // Hands of the North
+	{
+		object_type = weapon;
+		object_use_class = nmage;
+		object_attack_class = cestus;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = ce_rcp_01_ds2x;
+		reagent* = rgt_spectral_dust;
+		reagent* = rgt_wormwood_essence;
+		reagent* = rgt_owl_talon;
+		reagent* = rgt_gral_eye;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_st_mg_rcp_02_ds2x]	 // Archdruid's Station
+	{
+		object_type = weapon;
+		object_use_class = nmage;
+		object_attack_class = staff;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = st_mg_rcp_02_ds2x;
+		reagent* = rgt_verbena_flowers;
+		reagent* = rgt_ironwood_timber;
+		reagent* = rgt_quicksilver_oil;
+		reagent* = rgt_spectral_dust;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_ce_rcp_02_ds2x]	 // Hands of Flame
+	{
+		object_type = weapon;
+		object_use_class = cmage;
+		object_attack_class = cestus;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = ce_rcp_02_ds2x;
+		reagent* = rgt_valerian_root;
+		reagent* = rgt_vampire_jaw;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_st_mg_rcp_03_ds2x]	 // Stormspire
+	{
+		object_type = weapon;
+		object_use_class = cmage;
+		object_attack_class = staff;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = st_mg_rcp_03_ds2x;
+		reagent* = rgt_owl_talon;
+		reagent* = rgt_malachite_powder;
+		reagent* = rgt_valerian_root;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_ce_rcp_03_ds2x]	 // Corrosive Claws
+	{
+		object_type = weapon;
+		object_use_class = cmage;
+		object_attack_class = cestus;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = ce_rcp_03_ds2x;
+		reagent* = rgt_quicksilver_oil;
+		reagent* = rgt_wormwood_essence;
+		reagent* = rgt_demon_jaw;
+		reagent* = rgt_raven_talon;
+		reagent* = rgt_henbane_leaves;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_st_mg_rcp_04_ds2x]	 // Magister's Station
+	{
+		object_type = weapon;
+		object_use_class = cmage;
+		object_attack_class = staff;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = st_mg_rcp_04_ds2x;
+		reagent* = rgt_verbena_flowers;
+		reagent* = rgt_ironwood_timber;
+		reagent* = rgt_ironwood_timber;
+		reagent* = rgt_spectral_dust;
+		reagent* = rgt_henbane_leaves;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bdy_set_dws4_01_ds2x]	 // Ravager Armor
+	{
+		object_type = body;
+		object_use_class = fighter;
+		object_yield = amr_bdy_set_dws4_01_ds2x;
+		reagent* = rgt_ensorcelled_thorns;
+		reagent* = rgt_vaikesh_figurine;
+		reagent* = rgt_sandalvine_tincture;
+		reagent* = rgt_mandrake_root;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bdy_fos_rcp_01_ds2x]	 // Lava Plate
+	{
+		object_type = body;
+		object_use_class = fighter;
+		object_yield = amr_bdy_fos_rcp_01_ds2x;
+		reagent* = rgt_smoldering_rune;
+		reagent* = rgt_sandalvine_tincture;
+		reagent* = rgt_halfgiant_pennant;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_glv_ftr_rcp_01_ds2x]	 // Storm Gauntlets
+	{
+		object_type = gloves;
+		object_use_class = fighter;
+		object_yield = amr_glv_ftr_rcp_01_ds2x;
+		reagent* = rgt_amber_thread;
+		reagent* = rgt_frost_charm;
+		reagent* = rgt_mandrake_root;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bot_fos_rcp_01_ds2x]	 // Volcano Boots
+	{
+		object_type = boots;
+		object_use_class = fighter;
+		object_yield = amr_bot_fos_rcp_01_ds2x;
+		reagent* = rgt_ash_leaves;
+		reagent* = rgt_smoldering_rune;
+		reagent* = rgt_carved_carapace;
+		reagent* = rgt_ivory_thorns;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_hlm_ftr_rcp_01_ds2x]	 // Helm of Nobility
+	{
+		object_type = helm;
+		object_use_class = fighter;
+		object_yield = amr_hlm_ftr_rcp_01_ds2x;
+		reagent* = rgt_etched_chrysalis;
+		reagent* = rgt_azunai_insignia;
+		reagent* = rgt_vaikesh_figurine;
+		reagent* = rgt_mandrake_root;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_hlm_ftr_rcp_02_ds2x]	 // Bone Helm
+	{
+		object_type = helm;
+		object_use_class = fighter;
+		object_yield = amr_hlm_ftr_rcp_02_ds2x;
+		reagent* = rgt_azunai_insignia;
+		reagent* = rgt_vaikesh_figurine;
+		reagent* = rgt_diamond_thorns;
+		reagent* = rgt_pine_splinter;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_shd_rcp_01_ds2x]	 // Meteoric Shield
+	{
+		object_type = shield;
+		object_use_class = fighter;
+		object_yield = amr_shd_rcp_01_ds2x;
+		reagent* = rgt_lion_crest;
+		reagent* = rgt_oak_branch;
+		reagent* = rgt_ash_leaves;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_shd_rcp_02_ds2x]	 // Coral-Encrusted Shield
+	{
+		object_type = shield;
+		object_use_class = fighter;
+		object_yield = amr_shd_rcp_02_ds2x;
+		reagent* = rgt_engraved_plating;
+		reagent* = rgt_ironwood_timber;
+		reagent* = rgt_rowan_leaves;
+		reagent* = rgt_diamond_thorns;
+		reagent* = rgt_patterned_shell;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bdy_rng_rcp_01_ds2x]	 // Vagabond's Garb
+	{
+		object_type = body;
+		object_use_class = ranger;
+		object_yield = amr_bdy_rng_rcp_01_ds2x;
+		reagent* = rgt_elven_oil;
+		reagent* = rgt_carved_carapace;
+		reagent* = rgt_carved_carapace;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bdy_rng_rcp_02_ds2x]	 // Elven Hero's Regalia
+	{
+		object_type = body;
+		object_use_class = ranger;
+		object_yield = amr_bdy_rng_rcp_02_ds2x;
+		reagent* = rgt_engraved_plating;
+		reagent* = rgt_ironwood_timber;
+		reagent* = rgt_quicksilver_oil;
+		reagent* = rgt_gold_ribbon;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bdy_ba_rcp_01_ds2x]	 // Runemaster's Chain
+	{
+		object_type = body;
+		object_use_class = ranger;
+		object_yield = amr_bdy_ba_rcp_01_ds2x;
+		reagent* = rgt_korven_fetish;
+		reagent* = rgt_etched_chrysalis;
+		reagent* = rgt_elven_oil;
+		reagent* = rgt_diamond_thorns;
+		reagent* = rgt_gral_eye;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bot_set_as12_01_ds2x]	 // Relentless Boots
+	{
+		object_type = boots;
+		object_use_class = ranger;
+		object_yield = amr_bot_set_as12_01_ds2x;
+		reagent* = rgt_etched_chrysalis;
+		reagent* = rgt_ensorcelled_thorns;
+		reagent* = rgt_elven_oil;
+		reagent* = rgt_vaikesh_figurine;
+		reagent* = rgt_frost_charm;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_glv_set_tws2_01_ds2x]	 // Bloodsoaked Gloves
+	{
+		object_type = gloves;
+		object_use_class = ranger;
+		object_yield = amr_glv_set_tws2_01_ds2x;
+		reagent* = rgt_ash_leaves;
+		reagent* = rgt_agallan_standard;
+		reagent* = rgt_betony_salve;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_hlm_rng_rcp_01_ds2x]	 // Forester Cowl
+	{
+		object_type = helm;
+		object_use_class = ranger;
+		object_yield = amr_hlm_rng_rcp_01_ds2x;
+		reagent* = rgt_scarab_husk;
+		reagent* = rgt_icicle_talisman;
+		reagent* = rgt_sandalvine_tincture;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_hlm_ba_rcp_01_ds2x]	 // Shadow Assassin Mask
+	{
+		object_type = helm;
+		object_use_class = ranger;
+		object_yield = amr_hlm_ba_rcp_01_ds2x;
+		reagent* = rgt_etched_chrysalis;
+		reagent* = rgt_agallan_standard;
+		reagent* = rgt_elven_oil;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bdy_nmg_rcp_01_ds2x]	 // Robe of the Frozen North
+	{
+		object_type = body;
+		object_use_class = nmage;
+		object_yield = amr_bdy_nmg_rcp_01_ds2x;
+		reagent* = rgt_etched_chrysalis;
+		reagent* = rgt_frost_charm;
+		reagent* = rgt_frost_charm;
+		reagent* = rgt_gral_eye;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bdy_nmg_rcp_02_ds2x]	 // Cultivation Robes
+	{
+		object_type = body;
+		object_use_class = nmage;
+		object_yield = amr_bdy_nmg_rcp_02_ds2x;
+		reagent* = rgt_verbena_flowers;
+		reagent* = rgt_engraved_plating;
+		reagent* = rgt_rowan_leaves;
+		reagent* = rgt_malachite_powder;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bot_nmg_rcp_01_ds2x]	 // Flowing Stride
+	{
+		object_type = boots;
+		object_use_class = nmage;
+		object_yield = amr_bot_nmg_rcp_01_ds2x;
+		reagent* = rgt_engraved_plating;
+		reagent* = rgt_icicle_talisman;
+		reagent* = rgt_henbane_leaves;
+		reagent* = rgt_sage_liniment;
+		reagent* = rgt_henbane_leaves;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_hlm_nmg_rcp_01_ds2x]	 // Storm Hood
+	{
+		object_type = helm;
+		object_use_class = nmage;
+		object_yield = amr_hlm_nmg_rcp_01_ds2x;
+		reagent* = rgt_amber_thread;
+		reagent* = rgt_amber_thread;
+		reagent* = rgt_malachite_powder;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_hlm_nmg_rcp_02_ds2x]	 // Helm of the Wild
+	{
+		object_type = helm;
+		object_use_class = nmage;
+		object_yield = amr_hlm_nmg_rcp_02_ds2x;
+		reagent* = rgt_wormwood_essence;
+		reagent* = rgt_etched_chrysalis;
+		reagent* = rgt_oak_branch;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bdy_cmg_rcp_01_ds2x]	 // Chromatic Robe
+	{
+		object_type = body;
+		object_use_class = cmage;
+		object_yield = amr_bdy_cmg_rcp_01_ds2x;
+		reagent* = rgt_amber_thread;
+		reagent* = rgt_smoldering_rune;
+		reagent* = rgt_frost_charm;
+		reagent* = rgt_nettle_cluster;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bdy_cmg_rcp_02_ds2x]	 // Statesman's Robe
+	{
+		object_type = body;
+		object_use_class = cmage;
+		object_yield = amr_bdy_cmg_rcp_02_ds2x;
+		reagent* = rgt_engraved_plating;
+		reagent* = rgt_patterned_shell;
+		reagent* = rgt_azunai_insignia;
+		reagent* = rgt_valerian_root;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_glv_cmg_rcp_01_ds2x]	 // Gloves of Command
+	{
+		object_type = gloves;
+		object_use_class = cmage;
+		object_yield = amr_glv_cmg_rcp_01_ds2x;
+		reagent* = rgt_scarab_husk;
+		reagent* = rgt_azunai_insignia;
+		reagent* = rgt_ash_leaves;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_bot_cmg_rcp_01_ds2x]	 // Arclight Boots
+	{
+		object_type = boots;
+		object_use_class = cmage;
+		object_yield = amr_bot_cmg_rcp_01_ds2x;
+		reagent* = rgt_ensorcelled_thorns;
+		reagent* = rgt_amber_thread;
+		reagent* = rgt_nettle_cluster;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_hlm_set_cs3_01_ds2x]	 // Cinbri Ritual Mask
+	{
+		object_type = helm;
+		object_use_class = cmage;
+		object_yield = amr_hlm_set_cs3_01_ds2x;
+		reagent* = rgt_vaikesh_figurine;
+		reagent* = rgt_carved_carapace;
+		reagent* = rgt_yarrow_balm;
+		reagent* = rgt_diamond_thorns;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amr_hlm_cmg_rcp_01_ds2x]	 // Dragon Crest
+	{
+		object_type = helm;
+		object_use_class = cmage;
+		object_yield = amr_hlm_cmg_rcp_01_ds2x;
+		reagent* = rgt_scarab_husk;
+		reagent* = rgt_igneous_rune;
+		reagent* = rgt_patterned_shell;
+		reagent* = rgt_halfgiant_pennant;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amulet_rcp_01_ds2x]	 // Treasure Seeker
+	{
+		object_type = amulet;
+		object_yield = amulet_rcp_01_ds2x;
+		reagent* = rgt_smoldering_rune;
+		reagent* = rgt_frost_charm;
+		reagent* = rgt_rainbow_trinket;
+		reagent* = rgt_rainbow_trinket;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amulet_rcp_02_ds2x]	 // Archmage's Amulet
+	{
+		object_type = amulet;
+		object_yield = amulet_rcp_02_ds2x;
+		reagent* = rgt_spectral_dust;
+		reagent* = rgt_wormwood_essence;
+		reagent* = rgt_prismatic_bauble;
+		reagent* = rgt_sage_liniment;
+		reagent* = rgt_ash_leaves;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_amulet_rcp_03_ds2x]	 // Amulet of Kings
+	{
+		object_type = amulet;
+		object_yield = amulet_rcp_03_ds2x;
+		reagent* = rgt_angelica_root;
+		reagent* = rgt_ironwood_timber;
+		reagent* = rgt_spectral_dust;
+		reagent* = rgt_prismatic_bauble;
+		reagent* = rgt_yarrow_balm;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_ring_rcp_02_ds2x]	 // Lumilla's Cooling Band
+	{
+		object_type = ring;
+		object_yield = ring_rcp_02_ds2x;
+		reagent* = rgt_ash_leaves;
+		reagent* = rgt_sage_liniment;
+		reagent* = rgt_gardenia_leaves;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_ring_rcp_01_ds2x]	 // Marksman's Ring
+	{
+		object_type = ring;
+		object_yield = ring_rcp_01_ds2x;
+		reagent* = rgt_gold_ribbon;
+		reagent* = rgt_prismatic_bauble;
+		reagent* = rgt_skull_fragment;
+	}
+	// Do NOT change this template here. Change it in DS2X_Recipes.xls. Your work will be thrashed!!
+	[rcp_ring_rcp_03_ds2x]	 // Stone of Greilyn
+	{
+		object_type = ring;
+		object_yield = ring_rcp_03_ds2x;
+		reagent* = rgt_quicksilver_oil;
+		reagent* = rgt_rowan_leaves;
+		reagent* = rgt_rowan_leaves;
+		reagent* = rgt_valerian_root;
+		reagent* = rgt_smoldering_rune;
+	}
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Diablo Recipes
+    // Breath of the Dying
+    [rcp_sd_2h_rnwd_d2_breath_of_the_dying]
+	{
+		object_type = weapon;
+		object_use_class = fighter;
+		object_attack_class = sword;
+		object_two_handed = true;
+		object_thrown = false;
+		object_yield = sd_2h_rnwd_d2_breath_of_the_dying;
+		reagent* = rgt_d2_rune_vex;
+		reagent* = rgt_d2_rune_hel;
+		reagent* = rgt_d2_rune_el;
+		reagent* = rgt_d2_rune_eld;
+		reagent* = rgt_d2_rune_zod;
+		reagent* = rgt_d2_rune_eth;
+	}
+    // Chaos
+    [rcp_sd_1h_rnwd_d2_chaos]
+	{
+		object_type = weapon;
+		object_use_class = fighter;
+        object_attack_class = sword;
+		object_two_handed = false;
+		object_thrown = false;
+		object_yield = sd_1h_rnwd_d2_chaos;
+		reagent* = rgt_d2_rune_fal;
+		reagent* = rgt_d2_rune_ohm;
+		reagent* = rgt_d2_rune_um;
+	}
+    /*
+    // Call to Arms
+    [rcp_sd_1h_ss_unq_d2_call_to_arms]
+	{
+		object_type = weapon;
+		object_use_class = fighter;
+        object_attack_class = sword;
+		object_two_handed = false;
+		object_thrown = false;
+		object_yield = sd_1h_ss_unq_d2_call_to_arms;
+		reagent* = rgt_d2_rune_amn;
+		reagent* = rgt_d2_rune_ral;
+		reagent* = rgt_d2_rune_mal;
+        reagent* = rgt_d2_rune_ist;
+		reagent* = rgt_d2_rune_ohm;
+	}
+    */
+    /*
+    // Hearth of the Oak
+    [rcp_sd_1h_ss_unq_d2_heart_of_the_oak]
+	{
+		object_type = weapon;
+		object_use_class = fighter;
+        object_attack_class = sword;
+		object_two_handed = false;
+		object_thrown = false;
+		object_yield = sd_1h_ss_unq_d2_heart_of_the_oak;
+		reagent* = rgt_d2_rune_amn;
+		reagent* = rgt_d2_rune_ral;
+		reagent* = rgt_d2_rune_mal;
+        reagent* = rgt_d2_rune_ist;
+		reagent* = rgt_d2_rune_ohm;
+	}
+    */
+}

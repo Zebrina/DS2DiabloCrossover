@@ -1,0 +1,442 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  power_chain_lightning.skrit
+// Author(s):  Andres Mendez, Gordon Duclos
+//
+// Copyright � 2004 Gas Powered Games, Inc.  All rights reserved.
+// Chain reaction spell components
+//
+//////////////////////////////////////////////////////////////////////////////
+
+property bool   _server_only$	= true;
+property string description$	= "d2_chain_lightning";
+owner = GoSkritComponent;
+
+property string cast_ffx$				= ""		doc = "Flick to create on cast ";
+property string chain_ffx$				= ""		doc = "Flick to create when an actor gets hit by the spell";
+property string begin_chain_ffx$		= ""		doc = "Flick to create when an actor gets hit by the spell";
+property int	chain_length$			= 3			doc = "Number of creatures affected in the chain";
+property float	effect_radius$			= 6.0		doc = "Potentional target range of the items to chain to.";
+property bool	caster_center$			= true		doc = "Center on caster instead of the target.";
+property float	delaybetweenchains$		= 0.1       doc = "Gap of time between lightning";
+
+Goid	caster$;
+Goid	target$;
+Goid	nexttargetGoid$;
+Goid	chainlinkGoid$;
+int		allcollId$;
+GopColl allitemColl$;
+float	damageratio$ = 1.0;
+float	damage$;
+int		i$ = 0;
+my SiegePos startPos$;
+my SiegePos endPos$;
+my vector offset$;
+
+#include "k_inc_spl_utils"
+#include "k_inc_collection_utils"
+
+
+//Returns true if the Go has already been connected to the chain
+bool isalreadyinchain$(Go colitem$)
+{
+	int i$ = 0;
+	int numberofItems$ = allitemColl$.Size();
+	Go localitem$;
+
+	while( i$ < numberofItems$ )
+	{
+		localitem$ = allitemColl$.Get( i$ );
+		if ( localitem$.Goid == colitem$.Goid )
+		{
+			return true;	//The go is already in the chain should not be reattached
+		}
+		i$ = i$ + 1;
+	}
+
+	return false;	// the item was not in the chain
+}
+
+// Returns the closest valid target to the source that has not be linked to the  chain already , also we get a breakable items.
+Goid GetClosestEnemy$( Goid currentenemy$ )
+{
+	// Reset target item
+	string myname$;
+	currentenemy$.Go.common.GetScreenName(myname$);
+	SiegePos pos$			= currentenemy$.go.placement.position;
+	Go Gofound$				= NULL;
+
+	int temp_GopCollId$ = 0;
+	temp_GopCollId$ = GoBits.CreateGopColl();
+	GopColl temp_GopColl$	= GoBits.GetGopColl( temp_GopCollId$ );
+	int temp_GopCollId2$ = 0;
+	temp_GopCollId2$ = GoBits.CreateGopColl();
+	GopColl temp_GopColl2$	= GoBits.GetGopColl( temp_GopCollId2$ );
+	int temp_GopCollId3$ = 0;
+	temp_GopCollId3$ = GoBits.CreateGopColl();
+	GopColl temp_GopColl3$	= GoBits.GetGopColl( temp_GopCollId3$ );
+	{	// Get all evil actors in radius and add to our temp GopColl.
+		AIQuery.GetOccupantsInSphere( pos$, effect_radius$, temp_GopColl$ );
+		AIQuery.TempQtColl1.Clear;
+		AIQuery.TempQtColl1.Add( QT_ENEMY );
+		AIQuery.TempQtColl1.Add( QT_ALIVE_CONSCIOUS );
+		AIQuery.TempQtColl1.Add( QT_ATTACKABLE );
+		AIQuery.Get( caster$.Go, AIQuery.TempQtColl1, temp_GopColl$, temp_GopColl2$ );
+		temp_GopColl$.Clear();
+		// Sort our combined collection.
+		AIQuery.SortByDistance( currentenemy$.Go, temp_GopColl2$, temp_GopColl$ );
+	}
+	{	// Get all breakable items in radius.
+		AIQuery.GetOccupantsInSphere( pos$, effect_radius$, temp_GopColl2$ );
+		AIQuery.TempQtColl1.Clear;
+		AIQuery.TempQtColl1.Add( QT_BREAKABLE );
+		AIQuery.TempQtColl1.Add( QT_ITEM );
+		AIQuery.Get( caster$.Go, AIQuery.TempQtColl1, temp_GopColl2$, temp_GopColl3$ );
+
+		temp_GopColl2$.Clear();
+		// Sort our combined collection.
+		AIQuery.SortByDistance( currentenemy$.Go, temp_GopColl3$, temp_GopColl2$ );
+		// Add all breakable items to the collection.
+		int z$ = 0;
+		int zend$ = temp_GopColl2$.Size();
+
+		while (z$ < zend$)
+		{
+
+			Gofound$ = temp_GopColl2$.Get(z$);
+			temp_GopColl$.Add( Gofound$ );
+			z$ += 1;
+		}
+		Gofound$ = NULL;
+	}
+	{
+
+		int numItems$ = temp_GopColl$.Size();
+		int i$ = 0;
+
+		//Check that the found items are not already in the chain
+		while (i$ < numItems$)
+		{
+			Gofound$ = temp_GopColl$.Get( i$ );
+
+			if (!isalreadyinchain$(Gofound$) && (Gofound$ != caster$.Go) && (Gofound$ != currentenemy$.Go) && GoFound$.Aspect.IsSelectable )
+			{
+				break;
+			}
+
+			Gofound$ = NULL;
+			i$ = i$ + 1;
+		}
+	}
+
+	if( temp_GopCollId$ != 0 )
+	{
+		GoBits.DeleteGopColl( temp_GopCollId$ );
+		temp_GopCollId$ = 0;
+		GoBits.DeleteGopColl( temp_GopCollId2$ );
+		temp_GopCollId2$ = 0;
+		GoBits.DeleteGopColl( temp_GopCollId3$ );
+		temp_GopCollId3$ = 0;
+	}
+
+	if (Gofound$ == NULL)
+	{
+		return NULL;
+	}
+
+	return Gofound$.Goid;
+}
+
+startup state CastBegin$
+{
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( report.IsEnabled("power") )
+		{
+			report.reportf("power", "%s [0x%08x]: got worldEvent[%s] from[0x%08x] to[0x%08x] data1[0x%08x]\n",
+				description$, owner.goid, ToString( e$ ), msg$.GetSendFrom(), msg$.GetSendTo(), msg$.GetData1() );
+		}
+
+		if( e$ == WE_REQ_CAST_CHARGE )
+		{
+			// initialize our caster
+			caster$ = msg$.GetSendFrom();
+
+			// intialize the offset vector
+			offset$.y = 0.6;
+
+			// Get the closest enemy or breakable in a radius around the caster and use that as our first
+			// target in the chain
+			int initGopCollId$ = GoBits.CreateGopColl();
+			if( initGopCollId$ == 0 )
+			{
+				report.errorf( "Chain Lightning could not create init GopColl! Expect errors!\n" );
+			}
+
+			GopColl initGopColl$ = GoBits.GetGopColl( initGopCollId$ );
+			// use the mind to fill our collection
+			if ( !AiQuery.GetEnemiesInSphere( caster$, caster$.go.placement.position, 10.0, initGopColl$ ) )
+			{
+report.reportf("chain lightning", "Did not find any bad guys searching for objects\n");
+				// we found no monsters, so look for barrels
+				initGopColl$.Clear();
+				AIQuery.TempQtColl1.Clear();
+				AIQuery.TempQtColl1.Add( QT_BREAKABLE );
+				AIQuery.TempQtColl1.Add( QT_ITEM );
+				if ( !caster$.Go.Mind.GetVisible( AIQuery.TempQtColl1, initGopColl$, 10.0 ) )
+				{
+					// we found nothing, so...
+            	    // clean up gopcoll
+					if ( initGopCollId$ != 0 )
+					{
+						GoBits.DeleteGopColl( initGopCollId$ );
+						initGopCollId$ = 0;
+					}
+					// bail out if the collection didn't find anything
+					allcollId$ = 0; // set this so we don't try to delete something that doesn't exist yet (this gets created on WE_REQ_CAST)
+					if ( IsServerLocal )
+					{
+						caster$.Go.Actor.SResetReloadDamage( false );
+						#only( game )
+						[[
+							UIGame.SDisplayMsg( caster$.Go.GetMachineId(), Contentdb.GetTemplateString( "gs_chain_lightning_no_targets:global_string:screen_text", "" ) );
+						]]
+					}
+					SetState Cleanup$;
+					return;
+				}
+			}
+
+			int numItems$ = initGopColl$.Size();
+			int i$ = 0;
+			Go hTarget$;
+			//Check that the closest target is selectable
+			while (i$ < numItems$)
+			{
+				hTarget$ = AiQuery.GetClosest( caster$.Go, initGopColl$ );
+
+				if ( hTarget$.Aspect.IsSelectable )
+				{
+					break;
+				}
+
+				initGopColl$.Remove( hTarget$ );
+
+				hTarget$ = NULL;
+				i$ += 1;
+			}
+
+			if ( hTarget$ != NULL )
+			{
+				target$ = hTarget$.goid;
+			}
+			else
+			{
+				// nothing we found was selectable, so...
+            	// clean up gopcoll
+				if ( initGopCollId$ != 0 )
+				{
+					GoBits.DeleteGopColl( initGopCollId$ );
+					initGopCollId$ = 0;
+				}
+				// bail out if the collection didn't find anything
+				allcollId$ = 0; // set this so we don't try to delete something that doesn't exist yet (this gets created on WE_REQ_CAST)
+				if ( IsServerLocal )
+				{
+					caster$.Go.Actor.SResetReloadDamage( false );
+				}
+				SetState Cleanup$;
+				return;
+			}
+
+			// clean up gopcoll
+			if ( initGopCollId$ != 0 )
+			{
+				GoBits.DeleteGopColl( initGopCollId$ );
+				initGopCollId$ = 0;
+			}
+
+			// Create cast effect on caster.
+			if(!StringTool.IsEmpty(cast_ffx$))
+			{
+				if( caster$.IsValid && target$.IsValid )
+				{
+					// Create FFX obj
+					WorldFXMgr.SCreateFlickFX( cast_ffx$, owner.goid, caster$, target$, true, true ); // owner == spell, catalyst == caster, target = spell target
+				}
+			}
+		}
+		else if( e$ == WE_REQ_CAST )	// On the animation queue to fire weapon we start our chain
+		{
+			caster$ = msg$.GetSendFrom();
+
+			nexttargetGoid$  = target$;
+			chainlinkGoid$ = caster$;
+
+			if( caster$.IsValid && nexttargetGoid$.IsValid && chainlinkGoid$.IsValid )
+			{
+				//Initialize history collection
+				allcollId$		= GoBits.CreateGopColl();
+				allitemColl$	= GoBits.GetGopColl( allcollId$ );
+
+				// set damage before loop for efficiency
+				damage$ = Skills.GetSkillSubValue( "chain_lightning", "cmagic_chain_lightning_damage", caster$.Go );
+				damageratio$ = Skills.GetSkillSubValue( "chain_lightning", "cmagic_chain_lightning_damageratio", caster$.Go );
+
+				// first thing: set chain length
+				chain_length$ = Math.Round( Skills.GetSkillSubValue( "chain_lightning", "cmagic_chain_lightning_number_jumps", caster$.Go ) );
+
+				int startTarget$ = WorldFXMgr.CreateTimedTarget( 0.2, true );
+				if ( chainlinkGoid$.Go.HasActor )
+				{
+					WorldFXMgr.SetTargetToGo( startTarget$, chainlinkGoid$, "@kill_bone" );
+				}
+				else
+				{
+					WorldFXMgr.SetTargetToGo( startTarget$, chainlinkGoid$, "" );
+					WorldFXMgr.SetTargetOffset( startTarget$, offset$ );
+				}
+				startPos$ = WorldFXMgr.GetTargetPosition( startTarget$ );
+
+				int endTarget$ = WorldFXMgr.CreateTimedTarget( 0.2, true );
+				if ( nexttargetGoid$.Go.HasActor )
+				{
+					WorldFXMgr.SetTargetToGo( endTarget$, nexttargetGoid$, "@kill_bone" );
+				}
+				else
+				{
+					WorldFXMgr.SetTargetToGo( endTarget$, nexttargetGoid$, "" );
+					WorldFXMgr.SetTargetOffset( endTarget$, offset$ );
+				}
+				endPos$ = WorldFXMgr.GetTargetPosition( endTarget$ );
+
+				this.CreateTimer( 1, 0.0 );
+			}
+			else
+			{
+				SetState Cleanup$;
+			}
+		}
+		else if( e$ == WE_DESTRUCTED || e$ == WE_LEFT_WORLD )
+		{
+			SetState Cleanup$;
+		}
+	}
+
+	trigger OnTimer$( 1 )
+	{
+		//if (nexttargetGoid$ == caster$)
+		//{
+		//	debug.assert( (nexttargetGoid$ != caster$), " Chain lightning is trying to add the caster to the chain!!! ");
+		//	break;
+		//}
+
+		if ( nexttargetGoid$.IsValid )
+		{
+			report.reportf("power","Trying to damage goidHit[0x%08x] goidHit.IsValid()\n", nexttargetGoid$ );
+
+			// Hit a specific goid, might not be our original target
+			debug.assert( nexttargetGoid$.Go.HasPlacement() );
+
+			// set up positions to pass to flicks
+			startPos$ = endPos$;
+
+			int endTarget$ = WorldFXMgr.CreateTimedTarget( 0.2, true );
+			if ( nexttargetGoid$.Go.HasActor )
+			{
+				WorldFXMgr.SetTargetToGo( endTarget$, nexttargetGoid$, "@kill_bone" );
+			}
+			else
+			{
+				WorldFXMgr.SetTargetToGo( endTarget$, nexttargetGoid$, "" );
+				WorldFXMgr.SetTargetOffset( endTarget$, offset$ );
+			}
+			endPos$ = WorldFXMgr.GetTargetPosition( endTarget$ );
+
+			// Launch flick fx that begins at casters weapon bone, and then for every subsequent target, launch from killbone.
+			// special case if we're going from the caster to the first enemy in the chain...
+			if( nexttargetGoid$ == target$ )
+			{
+				if(!StringTool.IsEmpty(begin_chain_ffx$))
+				{
+					report.reportf("power", "%s: Firing chain ffx!!!\n", description$ );
+					my string params$ = begin_chain_ffx$;
+					StringTool.Appendf( params$, "?SpellPos=%s&endPoint=%s", MakeSiegePosString( startPos$ ), MakeSiegePosString( endPos$ ) );
+					FFXID chain_ffxIdchain$ = WorldFXMgr.SCreateFlickFX( params$, owner.goid, chainlinkGoid$, nexttargetGoid$, true, true); // owner == spell, catalyst == caster, target = spell target
+				}
+			}
+			else
+			{
+				if(!StringTool.IsEmpty(chain_ffx$))
+				{
+					report.reportf("power", "%s: Firing chain ffx!!!\n", description$ );
+					my string params$ = chain_ffx$;
+					StringTool.Appendf( params$, "?startPoint=%s&endPoint=%s", MakeSiegePosString( startPos$ ), MakeSiegePosString( endPos$ ) );
+					FFXID chain_ffxIdchain$ = WorldFXMgr.SCreateFlickFX( params$, owner.goid, /*chainlinkGoid$, nexttargetGoid$,*/ true, true ); // owner == spell, catalyst == caster, target = spell target
+				}
+			}
+
+			float damagemultiplyer$ = 1.0;
+
+			int j$ = i$;
+
+			while (j$ > 0)
+			{
+				damagemultiplyer$ = damagemultiplyer$ * ( 1.0 - damageratio$ );
+				j$ = j$ - 1;
+			}
+
+			if( IsServerLocal() )
+			{
+				Rules.DamageGoPower( "magic", caster$, owner.Goid, nexttargetGoid$, damage$* damagemultiplyer$ );
+			}
+
+			chainlinkGoid$ = nexttargetGoid$;
+
+			//Add the item to the collection of items in the chain
+			if( chainlinkGoid$ != NULL )
+			{
+				allitemColl$.Add( chainlinkGoid$.Go );
+				nexttargetGoid$ = GetClosestEnemy$( chainlinkGoid$ );
+			}
+
+			if ( (i$ < chain_length$) && nexttargetGoid$.IsValid )
+			{
+				i$ += 1;
+				this.CreateTimer( 1, delaybetweenchains$ );
+			}
+			else
+			{
+				SetState Cleanup$;
+			}
+		}
+		else
+		{
+			SetState Cleanup$;
+		}
+	}
+}
+
+state Cleanup$
+{
+	event OnEnterState$
+	{
+		this.CreateTimer( 1, 1 );
+	}
+
+	trigger OnTimer$( 1 )
+	{
+
+		if( allcollId$ != 0 )
+		{
+				GoBits.DeleteGopColl( allcollId$ );
+				allcollId$ = 0;
+		}
+
+		if( IsServerLocal() )
+		{
+			report.reportf("power", "%s [0x%08x]: GoDb.SMarkForDeletion()\n", description$, owner.goid );
+			GoDb.SMarkForDeletion( owner.goid );
+		}
+	}
+}

@@ -1,0 +1,1385 @@
+// El
+[t:template,n:rgt_d2_rune_el]
+{
+	doc = "Diablo 2 El Rune";
+	specializes = base_reagent;
+	[aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_el;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "El";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_el;
+		inventory_height = 1;
+		inventory_width = 1;
+		item_level = 11;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_el;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Eld
+[t:template,n:rgt_d2_rune_eld]
+{
+	doc = "Diablo 2 Eld Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_eld;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Eld";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_eld;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 11;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_eld;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Tir
+[t:template,n:rgt_d2_rune_tir]
+{
+	doc = "Diablo 2 Tir Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_tir;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Tir";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_tir;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 13;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_tir;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Nef
+[t:template,n:rgt_d2_rune_nef]
+{
+	doc = "Diablo 2 Nef Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_nef;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Nef";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_nef;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 13;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_nef;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Eth
+[t:template,n:rgt_d2_rune_eth]
+{
+	doc = "Diablo 2 Eth Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_eth;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Eth";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_eth;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 15;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_eth;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Ith
+[t:template,n:rgt_d2_rune_ith]
+{
+	doc = "Diablo 2 Ith Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_ith;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Ith";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_ith;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 15;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_ith;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Tal
+[t:template,n:rgt_d2_rune_tal]
+{
+	doc = "Diablo 2 Tal Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_tal;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Tal";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_tal;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 17;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_tal;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Ral
+[t:template,n:rgt_d2_rune_ral]
+{
+	doc = "Diablo 2 Ral Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_ral;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Ral";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_ral;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 19;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_ral;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Ort
+[t:template,n:rgt_d2_rune_ort]
+{
+	doc = "Diablo 2 Ort Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_ort;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Ort";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_ort;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 21;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_ort;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Thul
+[t:template,n:rgt_d2_rune_thul]
+{
+	doc = "Diablo 2 Thul Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_thul;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Thul";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_thul;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 23;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_thul;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Amn
+[t:template,n:rgt_d2_rune_amn]
+{
+	doc = "Diablo 2 Amn Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_amn;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Amn";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_amn;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 25;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_amn;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Sol
+[t:template,n:rgt_d2_rune_sol]
+{
+	doc = "Diablo 2 Sol Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_sol;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Sol";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_sol;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 27;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_sol;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Shael
+[t:template,n:rgt_d2_rune_shael]
+{
+	doc = "Diablo 2 Shael Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_shael;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Shael";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_shael;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 29;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_shael;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Dol
+[t:template,n:rgt_d2_rune_dol]
+{
+	doc = "Diablo 2 Dol Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_dol;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Dol";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_dol;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 31;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_dol;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Hel
+[t:template,n:rgt_d2_rune_hel]
+{
+	doc = "Diablo 2 Hel Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_hel;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Hel";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_hel;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 33; // Actual level is 0
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_hel;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Io
+[t:template,n:rgt_d2_rune_io]
+{
+	doc = "Diablo 2 Io Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_io;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Io";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_io;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 35;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_io;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Lum
+[t:template,n:rgt_d2_rune_lum]
+{
+	doc = "Diablo 2 Lum Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_lum;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Lum";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_lum;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 37;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_lum;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Ko
+[t:template,n:rgt_d2_rune_ko]
+{
+	doc = "Diablo 2 Ko Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_ko;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Ko";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_ko;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 39;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_ko;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Fal
+[t:template,n:rgt_d2_rune_fal]
+{
+	doc = "Diablo 2 Fal Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_fal;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Fal";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_fal;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 41;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_fal;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Lem
+[t:template,n:rgt_d2_rune_lem]
+{
+	doc = "Diablo 2 Lem Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_lem;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Lem";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_lem;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 43;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_lem;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Pul
+[t:template,n:rgt_d2_rune_pul]
+{
+	doc = "Diablo 2 Pul Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_pul;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Pul";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_pul;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 45;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_pul;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Um
+[t:template,n:rgt_d2_rune_um]
+{
+	doc = "Diablo 2 Um Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_um;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Um";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_um;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 47;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_um;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Mal
+[t:template,n:rgt_d2_rune_mal]
+{
+	doc = "Diablo 2 Mal Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_mal;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Mal";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_mal;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 49;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_mal;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Ist
+[t:template,n:rgt_d2_rune_ist]
+{
+	doc = "Diablo 2 Ist Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_ist;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Ist";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_ist;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 51;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_ist;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Gul
+[t:template,n:rgt_d2_rune_gul]
+{
+	doc = "Diablo 2 Gul Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_gul;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Gul";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_gul;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 53;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_gul;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Vex
+[t:template,n:rgt_d2_rune_vex]
+{
+	doc = "Diablo 2 Vex Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_vex;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Vex";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_vex;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 55;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_vex;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Ohm
+[t:template,n:rgt_d2_rune_ohm]
+{
+	doc = "Diablo 2 Ohm Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_ohm;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Ohm";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_ohm;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 57;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_ohm;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Lo
+[t:template,n:rgt_d2_rune_lo]
+{
+	doc = "Diablo 2 Lo Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_lo;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Lo";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_lo;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 59;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_lo;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Sur
+[t:template,n:rgt_d2_rune_sur]
+{
+	doc = "Diablo 2 Sur Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_sur;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Sur";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_sur;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 61;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_sur;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Ber
+[t:template,n:rgt_d2_rune_ber]
+{
+	doc = "Diablo 2 Ber Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_ber;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Ber";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_ber;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 63;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_ber;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Jah
+[t:template,n:rgt_d2_rune_jah]
+{
+	doc = "Diablo 2 Jah Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_jah;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Jah";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_jah;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 65;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_jah;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Cham
+[t:template,n:rgt_d2_rune_cham]
+{
+	doc = "Diablo 2 Cham Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_cham;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Cham";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_cham;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 67;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_cham;
+	}
+	[loot_drop_indicator] {}
+}
+
+// Zod
+[t:template,n:rgt_d2_rune_zod]
+{
+	doc = "Diablo 2 Zod Rune";
+	specializes = base_reagent;
+    [aspect]
+	{
+        scale_base = 0.5;
+		model = m_i_glb_rgt_hide_fragment;
+        [textures]
+		{
+			0 = b_i_glb_rgt_d2_rune_zod;
+		}
+		[voice]
+		{
+			[put_down]
+			{
+                * = s_ui_d2_rune_putdown;
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Zod";
+		description = "Can enchant anything.\n";
+		base_screen_name = "Rune";
+		rarity = RUNEWORD;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_d2_rune_zod;
+        inventory_height = 1;
+		inventory_width = 1;
+		item_level = 69;
+	}
+	[magic]
+	{
+		reagent_definition = reagent_d2_rune_zod;
+	}
+	[loot_drop_indicator] {}
+}

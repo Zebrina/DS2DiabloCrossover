@@ -1,0 +1,7 @@
+[t:tsd,n:b_w_swd_d2_breath_of_the_dying]
+{
+  b dither = false;
+  b hasalpha = true;
+	layer1texture1 = b_w_swd_d2_breath_of_the_dying;
+  i texturedetail = 1;
+}

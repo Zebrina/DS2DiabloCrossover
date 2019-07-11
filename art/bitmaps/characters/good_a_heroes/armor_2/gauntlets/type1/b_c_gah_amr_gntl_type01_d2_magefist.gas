@@ -1,0 +1,7 @@
+[t:tsd,n:b_c_gah_amr_gntl_type01_d2_magefist]
+{
+  b dither = true;
+  b hasalpha = true;
+	layer1texture1 = b_c_gah_amr_gntl_type01_d2_magefist;
+  i texturedetail = 0;
+}

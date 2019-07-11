@@ -1,0 +1,147 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  power_melee_area_damage.skrit
+// Author(s):  Chris Gorski
+//
+// Copyright � 2004 Gas Powered Games, Inc.  All rights reserved.
+//
+////////////////////////////////////////////////////////////////////////////////
+//
+// Does melee damage in a radius around the caster.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+property bool   _server_only$		= false;
+property string _doc$				= "Diablo 2 Barbarian Whirlwind Component";
+
+property string proc_ffx$			= ""		    doc = "Flick to create on proc";
+property string hit_ffx$			= ""		    doc = "Flick to create on enemy when hit";
+property float  proc_chance$        = 0.05          doc = "Chance to proc a whirlwind";
+property float  damage_multiplier$  = 1.0           doc = "Percent damage";
+property float  area_damage_radius$ = 0.0           doc = "Radius of aoe";
+property float  cooldown$           = 1.5           doc = "Cooldown before a whirlwind can trigger again";
+property bool   break_barrels$      = false         doc = "Break barrels?";
+property string go_bit_cd_bool$     = "d2_ww_cd"    doc = "";
+
+#include "k_inc_collection_utils"
+
+owner = GoSkritComponent;
+
+void DoHitEffect$(Goid attacker$, Goid target$) {
+    if (!StringTool.IsEmpty(hit_ffx$)) {
+        WorldFXMgr.CreateFlickFX(hit_ffx$, attacker$, attacker$, target$, false, true);
+    }
+}
+
+void DoDamage$(Goid attacker$, Goid weapon$, Goid target$) {
+    if (IsServerLocal()) {
+        Rules.DamageGoMeleeMultiplier(attacker$, weapon$, target$, damage_multiplier$, true);
+    }
+}
+
+bool busy$ = false;
+
+startup state Begin$ {
+	event OnGoHandleMessage$(eWorldEvent e$, WorldMessage msg$) {
+        if (e$ == WE_REQ_CAST) {
+            //float randomChance$ = Math.RandomFloat(1.0);
+            //if (randomChance$ < proc_chance$) {
+                // To avoid proccing of itself when damage is dealt.
+                //busy$ = true;
+
+                //bool onCooldown$ = GoBits.GetGoBitBool(weapon$, go_bit_cd_bool$);
+
+                Goid attacker$ = msg$.GetSendFrom();
+
+    			// Create effect on attacker.
+    			if (!StringTool.IsEmpty(proc_ffx$)) {
+    				WorldFXMgr.CreateFlickFX(proc_ffx$, attacker$, attacker$, attacker$, true, true);
+    			}
+
+                int subAnimIndex$ = attacker$.Go.Aspect.AspectHandle.Blender.GetSubAnimIndex(CHORE_MISC, 'ws01');
+                if (subAnimIndex$ >= 0) {
+                    eReqRetCode ret$ = MCPManager.MakeRequest(attacker$, PL_PLAYANIM, CHORE_MISC, subAnimIndex$, 0);
+                    if (RequestFailed(ret$)) {
+                        Report.ScreenF("Failed to perform request.");
+                    }
+                }
+
+                Go weapon$ = owner.Parent; // owner.Go.Parent.Goid;
+                if (weapon$ == NULL) {
+                    return;
+                }
+
+                Report.ScreenF("go = %s", weapon$.TemplateName);
+
+    			weapon$ = owner.Parent.Go; // owner.Go.Parent.Goid;
+                if (weapon$ == NULL) {
+                    return;
+                }
+
+                Report.ScreenF("parent = %s", weapon$.TemplateName);
+
+                weapon$ = owner.Parent.Parent.Go;
+                if (weapon$ == NULL) {
+                    return;
+                }
+
+                Report.ScreenF("parent parent = %s", weapon$.TemplateName);
+
+                return;
+
+                int i$;
+
+                if (break_barrels$) {
+        			// Damage barrels.
+        			int breakablesCollId$ = CreateBreakablesInSphereCollection$(attacker$, attacker$.go.placement.position, area_damage_radius$);
+        			if (breakablesCollId$ != 0) {
+            			GopColl breakablesColl$ = GoBits.GetGopColl(breakablesCollId$);
+            			i$ = breakablesColl$.Size();
+            			while (i$ > 0) {
+                            i$ -= 1;
+
+            				Goid target$ = breakablesColl$.Get(i$).Goid;
+
+            				DoHitEffect$(attacker$, target$);
+                            DoDamage$(attacker$, weapon$, target$);
+            			}
+
+            			// Cleanup GopColl.
+            			GoBits.DeleteGopColl(breakablesCollId$);
+                    }
+                }
+
+                // Damage enemies.
+    			int collId$ = CreateEnemiesInSphereCollection$(attacker$, attacker$.go.placement.position, area_damage_radius$);
+    			if (collId$ != 0) {
+        			GopColl victims$ = GoBits.GetGopColl(collId$);
+
+                    i$ = victims$.Size();
+        			while (i$ > 0) {
+                        i$ -= 1;
+
+        				Goid target$ = victims$.Get(i$).Goid;
+
+                        DoHitEffect$(attacker$, target$);
+                        DoDamage$(attacker$, weapon$, target$);
+        			}
+
+        			// Cleanup GopColl.
+        			GoBits.DeleteGopColl(collId$);
+                }
+
+                // Allow procs again after cooldown.
+                CreateTimer(1, cooldown$);
+            //}
+        } if (e$ == WE_DESTRUCTED || e$ == WE_LEFT_WORLD) {
+			Report.ScreenF("%s: WE_LEFT_WORLD or WE_DESTRUCTED, cleaning up.\n", description$);
+
+			//setstate Finish$;
+			//return;
+		}
+	}
+
+    trigger OnTimer$(1) {
+        busy$ = false;
+	}
+}

@@ -1,0 +1,1367 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  world\contentdb\templates\interactive\wpn_unique_ds2x.gas
+// Author(s):  Tristan Hall, Mike Marr
+//
+// Summary  : Unique Weapon Templates for DS2X
+//
+// Copyright � 2005 Gas Powered Games, Inc.  All rights reserved.
+//////////////////////////////////////////////////////////////////////////////
+/****************************************************************************/
+/*                      Recipe Weapons in DS2X                              */
+/*                      Set recipe items are in the set gas files           */
+/****************************************************************************/
+
+//////////////////////////////////////////////////////////////////////////////
+//   Mace
+
+// TEMPLATE: mc_1h_rcp_01c_ds2x
+// ITEM: Champion's Defender
+[t:template,n:mc_1h_rcp_01_ds2x]
+{
+	specializes = base_mace_template;
+	doc = "Champion's Defender";
+	[aspect]
+	{
+		model = m_w_mce_sacrifice;
+		tracer_texture = b_sfx_tra_generic-26;
+		[textures]
+		{
+			0 = b_w_mce_sacrifice;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Champion's Defender";
+		base_screen_name	= "Mace";
+		rarity 				= CRAFTED;
+		is_pcontent_allowed	= false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:#item_level - 2.0;
+		inventory_icon		= b_gui_ig_i_w_mce_sacrifice;
+		inventory_height	= 3;
+		inventory_width		= 1;
+		item_level			= 40.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "sacrifice";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx = ffx_wpn_sacrifice
+									  &hit_ffx	  = ffx_spell_fire_sword_hit;
+			}
+			[*]
+			{
+				alteration          = alter_max_life;
+				value               = 90;
+				description         = "+<value> Health";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DAMAGE_TO_MANA_PERCENT;
+				value               = 0.09;
+				description         = "9% Damage Goes to Mana";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_reflect_damage;
+				value				= 35;
+				description			= "<value>% of Physical Damage Reflected to Enemy";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = melee_suite_1;
+				value               = 2;
+				description         = "+<value> to Barricade, Toughness, and Reinforced Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect       = "skills"; // must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+				                    ?weapon_ffx   = ffx_spell_skill_bonus_sword
+				                    &projectile_ffx = ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Swords
+
+// TEMPLATE: sd_2h_rcp_01_ds2x
+// ITEM: The Onslaught Flame
+[t:template,n:sd_2h_rcp_01_ds2x]
+{
+	specializes = base_2h_sword_template;
+	doc = "The Onslaught Flame";
+	[aspect]
+	{
+		model = m_w_swd_sunsword;
+		tracer_texture = b_sfx_tra_generic-52;
+		[textures]
+		{
+			0 = b_w_swd_sunsword;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "The Onslaught Flame";
+		base_screen_name	= "Hero's Sword";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:#item_level - 2.0,overbear:1;
+		inventory_icon		= b_gui_ig_i_w_swd_sunsword;
+		inventory_height	= 4;
+		inventory_width		= 1;
+		item_level			= 52.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "rahvans_sunsword";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx = ffx_wpn_rahvans_sunsword;
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 35;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_rapid_attack;
+				value               = 0.10;
+				description         = "Chance on Hit: Rapid Attack";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_fire_burst_major;
+				value				= 0.10;
+				description         = "Chance on Hit: Fire Burst for 235 - 290 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= melee_suite_2;
+				value				= 3;
+				description			= "+<value> to Fortitude, Overbear, and Smite";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+
+// TEMPLATE: hm_2h_rcp_01_ds2x
+// ITEM: Crusher Hammer
+[t:template,n:hm_2h_rcp_01_ds2x]
+{
+	specializes = base_2h_hammer_template;
+	doc = "unique_sledge_01";
+	[aspect]
+	{
+		model = m_w_hmr_dragonheart;
+		tracer_texture = b_sfx_tra_generic-24;
+		[textures]
+		{
+			0 = b_w_hmr_dragonheart;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Crusher Hammer";
+		base_screen_name	= "Sledge";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:27, nature magic:20,overbear:1;
+		inventory_icon		= b_gui_ig_i_w_hmr_dragonheart;
+		inventory_height	= 4;
+		inventory_width		= 2;
+		item_level			= 33.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "bloodpounder";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx = ffx_wpn_bloodpounder;
+			}
+			[*]
+			{
+				alteration          = alter_melee_damage_source_percent;
+				value               = 0.40;
+				description         = "+40% Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_CHANCE_MELEE_BONUS_PERCENT;
+			    value               = 0.15;
+			    description         = "+15% Melee Critical Hit Chance";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_CRITICAL_DAMAGE_MELEE_BONUS_PERCENT;
+				value               = 0.35;
+				description         = "+35% Melee Critical Hit Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SKILL_SUITE;
+			    suite               = fos_suite_all;
+			    value               = 1;
+			    description         = "+<value> to Fist of Stone Skills";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Bows
+
+// TEMPLATE: bw_rcp_01_ds2x
+// ITEM:  Rune Slayer
+[t:template,n:bw_rcp_01_ds2x]
+{
+	specializes = base_bow_template;
+	doc = "Rune Slayer";
+	[aspect]
+	{
+		model = m_w_bow_vengeance;
+		[textures]
+		{
+			0 = b_w_bow_vengeance;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Rune Slayer";
+		base_screen_name	= "Short Bow";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level - 2.0;
+		inventory_icon		= b_gui_ig_i_w_bow_vengeance;
+		inventory_height	= 3;
+		inventory_width		= 1;
+		item_level			= 55.0;
+	}
+	[magic]
+	{
+	[enchantments]
+	{
+		[*]
+		{
+			alteration			= alter_generic;
+			value				= 1;
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "vengeance";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?bow_ffx = ffx_wpn_vengeance;
+		}
+		[*]
+		{
+			alteration          = alter_ranged_damage_source_percent;
+			value               = 0.58;
+			description         = "+58% Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		[*]
+		{
+			alteration          = ALTER_CRITICAL_DAMAGE_RANGED_BONUS_PERCENT;
+			value               = 0.52;
+			description         = "+52% Ranged Critical Hit Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		[*]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_PENETRATE;
+			suite               = spell_proc_penetrate;
+			value               = 0.10;
+			description         = "Chance on Hit: Penetrating Projectile";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		[*]
+		{
+		    alteration          = ALTER_SKILL_SUITE;
+		    suite               = ba_suite_1;
+		    value               = 2;
+		    description         = "+<value> to Shred Blood and Bloodsoaked Shots";
+		    duration            = #infinite;
+		    is_permanent        = true;
+		    is_single_instance  = false;
+		}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   CrossBows
+
+// TEMPLATE: cb_rcp_01_ds2x
+// ITEM:  Fusillade
+[t:template,n:cb_rcp_01_ds2x]
+{
+	specializes = base_crossbow_template;
+	doc = "unique_heavy_crossbow_01";
+	[aspect]
+	{
+		model = m_w_csb_warmaker;
+		[textures]
+		{
+			0 = b_w_csb_warmaker;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Fusillade";
+		base_screen_name	= "Heavy Crossbow";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level - 2.0,biting_arrow:1;
+		inventory_icon		= b_gui_ig_i_w_csb_warmaker;
+		inventory_height	= 4;
+		inventory_width		= 2;
+		item_level			= 40.0;
+	}
+	[magic]
+	{
+	[enchantments]
+	{
+		[*]
+		{
+			alteration			= alter_generic;
+			value				= 1;
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "Warmaker";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?bow_ffx			= ffx_wpn_fusillade;
+		}
+		[*]
+		{
+			alteration          = alter_ranged_damage_source_percent;
+			value               = 0.45;
+			description         = "+45% Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		[*]
+		{
+			alteration          = alter_power_reload;
+			value               = 0.08;
+			description         = "+8% Power Recharge Rate";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		[*]
+		{
+			alteration          = ALTER_CRITICAL_DAMAGE_RANGED_BONUS_PERCENT;
+			value               = 0.42;
+			description         = "+42% Ranged Critical Hit Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		[*]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			value               = 0.10;
+			suite               = spell_proc_rapid_attack;
+			description         = "Chance on Hit: Rapid Attack";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Thrown
+
+
+// TEMPLATE: th_rcp_01_ds2x
+// ITEM:  Frostbite
+[t:template,n:th_rcp_01_ds2x]
+{
+	specializes = base_thrown;
+	doc = "Frostbite";
+	[aspect]
+	{
+		model = m_w_thn_balance;
+		[textures]
+		{
+			0 = b_w_thn_balance;
+		}
+	}
+	[attack]
+	{
+		is_wielded_weapon = false;
+		ammo_template = glaive_unq_projectile;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Frostbite";
+		base_screen_name = "Glaive";
+		rarity = CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_w_glaive-01;
+		equip_requirements = ranged:#item_level - 2.0,quick_draw:1;
+		inventory_icon = b_gui_ig_i_w_thn_balance;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 35.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "balance";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?projectile_ffx = ffx_wpn_balance;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_freeze;
+				value               = 0.10;
+				description         = "Chance on Hit: Freeze Enemy for 2 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_ice_burst_lesser;
+				value				= 0.10;
+				description         = "Chance on Hit: Ice Burst for 80 - 140 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = ranged_suite_3;
+				value               = 2;
+				description         = "+<value> to Quick Draw, Bleed, and Penetrate";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+
+// TEMPLATE: th_rcp_02
+// ITEM:  Plague Razor
+[t:template,n:th_rcp_02_ds2x]
+{
+	specializes = base_thrown;
+	doc = "Plague Razor";
+	[aspect]
+	{
+		model = m_w_thn_abyssal;
+		[textures]
+		{
+			0 = b_w_thn_abyssal;
+		}
+	}
+	[attack]
+	{
+		is_wielded_weapon = false;
+		ammo_template = throwing_star_unq_projectile;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Plague Razor";
+		base_screen_name = "Throwing Star";
+		rarity = CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_w_star-01;
+		equip_requirements = ranged:42, combat magic:34, quick_draw:1;
+		inventory_icon = b_gui_ig_i_w_thn_abyssal;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 46.0;
+	}
+	[magic]
+	{
+	[enchantments]
+	{
+		[*]
+		{
+			alteration			= alter_generic;
+			value				= 1;
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "abyssal_avatar";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx = ffx_wpn_abyssal_avatar
+								  &hit_ffx		  = ffx_spell_death_sword_hit;
+		}
+		[*]
+		{
+			alteration          = alter_dexterity;
+			value               = 20;
+			description         = "+<value> Dexterity";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		[*]
+		{
+			alteration          = alter_intelligence;
+			value               = 14;
+			description         = "+<value> Intelligence";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		[*]
+		{
+		    alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+		    suite               = spell_proc_death_burst;
+		    value				= 0.10;
+		    description         = "Chance on Hit: Death Burst for 180 - 305 Damage";
+		    duration            = #infinite;
+		    is_permanent        = true;
+		    is_single_instance  = false;
+		}
+		[*]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_shockwave;
+			value				= 0.10;
+			description         = "Chance on Hit: Shockwave for 60 - 95 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+		[*]
+		{
+		    alteration          = ALTER_SKILL_SUITE;
+		    value               = 1;
+		    suite				= ba_suite_all;
+		    description			= "+<value> to Blood Assassin Skills";
+		    duration            = #infinite;
+		    is_permanent        = true;
+		    is_single_instance  = false;
+		}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Staff
+
+
+// TEMPLATE: st_mg_rcp_01_ds2x
+// ITEM:  Druid's Walking Stick
+[t:template,n:st_mg_rcp_01_ds2x]
+{
+	specializes = base_mage_staff_template;
+	doc = "Druid's Walking Stick";
+	[aspect]
+	{
+		model = m_w_stf_curvingstream;
+		tracer_texture = b_sfx_tra_generic-34;
+		[textures]
+		{
+			0 = b_w_stf_curvingstream;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Druid's Walking Stick";
+		base_screen_name	= "Ritual Staff";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= nature magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_w_stf_curvingstream;
+		inventory_height	= 4;
+		inventory_width		= 1;
+		item_level			= 39.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "the_curving_stream";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx = ffx_wpn_druids_stick;
+			}
+			[*]
+			{
+				alteration          = alter_max_life;
+				value               = 75;
+				description         = "+<value> Health";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_nmagic_damage_percent;
+				value               = 0.20;
+				description         = "+20% Nature Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_HEALING_BONUS_PERCENT;
+				value               = 0.30;
+				description         = "+30% Healing Effectiveness";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = nmagic_suite_3;
+				value               = 2;
+				description         = "+<value> to Nurturing Gift, Enveloping Embrace, and Feral Wrath";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE: st_mg_rcp_02_ds2x
+// ITEM:  Archdruid's Station
+[t:template,n:st_mg_rcp_02_ds2x]
+{
+	specializes = base_mage_staff_template;
+	doc = "Archdruid's Station";
+	[aspect]
+	{
+		model = m_w_stf_dragoneye;
+		tracer_texture = b_sfx_tra_generic-40;
+		[textures]
+		{
+			0 = b_w_stf_dragoneye;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Archdruid's Station";
+		base_screen_name	= "Yearling Staff";
+		rarity 				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= nature magic:#item_level-2.0;
+		inventory_icon 		= b_gui_ig_i_w_stf_dragoneye;
+		inventory_height 	= 4;
+		inventory_width 	= 1;
+		item_level 			= 75.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "rimens_dragoneye";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx = ffx_wpn_rimens_dragoneye;
+			}
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 55;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_nmagic_damage_percent;
+				value               = 0.30;
+				description         = "+30% Nature Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_power_reload;
+				value               = 0.12;
+				description         = "+12% Power Recharge Rate";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+				value               = 2;
+				description         = "+<value> to Nature Magic Skills";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+// TEMPLATE: st_mg_rcp_03_ds2x
+// ITEM:  Stormspire
+[t:template,n:st_mg_rcp_03_ds2x]
+{
+	specializes = base_mage_staff_template;
+	doc = "Stormspire";
+	[aspect]
+	{
+		model = m_w_stf_316-a;
+		tracer_texture = b_sfx_tra_generic-38;
+		[textures]
+		{
+			0 = b_w_xstf_316-b;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Stormspire";
+		base_screen_name	= "Elven Staff";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= combat magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_w_xstf_316-b;
+		inventory_height	= 4;
+		inventory_width		= 1;
+		item_level			= 45.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "manastorm";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx = ffx_wpn_stormspire;
+			}
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 24;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_LIGHTNING_DAMAGE_PERCENT;
+				value               = 0.26;
+				description         = "+26% Lightning Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_lightning_resistance;
+				value               = 0.23;
+				description         = "+23% Lightning Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = cmagic_suite_2;
+				value               = 3;
+				description         = "+<value> to Brilliance, Amplified Lightning, and Arcing";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+// TEMPLATE: st_mg_rcp_04_ds2x
+// ITEM:  Magister's Station
+[t:template,n:st_mg_rcp_04_ds2x]
+{
+	specializes = base_mage_staff_template;
+	doc = "Magister's Station";
+	[aspect]
+		{
+		model = m_w_stf_manastorm-spire;
+		tracer_texture = b_sfx_tra_generic-38;
+		[textures]
+		{
+			0 = b_w_stf_manastorm-spire;
+		}
+	}
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Magister's Station";
+		base_screen_name = "Elven Staff";
+		rarity = CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level-2.0;
+		inventory_icon = b_gui_ig_i_w_stf_manastorm-spire;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level = 75.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "gnarl_charm";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx = ffx_wpn_gnarl_charm;
+			}
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 56;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_cmagic_damage_percent;
+				value               = 0.35;
+				description         = "+35% Combat Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_magical_resistance;
+				value               = 0.17;
+				description         = "+17% Magic Damage Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+				value               = 2;
+				description         = "+<value> to Combat Magic Skills";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Cestus
+
+// TEMPLATE: ce_rcp_01_ds2x
+// ITEM: Hands of the North
+[t:template,n:ce_rcp_01_ds2x]
+{
+	specializes = base_cestus_template;
+	doc = "Hands of the North";
+	[aspect]
+	{
+		model = m_w_ces_endless-left;
+		[textures]
+		{
+			0 =  b_w_ces_endless;
+		}
+	}
+	[attack]
+	{
+		ammo_template = ce_rcp_01_righthand_ds2x;
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Hands of the North";
+		base_screen_name	= "Spirit Cestus";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= nature magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_w_ces_endless;
+		inventory_height	= 2;
+		inventory_width		= 2;
+		item_level			= 60.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 35;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_ICE_DAMAGE_PERCENT;
+				value               = 0.32;
+				description         = "+32% Ice Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_cold_snap_minor;
+				value               = 0.06;
+				description         = "Chance When Hit: Cold Snap for 25 - 45 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = nmagic_suite_2;
+				value               = 3;
+				description         = "+<value> to Aquatic Affinity, Arctic Mastery, and Freezing";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+[t:template,n:ce_rcp_01_righthand_ds2x]
+{
+	specializes = ammo;
+	doc = "Hands of the North righthand";
+	[aspect]
+	{
+		model = m_w_ces_endless;
+		[textures]
+		{
+			0 =  b_w_ces_endless;
+		}
+	}
+	[attack]
+	{
+		attack_class = ac_arrow;
+	}
+	[physics] {}
+}
+
+// TEMPLATE: ce_rcp_02_ds2x
+// ITEM: Hands of Flame
+[t:template,n:ce_rcp_02_ds2x]
+{
+	specializes = base_cestus_template;
+	doc = "Hands of Flame";
+	[aspect]
+	{
+		model = m_w_ces_chaos-left;
+		[textures]
+		{
+			0 = b_w_ces_chaos;
+		}
+	}
+	[attack]
+	{
+		ammo_template = ce_rcp_02_righthand_ds2x;
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Hands of Flame";
+		base_screen_name	= "Arcane Cestus";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= combat magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_w_ces_chaos;
+		inventory_height	= 2;
+		inventory_width 	= 2;
+		item_level			= 33.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "chaosgrips";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_wpn_chaosgrips
+									  &projectile_ffx	= ffx_wpn_chaosgrips
+									  &hit_ffx			= ffx_spell_fire_sword_hit;
+			}
+			[*]
+			{
+				alteration          = alter_max_life;
+				value               = 60;
+				description         = "+<value> Health";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_FIRE_DAMAGE_PERCENT;
+				value               = 0.22;
+				description         = "+22% Fire Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			    suite               = spell_proc_armor_firewave;
+			    value               = 0.03;
+			    description         = "Chance When Hit: Fire Wave for 115 - 195 Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = cmagic_suite_3;
+				value               = 2;
+				description         = "+<value> to Devastation, Searing Flames, and Ignite";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+
+[t:template,n:ce_rcp_02_righthand_ds2x]
+{
+	specializes = ammo;
+	doc = "Hands of Flame righthand";
+	[aspect]
+	{
+		model = m_w_ces_chaos;
+		[textures]
+		{
+			0 =  b_w_ces_chaos;
+		}
+	}
+	[attack]
+	{
+		attack_class = ac_arrow;
+	}
+	[physics] {}
+}
+
+// TEMPLATE: ce_rcp_03_ds2x
+// ITEM: Corrosive Claws
+[t:template,n:ce_rcp_03_ds2x]
+{
+	specializes = base_cestus_template;
+	doc = "Corrosive Claws";
+	[aspect]
+	{
+		model = m_w_ces_lich-left;
+		[textures]
+		{
+			0 = b_w_ces_lich;
+		}
+	}
+	[attack]
+	{
+		ammo_template = ce_rcp_03_righthand_ds2x;
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Corrosive Claws";
+		base_screen_name	= "Cryptic Cestus";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= combat magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_w_ces_lich;
+		inventory_height	= 2;
+		inventory_width		= 2;
+		item_level			= 60.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_generic;
+				value				= 1;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "lichshands";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_wpn_lichshands
+									  &projectile_ffx	= ffx_wpn_lichshands
+									  &hit_ffx			= ffx_spell_death_sword_hit;
+			}
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 220;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEATH_DAMAGE_PERCENT;
+				value               = 0.32;
+				description         = "+32% Death Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_mana_steal;
+				value               = 8;
+				description         = "<value>% Mana Steal";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = cmagic_suite_1;
+				value               = 3;
+				description         = "+<value> to Debilitation, Grim Necromancy, and Vampirism";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+	[loot_drop_indicator]{}
+}
+[t:template,n:ce_rcp_03_righthand_ds2x]
+{
+  specializes = ammo;
+  doc = "Corrosive Claws righthand";
+  [aspect]
+  {
+    model = m_w_ces_lich;
+    [textures]
+    {
+      0 =  b_w_ces_lich;
+    }
+  }
+  [attack]
+  {
+    attack_class = ac_arrow;
+  }
+  [physics] {}
+}

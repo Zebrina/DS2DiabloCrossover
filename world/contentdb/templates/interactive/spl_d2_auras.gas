@@ -1,0 +1,166 @@
+////////////////////////////////////////////////////////////////////////////////
+// TEMPLATE: d2_aura_conviction
+// AURA: Conviction
+////////////////////////////////////////////////////////////////////////////////
+[t:template,n:d2_aura_conviction]
+{
+	category_name = "magic";
+	doc = "Diablo 2 conviction aura";
+	specializes = base_spell_combat;
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Fire Resistance";
+		description = "The Fire Elemental's influence increases the fire resistance and magic damage of its companions.\n";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_m_i_pet-fe-em-up;
+	}
+	[magic]
+	{
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_defensive;
+		apply_enchantments = false;
+		awp_visible = false;
+		use_intel_level = false;
+		is_one_shot = true;
+		cast_range = 4;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_generic;
+				duration = -1;
+				value = 0;
+				description = "Fire resist aura";
+				custom_effect = "aura_fire_resist";
+				custom_effect_skrit = world\global\enchantments\actor_enchant.skrit?enchanted_ffx=ffx_fire_resist_affect_aura;
+			}
+			[*]
+			{
+				alteration = alter_fire_resistance;
+				duration = -1;
+				value = 0.40;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_percent;
+				duration = -1;
+				party_active = true;
+				value = 0.08;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_percent;
+				duration = -1;
+				party_active = true;
+				value = 0.08;
+			}
+			[fire_elemental_aura]
+			{
+				alteration = alter_generic;
+				description = "+<value>% Fire Resistance";
+				duration = 0;
+				value = 40;
+			}
+			[wrath_magic_b_magic_damage]
+			{
+				alteration = alter_generic;
+				description = "+<value>% Magic Damage";
+				duration = 0;
+				value = 8;
+			}
+		}
+	}
+	[spell_aura]
+	{
+		aura_ffx		= "ffx_fire_resist_main_aura";
+		aura_radius		= 4.0;
+		aura_state_name = "fire_resist";
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// TEMPLATE: d2_aura_meditation
+// AURA: Meditation
+////////////////////////////////////////////////////////////////////////////////
+[t:template,n:d2_aura_meditation]
+{
+	category_name = "magic";
+	doc = "Diablo 2 meditation aura";
+	specializes = base_spell_nature;
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Ice Resistance";
+		description = "The Ice Elemental's influence increases the ice resistance and mana regeneration of its companions.\n";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_m_i_pet-ie-em-up;
+	}
+	[magic]
+	{
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_defensive;
+		apply_enchantments = false;
+		awp_visible = false;
+		use_intel_level = false;
+		is_one_shot = true;
+		cast_range = 4;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_generic;
+				duration = -1;
+				value = 0;
+				description = "Ice Resistance aura";
+				custom_effect = "aura_ice_resist";
+				custom_effect_skrit = world\global\enchantments\actor_enchant.skrit?enchanted_ffx=ffx_ice_resist_affect_aura;
+			}
+			[*]
+			{
+				alteration = alter_ice_resistance;
+				description = "Ice Resistance";
+				duration = -1;
+				value = 0.40;
+			}
+			[*]
+			{
+				alteration = alter_mana_recovery_unit;
+				description = "Mana Regeneration";
+				duration = -1;
+				multiply_value = true;
+				value = 2.5;
+			}
+			[ice_elemental_aura]
+			{
+				alteration = alter_generic;
+				description = "+<value>% Ice Resistance";
+				duration = 0;
+				value = 40;
+			}
+			[aquatic_embrace_a_mana_regen]
+			{
+				alteration = alter_generic;
+				description = "+<value>% Mana Regeneration Rate";
+				duration = 0;
+				value = 150;
+			}
+		}
+	}
+	[spell_aura]
+	{
+		aura_ffx		= "ffx_ice_resist_main_aura";
+		aura_radius		= 4.0;
+		aura_state_name = "ice_resist";
+	}
+}

@@ -1,0 +1,152 @@
+////////////////////////////////////////////////////////////////////////////////
+// PET BASE TEMPLATE
+////////////////////////////////////////////////////////////////////////////////
+[t:template,n:base_pet_d2_spirit_bear]
+{
+	specializes = base_pet;
+	[aspect]
+	{
+        gold_value = 2250; // PLACEHOLDER
+		material = mediumflesh;
+		model = m_c_na_br_pos_1;
+        [textures]
+		{
+			0 = b_c_na_d2_spirit_bear;
+		}
+		scale_base = 1.0;
+		[voice]
+		{
+			[attack]
+			{
+				priority = high;
+				* = s_mn_rac_vrthbshr_atk1;
+				* = s_mn_rac_vrthbshr_atk2;
+			}
+			[die]            { * = s_mn_gen_bear_die; }
+			[enemy_spotted]  { * = s_e_call_bear; }
+			[hit_critical]   { priority = low; * = s_mn_gen_bear_hit; }
+			[hit_glance]     { priority = low; * = s_mn_gen_bear_hit2; }
+			[hit_solid]      { priority = low; * = s_mn_rac_vrthbshr_hit; }
+			[magic_item_eat_sound]		 { priority = high; * = s_mn_gen_kohlbeast_eat;  }
+			[melee_weapon_eat_sound]	 { priority = high; * = s_mn_gen_kohlbeast_eat;	}
+			[ranged_weapon_eat_sound]    { priority = high; * = s_mn_gen_kohlbeast_eat;	}
+			[armor_eat_sound]			 { priority = high; * = s_mn_gen_kohlbeast_eat;	}
+			[potion_eat_sound]			 { priority = high; * = s_mn_gen_kohlbeast_eat;	}
+			[misc_eat_sound]			 { priority = high; * = s_mn_gen_kohlbeast_eat;	}
+		}
+	}
+	[body]
+	{
+		avg_move_velocity = 2.80000; // ??
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_spine2;
+			kill_bone = bip01_head;
+			shield_bone = bip01_l_hand;
+			weapon_bone = bip01_r_hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_na_br_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00 = at; }
+				[anim_durations] { fs0 = 2.333; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00 = ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00 = di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00 = dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00 = wl; }
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// PET STATS TEMPLATE
+////////////////////////////////////////////////////////////////////////////////
+[t:template,n:pet_d2_spirit_bear_stats]
+{
+	specializes = base_pet_d2_spirit_bear;
+	[actor]
+	{
+        portrait_icon = b_gui_ig_m_i_edm-p-038;
+		[skills]
+		{
+			dexterity = 1, 0;
+			intelligence = 1, 0;
+			strength = 1, 0;
+		}
+	}
+	[aspect]
+	{
+        life = 100;
+		mana = 100;
+		max_life = 100;
+		max_mana = 100;
+		life_recovery_unit   = 1.0;
+		life_recovery_period = 2.0;
+		mana_recovery_unit   = 1.0;
+		mana_recovery_period = 2.0;
+	}
+	[attack]
+	{
+        attack_range = 1.25;
+        damage_min = 0;
+        damage_max = 0;
+	}
+	[common]
+    {
+        rollover_help_key = variable_stats;
+        screen_name = "Spirit Bear";
+    }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+	}
+	[pet]
+	{
+		pet_specification = d2_spirit_bear_pet;
+	}
+	[mind]
+	{
+		personal_space_range = 3.0;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// PET LEAF TEMPLATE
+////////////////////////////////////////////////////////////////////////////////
+[t:template,n:pet_d2_spirit_bear]
+{
+	doc = "pet_d2_spirit_bear";
+	specializes = pet_d2_spirit_bear_stats;
+}
+[t:template,n:pet_d2_spirit_bear_bestiary]
+{
+	doc = "pet_d2_spirit_bear_bestiary";
+	specializes = pet_d2_spirit_bear_stats;
+}

@@ -1,0 +1,115 @@
+////////////////////////////////////////////////////////////////////////////////
+// TEMPLATE: ax_1h_rnwd_d2_grief
+// ITEM: Grief
+////////////////////////////////////////////////////////////////////////////////
+[t:template,n:ax_1h_rnwd_d2_grief]
+{
+	specializes = base_sword_template;
+	doc = "Diablo 2 Grief Runeword";
+	[aspect]
+	{
+		model = m_w_swd_d2_lightsabre; // PH
+		tracer_texture = b_sfx_tra_generic-70; // PH
+		[textures]
+		{
+			0 = b_w_swd_d2_lightsabre; // PH
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_sword_putdown; // PH
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Grief";
+		base_screen_name = "Berserker Axe";
+        description = "<c:0xFFADA156>'EthTirLoMalRal'</c>";
+		rarity = RUNEWORD;
+        allow_modifiers = false;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2, aegis:10;
+		inventory_icon = b_gui_ig_i_w_axe_d2_grief;
+		inventory_height = 3;
+		inventory_width = 2;
+        item_level = 61.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_SPEED;
+                value				= 0.40;
+                description			= "+40% Increased Attack Speed";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+    		{
+                alteration          = ALTER_GENERIC;
+                value               = 1;
+    			description         = "+400% Rebuke Damage";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_grief_rebuke_dmg";
+    		}
+			[*]
+			{
+				alteration			= alter_custom_damage_fire;
+				value				= 5;
+				max_value			= 30;
+				description			= "Adds <value> to <max_value> Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [critchance_melee]
+    		{
+    			alteration          = ALTER_CRITICAL_CHANCE_MELEE_BONUS_PERCENT;
+    			value               = 0.20;
+    			description         = "+20% Melee Critical Hit Chance";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    		}
+            [*]
+			{
+				alteration			= ALTER_MANA_STEAL;
+				value				= 7;
+				description			= "<value>% Mana Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+    		{
+    			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+    			suite               = spell_proc_lightning_burst_superior;
+    			value				= 0.05;
+    			//description         = "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+    			description         = "Chance on Hit: Chain Lightning";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    		}
+			[*]
+			{
+				alteration			= ALTER_LIGHTNING_RESISTANCE;
+				value				= 0.25;
+				description			= "+25% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+	[loot_drop_indicator] {}
+}

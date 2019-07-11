@@ -1,0 +1,8939 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  world\contentdb\pcontent.gas
+// Author(s):  Scott Bilas, Chad Queen
+//
+// Summary  :  Contains a big happy fun pile of rules for building
+//		       parameterized content.
+//
+// Copyright � 2000 Gas Powered Games, Inc.  All rights reserved.
+//----------------------------------------------------------------------------
+//  $Revision:: $				$Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+/*
+
+Modifier Format:
+
+[modifiername]
+{
+	type			= prefix;					// Can be "prefix" or "suffix"
+	screen_name		= "Modifer Name";			// Name the user sees for this modifier.
+	level			= 1;						// Power level of the modifier.  Analogous to the character's level.
+	object_types	= weapon;					// Type of items this modifier can be used for.  Valid types:
+												// armor, weapon, amulet, ring, spellbook, body, helm, gloves, boots, shield
+												// melee, ranged
+	skill_types 	= fighter;					// Classes of items this modifier can be used for.  Valid types:
+												// fighter, ranger, mage, nmage, cmage
+	family			= ice;						// What "family" of modifiers to I belong to.  Can be any arbritary string.
+
+	// Lists what families this family is not compatible with.  Not listing anything here means that
+	// it can be paired with anything.  There is currently only support for four exclusions groups to optimize database speed.
+	exclusion_family_1 = fire;
+	exclusion_family_2 = fire;
+	exclusion_family_3 = fire;
+	exclusion_family_4 = fire;
+}
+
+*/
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+// Strength Bonus
+
+[modifiers]
+{
+	[ofhardiness]
+	{
+		type			= suffix;
+		screen_name		= "of Hardiness";
+		level			= 2;
+		object_types	= weapon,armor,ring,amulet;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+
+		[strength]
+		{
+			alteration			= alter_strength;
+			value				= 1;
+			description			= "+<value> Strength";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "stat_strength";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_str_bonus_sword
+								  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+		}
+	}
+
+	[ofsturdiness]
+	{
+		specializes = ofhardiness;
+
+		screen_name		= "of Sturdiness";
+		level			= 10;
+
+		[strength]
+		{
+			value = 3;
+			description = "+<value> Strength";
+ 		}
+	}
+
+	[ofvigor]
+	{
+		specializes = ofhardiness;
+
+		screen_name		= "of Vigor";
+		level			= 19;
+
+		[strength]
+		{
+			value = 7;
+			description = "+<value> Strength";
+		}
+	}
+
+	[oftenacity]
+	{
+		specializes = ofhardiness;
+
+		screen_name		= "of Tenacity";
+		level			= 28;
+
+		[strength]
+		{
+			value = 12;
+			description = "+<value> Strength";
+		}
+	}
+
+	[offorce]
+	{
+		specializes = ofhardiness;
+
+		screen_name		= "of Force";
+		level			= 38;
+
+		[strength]
+		{
+			value = 20;
+			description = "+<value> Strength";
+		}
+	}
+
+	[ofvirulence]
+	{
+		specializes = ofhardiness;
+
+		screen_name		= "of Virulence";
+		level			= 48;
+
+		[strength]
+		{
+			value = 30;
+			description = "+<value> Strength";
+		}
+	}
+
+	[ofmight]
+	{
+		specializes = ofhardiness;
+
+		screen_name		= "of Might";
+		level			= 59;
+
+		[strength]
+		{
+			value = 42;
+			description = "+<value> Strength";
+		}
+	}
+
+	[ofprominence]
+	{
+		specializes = ofhardiness;
+
+		screen_name		= "of Prominence";
+		level			= 70;
+
+		[strength]
+		{
+			value = 56;
+			description = "+<value> Strength";
+		}
+	}
+
+	[ofcolossus]
+	{
+		specializes = ofhardiness;
+
+		screen_name		= "of Colossus";
+		level			= 82;
+
+
+		[strength]
+		{
+			value = 72;
+			description = "+<value> Strength";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Dexterity Bonus
+
+	[oftheswift]
+	{
+		type			= suffix;
+		screen_name		= "of the Swift";
+		level			= 1;
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+
+		[dexterity]
+		{
+			alteration			= alter_dexterity;
+			value				= 1;
+			description			= "+<value> Dexterity";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "stat_dexterity";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+								  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+		}
+	}
+
+	[ofthespry]
+	{
+		specializes = oftheswift;
+
+		screen_name		= "of the Spry";
+		level			= 9;
+
+		[dexterity]
+		{
+			value 		= 4;
+			description = "+<value> Dexterity";
+   		}
+	}
+
+	[ofthenimble]
+	{
+		specializes = oftheswift;
+
+		screen_name		= "of the Nimble";
+		level			= 18;
+
+		[dexterity]
+		{
+			value 		= 9;
+			description = "+<value> Dexterity";
+		}
+	}
+
+	[ofproficiency]
+	{
+		specializes = oftheswift;
+
+		screen_name		= "of Proficiency";
+		level			= 27;
+
+		[dexterity]
+		{
+			value 		= 16;
+			description = "+<value> Dexterity";
+   		}
+	}
+
+	[ofexpertise]
+	{
+		specializes = oftheswift;
+
+		screen_name		= "of Expertise";
+		level			= 37;
+
+		[dexterity]
+		{
+			value 		= 27;
+			description = "+<value> Dexterity";
+   		}
+	}
+
+	[offinesse]
+	{
+		specializes = oftheswift;
+
+		screen_name		= "of Finesse";
+		level			= 47;
+
+		[dexterity]
+		{
+			value 		= 40;
+			description = "+<value> Dexterity";
+		}
+	}
+
+	[ofdeftness]
+	{
+		specializes = oftheswift;
+
+		screen_name		= "of Deftness";
+		level			= 58;
+
+		[dexterity]
+		{
+			value 		= 57;
+			description = "+<value> Dexterity";
+		}
+	}
+
+	[ofadroitness]
+	{
+		specializes = oftheswift;
+
+		screen_name		= "of Adroitness";
+		level			= 69;
+
+		[dexterity]
+		{
+			value 		= 76;
+			description = "+<value> Dexterity";
+		}
+	}
+
+	[ofeffortlessness]
+	{
+		specializes = oftheswift;
+
+		screen_name		= "of Effortlessness";
+		level			= 81;
+
+		[dexterity]
+		{
+			value 		= 100;
+			description = "+<value> Dexterity";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Intelligence Bonus
+
+	[ofawareness]
+	{
+		type			= suffix;
+		screen_name		= "of Awareness";
+		level			= 3;
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+
+		[intelligence]
+		{
+			alteration			= alter_intelligence;
+			value				= 1;
+			description			= "+<value> Intelligence";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "stat_intelligence";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_int_bonus_sword
+								  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+		}
+	}
+
+	[ofinsight]
+	{
+		specializes = ofawareness;
+
+		screen_name		= "of Insight";
+		level			= 11;
+
+		[intelligence]
+		{
+			value 		= 3;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofjudgment]
+	{
+		specializes = ofawareness;
+
+		screen_name		= "of Judgment";
+		level			= 20;
+
+		[intelligence]
+		{
+			value 		= 6;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[offoresight]
+	{
+		specializes = ofawareness;
+
+		screen_name		= "of Foresight";
+		level			= 29;
+
+		[intelligence]
+		{
+			value 		= 10;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofacumen]
+	{
+		specializes = ofawareness;
+
+		screen_name		= "of Acumen";
+		level			= 39;
+
+		[intelligence]
+		{
+			value 		= 16;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofknowledge]
+	{
+		specializes = ofawareness;
+
+		screen_name		= "of Knowledge";
+		level			= 49;
+
+		[intelligence]
+		{
+			value 		= 24;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofbrilliance]
+	{
+		specializes = ofawareness;
+
+		screen_name		= "of Brilliance";
+		level			= 60;
+
+		[intelligence]
+		{
+			value 		= 33;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofenlightenment]
+	{
+		specializes = ofawareness;
+
+		screen_name		= "of Enlightenment";
+		level			= 71;
+
+		[intelligence]
+		{
+			value 		= 45;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofomniscience]
+	{
+		specializes = ofawareness;
+
+		screen_name		= "of Omniscience";
+		level			= 83;
+
+		[intelligence]
+		{
+			value 		= 60;
+			description = "+<value> Intelligence";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Health Bonus
+
+	[oftherat]
+	{
+		type			= suffix;
+		screen_name		= "of the Rat";
+		level			= 1;
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[health]
+		{
+			alteration			= alter_max_life;
+			value				= 4;
+			description			= "+<value> Health";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[oftheweasel]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Weasel";
+		level			= 8;
+
+		[health]
+		{
+			value 		= 9;
+			description	= "+<value> Health";
+		}
+	}
+
+	[ofthefox]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Fox";
+		level			= 13;
+
+		[health]
+		{
+			value 		= 15;
+			description	= "+<value> Health";
+		}
+	}
+
+	[ofthebadger]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Badger";
+		level			= 18;
+
+		[health]
+		{
+			value 		= 24;
+			description	= "+<value> Health";
+		}
+	}
+
+	[ofthepanther]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Panther";
+		level			= 24;
+
+		[health]
+		{
+			value 		= 36;
+			description	= "+<value> Health";
+		}
+	}
+
+	[oftheram]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Ram";
+		level			= 30;
+
+		[health]
+		{
+			value 		= 50;
+			description	= "+<value> Health";
+		}
+	}
+
+	[oftheboar]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Boar";
+		level			= 36;
+
+		[health]
+		{
+			value 		= 67;
+			description	= "+<value> Health";
+		}
+	}
+
+	[ofthewolf]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Wolf";
+		level			= 43;
+
+		[health]
+		{
+			value 		= 90;
+			description	= "+<value> Health";
+		}
+	}
+
+	[ofthetiger]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Tiger";
+		level			= 50;
+
+		[health]
+		{
+			value 		= 116;
+			description	= "+<value> Health";
+		}
+	}
+
+	[ofthehorse]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Horse";
+		level			= 58;
+
+		[health]
+		{
+			value 		= 150;
+			description	= "+<value> Health";
+		}
+	}
+
+	[ofthebear]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Bear";
+		level			= 66;
+
+		[health]
+		{
+			value 		= 188;
+			description	= "+<value> Health";
+		}
+	}
+
+	[ofthelion]
+	{
+		specializes = oftherat;
+
+		screen_name		= "of the Lion";
+		level			= 75;
+
+		[health]
+		{
+			value 		= 237;
+			description	= "+<value> Health";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Mana Bonus
+
+	[ofthetoad]
+	{
+		type			= suffix;
+		screen_name		= "of the Toad";
+		level			= 1;
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= nmage,cmage;
+
+		[mana]
+		{
+			alteration			= alter_max_mana;
+			value				= 4;
+			description			= "+<value> Mana";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[ofthehawk]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Hawk";
+		level			= 9;
+
+		[mana]
+		{
+			value 		= 13;
+			description = "+<value> Mana";
+		}
+	}
+
+	[ofthelizard]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Lizard";
+		level			= 13;
+
+		[mana]
+		{
+			value 		= 21;
+			description = "+<value> Mana";
+		}
+	}
+
+	[oftheeagle]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Eagle";
+		level			= 17;
+
+		[mana]
+		{
+			value 		= 30;
+			description = "+<value> Mana";
+		}
+	}
+
+	[oftheserpent]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Serpent";
+		level			= 22;
+
+		[mana]
+		{
+			value 		= 43;
+			description = "+<value> Mana";
+		}
+	}
+
+	[ofthefalcon]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Falcon";
+		level			= 27;
+
+		[mana]
+		{
+			value 		= 59;
+			description = "+<value> Mana";
+		}
+	}
+
+	[oftheraven]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Raven";
+		level			= 33;
+
+		[mana]
+		{
+			value 		= 81;
+			description = "+<value> Mana";
+		}
+	}
+
+	[oftheowl]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Owl";
+		level			= 39;
+
+		[mana]
+		{
+			value 		= 107;
+			description = "+<value> Mana";
+		}
+	}
+
+	[ofthegriffon]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Griffon";
+		level			= 45;
+
+		[mana]
+		{
+			value 		= 136;
+			description = "+<value> Mana";
+		}
+	}
+
+	[ofthehydra]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Hydra";
+		level			= 52;
+
+		[mana]
+		{
+			value 		= 175;
+			description = "+<value> Mana";
+		}
+	}
+
+	[ofthephoenix]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Phoenix";
+		level			= 59;
+
+		[mana]
+		{
+			value 		= 218;
+			description = "+<value> Mana";
+		}
+	}
+
+	[ofthedragon]
+	{
+		specializes = ofthetoad;
+
+		screen_name		= "of the Dragon";
+		level			= 67;
+
+		[mana]
+		{
+			value 		= 274;
+			description = "+<value> Mana";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X to Melee Max Damage
+
+	[ofwounding]
+	{
+		type			= suffix;
+		screen_name		= "of Wounding";
+		level			= 1;
+		object_types	= melee;
+		skill_types		= fighter;
+
+		[melee_damage_max]
+		{
+			alteration			= alter_melee_damage_max;
+			value				= 1;
+			description			= "+<value> Max Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "melee_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[ofpain]
+	{
+		specializes 	= ofwounding;
+
+		screen_name		= "of Pain";
+		level			= 11;
+
+		[melee_damage_max]
+		{
+			value 		= 4;
+			description = "+<value> Max Damage";
+		}
+	}
+
+	[oftorment]
+	{
+		specializes 	= ofwounding;
+
+		screen_name		= "of Torment";
+		level			= 24;
+
+		[melee_damage_max]
+		{
+			value 		= 12;
+			description = "+<value> Max Damage";
+		}
+	}
+
+	[ofinjury]
+	{
+		specializes 	= ofwounding;
+
+		screen_name		= "of Injury";
+		level			= 40;
+
+		[melee_damage_max]
+		{
+			value 		= 25;
+			description = "+<value> Max Damage";
+		}
+	}
+
+	[ofmutilation]
+	{
+		specializes 	= ofwounding;
+
+		screen_name		= "of Mutilation";
+		level			= 56;
+
+		[melee_damage_max]
+		{
+			value 		= 45;
+			description = "+<value> Max Damage";
+		}
+	}
+
+	[oftorture]
+	{
+		specializes 	= ofwounding;
+
+		screen_name		= "of Torture";
+		level			= 74;
+
+		[melee_damage_max]
+		{
+			value 		= 72;
+			description = "+<value> Max Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X to Ranged Max Damage
+
+	[ofaccuracy]
+	{
+		type			= suffix;
+		screen_name		= "of Accuracy";
+		level			= 1;
+		object_types	= ranged;
+		skill_types		= ranger;
+
+		[ranged_damage_max]
+		{
+			alteration			= alter_ranged_damage_max;
+			value				= 1;
+			description			= "+<value> Max Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "ranged_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[offocus]
+	{
+		specializes 	= ofaccuracy;
+
+		screen_name		= "of Focus";
+		level			= 11;
+
+		[ranged_damage_max]
+		{
+			value 		= 4;
+			description = "+<value> Max Damage";
+		}
+	}
+
+	[ofsighting]
+	{
+		specializes 	= ofaccuracy;
+
+		screen_name		= "of Sighting";
+		level			= 24;
+
+		[ranged_damage_max]
+		{
+			value 		= 11;
+			description = "+<value> Max Damage";
+		}
+	}
+
+	[ofprecision]
+	{
+		specializes 	= ofaccuracy;
+
+		screen_name		= "of Precision";
+		level			= 40;
+
+		[ranged_damage_max]
+		{
+			value 		= 25;
+			description = "+<value> Max Damage";
+		}
+	}
+
+	[ofseeking]
+	{
+		specializes 	= ofaccuracy;
+
+		screen_name		= "of Seeking";
+		level			= 56;
+
+		[ranged_damage_max]
+		{
+			value 		= 44;
+			description = "+<value> Max Damage";
+		}
+	}
+
+	[ofmastery]
+	{
+		specializes 	= ofaccuracy;
+
+		screen_name		= "of Mastery";
+		level			= 74;
+
+		[ranged_damage_max]
+		{
+			value 		= 72;
+			description = "+<value> Max Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X to Melee Min Damage
+
+	[ofaffliction]
+	{
+		type			= suffix;
+		screen_name		= "of Affliction";
+		level			= 3;
+		object_types	= melee;
+		skill_types		= fighter;
+
+		[melee_damage_min]
+		{
+			alteration			= alter_melee_damage_min;
+			value				= 3;
+			description			= "+<value> Min Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "melee_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[ofdisaster]
+	{
+		specializes 	= ofaffliction;
+
+		screen_name		= "of Disaster";
+		level			= 7;
+
+		[melee_damage_min]
+		{
+			value 		= 4;
+			description = "+<value> Min Damage";
+		}
+	}
+
+	[ofgrief]
+	{
+		specializes 	= ofaffliction;
+
+		screen_name		= "of Grief";
+		level			= 13;
+
+		[melee_damage_min]
+		{
+			value 		= 6;
+			description = "+<value> Min Damage";
+		}
+	}
+
+	[ofmisery]
+	{
+		specializes 	= ofaffliction;
+
+		screen_name		= "of Misery";
+		level			= 21;
+
+		[melee_damage_min]
+		{
+			value 		= 9;
+			description = "+<value> Min Damage";
+		}
+	}
+
+	[ofcalamity]
+	{
+		specializes 	= ofaffliction;
+
+		screen_name		= "of Calamity";
+		level			= 33;
+
+		[melee_damage_min]
+		{
+			value 		= 13;
+			description = "+<value> Min Damage";
+		}
+	}
+
+	[ofdesolation]
+	{
+		specializes 	= ofaffliction;
+
+		screen_name		= "of Desolation";
+		level			= 48;
+
+		[melee_damage_min]
+		{
+			value 		= 18;
+			description = "+<value> Min Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X to Ranged Min Damage
+
+	[ofpiercing]
+	{
+		type			= suffix;
+		screen_name		= "of Piercing";
+		level			= 3;
+		object_types	= ranged;
+		skill_types		= ranger;
+
+		[ranged_damage_min]
+		{
+			alteration			= alter_ranged_damage_min;
+			value				= 3;
+			description			= "+<value> Min Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "ranged_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[ofdriving]
+	{
+		specializes 	= ofpiercing;
+
+		screen_name		= "of Driving";
+		level			= 7;
+
+		[ranged_damage_min]
+		{
+			value 		= 4;
+		}
+	}
+
+	[ofpuncturing]
+	{
+		specializes 	= ofpiercing;
+
+		screen_name		= "of Puncturing";
+		level			= 13;
+
+		[ranged_damage_min]
+		{
+			value 		= 6;
+		}
+	}
+
+	[ofboring]
+	{
+		specializes 	= ofpiercing;
+
+		screen_name		= "of Boring";
+		level			= 21;
+
+		[ranged_damage_min]
+		{
+			value 		= 9;
+		}
+	}
+
+	[ofperforating]
+	{
+		specializes 	= ofpiercing;
+
+		screen_name		= "of Perforating";
+		level			= 33;
+
+		[ranged_damage_min]
+		{
+			value 		= 13;
+		}
+	}
+
+	[ofpenetrating]
+	{
+		specializes 	= ofpiercing;
+
+		screen_name		= "of Penetrating";
+		level			= 48;
+
+		[ranged_damage_min]
+		{
+			value 		= 18;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X% to Melee Weapon Damage
+
+	[cruel]
+	{
+		type			= prefix;
+		screen_name		= "Cruel";
+		level			= 2;
+		object_types	= melee;
+		skill_types		= fighter;
+
+		[melee_damage_percent]
+		{
+			alteration			= alter_melee_damage_source_percent;
+			value				= 0.10;
+			description			= "+10% Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "melee_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[wicked]
+	{
+		specializes 	= cruel;
+
+		screen_name		= "Wicked";
+		level			= 8;
+
+		[melee_damage_percent]
+		{
+			value 		= 0.15;
+			description = "+15% Damage";
+		}
+	}
+
+	[callous]
+	{
+		specializes 	= cruel;
+
+		screen_name		= "Callous";
+		level			= 14;
+
+		[melee_damage_percent]
+		{
+			value 		= 0.20;
+			description = "+20% Damage";
+		}
+	}
+
+	[heartless]
+	{
+		specializes 	= cruel;
+
+		screen_name		= "Heartless";
+		level			= 21;
+
+		[melee_damage_percent]
+		{
+			value 		= 0.25;
+			description = "+25% Damage";
+		}
+	}
+
+	[vicious]
+	{
+		specializes 	= cruel;
+
+		screen_name		= "Vicious";
+		level			= 28;
+
+		[melee_damage_percent]
+		{
+			value 		= 0.32;
+			description = "+32% Damage";
+		}
+	}
+
+	[ruthless]
+	{
+		specializes 	= cruel;
+
+		screen_name		= "Ruthless";
+		level			= 36;
+
+		[melee_damage_percent]
+		{
+			value 		= 0.40;
+			description = "+40% Damage";
+		}
+	}
+
+	[rancorous]
+	{
+		specializes 	= cruel;
+
+		screen_name		= "Rancorous";
+		level			= 44;
+
+		[melee_damage_percent]
+		{
+			value 		= 0.48;
+			description = "+48% Damage";
+		}
+	}
+
+	[excrutiating]
+	{
+		specializes 	= cruel;
+
+		screen_name		= "Excruciating";
+		level			= 53;
+
+		[melee_damage_percent]
+		{
+			value 		= 0.56;
+			description = "+56% Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X% to Ranged Weapon Damage
+
+	[sharp]
+	{
+		type			= prefix;
+		screen_name		= "Sharp";
+		level			= 1;
+		object_types	= ranged;
+		skill_types		= ranger;
+
+		[ranged_damage_percent]
+		{
+			alteration			= alter_ranged_damage_source_percent;
+			value				= 0.10;
+			description			= "+10% Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "ranged_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[honed]
+	{
+		specializes 	= sharp;
+
+		screen_name		= "Honed";
+		level			= 10;
+
+		[ranged_damage_percent]
+		{
+			value 		= 0.15;
+			description = "+15% Damage";
+		}
+	}
+
+	[stinging]
+	{
+		specializes 	= sharp;
+
+		screen_name		= "Stinging";
+		level			= 16;
+
+		[ranged_damage_percent]
+		{
+			value 		= 0.20;
+			description = "+20% Damage";
+		}
+	}
+
+	[jagged]
+	{
+		specializes 	= sharp;
+
+		screen_name		= "Jagged";
+		level			= 23;
+
+		[ranged_damage_percent]
+		{
+			value 		= 0.26;
+			description = "+26% Damage";
+		}
+	}
+
+	[fine]
+	{
+		specializes 	= sharp;
+
+		screen_name		= "Fine";
+		level			= 30;
+
+		[ranged_damage_percent]
+		{
+			value 		= 0.33;
+			description = "+33% Damage";
+		}
+	}
+
+	[serrated]
+	{
+		specializes 	= sharp;
+
+		screen_name		= "Serrated";
+		level			= 38;
+
+		[ranged_damage_percent]
+		{
+			value 		= 0.40;
+			description = "+40% Damage";
+		}
+	}
+
+	[keen]
+	{
+		specializes 	= sharp;
+
+		screen_name		= "Keen";
+		level			= 46;
+
+		[ranged_damage_percent]
+		{
+			value 		= 0.48;
+			description = "+48% Damage";
+		}
+	}
+
+	[razor]
+	{
+		specializes 	= sharp;
+
+		screen_name		= "Razor";
+		level			= 55;
+
+		[ranged_damage_percent]
+		{
+			value 		= 0.56;
+			description = "+56% Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X% to Nature Magic Damage
+
+	[feral]
+	{
+		type			= prefix;
+		screen_name		= "Feral";
+		level			= 3;
+		object_types	= melee;	// mage weapons
+		skill_types		= mage;
+
+		[nmagic_damage_percent]
+		{
+			alteration			= alter_nmagic_damage_percent;
+			value				= 0.04;
+			description			= "+4% Nature Magic Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[savage]
+	{
+		specializes 	= feral;
+
+		screen_name		= "Savage";
+		level			= 8;
+
+		[nmagic_damage_percent]
+		{
+			value 		= 0.08;
+			description = "+8% Nature Magic Damage";
+		}
+	}
+
+	[wild]
+	{
+		specializes 	= feral;
+
+		screen_name		= "Wild";
+		level			= 13;
+
+		[nmagic_damage_percent]
+		{
+			value 		= 0.10;
+			description = "+10% Nature Magic Damage";
+		}
+	}
+
+	[ferocious]
+	{
+		specializes 	= feral;
+
+		screen_name		= "Ferocious";
+		level			= 19;
+
+		[nmagic_damage_percent]
+		{
+			value 		= 0.12;
+			description = "+12% Nature Magic Damage";
+		}
+	}
+
+	[bestial]
+	{
+		specializes 	= feral;
+
+		screen_name		= "Bestial";
+		level			= 25;
+
+		[nmagic_damage_percent]
+		{
+			value 		= 0.15;
+			description = "+15% Nature Magic Damage";
+		}
+	}
+
+	[rabid]
+	{
+		specializes 	= feral;
+
+		screen_name		= "Rabid";
+		level			= 34;
+
+		[nmagic_damage_percent]
+		{
+			value 		= 0.18;
+			description = "+18% Nature Magic Damage";
+		}
+	}
+
+	[overgrown]
+	{
+		specializes 	= feral;
+
+
+		screen_name		= "Overgrown";
+		level			= 43;
+
+		[nmagic_damage_percent]
+		{
+			value 		= 0.22;
+			description = "+22% Nature Magic Damage";
+		}
+	}
+
+	[arboreal]
+	{
+		specializes 	= feral;
+
+		screen_name		= "Arboreal";
+		level			= 52;
+
+		[nmagic_damage_percent]
+		{
+			value 		= 0.25;
+			description = "+25% Nature Magic Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X% to Combat Magic Damage
+
+	[destructive]
+	{
+		type			= prefix;
+		screen_name		= "Destructive";
+		level			= 2;
+		object_types	= melee;
+		skill_types		= mage;
+
+		[cmagic_damage_percent]
+		{
+			alteration			= alter_cmagic_damage_percent;
+			value				= 0.04;
+			description			= "+4% Combat Magic Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[eradicating]
+	{
+		specializes 	= destructive;
+
+		screen_name		= "Eradicating";
+		level			= 9;
+
+		[cmagic_damage_percent]
+		{
+			value 		= 0.08;
+			description = "+8% Combat Magic Damage";
+		}
+	}
+
+	[ruinous]
+	{
+		specializes 	= destructive;
+
+		screen_name		= "Ruinous";
+		level			= 17;
+
+		[cmagic_damage_percent]
+		{
+			value 		= 0.12;
+			description = "+12% Combat Magic Damage";
+		}
+	}
+
+	[devastating]
+	{
+		specializes 	= destructive;
+
+		screen_name		= "Devastating";
+		level			= 27;
+
+		[cmagic_damage_percent]
+		{
+			value 		= 0.15;
+			description = "+15% Combat Magic Damage";
+		}
+	}
+
+	[annihilating]
+	{
+		specializes 	= destructive;
+
+		screen_name		= "Annihilating";
+		level			= 37;
+
+		[cmagic_damage_percent]
+		{
+			value 		= 0.20;
+			description = "+20% Combat Magic Damage";
+		}
+	}
+
+	[demolishing]
+	{
+		specializes 	= destructive;
+
+		screen_name		= "Demolishing";
+		level			= 48;
+
+		[cmagic_damage_percent]
+		{
+			value 		= 0.24;
+			description = "+24% Combat Magic Damage";
+		}
+	}
+
+	[obliterating]
+	{
+		specializes 	= destructive;
+
+		screen_name		= "Obliterating";
+		level			= 59;
+
+		[cmagic_damage_percent]
+		{
+			value 		= 0.28;
+			description = "+28% Combat Magic Damage";
+		}
+	}
+
+	[tragic]
+	{
+		specializes 	= destructive;
+
+		screen_name		= "Tragic";
+		level			= 72;
+
+		[cmagic_damage_percent]
+		{
+			value 		= 0.32;
+			description = "+32% Combat Magic Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X Ice Elemental Damage Melee
+
+	[chilling]
+	{
+		type			= prefix;
+		screen_name		= "Chilling";
+		level			= 18;
+		object_types	= melee;
+		skill_types		= fighter;
+
+		[melee_ice_damage]
+		{
+			alteration			= alter_custom_damage_ice;
+			value				= 3;
+			max_value			= 4;
+			description			= "Adds <value> to <max_value> Ice Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "melee_ice";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_ice_sword
+								  &projectile_ffx	= ffx_spell_ice_arrow
+								  &hit_ffx			= ffx_spell_ice_sword_hit;
+		}
+	}
+
+	[shivering]
+	{
+		specializes = chilling;
+
+		screen_name		= "Shivering";
+		level			= 27;
+
+		[melee_ice_damage]
+		{
+			value 		= 5;
+			max_value 	= 8;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+	[frigid]
+	{
+		specializes = chilling;
+
+		screen_name		= "Frigid";
+		level			= 37;
+
+		[melee_ice_damage]
+		{
+			value 		= 8;
+			max_value 	= 14;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+	[arctic]
+	{
+		specializes = chilling;
+
+		screen_name		= "Arctic";
+		level			= 49;
+
+		[melee_ice_damage]
+		{
+			value 		= 13;
+			max_value 	= 22;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+	[glacial]
+	{
+		specializes = chilling;
+
+		screen_name		= "Glacial";
+		level			= 61;
+
+		[melee_ice_damage]
+		{
+			value 		= 19;
+			max_value 	= 32;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+	[boreal]
+	{
+		specializes = chilling;
+
+		screen_name		= "Boreal";
+		level			= 74;
+
+		[melee_ice_damage]
+		{
+			value 		= 27;
+			max_value 	= 45;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X Ice Elemental Damage Ranged
+
+	[frosted]
+	{
+		type			= prefix;
+		screen_name		= "Frosted";
+		level			= 18;
+		object_types	= ranged;
+		skill_types		= ranger;
+
+		[ranged_ice_damage]
+		{
+			alteration			= alter_custom_damage_ice;
+			value				= 3;
+			max_value			= 4;
+			description			= "Adds <value> to <max_value> Ice Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "ranged_ice";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx	= ffx_spell_ice_arrow
+								  &hit_ffx			= ffx_spell_ice_sword_hit;
+		}
+	}
+
+	[snowy]
+	{
+		specializes = frosted;
+
+		screen_name		= "Snowy";
+		level			= 27;
+
+		[ranged_ice_damage]
+		{
+			value 		= 5;
+			max_value 	= 8;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+	[icy]
+	{
+		specializes = frosted;
+
+		screen_name		= "Icy";
+		level			= 37;
+
+		[ranged_ice_damage]
+		{
+			value 		= 8;
+			max_value 	= 14;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+	[frozen]
+	{
+		specializes = frosted;
+
+		screen_name		= "Frozen";
+		level			= 49;
+
+		[ranged_ice_damage]
+		{
+			value 		= 13;
+			max_value 	= 22;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+	[wintery]
+	{
+		specializes = frosted;
+
+		screen_name		= "Wintery";
+		level			= 61;
+
+		[ranged_ice_damage]
+		{
+			value 		= 19;
+			max_value 	= 32;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+	[polar]
+	{
+		specializes = frosted;
+
+		screen_name		= "Polar";
+		level			= 74;
+
+		[ranged_ice_damage]
+		{
+			value 		= 27;
+			max_value 	= 45;
+			description	= "Adds <value> to <max_value> Ice Damage";
+		}
+	}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// +X Fire Elemental Damage Melee
+
+	[scorching]
+	{
+		type			= prefix;
+		screen_name		= "Scorching";
+		level			= 15;
+		object_types	= melee;
+		skill_types		= fighter;
+
+		[melee_fire_damage]
+		{
+			alteration			= alter_custom_damage_fire;
+			value				= 2;
+			max_value			= 4;
+			description			= "Adds <value> to <max_value> Fire Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "melee_fire";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_fire_sword
+								  &projectile_ffx	= ffx_spell_fire_arrow
+								  &hit_ffx			= ffx_spell_fire_sword_hit;
+		}
+	}
+
+	[burning]
+	{
+		specializes = scorching;
+
+		screen_name		= "Burning";
+		level			= 25;
+
+		[melee_fire_damage]
+		{
+	   		value		= 4;
+			max_value	= 6;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+	[searing]
+	{
+		specializes = scorching;
+
+		screen_name		= "Searing";
+		level			= 37;
+
+		[melee_fire_damage]
+		{
+	   		value		= 10;
+			max_value	= 12;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+	[flaming]
+	{
+		specializes = scorching;
+
+		screen_name		= "Flaming";
+		level			= 50;
+
+		[melee_fire_damage]
+		{
+	   		value		= 16;
+			max_value	= 20;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+	[blistering]
+	{
+		specializes = scorching;
+
+		screen_name		= "Blistering";
+		level			= 64;
+
+		[melee_fire_damage]
+		{
+	   		value		= 25;
+			max_value	= 30;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+	[cremating]
+	{
+		specializes = scorching;
+
+		screen_name		= "Cremating";
+		level			= 80;
+
+		[melee_fire_damage]
+		{
+	   		value		= 36;
+			max_value	= 46;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X Fire Elemental Damage Ranged
+
+	[heated]
+	{
+		type			= prefix;
+		screen_name		= "Heated";
+		level			= 15;
+		object_types	= ranged;
+		skill_types		= ranger;
+
+		[ranged_fire_damage]
+		{
+			alteration			= alter_custom_damage_fire;
+			value				= 3;
+			max_value			= 3;
+			description			= "Adds <value> to <max_value> Fire Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "ranged_fire";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_fire_arrow
+								  &hit_ffx				= ffx_spell_fire_sword_hit;
+		}
+	}
+
+	[smoking]
+	{
+		specializes = heated;
+
+		screen_name		= "Smoking";
+		level			= 25;
+
+		[ranged_fire_damage]
+		{
+	   		value		= 4;
+			max_value	= 6;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+	[cauterizing]
+	{
+		specializes = heated;
+
+		screen_name		= "Cauterizing";
+		level			= 37;
+
+		[ranged_fire_damage]
+		{
+	   		value		= 10;
+			max_value	= 12;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+	[igneous]
+	{
+		specializes = heated;
+
+		screen_name		= "Igneous";
+		level			= 50;
+
+		[ranged_fire_damage]
+		{
+	   		value		= 16;
+			max_value	= 20;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+	[carbonizing]
+	{
+		specializes = heated;
+
+		screen_name		= "Carbonizing";
+		level			= 64;
+
+		[ranged_fire_damage]
+		{
+	   		value		= 25;
+			max_value	= 30;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+	[incinerating]
+	{
+		specializes = heated;
+
+		screen_name		= "Incinerating";
+		level			= 80;
+
+		[ranged_fire_damage]
+		{
+	   		value		= 36;
+			max_value	= 46;
+			description	= "Adds <value> to <max_value> Fire Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X Lightning Elemental Damage Melee
+
+	[jolting]
+	{
+		type			= prefix;
+		screen_name		= "Jolting";
+		level			= 18;
+		object_types	= melee;
+		skill_types		= fighter;
+
+		[melee_lightning_damage]
+		{
+			alteration			= alter_custom_damage_lightning;
+			value				= 2;
+			max_value			= 5;
+			description			= "Adds <value> to <max_value> Lightning Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "melee_lightning";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_lightning_sword
+								  &projectile_ffx	= ffx_spell_lightning_arrow
+								  &hit_ffx			= ffx_spell_lightning_sword_hit;
+		}
+	}
+
+	[electrified]
+	{
+		specializes = jolting;
+
+		screen_name		= "Electrified";
+		level			= 29;
+
+		[melee_lightning_damage]
+		{
+			value 		= 4;
+			max_value 	= 12;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+	[charged]
+	{
+		specializes = jolting;
+
+		screen_name		= "Charged";
+		level			= 37;
+
+		[melee_lightning_damage]
+		{
+			value 		= 6;
+			max_value 	= 20;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+	[shocking]
+	{
+		specializes = jolting;
+
+		screen_name		= "Shocking";
+		level			= 42;
+
+		[melee_lightning_damage]
+		{
+			value 		= 12;
+			max_value 	= 32;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+	[thundering]
+	{
+		specializes = jolting;
+
+		screen_name		= "Thundering";
+		level			= 70;
+
+		[melee_lightning_damage]
+		{
+			value 		= 16;
+			max_value 	= 50;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+	[storming]
+	{
+		specializes = jolting;
+
+		screen_name		= "Storming";
+		level			= 85;
+
+		[melee_lightning_damage]
+		{
+			value 		= 24;
+			max_value 	= 70;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X Lightning Elemental Damage Ranged
+
+	[glimmering]
+	{
+		type			= prefix;
+		screen_name		= "Glimmering";
+		level			= 18;
+		object_types	= ranged;
+		skill_types		= ranger;
+
+		[ranged_lightning_damage]
+		{
+			alteration			= alter_custom_damage_lightning;
+			value				= 2;
+			max_value			= 5;
+			description			= "Adds <value> to <max_value> Lightning Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "ranged_lightning";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_lightning_arrow
+								  &hit_ffx				= ffx_spell_lightning_sword_hit;
+		}
+	}
+
+	[glowing]
+	{
+		specializes = glimmering;
+
+		screen_name		= "Glowing";
+		level			= 29;
+
+		[ranged_lightning_damage]
+		{
+			value 		= 4;
+			max_value 	= 12;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+	[radiating]
+	{
+		specializes = glimmering;
+
+		screen_name		= "Radiating";
+		level			= 37;
+
+		[ranged_lightning_damage]
+		{
+			value 		= 6;
+			max_value 	= 20;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+	[dazzling]
+	{
+		specializes = glimmering;
+
+		screen_name		= "Dazzling";
+		level			= 42;
+
+		[ranged_lightning_damage]
+		{
+			value 		= 12;
+			max_value 	= 32;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+	[suffused]
+	{
+		specializes = glimmering;
+
+		screen_name		= "Suffused";
+		level			= 70;
+
+		[ranged_lightning_damage]
+		{
+			value 		= 16;
+			max_value 	= 50;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+	[incandescent]
+	{
+		specializes = glimmering;
+
+		screen_name		= "Incandescent";
+		level			= 85;
+
+		[ranged_lightning_damage]
+		{
+			value 		= 24;
+			max_value 	= 70;
+			description	= "Adds <value> to <max_value> Lightning Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X Death Elemental Damage Melee
+
+	[grim]
+	{
+		type			= prefix;
+		screen_name		= "Grim";
+		level			= 22;
+		object_types	= melee;
+		skill_types		= fighter;
+
+		[melee_death_damage]
+		{
+			alteration			= alter_custom_damage_death;
+			value				= 4;
+			max_value			= 6;
+			description			= "Adds <value> to <max_value> Death Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "melee_death";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_death_sword
+								  &projectile_ffx	= ffx_spell_death_arrow
+								  &hit_ffx			= ffx_spell_death_sword_hit;
+		}
+	}
+
+	[corrupt]
+	{
+		specializes = grim;
+
+		screen_name		= "Corrupt";
+		level			= 32;
+
+		[melee_death_damage]
+		{
+	   		value		= 6;
+			max_value	= 12;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+	[vile]
+	{
+		specializes = grim;
+
+		screen_name		= "Vile";
+		level			= 42;
+
+		[melee_death_damage]
+		{
+	   		value		= 10;
+			max_value	= 18;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+	[gruesome]
+	{
+		specializes = grim;
+
+		screen_name		= "Gruesome";
+		level			= 55;
+
+		[melee_death_damage]
+		{
+	   		value		= 16;
+			max_value	= 28;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+	[depraved]
+	{
+		specializes = grim;
+
+		screen_name		= "Depraved";
+		level			= 70;
+
+		[melee_death_damage]
+		{
+	   		value		= 24;
+			max_value	= 40;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+	[necromantic]
+	{
+		specializes = grim;
+
+		screen_name		= "Necromantic";
+		level			= 85;
+
+		[melee_death_damage]
+		{
+	   		value		= 35;
+			max_value	= 58;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X Death Elemental Damage Ranged
+
+	[somber]
+	{
+		type			= prefix;
+		screen_name		= "Somber";
+		level			= 22;
+		object_types	= ranged;
+		skill_types		= ranger;
+
+		[ranged_death_damage]
+		{
+			alteration			= alter_custom_damage_death;
+			value				= 4;
+			max_value			= 6;
+			description			= "Adds <value> to <max_value> Death Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "ranged_death";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_death_arrow
+								  &hit_ffx				= ffx_spell_death_sword_hit;
+		}
+	}
+
+	[dispiriting]
+	{
+		specializes = somber;
+
+		screen_name		= "Dispiriting";
+		level			= 32;
+
+		[ranged_death_damage]
+		{
+	   		value		= 6;
+			max_value	= 12;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+	[mournful]
+	{
+		specializes = somber;
+
+		screen_name		= "Mournful";
+		level			= 42;
+
+		[ranged_death_damage]
+		{
+	   		value		= 10;
+			max_value	= 18;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+	[desolate]
+	{
+		specializes = somber;
+
+		screen_name		= "Desolate";
+		level			= 55;
+
+		[ranged_death_damage]
+		{
+	   		value		= 16;
+			max_value	= 28;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+	[caliginous]
+	{
+		specializes = somber;
+
+		screen_name		= "Caliginous";
+		level			= 70;
+
+		[ranged_death_damage]
+		{
+	   		value		= 24;
+			max_value	= 40;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+	[stygian]
+	{
+		specializes = somber;
+
+		screen_name		= "Stygian";
+		level			= 85;
+
+		[ranged_death_damage]
+		{
+	   		value		= 35;
+			max_value	= 58;
+			description	= "Adds <value> to <max_value> Death Damage";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Percentage Damage Reflected to Enemy
+// $$ REVISIT - Ensure that elemental damage is not being reflected to attacker
+
+	[ofreversal]
+	{
+		type			= suffix;
+		screen_name		= "of Reversal";
+		level			= 10;
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[reflect]
+		{
+			alteration			= alter_reflect_damage;
+			value				= 10;
+			description			= "<value>% of Physical Damage Reflected to Enemy";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[ofpunishment]
+	{
+		specializes 	= ofreversal;
+
+		screen_name		= "of Punishment";
+		level			= 24;
+
+		[reflect]
+		{
+			value 		= 20;
+			description	= "<value>% of Physical Damage Reflected to Enemy";
+		}
+	}
+
+	[ofvengeance]
+	{
+		specializes 	= ofreversal;
+
+		screen_name		= "of Vengeance";
+		level			= 38;
+
+		[reflect]
+		{
+			value 		= 30;
+			description	= "<value>% of Physical Damage Reflected to Enemy";
+		}
+	}
+
+	[ofretribution]
+	{
+		specializes 	= ofreversal;
+
+		screen_name		= "of Retribution";
+		level			= 52;
+
+		[reflect]
+		{
+			value 		= 40;
+			description	= "<value>% of Physical Damage Reflected to Enemy";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Percentage Health Steal - Attacker gains X% of damage dealt as health
+
+	[oftheparasite]
+	{
+		type			= suffix;
+		screen_name		= "of the Parasite";
+		level			= 6;
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+
+		[health_steal]
+		{
+			alteration			= alter_life_steal;
+			value				= 3;
+			description			= "<value>% Health Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "health_steal";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_health_steal_sword
+									  &projectile_ffx	= ffx_spell_health_steal_arrow;
+		}
+	}
+
+	[ofthepredator]
+	{
+		specializes = oftheparasite;
+
+		screen_name		= "of the Predator";
+		level			= 24;
+
+		[health_steal]
+		{
+			value 		= 5;
+			description	= "<value>% Health Steal";
+		}
+	}
+
+	[ofthevampire]
+	{
+		specializes = oftheparasite;
+
+		screen_name		= "of the Vampire";
+		level			= 42;
+
+		[health_steal]
+		{
+			value 		= 7;
+			description	= "<value>% Health Steal";
+		}
+	}
+
+	[ofblood]
+	{
+		specializes = oftheparasite;
+
+		screen_name		= "of Blood";
+		level			= 60;
+
+		[health_steal]
+		{
+			value		= 8;
+			description	= "<value>% Health Steal";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Scalar Health Steal - Attacker gains X health per hit
+
+	[ofconsumption]
+	{
+		type			= suffix;
+		screen_name		= "of Consumption";
+		level			= 12;
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+
+		[health_bonus]
+		{
+			alteration			= alter_life_bonus;
+			value				= 2;
+			description			= "Restores <value> Health Per Hit";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "health_steal";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_health_steal_sword
+									  &projectile_ffx	= ffx_spell_health_steal_arrow;
+		}
+	}
+
+	[ofgorging]
+	{
+		specializes 	= ofconsumption;
+
+		screen_name		= "of Gorging";
+		level			= 34;
+
+		[health_bonus]
+		{
+			value 		= 6;
+			description	= "Restores <value> Health Per Hit";
+		}
+	}
+
+	[offeasting]
+	{
+		specializes 	= ofconsumption;
+
+		screen_name		= "of Feasting";
+		level			= 56;
+
+		[health_bonus]
+		{
+			value 		= 14;
+			description	= "Restores <value> Health Per Hit";
+		}
+	}
+
+	[ofdevouring]
+	{
+		specializes 	= ofconsumption;
+
+		screen_name		= "of Devouring";
+		level			= 78;
+
+		[health_bonus]
+		{
+			value 		= 23;
+			description	= "Restores <value> Health Per Hit";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Percentage Mana Steal - Attacker gains X% of damage dealt as mana
+
+	[ofthephantom]
+	{
+		type			= suffix;
+		screen_name		= "of the Phantom";
+		level			= 6;
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+
+		[mana_steal]
+		{
+			alteration			= alter_mana_steal;
+			value				= 3;
+			description			= "<value>% Mana Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "mana_steal";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_mana_steal_sword
+									  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+		}
+	}
+
+	[oftheghost]
+	{
+		specializes = ofthephantom;
+
+		screen_name		= "of the Ghost";
+		level			= 24;
+
+		[mana_steal]
+		{
+			value 		= 5;
+			description	= "<value>% Mana Steal";
+		}
+	}
+
+	[ofthespecter]
+	{
+		specializes = ofthephantom;
+
+		screen_name		= "of the Specter";
+		level			= 42;
+
+		[mana_steal]
+		{
+			value 		= 7;
+			description	= "<value>% Mana Steal";
+		}
+	}
+
+	[ofthewraith]
+	{
+		specializes = ofthephantom;
+
+		screen_name		= "of the Wraith";
+		level			= 60;
+
+		[mana_steal]
+		{
+			value		= 8;
+			description	= "<value>% Mana Steal";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Scalar Mana Steal - Attacker gains X mana per hit
+
+	[ofcandlelight]
+	{
+		type			= suffix;
+		screen_name		= "of Candlelight";
+		level			= 12;
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+
+		[mana_bonus]
+		{
+			alteration			= alter_mana_bonus;
+			value				= 2;
+			description			= "Restores <value> Mana Per Hit";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "mana_steal";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_mana_steal_sword
+									  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+		}
+	}
+
+	[ofmoonlight]
+	{
+		specializes 	= ofcandlelight;
+
+		screen_name		= "of Moonlight";
+		level			= 34;
+
+		[mana_bonus]
+		{
+			value 		= 6;
+			description	= "Restores <value> Mana Per Hit";
+		}
+	}
+
+	[ofdaylight]
+	{
+		specializes 	= ofcandlelight;
+
+		screen_name		= "of Daylight";
+		level			= 56;
+
+		[mana_bonus]
+		{
+			value 		= 14;
+			description	= "Restores <value> Mana Per Hit";
+		}
+	}
+
+	[ofstarlight]
+	{
+		specializes 	= ofcandlelight;
+
+		screen_name		= "of Starlight";
+		level			= 78;
+
+		[mana_bonus]
+		{
+			value 		= 23;
+			description	= "Restores <value> Mana Per Hit";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X% Life Recovery Rate
+
+	[ofmending]
+	{
+		type			= suffix;
+		screen_name		= "of Mending";
+		level			= 10;
+		object_types	= armor,ring,amulet;
+		skill_types		= fighter,ranger;
+
+		[health_regen]
+		{
+			alteration			= alter_life_recovery_unit;
+			value				= 0.04;
+			description			= "+4% Health Regeneration";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[ofreconstruction]
+	{
+		specializes 	= ofmending;
+
+		screen_name		= "of Reconstruction";
+		level			= 25;
+
+		[health_regen]
+		{
+			value 		= 0.06;
+			description	= "+6% Health Regeneration";
+		}
+	}
+
+	[ofsuturing]
+	{
+		specializes 	= ofmending;
+
+		screen_name		= "of Suturing";
+		level			= 40;
+
+		[health_regen]
+		{
+			value 		= 0.10;
+			description	= "+10% Health Regeneration";
+		}
+	}
+
+	[ofregeneration]
+	{
+		specializes 	= ofmending;
+
+		screen_name		= "of Regeneration";
+		level			= 55;
+
+		[health_regen]
+		{
+			value 		= 0.12;
+			description	= "+12% Health Regeneration";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X% Mana Recovery Rate
+
+	[ofbrightening]
+	{
+		type			= suffix;
+		screen_name		= "of Brightening";
+		level			= 8;
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= nmage,cmage;
+
+		[mana_regen]
+		{
+			alteration			= alter_mana_recovery_unit;
+			value				= 0.04;
+			description			= "+4% Mana Regeneration";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[ofillumination]
+	{
+		specializes 	= ofbrightening;
+
+		screen_name		= "of Illumination";
+		level			= 20;
+
+		[mana_regen]
+		{
+			value 		= 0.06;
+			description	= "+6% Mana Regeneration";
+		}
+	}
+
+	[ofawakening]
+	{
+		specializes 	= ofbrightening;
+
+		screen_name		= "of Awakening";
+		level			= 32;
+
+		[mana_regen]
+		{
+			value 		= 0.1;
+			description	= "+10% Mana Regeneration";
+		}
+	}
+
+	[ofvisions]
+	{
+		specializes 	= ofbrightening;
+
+		screen_name		= "of Visions";
+		level			= 46;
+
+		[mana_regen]
+		{
+			value 		= 0.12;
+			description	= "+12% Mana Regeneration";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Scalar Armor Bonus
+
+	[stout]
+	{
+		type			= prefix;
+		screen_name		= "Stout";
+		level			= 1;
+		object_types	= armor,ring,amulet;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[armor]
+		{
+			alteration			= alter_armor;
+			value				= 1;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[repellant]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Repellent";
+		level			= 6;
+
+		[armor]
+		{
+			value 		= 2;
+			description = "+<value> Armor";
+		}
+	}
+
+	[stable]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Stable";
+		level			= 12;
+
+		[armor]
+		{
+			value 		= 3;
+			description = "+<value> Armor";
+		}
+	}
+
+	[enforced]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Enforced";
+		level			= 18;
+
+		[armor]
+		{
+			value 		= 5;
+			description = "+<value> Armor";
+		}
+	}
+
+	[tough]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Tough";
+		level			= 25;
+
+		[armor]
+		{
+			value 		= 8;
+			description = "+<value> Armor";
+		}
+	}
+
+	[hardened]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Hardened";
+		level			= 32;
+
+		[armor]
+		{
+			value 		= 10;
+			description = "+<value> Armor";
+		}
+	}
+
+	[durable]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Durable";
+		level			= 40;
+
+		[armor]
+		{
+			value 		= 12;
+			description = "+<value> Armor";
+		}
+	}
+
+	[rugged]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Rugged";
+		level			= 48;
+
+		[armor]
+		{
+			value 		= 14;
+			description = "+<value> Armor";
+		}
+	}
+
+	[fortified]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Fortified";
+		level			= 57;
+
+		[armor]
+		{
+			value 		= 15;
+			description = "+<value> Armor";
+		}
+	}
+
+	[impenetrable]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Impenetrable";
+		level			= 66;
+
+		[armor]
+		{
+			value 		= 18;
+			description = "+<value> Armor";
+		}
+	}
+
+	[masterwork]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Masterwork";
+		level			= 76;
+
+		[armor]
+		{
+			value 		= 20;
+			description = "+<value> Armor";
+		}
+	}
+
+	[adamantine]
+	{
+		specializes 	= stout;
+
+		screen_name		= "Adamantine";
+		level			= 86;
+
+		[armor]
+		{
+			value 		= 22;
+			description = "+<value> Armor";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Percentage Armor Bonus
+
+	[steadfast]
+	{
+		type			= prefix;
+		screen_name		= "Steadfast";
+		level			= 4;
+		object_types	= body,helm,gloves,boots;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[armor_percent]
+		{
+			alteration			= alter_armor_source_percent;
+			value				= 0.15;
+			description			= "+15% Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[vigilant]
+	{
+		specializes 	= steadfast;
+
+		screen_name		= "Vigilant";
+		level			= 12;
+
+		[armor_percent]
+		{
+			value 		= 0.22;
+			description = "+22% Armor";
+		}
+	}
+
+	[resolute]
+	{
+		specializes 	= steadfast;
+
+		screen_name		= "Resolute";
+		level			= 20;
+
+		[armor_percent]
+		{
+			value 		= 0.29;
+			description = "+29% Armor";
+		}
+	}
+
+	[persistent]
+	{
+		specializes 	= steadfast;
+
+		screen_name		= "Persistent";
+		level			= 28;
+
+		[armor_percent]
+		{
+			value 		= 0.36;
+			description = "+36% Armor";
+		}
+	}
+
+	[unremitting]
+	{
+		specializes 	= steadfast;
+
+		screen_name		= "Unremitting";
+		level			= 36;
+
+		[armor_percent]
+		{
+			value 		= 0.43;
+			description = "+43% Armor";
+		}
+	}
+
+	[relentless]
+	{
+		specializes 	= steadfast;
+
+		screen_name		= "Relentless";
+		level			= 44;
+
+		[armor_percent]
+		{
+			value 		= 0.50;
+			description = "+50% Armor";
+		}
+	}
+
+	[abiding]
+	{
+		specializes 	= steadfast;
+
+		screen_name		= "Abiding";
+		level			= 52;
+
+		[armor_percent]
+		{
+			value 		=0.57;
+			description = "+57% Armor";
+		}
+	}
+
+	[eternal]
+	{
+		specializes 	= steadfast;
+
+		screen_name		= "Eternal";
+		level			= 60;
+
+		[armor_percent]
+		{
+			value 		= 0.64;
+			description = "+64% Armor";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Magic Damage Resistance
+
+	[twilight]
+	{
+		type			= prefix;
+		screen_name		= "Twilight";
+		level			= 9;
+		object_types	= amulet,spellbook;
+
+		[resist_magic]
+		{
+			alteration			= alter_magical_resistance;
+			value				= 0.05;
+			description			= "+5% Magic Damage Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[dusk]
+	{
+		specializes 	= twilight;
+
+		screen_name		= "Dusk";
+		level			= 21;
+
+		[resist_magic]
+		{
+			value 		= 0.08;
+			description	= "+8% Magic Damage Resistance";
+		}
+	}
+
+	[midnight]
+	{
+		specializes 	= twilight;
+
+		screen_name		= "Midnight";
+		level			= 33;
+
+		[resist_magic]
+		{
+			value 		= 0.12;
+			description	= "+12% Magic Damage Resistance";
+		}
+	}
+
+	[dawn]
+	{
+		specializes 	= twilight;
+
+		screen_name		= "Dawn";
+		level			= 45;
+
+		[resist_magic]
+		{
+			value 		= 0.15;
+			description	= "+15% Magic Damage Resistance";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Ice Damage Resistance
+
+	[azure]
+	{
+		type			= prefix;
+		screen_name		= "Azure";
+		level			= 6;
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[resist_ice]
+		{
+			alteration			= alter_ice_resistance;
+			value				= 0.1;
+			description			= "+10% Ice Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[beryl]
+	{
+		specializes 	= azure;
+
+		screen_name		= "Beryl";
+		level			= 17;
+
+		[resist_ice]
+		{
+			value 		= 0.14;
+			description	= "+14% Ice Resistance";
+		}
+	}
+
+	[blue]
+	{
+		specializes 	= azure;
+
+		screen_name		= "Blue";
+		level			= 28;
+
+		[resist_ice]
+		{
+			value 		= 0.18;
+			description	= "+18% Ice Resistance";
+		}
+	}
+
+	[cerulean]
+	{
+		specializes 	= azure;
+
+		screen_name		= "Cerulean";
+		level			= 39;
+
+		[resist_ice]
+		{
+			value 		= 0.22;
+			description	= "+22% Ice Resistance";
+		}
+	}
+
+	[sapphire]
+	{
+		specializes 	= azure;
+
+		screen_name		= "Sapphire";
+		level			= 50;
+
+		[resist_ice]
+		{
+			value 		= 0.25;
+			description	= "+25% Ice Resistance";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Fire Damage Resistance
+
+	[crimson]
+	{
+		type			= prefix;
+		screen_name		= "Crimson";
+		level			= 6;
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[resist_fire]
+		{
+			alteration			= alter_fire_resistance;
+			value				= 0.1;
+			description			= "+10% Fire Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[scarlet]
+	{
+		specializes 	= crimson;
+
+		screen_name		= "Scarlet";
+		level			= 17;
+
+		[resist_fire]
+		{
+			value 		= 0.14;
+			description	= "+14% Fire Resistance";
+		}
+	}
+
+	[red]
+	{
+		specializes 	= crimson;
+
+		screen_name		= "Red";
+		level			= 28;
+
+		[resist_fire]
+		{
+			value 		= 0.18;
+			description	= "+18% Fire Resistance";
+		}
+	}
+
+	[bloodshot]
+	{
+		specializes 	= crimson;
+
+		screen_name		= "Bloodshot";
+		level			= 39;
+
+		[resist_fire]
+		{
+			value 		= 0.22;
+			description	= "+22% Fire Resistance";
+		}
+	}
+
+	[ruby]
+	{
+		specializes 	= crimson;
+
+		screen_name		= "Ruby";
+		level			= 50;
+
+		[resist_fire]
+		{
+			value 		= 0.25;
+			description	= "+25% Fire Resistance";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Lightning Damage Resistance
+
+	[pale]
+	{
+		type			= prefix;
+		screen_name		= "Pale";
+		level			= 6;
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[resist_lightning]
+		{
+			alteration			= alter_lightning_resistance;
+			value				= 0.1;
+			description			= "+10% Lightning Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[ivory]
+	{
+		specializes 	= pale;
+
+		screen_name		= "Ivory";
+		level			= 17;
+
+		[resist_lightning]
+		{
+			value 		= 0.14;
+			description	= "+14% Lightning Resistance";
+		}
+	}
+
+	[white]
+	{
+		specializes 	= pale;
+
+		screen_name		= "White";
+		level			= 28;
+
+		[resist_lightning]
+		{
+			value 		= 0.18;
+			description	= "+18% Lightning Resistance";
+		}
+	}
+
+	[crystalline]
+	{
+		specializes 	= pale;
+
+		screen_name		= "Crystalline";
+		level			= 39;
+
+		[resist_lightning]
+		{
+			value 		= 0.22;
+			description	= "+22% Lightning Resistance";
+		}
+	}
+
+	[pearl]
+	{
+		specializes 	= pale;
+
+		screen_name		= "Pearl";
+		level			= 50;
+
+		[resist_lightning]
+		{
+			value 		= 0.25;
+			description	= "+25% Lightning Resistance";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Death Damage Resistance
+
+	[indigo]
+	{
+		type			= prefix;
+		screen_name		= "Indigo";
+		level			= 7;
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[resist_death]
+		{
+			alteration			= alter_death_resistance;
+			value				= 0.1;
+			description			= "+10% Death Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[lavender]
+	{
+		specializes 	= indigo;
+
+		screen_name		= "Lavender";
+		level			= 19;
+
+		[resist_death]
+		{
+			value 		= 0.14;
+			description	= "+14% Death Resistance";
+		}
+	}
+
+	[purple]
+	{
+		specializes 	= indigo;
+
+		screen_name		= "Purple";
+		level			= 31;
+
+		[resist_death]
+		{
+			value 		= 0.18;
+			description	= "+18% Death Resistance";
+		}
+	}
+
+	[violet]
+	{
+		specializes 	= indigo;
+
+		screen_name		= "Violet";
+		level			= 43;
+
+		[resist_death]
+		{
+			value 		= 0.22;
+			description	= "+22% Death Resistance";
+		}
+	}
+
+	[amethyst]
+	{
+		specializes 	= indigo;
+
+		screen_name		= "Amethyst";
+		level			= 56;
+
+		[resist_death]
+		{
+			value 		= 0.25;
+			description	= "+25% Death Resistance";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Physical Damage Resistance
+
+	[noble]
+	{
+		type			= prefix;
+		screen_name		= "Noble";
+		level			= 15;
+		object_types	= shield,amulet;
+		skill_types		= fighter;
+
+		[resist_physical]
+		{
+			alteration			= alter_physical_resistance;
+			value				= 0.03;
+			description			= "+3% Melee and Ranged Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[regal]
+	{
+		specializes 	= noble;
+
+		screen_name		= "Regal";
+		level			= 26;
+
+		[resist_physical]
+		{
+			value 		= 0.05;
+			description	= "+5% Melee and Ranged Resistance";
+		}
+	}
+
+	[imperial]
+	{
+		specializes 	= noble;
+
+		screen_name		= "Imperial";
+		level			= 37;
+
+		[resist_physical]
+		{
+			value 		= 0.07;
+			description	= "+7% Melee and Ranged Resistance";
+		}
+	}
+
+	[sovereign]
+	{
+		specializes 	= noble;
+
+		screen_name		= "Sovereign";
+		level			= 48;
+
+		[resist_physical]
+		{
+			value 		= 0.10;
+			description	= "+10% Melee and Ranged Resistance";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Melee Damage Resistance
+
+	[formidable]
+	{
+		type			= prefix;
+		screen_name		= "Formidable";
+		level			= 11;
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[resist_melee]
+		{
+			alteration			= alter_melee_resistance;
+			value				= 0.05;
+			description			= "+5% Melee Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[imposing]
+	{
+		specializes 	= formidable;
+
+		screen_name		= "Imposing";
+		level			= 22;
+
+		[resist_melee]
+		{
+			value 		= 0.07;
+			description	= "+7% Melee Resistance";
+		}
+	}
+
+	[daunting]
+	{
+		specializes 	= formidable;
+
+		screen_name		= "Daunting";
+		level			= 33;
+
+		[resist_melee]
+		{
+			value 		= 0.09;
+			description	= "+9% Melee Resistance";
+		}
+	}
+
+	[intimidating]
+	{
+		specializes 	= formidable;
+
+		screen_name		= "Intimidating";
+		level			= 44;
+
+		[resist_melee]
+		{
+			value 		= 0.11;
+			description	= "+11% Melee Resistance";
+		}
+	}
+
+	[fearsome]
+	{
+		specializes 	= formidable;
+
+		screen_name		= "Fearsome";
+		level			= 55;
+
+		[resist_melee]
+		{
+			value 		= 0.14;
+			description	= "+14% Melee Resistance";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Ranged Damage Resistance
+
+	[disorienting]
+	{
+		type			= prefix;
+		screen_name		= "Disorienting";
+		level			= 11;
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+
+		[resist_ranged]
+		{
+			alteration			= alter_ranged_resistance;
+			value				= 0.08;
+			description			= "+8% Ranged Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[obscuring]
+	{
+		specializes 	= disorienting;
+
+		screen_name		= "Obscuring";
+		level			= 22;
+
+		[resist_ranged]
+		{
+			value 		= 0.12;
+			description	= "+12% Ranged Resistance";
+		}
+	}
+
+	[blurring]
+	{
+		specializes 	= disorienting;
+
+		screen_name		= "Blurring";
+		level			= 33;
+
+		[resist_ranged]
+		{
+			value 		= 0.15;
+			description	= "+15% Ranged Resistance";
+		}
+	}
+
+	[confounding]
+	{
+		specializes 	= disorienting;
+
+		screen_name		= "Confounding";
+		level			= 44;
+
+		[resist_ranged]
+		{
+			value 		= 0.18;
+			description	= "+18% Ranged Resistance";
+		}
+	}
+
+	[displacing]
+	{
+		specializes 	= disorienting;
+
+		screen_name		= "Displacing";
+		level			= 55;
+
+		[resist_ranged]
+		{
+			value 		= 0.20;
+			description	= "+20% Ranged Resistance";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Chance to Block Melee
+
+	[ofrepulsion]
+	{
+		type			= suffix;
+		screen_name		= "of Repulsion";
+		level			= 6;
+		object_types	= shield;
+		skill_types		= fighter;
+
+		[block_melee]
+		{
+			alteration			= alter_chance_to_block_melee_damage;
+			value				= 5;
+			description			= "+<value>% Chance to Block Melee Attack";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[ofprevention]
+	{
+		specializes 	= ofrepulsion;
+
+		screen_name		= "of Prevention";
+		level			= 22;
+
+
+		[block_melee]
+		{
+			value 		= 10;
+			description = "+<value>% Chance to Block Melee Attack";
+		}
+	}
+
+	[ofobstruction]
+	{
+		specializes 	= ofrepulsion;
+
+		screen_name		= "of Obstruction";
+		level			= 38;
+
+
+		[block_melee]
+		{
+			value 		= 15;
+			description = "+<value>% Chance to Block Melee Attack";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Chance to Block Ranged
+
+	[ofdeflection]
+	{
+		type			= suffix;
+		screen_name		= "of Deflection";
+		level			= 6;
+		object_types	= shield;
+		skill_types		= fighter;
+
+		[block_ranged]
+		{
+			alteration			= alter_chance_to_block_ranged_damage;
+			value				= 5;
+			description			= "+<value>% Chance to Block Ranged Attack";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[ofinterception]
+	{
+		specializes 	= ofdeflection;
+
+		screen_name		= "of Interception";
+		level			= 26;
+
+		[block_ranged]
+		{
+			value 		= 12;
+			description = "+<value>% Chance to Block Ranged Attack";
+		}
+	}
+
+	[ofdefense]
+	{
+		specializes 	= ofdeflection;
+
+		screen_name		= "of Defense";
+		level			= 46;
+
+		[block_ranged]
+		{
+			value 		= 20;
+			description = "+<value>% Chance to Block Ranged Attack";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Increased Power Recharge Rate
+
+	[rousing]
+	{
+		type			= prefix;
+		screen_name		= "Rousing";
+		level			= 20;
+		object_types	= melee,ranged,amulet;	// All weapons
+
+		[power_recharge]
+		{
+			alteration			= alter_power_reload;
+			value				= 0.05;
+			description			= "+5% Power Recharge Rate";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[energizing]
+	{
+		specializes 	= rousing;
+
+		screen_name		= "Energizing";
+		level			= 32;
+
+		[power_recharge]
+		{
+			value 		= 0.07;
+			description = "+7% Power Recharge Rate";
+		}
+	}
+
+	[invigorating]
+	{
+		specializes 	= rousing;
+
+		screen_name		= "Invigorating";
+		level			= 50;
+
+		[power_recharge]
+		{
+			value 		= 0.1;
+			description = "+10% Power Recharge Rate";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Melee Skills
+
+	[warriors]
+	{
+		type			= prefix;
+		screen_name		= "Warrior's";
+		level			= 40;
+		object_types	= melee,amulet;
+		skill_types		= fighter;
+
+		[melee_skills]
+		{
+			alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+			value				= 1;
+			description			= "+<value> to Melee Skills";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[champions]
+	{
+		specializes 	= warriors;
+
+		screen_name		= "Champion's";
+		level			= 65;
+
+		[melee_skills]
+		{
+			value 		= 2;
+			description = "+<value> to Melee Skills";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Ranged Skills
+
+	[adventurers]
+	{
+		type			= prefix;
+		screen_name		= "Adventurer's";
+		level			= 40;
+		object_types	= ranged,amulet;
+		skill_types		= ranger;
+
+		[ranged_skills]
+		{
+			alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+			value				= 1;
+			description			= "+<value> to Ranged Skills";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[rangers]
+	{
+		specializes 	= adventurers;
+
+		screen_name		= "Ranger's";
+		level			= 65;
+
+		[ranged_skills]
+		{
+			value 		= 2;
+			description = "+<value> to Ranged Skills";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Nature Magic Skills
+
+	[watchers]
+	{
+		type			= prefix;
+		screen_name		= "Watcher's";
+		level			= 40;
+		object_types	= melee,amulet,spellbook;
+		skill_types		= mage;
+
+		[nmagic_skills]
+		{
+			alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+			value				= 1;
+			description			= "+<value> to Nature Magic Skills";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[druids]
+	{
+		specializes 	= watchers;
+
+		screen_name		= "Druid's";
+		level			= 65;
+
+		[nmagic_skills]
+		{
+			value 		= 2;
+			description = "+<value> to Nature Magic Skills";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Combat Magic Skills
+
+	[ravagers]
+	{
+		type			= prefix;
+		screen_name		= "Ravager's";
+		level			= 40;
+		object_types	= melee,amulet,spellbook;
+		skill_types		= mage;
+
+		[cmagic_skills]
+		{
+			alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+			value				= 1;
+			description			= "+<value> to Combat Magic Skills";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[apocalyptic]
+	{
+		specializes 	= ravagers;
+
+		screen_name		= "Apocalyptic";
+		level			= 65;
+
+		[cmagic_skills]
+		{
+			value 		= 2;
+			description = "+<value> to Combat Magic Skills";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Aegis, Toughness, Reinforced Armor
+
+	[knights]
+	{
+		type			= prefix;
+		screen_name		= "Knight's";
+		level			= 30;
+		object_types	= melee,amulet;
+		skill_types		= fighter;
+
+		[melee_skills_set1]
+		{
+			alteration			= alter_skill_suite;
+			suite				= melee_suite_1;
+			value				= 2;
+			description			= "+<value> to Barricade, Toughness, and Reinforced Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[templars]
+	{
+		specializes 	= knights;
+
+		screen_name		= "Templar's";
+		level			= 55;
+
+		[melee_skills_set1]
+		{
+			value 		= 3;
+			description	= "+<value> to Barricade, Toughness, and Reinforced Armor";
+		}
+	}
+
+	[paladins]
+	{
+		specializes 	= knights;
+
+		screen_name		= "Paladin's";
+		level			= 80;
+
+		[melee_skills_set1]
+		{
+			value 		= 4;
+			description	= "+<value> to Barricade, Toughness, and Reinforced Armor";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Fortitude, Overbear, Smite
+
+	[brawlers]
+	{
+		type			= prefix;
+		screen_name		= "Brawler's";
+		level			= 30;
+		object_types	= melee,amulet;
+		skill_types		= fighter;
+
+		[melee_skills_set2]
+		{
+			alteration			= alter_skill_suite;
+			suite				= melee_suite_2;
+			value				= 2;
+			description			= "+<value> to Fortitude, Overbear, and Smite";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[barbarians]
+	{
+		specializes 	= brawlers;
+
+		screen_name		= "Barbarian's";
+		level			= 55;
+
+		[melee_skills_set2]
+		{
+			value 		= 3;
+			description	= "+<value> to Fortitude, Overbear, and Smite";
+		}
+	}
+
+	[berserkers]
+	{
+		specializes 	= brawlers;
+
+		screen_name		= "Berserker's";
+		level			= 80;
+
+		[melee_skills_set2]
+		{
+			value 		= 4;
+			description	= "+<value> to Fortitude, Overbear, and Smite";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Critical Strike, Dual Wield, Alacrity
+
+	[duelists]
+	{
+		type			= prefix;
+		screen_name		= "Duelist's";
+		level			= 30;
+		object_types	= melee,amulet;
+		skill_types		= fighter;
+
+		[melee_skills_set3]
+		{
+			alteration			= alter_skill_suite;
+			suite				= melee_suite_3;
+			value				= 2;
+			description			= "+<value> to Critical Strike, Dual Wield, and Alacrity";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[slayers]
+	{
+		specializes 	= duelists;
+
+		screen_name		= "Slayer's";
+		level			= 55;
+
+		[melee_skills_set3]
+		{
+			value 		= 3;
+			description = "+<value> to Critical Strike, Dual Wield, and Alacrity";
+		}
+	}
+
+	[hurricanes]
+	{
+		specializes 	= duelists;
+
+		screen_name		= "Hurricane's";
+		level			= 80;
+
+		[melee_skills_set3]
+		{
+			value 		= 4;
+			description = "+<value> to Critical Strike, Dual Wield, and Alacrity";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Critical Shot, Dodge, Survival
+
+	[wanderers]
+	{
+		type			= prefix;
+		screen_name		= "Wanderer's";
+		level			= 30;
+		object_types	= ranged,amulet;
+		skill_types		= ranger;
+
+		[ranged_skills_set1]
+		{
+			alteration			= alter_skill_suite;
+			suite				= ranged_suite_1;
+			value				= 2;
+			description			= "+<value> to Critical Shot, Dodge, and Survival";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[nomads]
+	{
+		specializes 	= wanderers;
+
+		screen_name		= "Nomad's";
+		level			= 55;
+
+		[ranged_skills_set1]
+		{
+			value 		= 3;
+			description = "+<value> to Critical Shot, Dodge, and Survival";
+		}
+	}
+
+	[vagabonds]
+	{
+		specializes 	= wanderers;
+
+		screen_name		= "Vagabond's";
+		level			= 80;
+
+		[ranged_skills_set1]
+		{
+			value 		= 4;
+			description = "+<value> to Critical Shot, Dodge, and Survival";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Biting Arrow, Far Shot, Shockwave
+
+	[archers]
+	{
+		type			= prefix;
+		screen_name		= "Archer's";
+		level			= 30;
+		object_types	= ranged,amulet;
+		skill_types		= ranger;
+
+		[ranged_skills_set2]
+		{
+			alteration			= alter_skill_suite;
+			suite				= ranged_suite_2;
+			value				= 2;
+			description			= "+<value> to Biting Arrow, Far Shot, and Shockwave";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[marksmans]
+	{
+		specializes 	= archers;
+
+		screen_name		= "Marksman's";
+		level			= 55;
+
+		[ranged_skills_set2]
+		{
+			value 		= 3;
+			description = "+<value> to Biting Arrow, Far Shot, and Shockwave";
+		}
+	}
+
+	[snipers]
+	{
+		specializes 	= archers;
+
+		screen_name		= "Sniper's";
+		level			= 80;
+
+		[ranged_skills_set2]
+		{
+			value 		= 4;
+			description = "+<value> to Biting Arrow, Far Shot, and Shockwave";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Quick Draw, Bleed, Penetrate
+
+	[assassins]
+	{
+		type			= prefix;
+		screen_name		= "Assassin's";
+		level			= 30;
+		object_types	= ranged,amulet;
+		skill_types		= ranger;
+
+		[ranged_skills_set3]
+		{
+			alteration			= alter_skill_suite;
+			suite				= ranged_suite_3;
+			value				= 2;
+			description			= "+<value> to Quick Draw, Bleed, and Penetrate";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[tempests]
+	{
+		specializes 	= assassins;
+
+		screen_name		= "Tempest's";
+		level			= 55;
+
+		[ranged_skills_set3]
+		{
+			value 		= 3;
+			description = "+<value> to Quick Draw, Bleed, and Penetrate";
+		}
+	}
+
+	[fusilliers]
+	{
+		specializes 	= assassins;
+
+		screen_name		= "Fusillier's";
+		level			= 80;
+
+		[ranged_skills_set3]
+		{
+			value 		= 4;
+			description = "+<value> to Quick Draw, Bleed, and Penetrate";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Summon Fortitude, Summon Might, Summon Bond
+
+	[callers]
+	{
+		type			= prefix;
+		screen_name		= "Caller's";
+		level			= 30;
+		object_types	= melee,amulet,spellbook;
+		skill_types		= mage;
+
+		[nmagic_skills_set1]
+		{
+			alteration			= alter_skill_suite;
+			suite				= nmagic_suite_1;
+			value				= 2;
+			description			= "+<value> to Summon Fortitude, Summon Might, and Summon Bond";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[summoners]
+	{
+		specializes 	= callers;
+
+		screen_name		= "Summoner's";
+		level			= 55;
+
+		[nmagic_skills_set1]
+		{
+			value 		= 3;
+			description = "+<value> to Summon Fortitude, Summon Might, and Summon Bond";
+		}
+	}
+
+	[beastwalkers]
+	{
+		specializes 	= callers;
+
+		screen_name		= "Beastwalker's";
+		level			= 80;
+
+		[nmagic_skills_set1]
+		{
+			value 		= 4;
+			description = "+<value> to Summon Fortitude, Summon Might, and Summon Bond";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Aquatic Affinity, Arctic Mastery, Freezing
+
+	[rime]
+	{
+		type			= prefix;
+		screen_name		= "Rime";
+		level			= 30;
+		object_types	= melee,amulet,spellbook;
+		skill_types		= mage;
+
+		[nmagic_skills_set2]
+		{
+			alteration			= alter_skill_suite;
+			suite				= nmagic_suite_2;
+			value				= 2;
+			description			= "+<value> to Aquatic Affinity, Arctic Mastery, and Freezing";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[winter]
+	{
+		specializes 	= rime;
+
+		screen_name		= "Winter";
+		level			= 55;
+
+		[nmagic_skills_set2]
+		{
+			value 		= 3;
+			description = "+<value> to Aquatic Affinity, Arctic Mastery, and Freezing";
+		}
+	}
+
+	[aquamancers]
+	{
+		specializes 	= rime;
+
+		screen_name		= "Aquamancer's";
+		level			= 80;
+
+		[nmagic_skills_set2]
+		{
+			value 		= 4;
+			description = "+<value> to Aquatic Affinity, Arctic Mastery, and Freezing";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Nurturing Gift, Enveloping Embrace, Feral Wrath
+
+	[advocates]
+	{
+		type			= prefix;
+		screen_name		= "Advocate's";
+		level			= 30;
+		object_types	= melee,amulet,spellbook;
+		skill_types		= mage;
+
+		[nmagic_skills_set3]
+		{
+			alteration			= alter_skill_suite;
+			suite				= nmagic_suite_3;
+			value				= 2;
+			description			= "+<value> to Nurturing Gift, Enveloping Embrace, and Feral Wrath";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[protectors]
+	{
+		specializes 	= advocates;
+
+		screen_name		= "Protector's";
+		level			= 55;
+
+		[nmagic_skills_set3]
+		{
+			value 		= 3;
+			description = "+<value> to Nurturing Gift, Enveloping Embrace, and Feral Wrath";
+		}
+	}
+
+	[wardens]
+	{
+		specializes 	= advocates;
+
+		screen_name		= "Warden's";
+		level			= 80;
+
+		[nmagic_skills_set3]
+		{
+			value 		= 4;
+			description = "+<value> to Nurturing Gift, Enveloping Embrace, and Feral Wrath";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Debilitation, Grim Necromancy, Vampirism
+
+	[vanquishers]
+	{
+		type			= prefix;
+		screen_name		= "Vanquisher's";
+		level			= 30;
+		object_types	= melee,amulet,spellbook;
+		skill_types		= mage;
+
+		[cmagic_skills_set1]
+		{
+			alteration			= alter_skill_suite;
+			suite				= cmagic_suite_1;
+			value				= 2;
+			description			= "+<value> to Debilitation, Grim Necromancy, and Vampirism";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[necromancers]
+	{
+		specializes 	= vanquishers;
+
+		screen_name		= "Necromancer's";
+		level			= 55;
+
+		[cmagic_skills_set1]
+		{
+			value 		= 3;
+			description = "+<value> to Debilitation, Grim Necromancy, and Vampirism";
+		}
+	}
+
+	[blightwalkers]
+	{
+		specializes 	= vanquishers;
+
+		screen_name		= "Blightwalker's";
+		level			= 80;
+
+		[cmagic_skills_set1]
+		{
+			value 		= 4;
+			description = "+<value> to Debilitation, Grim Necromancy, and Vampirism";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Brilliance, Amplified Lightning, Arcing
+
+	[luminous]
+	{
+		type			= prefix;
+		screen_name		= "Luminous";
+		level			= 30;
+		object_types	= melee,amulet,spellbook;
+		skill_types		= mage;
+
+		[cmagic_skills_set2]
+		{
+			alteration			= alter_skill_suite;
+			suite				= cmagic_suite_2;
+			value				= 2;
+			description			= "+<value> to Brilliance, Amplified Lightning, and Arcing";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[blinding]
+	{
+		specializes 	= luminous;
+
+		screen_name		= "Blinding";
+		level			= 55;
+
+		[cmagic_skills_set2]
+		{
+			value 		= 3;
+			description = "+<value> to Brilliance, Amplified Lightning, and Arcing";
+		}
+	}
+
+	[shining]
+	{
+		specializes 	= luminous;
+
+		screen_name		= "Shining";
+		level			= 80;
+
+		[cmagic_skills_set2]
+		{
+			value 		= 4;
+			description = "+<value> to Brilliance, Amplified Lightning, and Arcing";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X to Devastation, Searing Flames, Ignite
+
+	[blazing]
+	{
+		type			= prefix;
+		screen_name		= "Blazing";
+		level			= 30;
+		object_types	= melee,amulet,spellbook;
+		skill_types		= mage;
+
+		[cmagic_skills_set3]
+		{
+			alteration			= alter_skill_suite;
+			suite				= cmagic_suite_3;
+			value				= 2;
+			description			= "+<value> to Devastation, Searing Flames, and Ignite";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+
+	[incendiary]
+	{
+		specializes 	= blazing;
+
+		screen_name		= "Incendiary";
+		level			= 55;
+
+		[cmagic_skills_set3]
+		{
+			value 		= 3;
+			description = "+<value> to Devastation, Searing Flames, and Ignite";
+		}
+	}
+
+	[pyromancers]
+	{
+		specializes 	= blazing;
+
+		screen_name		= "Pyromancer's";
+		level			= 80;
+
+		[cmagic_skills_set3]
+		{
+			value 		= 4;
+			description = "+<value> to Devastation, Searing Flames, and Ignite";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Magic Find
+	[fortunate]
+	{
+		type			= prefix;
+		screen_name		= "Fortunate";
+		level			= 20;
+		object_types	= ring,amulet,spellbook;
+
+		[magic_find]
+		{
+			alteration			= alter_magic_find_chance;
+			value				= 4;	// Average value 5%
+			min_value_ceiling	= 6;
+			description			= "+<value>% Chance to Find Magic Items";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[charmed]
+	{
+		type			= prefix;
+		screen_name		= "Charmed";
+		level			= 30;
+		object_types	= ring,amulet,spellbook;
+
+		[magic_find]
+		{
+			alteration			= alter_magic_find_chance;
+			value				= 8;	// Average value 10%
+			min_value_ceiling	= 12;
+			description			= "+<value>% Chance to Find Magic Items";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[lucky]
+	{
+		specializes 	= charmed;
+
+		screen_name		= "Lucky";
+		level			= 40;
+
+		[magic_find]
+		{
+			value				= 16;	// Average value 20%
+			min_value_ceiling	= 24;
+			description = "+<value>% Chance to Find Magic Items";
+		}
+	}
+
+	[fated]
+	{
+		specializes 	= charmed;
+
+		screen_name		= "Fated";
+		level			= 50;
+
+		[magic_find]
+		{
+			value				= 25;	// Average value 30%
+			min_value_ceiling	= 34;
+			description = "+<value>% Chance to Find Magic Items";
+		}
+	}
+
+	[serendipitous]
+	{
+		specializes 	= charmed;
+
+		screen_name		= "Serendipitous";
+		level			= 60;
+
+		[magic_find]
+		{
+			value				= 35;	// Average value 45%
+			min_value_ceiling	= 45;
+			description = "+<value>% Chance to Find Magic Items";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Increased Gold Dropped
+
+	[glittering]
+	{
+		type			= prefix;
+		screen_name		= "Glittering";
+		level			= 20;
+		object_types	= melee,ranged,ring,amulet,spellbook;
+
+		[gold_dropped]
+		{
+			alteration			= alter_gold_dropped;
+			value				= 0.05;
+			description			= "+5% Gold Dropped";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[wealthy]
+	{
+		specializes 	= glittering;
+
+		screen_name		= "Wealthy";
+		level			= 25;
+
+		[gold_dropped]
+		{
+			value		= 0.15;
+			description	= "+15% Gold Dropped";
+		}
+	}
+
+	[opulent]
+	{
+		specializes 	= glittering;
+
+		screen_name		= "Opulent";
+		level			= 35;
+
+		[gold_dropped]
+		{
+			value 		= 0.4;
+			description = "+40% Gold Dropped";
+		}
+	}
+
+	[affluent]
+	{
+		specializes 	= glittering;
+
+		screen_name		= "Affluent";
+		level			= 45;
+
+		[gold_dropped]
+		{
+			value 		= 0.7;
+			description = "+70% Gold Dropped";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Special modifiers (too high lvl to drop - i.e. can only be forced)
+
+	[blundered]
+	{
+		type			= prefix;
+		screen_name		= "Blundered";
+		level			= 1000000;
+		object_types	= armor;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+
+		[strength]
+		{
+			alteration			= alter_armor;
+			value				= -2;
+			description			= "<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+/****************************************************************************/
+/* 	New Item Modifiers in DS2X	-	Tristan Hall	11/2/05	                */
+/****************************************************************************/
+
+//////////////////////////////////////////////////////////////////////////////
+// Strength and Int Bonus
+
+	[ofsandstone]
+	{
+		type			= suffix;
+		screen_name		= "of Sandstone";
+		level			= 10;
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+
+		[strength]
+		{
+			alteration			= alter_strength;
+			value				= 2;
+			description			= "+<value> Strength";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+
+		[intelligence]
+		{
+			alteration			= alter_intelligence;
+			value				= 1;
+			description			= "+<value> Intelligence";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "stat_intelligence";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_int_bonus_sword
+								  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+		}
+	}
+
+	[offlint]
+	{
+		specializes = ofsandstone;
+
+		screen_name		= "of Flint";
+		level			= 21;
+
+		[strength]
+		{
+			value 		= 4;
+			description = "+<value> Strength";
+		}
+
+		[intelligence]
+		{
+			value 		= 3;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofslate]
+	{
+		specializes = ofsandstone;
+
+		screen_name		= "of Slate";
+		level			= 33;
+
+		[strength]
+		{
+			value 		= 8;
+			description = "+<value> Strength";
+		}
+
+		[intelligence]
+		{
+			value 		= 6;
+			description = "+<value> Intelligence";
+		}
+
+	}
+
+	[ofstone]
+	{
+		specializes = ofsandstone;
+
+		screen_name		= "of Stone";
+		level			= 44;
+
+		[strength]
+		{
+			value 		= 14;
+			description = "+<value> Strength";
+		}
+
+		[intelligence]
+		{
+			value 		= 9;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofbasalt]
+	{
+		specializes = ofsandstone;
+
+		screen_name		= "of Basalt";
+		level			= 55;
+
+		[strength]
+		{
+			value 		= 20;
+			description = "+<value> Strength";
+		}
+
+		[intelligence]
+		{
+			value 		= 13;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofgranite]
+	{
+		specializes = ofsandstone;
+
+		screen_name		= "of Granite";
+		level			= 66;
+
+		[strength]
+		{
+			value 		= 36;
+			description = "+<value> Strength";
+		}
+
+		[intelligence]
+		{
+			value 		= 24;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofobsidian]
+	{
+		specializes = ofsandstone;
+
+		screen_name		= "of Obsidian";
+		level			= 77;
+
+		[strength]
+		{
+			value 		= 36;
+			description = "+<value> Strength";
+		}
+
+		[intelligence]
+		{
+			value 		= 24;
+			description = "+<value> Intelligence";
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Dexterity and Intelligence Bonus
+	[ofloathing]
+	{
+		type			= suffix;
+		screen_name		= "of Loathing";
+		level			= 12;
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+
+		[dexterity]
+		{
+			alteration			= alter_dexterity;
+			value				= 2;
+			description			= "+<value> Dexterity";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "stat_strength";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_str_bonus_sword
+								  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+		}
+
+		[intelligence]
+		{
+			alteration			= alter_intelligence;
+			value				= 1;
+			description			= "+<value> Intelligence";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	[ofspite]
+	{
+		specializes = ofloathing;
+
+		screen_name		= "of Spite";
+		level			= 23;
+
+		[dexterity]
+		{
+			value 		= 5;
+			description = "+<value> Dexterity";
+		}
+
+		[intelligence]
+		{
+			value 		= 3;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofrancor]
+	{
+		specializes = ofloathing;
+
+		screen_name		= "of Rancor";
+		level			= 34;
+
+		[dexterity]
+		{
+			value 		= 9;
+			description = "+<value> Dexterity";
+		}
+
+		[intelligence]
+		{
+			value 		= 6;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofmalice]
+	{
+		specializes = ofloathing;
+
+		screen_name		= "of Malice";
+		level			= 45;
+
+		[dexterity]
+		{
+			value 		= 14;
+			description = "+<value> Dexterity";
+		}
+
+		[intelligence]
+		{
+			value 		= 10;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofheartlessness]
+	{
+		specializes = ofloathing;
+
+		screen_name		= "of Heartlessness";
+		level			= 56;
+
+		[dexterity]
+		{
+			value 		= 20;
+			description = "+<value> Dexterity";
+		}
+
+		[intelligence]
+		{
+			value 		= 14;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofoppression]
+	{
+		specializes = ofloathing;
+
+		screen_name		= "of Oppression";
+		level			= 67;
+
+		[dexterity]
+		{
+			value 		= 28;
+			description = "+<value> Dexterity";
+		}
+
+		[intelligence]
+		{
+			value 		= 19;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	[ofdespotism]
+	{
+		specializes = ofloathing;
+
+		screen_name		= "of Despotism";
+		level			= 78;
+
+		[dexterity]
+		{
+			value 		= 35;
+			description = "+<value> Dexterity";
+		}
+
+		[intelligence]
+		{
+			value 		= 23;
+			description = "+<value> Intelligence";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance to get a Critical Hit Melee
+	[copper]
+	{
+		type      = prefix;
+		screen_name   = "Copper";
+		level     = 1;
+		object_types  = melee,amulet;
+		skill_types   = fighter;
+
+		[critchance_melee]
+		{
+			alteration          = ALTER_CRITICAL_CHANCE_MELEE_BONUS_PERCENT;
+			value               = 0.02;
+			description         = "+2% Melee Critical Hit Chance";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[bronze]
+	{
+		specializes		= copper;
+		screen_name  	= "Bronze";
+		level			= 8;
+
+		[critchance_melee]
+		{
+			value       = 0.04;
+			description = "+4% Melee Critical Hit Chance";
+		}
+	}
+
+	[silver]
+	{
+		specializes		= copper;
+		screen_name  	= "Silver";
+		level			= 15;
+
+	  	[critchance_melee]
+	  	{
+		    value       = 0.06;
+		    description = "+6% Melee Critical Hit Chance";
+		}
+	}
+
+	[gold]
+	{
+		specializes		= copper;
+		screen_name  	= "Gold";
+		level			= 22;
+
+	  	[critchance_melee]
+	  	{
+		    value       = 0.08;
+		    description = "+8% Melee Critical Hit Chance";
+		}
+	}
+
+	[steel]
+	{
+		specializes		= copper;
+		screen_name  	= "Steel";
+		level			= 30;
+
+	  	[critchance_melee]
+	  	{
+		    value       = 0.10;
+		    description = "+10% Melee Critical Hit Chance";
+		}
+	}
+
+	[platinum]
+	{
+		specializes		= copper;
+		screen_name  	= "Platinum";
+		level			= 40;
+
+	  	[critchance_melee]
+	  	{
+		    value       = 0.12;
+		    description = "+12% Melee Critical Hit Chance";
+		}
+	}
+
+	[mythril]
+	{
+		specializes		= copper;
+		screen_name  	= "Mythril";
+		level			= 50;
+
+	  	[critchance_melee]
+	  	{
+		    value       = 0.20;
+		    description = "+15% Melee Critical Hit Chance";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Damage from Critical Hits Melee
+	[crude]
+	{
+		type          = prefix;
+		screen_name   = "Crude";
+		level         = 1;
+		object_types  = melee,amulet;
+		skill_types   = fighter;
+
+		[critdamage_melee]
+		{
+			alteration          = ALTER_CRITICAL_DAMAGE_MELEE_BONUS_PERCENT;
+			value               = 0.10;
+			description         = "+10% Melee Critical Hit Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[primitive]
+	{
+		specializes		= crude;
+		screen_name   	= "Primitive";
+		level         	= 8;
+
+		[critdamage_melee]
+		{
+			value       = 0.15;
+			description = "+15% Melee Critical Hit Damage";
+		}
+	}
+
+	[brutal]
+	{
+		specializes		= crude;
+		screen_name   	= "Brutal";
+		level         	= 14;
+
+		[critdamage_melee]
+		{
+			value       = 0.20;
+			description = "+20% Melee Critical Hit Damage";
+		}
+	}
+
+	[barbaric]
+	{
+		specializes		= crude;
+		screen_name   	= "Barbaric";
+		level         	= 21;
+
+		[critdamage_melee]
+		{
+			value       = 0.25;
+			description = "+25% Melee Critical Hit Damage";
+		}
+	}
+
+	[fierce]
+	{
+		specializes		= crude;
+		screen_name   	= "Fierce";
+		level         	= 28;
+
+		[critdamage_melee]
+		{
+			value       = 0.30;
+			description = "+30% Melee Critical Hit Damage";
+		}
+	}
+
+	[remorseless]
+	{
+		specializes		= crude;
+		screen_name   	= "Remorseless";
+		level         	= 36;
+
+		[critdamage_melee]
+		{
+			value       = 0.35;
+			description = "+35% Melee Critical Hit Damage";
+		}
+	}
+
+	[merciless]
+	{
+		specializes		= crude;
+		screen_name   	= "Merciless";
+		level         	= 44;
+
+		[critdamage_melee]
+		{
+			value       = 0.43;
+			description = "+43% Melee Critical Hit Damage";
+		}
+	}
+
+	[murderous]
+	{
+		specializes		= crude;
+		screen_name   	= "Murderous";
+		level         	= 53;
+
+		[critdamage_melee]
+		{
+			value       = 0.50;
+			description = "+50% Melee Critical Hit Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance to get a Critical Hit Ranged
+	[pine]
+	{
+		type 		    = prefix;
+		screen_name	= "Pine";
+		level			= 1;
+		object_types	= ranged,amulet;
+		skill_types	= ranger;
+
+		[critchance_ranged]
+		{
+			alteration          = ALTER_CRITICAL_CHANCE_RANGED_BONUS_PERCENT;
+			value               = 0.02;
+			description         = "+2% Ranged Critical Hit Chance";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "ranged_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[beech]
+	{
+		specializes		= pine;
+		screen_name   	= "Beech";
+		level         	= 8;
+
+		[critchance_ranged]
+		{
+		    value       = 0.04;
+	    	description = "+4% Ranged Critical Hit Chance";
+		}
+	}
+
+	[willow]
+	{
+		specializes		= pine;
+		screen_name   	= "Willow";
+		level         	= 15;
+
+		[critchance_ranged]
+		{
+		    value       = 0.06;
+	    	description = "+11% Ranged Critical Hit Chance";
+		}
+	}
+
+	[maple]
+	{
+		specializes		= pine;
+		screen_name   	= "Maple";
+		level         	= 22;
+
+		[critchance_ranged]
+		{
+		    value       = 0.08;
+	    	description = "+8% Ranged Critical Hit Chance";
+		}
+	}
+
+	[redwood]
+	{
+		specializes		= pine;
+		screen_name   	= "Redwood";
+		level         	= 30;
+
+		[critchance_ranged]
+		{
+		    value       = 0.10;
+	    	description = "+10% Ranged Critical Hit Chance";
+		}
+	}
+
+	[yew]
+	{
+		specializes		= pine;
+		screen_name   	= "Yew";
+		level         	= 40;
+
+		[critchance_ranged]
+		{
+		    value       = 0.12;
+	    	description = "+12% Ranged Critical Hit Chance";
+		}
+	}
+
+	[oak]
+	{
+		specializes		= pine;
+		screen_name   	= "Oak";
+		level         	= 50;
+
+		[critchance_ranged]
+		{
+		    value       = 0.15;
+	    	description = "+15% Ranged Critical Hit Chance";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Damage from Critical Hits Ranged
+	[gory]
+	{
+		type          = prefix;
+		screen_name   = "Gory";
+		level         = 1;
+		object_types  = ranged, amulet;
+		skill_types   = ranger;
+
+		[critdamage_ranged]
+		{
+			alteration          = ALTER_CRITICAL_DAMAGE_RANGED_BONUS_PERCENT;
+			value               = 0.10;
+			description         = "+10% Ranged Critical Hit Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "ranged_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[grisly]
+	{
+		specializes		= gory;
+		screen_name   	= "Grisly";
+		level         	= 8;
+
+		[critdamage_ranged]
+		{
+			value       = 0.15;
+			description = "+15% Ranged Critical Hit Damage";
+		}
+	}
+
+	[bloodthirsty]
+	{
+		specializes		= gory;
+		screen_name   	= "Bloodthirsty";
+		level         	= 14;
+
+		[critdamage_ranged]
+		{
+			value       = 0.20;
+			description = "+20% Ranged Critical Hit Damage";
+		}
+	}
+
+	[baleful]
+	{
+		specializes		= gory;
+		screen_name   	= "Baleful";
+		level         	= 21;
+
+		[critdamage_ranged]
+		{
+			value       = 0.25;
+			description = "+25% Ranged Critical Hit Damage";
+		}
+	}
+
+	[decimating]
+	{
+		specializes		= gory;
+		screen_name   	= "Decimating";
+		level         	= 28;
+
+		[critdamage_ranged]
+		{
+			value       = 0.30;
+			description = "+30% Ranged Critical Hit Damage";
+		}
+	}
+
+	[butchering]
+	{
+		specializes		= gory;
+		screen_name   	= "Butchering";
+		level         	= 36;
+
+		[critdamage_ranged]
+		{
+			value       = 0.35;
+			description = "+35% Ranged Critical Hit Damage";
+		}
+	}
+
+	[exterminating]
+	{
+		specializes		= gory;
+		screen_name   	= "Exteriminating";
+		level         	= 44;
+
+		[critdamage_ranged]
+		{
+			value       = 0.43;
+			description = "+43% Ranged Critical Hit Damage";
+		}
+	}
+
+	[massacring]
+	{
+		specializes		= gory;
+		screen_name   	= "Massacring";
+		level         	= 53;
+
+		[critdamage_ranged]
+		{
+			value       = 0.50;
+			description = "+50% Ranged Critical Hit Damage";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Healing Effectiveness
+	[rejuvenating]
+	{
+		type          = prefix;
+		screen_name   = "Rejuvenating";
+		level         = 1;
+		object_types  = melee;
+		skill_types   = fighter,mage;
+
+		[healingpower]
+		{
+			alteration          = ALTER_HEALING_BONUS_PERCENT;
+			value               = 0.08;
+			description         = "+8% Healing Effectiveness";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "stat_intelligence";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_int_bonus_sword
+								  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+		}
+	}
+
+	[bountiful]
+	{
+		specializes		= rejuvenating;
+		screen_name   	= "Bountiful";
+		level         	= 8;
+
+		[healingpower]
+		{
+			value       = 0.12;
+			description = "+12% Healing Effectiveness";
+		}
+	}
+
+	[reviving]
+	{
+		specializes		= rejuvenating;
+		screen_name   	= "Reviving";
+		level         	= 14;
+
+		[healingpower]
+		{
+			value       = 0.16;
+			description = "+16% Healing Effectiveness";
+		}
+	}
+
+	[benevolent]
+	{
+		specializes		= rejuvenating;
+		screen_name   	= "Benevolent";
+		level         	= 21;
+
+		[healingpower]
+		{
+			value       = 0.20;
+			description = "+20% Healing Effectiveness";
+		}
+	}
+
+	[revitalizing]
+	{
+		specializes		= rejuvenating;
+		screen_name   	= "Revitalizing";
+		level         	= 28;
+
+		[healingpower]
+		{
+			value       = 0.24;
+			description = "+24% Healing Effectiveness";
+		}
+	}
+
+	[restorative]
+	{
+		specializes		= rejuvenating;
+		screen_name   	= "Restorative";
+		level         	= 36;
+
+		[healingpower]
+		{
+			value       = 0.28;
+			description = "+28% Healing Effectiveness";
+		}
+	}
+
+	[untainted]
+	{
+		specializes		= rejuvenating;
+		screen_name   	= "Untainted";
+		level         	= 44;
+
+		[healingpower]
+		{
+			value       = 0.32;
+			description = "+32% Healing Effectiveness";
+		}
+	}
+
+	[Pure]
+	{
+		specializes		= rejuvenating;
+		screen_name   	= "Pure";
+		level         	= 53;
+
+		[healingpower]
+		{
+			value       = 0.36;
+			description = "+36% Healing Effectiveness";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Ice Damage
+	[hoary]
+	{
+		type          = prefix;
+		screen_name   = "Hoary";
+		level         = 6;
+		object_types  = melee;
+		skill_types   = mage;
+
+		[icepower]
+		{
+			alteration          = ALTER_ICE_DAMAGE_PERCENT;
+			value               = 0.08;
+			description         = "+8% Ice Magic Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_ice";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_ice_sword
+								  &projectile_ffx	= ffx_spell_ice_arrow;
+		}
+	}
+
+	[biting]
+	{
+		specializes	= hoary;
+	  	screen_name   = "Biting";
+	  	level         = 21;
+
+		[icepower]
+		{
+			value       = 0.15;
+			description = "+15% Ice Magic Damage";
+		}
+	}
+
+	[frosty]
+	{
+		specializes	= hoary;
+	  	screen_name   = "Frosty";
+	  	level         = 36;
+
+		[icepower]
+		{
+			value       = 0.21;
+			description = "+21% Ice Magic Damage";
+	  	}
+	}
+
+	[gelid]
+	{
+		specializes	= hoary;
+	  	screen_name   = "Gelid";
+	  	level         = 51;
+
+		[icepower]
+		{
+			value       = 0.28;
+			description = "+28% Ice Magic Damage";
+	  	}
+	}
+
+	[frostbound]
+	{
+		specializes	= hoary;
+	  	screen_name   = "Frostbound";
+	  	level         = 66;
+
+		[icepower]
+		{
+			value       = 0.35;
+			description = "+35% Ice Magic Damage";
+	  	}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Fire Damage
+	[flickering]
+	{
+		type          = prefix;
+		screen_name   = "Flickering";
+		level         = 8;
+		object_types  = melee;
+		skill_types   = mage;
+
+		[firepower]
+		{
+			alteration          = ALTER_FIRE_DAMAGE_PERCENT;
+			value               = 0.09;
+			description         = "+9% Fire Magic Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_fire";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_fire_sword
+								  &projectile_ffx	= ffx_spell_fire_arrow;
+		}
+	}
+
+	[flaring]
+	{
+		specializes	  = flickering;
+	  	screen_name   = "Flaring";
+	  	level         = 23;
+
+		[firepower]
+		{
+			value       = 0.16;
+			description = "+16% Fire Magic Damage";
+	  	}
+	}
+
+	[fiery]
+	{
+		specializes	  = flickering;
+	  	screen_name   = "Fiery";
+	  	level         = 38;
+
+		[firepower]
+		{
+			value     = 0.22;
+			description = "+22% Fire Magic Damage";
+	  	}
+	}
+
+	[charring]
+	{
+		specializes	= flickering;
+	  	screen_name   = "Charring";
+	  	level         = 53;
+
+		[firepower]
+		{
+			value       = 0.29;
+			description = "+29% Fire Magic Damage";
+	  	}
+	}
+
+	[igniting]
+	{
+		specializes	= flickering;
+	  	screen_name   = "Igniting";
+	  	level         = 68;
+
+		[firepower]
+		{
+			value       = 0.35;
+			description = "+35% Fire Magic Damage";
+	  	}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Lightning Damage
+	[ionic]
+	{
+		type          = prefix;
+		screen_name   = "Ionic";
+		level         = 10;
+		object_types  = melee;
+		skill_types   = mage;
+
+		[lightningpower]
+		{
+			alteration          = ALTER_LIGHTNING_DAMAGE_PERCENT;
+			value               = 0.10;
+			description         = "+10% Lightning Magic Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_lightning";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_lightning_sword
+								  &projectile_ffx	= ffx_spell_lightning_arrow;
+		}
+	}
+
+	[voltaic]
+	{
+		specializes	= ionic;
+	  	screen_name   = "Voltaic";
+	  	level         = 25;
+
+		[lightningpower]
+		{
+			value       = 0.17;
+			description = "+17% Lightning Magic Damage";
+		}
+	}
+
+	[galvanic]
+	{
+		specializes	= ionic;
+	  	screen_name   = "Galvanic";
+	  	level         = 40;
+
+		[lightningpower]
+		{
+			value       = 0.23;
+			description = "+23% Lightning Magic Damage";
+		}
+	}
+
+	[magnetic]
+	{
+		specializes	= ionic;
+	  	screen_name   = "Magnetic";
+	  	level         = 55;
+
+		[lightningpower]
+		{
+			value       = 0.30;
+			description = "+30% Lightning Magic Damage";
+		}
+	}
+
+	[fused]
+	{
+		specializes	= ionic;
+	  	screen_name   = "Fused";
+	  	level         = 70;
+
+		[lightningpower]
+		{
+			value       = 0.36;
+			description = "+36% Lightning Magic Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Death Damage
+	[frightful]
+	{
+		type          = prefix;
+		screen_name   = "Frightful";
+		level         = 12;
+		object_types  = melee;
+		skill_types   = mage;
+
+		[deathpower]
+		{
+			alteration          = ALTER_DEATH_DAMAGE_PERCENT;
+			value               = 0.11;
+			description         = "+11% Death Magic Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_death";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_death_sword
+								  &projectile_ffx	= ffx_spell_death_arrow;
+		}
+	}
+
+	[unnerving]
+	{
+		specializes	  = frightful;
+		screen_name   = "Unnerving";
+		level         = 27;
+
+		[deathpower]
+		{
+			value       = 0.17;
+			description = "+17% Death Magic Damage";
+		}
+	}
+
+	[dreadful]
+	{
+		specializes	  = frightful;
+		screen_name   = "Dreadful";
+		level         = 42;
+
+		[deathpower]
+		{
+			value       = 0.24;
+			description = "+24% Death Magic Damage";
+		}
+	}
+
+	[ghastly]
+	{
+		specializes	  = frightful;
+		screen_name   = "Ghastly";
+		level         = 57;
+
+		[deathpower]
+		{
+			value       = 0.31;
+			description = "+31% Death Magic Damage";
+		}
+	}
+
+	[diabolic]
+	{
+		specializes	  = frightful;
+		screen_name   = "Diabolic";
+		level         = 72;
+
+		[deathpower]
+		{
+			value       = 0.37;
+			description = "+37% Death Magic Damage";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Summon Damage
+	[rapacious]
+	{
+		type          = prefix;
+		screen_name   = "Rapacious";
+		level         = 15;
+		object_types  = melee;
+		skill_types   = mage;
+
+		[summondamage]
+		{
+			alteration          = ALTER_SUMMON_DAMAGE_BONUS_PERCENT;
+			value               = 0.28;
+			description         = "+28% Summoned Creature Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[predatory]
+	{
+	  specializes	= rapacious;
+	  screen_name   = "Predatory";
+	  level         = 27;
+
+	  [summondamage]
+	  {
+	    value       = 0.40;
+	    description = "+40% Summoned Creature Damage";
+	  }
+	}
+
+	[lupine]
+	{
+	  specializes	= rapacious;
+	  screen_name   = "Lupine";
+	  level         = 39;
+
+	  [summondamage]
+	  {
+	    value       = 0.52;
+	    description = "+52% Summoned Creature Damage";
+	  }
+	}
+
+	[frenzied]
+	{
+	  specializes	= rapacious;
+	  screen_name   = "Frenzied";
+	  level         = 51;
+
+	  [summondamage]
+	  {
+	    value       = 0.64;
+	    description = "+64% Summoned Creature Damage";
+	  }
+	}
+
+	[ravenous]
+	{
+	  specializes	= rapacious;
+	  screen_name   = "Ravenous";
+	  level         = 63;
+
+	  [summondamage]
+	  {
+	    value       = 0.76;
+	    description = "+76% Summoned Creature Damage";
+	  }
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Summon Attack Speed
+	[rapidity]
+	{
+		type          = suffix;
+		screen_name   = "of Rapidity";
+		level         = 20;
+		object_types  = melee;
+		skill_types   = mage;
+
+		[summonspeed]
+		{
+			alteration          = ALTER_SUMMON_ATTACK_SPEED_BONUS_PERCENT;
+			value               = 0.05;
+			description         = "+5% Summoned Creature Attack Speed";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_damage";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+	[fleetness]
+	{
+		specializes	  = rapidity;
+		screen_name   = "of Fleetness";
+		level         = 30;
+
+		[summonspeed]
+		{
+			value       = 0.08;
+			description = "+8% Summoned Creature Attack Speed";
+		}
+	}
+
+	[celerity]
+	{
+		specializes	  = rapidity;
+		screen_name   = "of Celerity";
+		level         = 40;
+
+		[summonspeed]
+		{
+			value       = 0.10;
+			description = "+10% Summoned Creature Attack Speed";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Freeze Enemy for X Seconds (melee)
+	[offrostbite_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Frostbite";
+		level         = 20;
+		object_types  = melee;
+		skill_types   = fighter;
+
+		[freeze_chance_melee]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_freeze;
+			value               = 0.10;
+			description         = "Chance on Hit: Freeze Enemy for 2 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_ice";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_ice_sword
+								  &projectile_ffx	= ffx_spell_ice_arrow;
+		}
+	}
+	[offrostbite]
+	{
+		specializes	= offrostbite_minor;
+		screen_name   = "of Frostbite";
+		level         = 35;
+
+		[freeze_chance_melee]
+		{
+			description  = "Chance on Hit: Freeze Enemy for 2 Seconds";
+		}
+	}
+	[offrostbite_major]
+	{
+		specializes	= offrostbite_minor;
+		screen_name   = "of Frostbite";
+		level         = 50;
+
+		[freeze_chance_melee]
+		{
+			description = "Chance on Hit: Freeze Enemy for 2 Seconds";
+		}
+	}
+	[offrostbite_superior]
+	{
+		specializes	= offrostbite_minor;
+		screen_name   = "of Frostbite";
+		level         = 65;
+
+		[freeze_chance_melee]
+		{
+			description = "Chance on Hit: Freeze Enemy for 2 Seconds";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Freeze Enemy for X Seconds (ranged)
+	[ofsnowfall_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Snowfall";
+		level         = 30;
+		object_types  = ranged;
+		skill_types   = ranger;
+
+		[freeze_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_freeze;
+			value               = 0.10;
+			description         = "Chance on Hit: Freeze Enemy for 2 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "ranged_ice";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx	= ffx_spell_ice_arrow;
+		}
+	}
+	[ofsnowfall]
+	{
+		specializes	= ofsnowfall_minor;
+		screen_name = "of Snowfall";
+		level       = 45;
+
+		[freeze_chance_ranged]
+		{
+			description = "Chance on Hit: Freeze Enemy for 2 Seconds";
+		}
+	}
+	[ofsnowfall_major]
+	{
+		specializes	 = ofsnowfall_minor;
+		screen_name  = "of Snowfall";
+		level        = 60;
+
+		[freeze_chance_ranged]
+		{
+			description = "Chance on Hit: Freeze Enemy for 2 Seconds";
+		}
+	}
+	[ofsnowfall_superior]
+	{
+		specializes	= ofsnowfall_minor;
+		screen_name   = "of Snowfall";
+		level         = 75;
+
+		[freeze_chance_ranged]
+		{
+			description = "Chance on Hit: Freeze Enemy for 2 Seconds";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Petrify Enemy for X Seconds (melee)
+	[ofthegorgon_minor]
+	{
+		type          = suffix;
+		screen_name   = "of the Gorgon";
+		level         = 30;
+		object_types  = melee;
+		skill_types   = fighter;
+
+		[petrify_chance_melee]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_petrify;
+			value               = 0.10;
+			description         = "Chance on Hit: Petrify Enemy for 2 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "stat_dexterity";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_str_bonus_sword
+								  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+		}
+	}
+	[ofthegorgon]
+	{
+		specializes	= ofthegorgon_minor;
+		level         = 45;
+	}
+	[ofthegorgon_major]
+	{
+		specializes	= ofthegorgon_minor;
+		level         = 60;
+
+	}
+	[ofthegorgon_superior]
+	{
+		specializes	= ofthegorgon_minor;
+		level         = 75;
+
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Petrify Enemy for X Seconds (ranged)
+	[ofthebasilisk_minor]
+	{
+		type          = suffix;
+		screen_name   = "of the Basilisk";
+		level         = 20;
+		object_types  = ranged;
+		skill_types   = ranger;
+
+		[petrify_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_petrify;
+			value               = 0.10;
+			description         = "Chance on Hit: Petrify Enemy for 2 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "stat_dexterity";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_health_steal_sword
+									  &projectile_ffx	= ffx_spell_health_steal_arrow;
+		}
+	}
+	[ofthebasilisk]
+	{
+		specializes	= ofthebasilisk_minor;
+		level         = 35;
+
+	}
+	[ofthebasilisk_major]
+	{
+		specializes	= ofthebasilisk_minor;
+		level         = 50;
+
+	}
+	[ofthebasilisk_superior]
+	{
+		specializes	= ofthebasilisk_minor;
+		level         = 65;
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Rapid Attack for X Seconds (melee)
+	[ofrapidattack_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Rapid Attack";
+		level         = 25;
+		object_types  = melee;
+		skill_types   = fighter;
+
+		[rapidattack_chance_melee]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_rapid_attack_minor;
+			value               = 0.10;
+			description         = "Chance on Hit: Rapid Attack";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "mana_steal";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_mana_steal_sword
+									  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+		}
+	}
+
+	[ofrapidattack]
+	{
+		specializes	= ofrapidattack_minor;
+		screen_name	= "of Rapid Attack";
+		level       = 40;
+
+		[rapidattack_chance_melee]
+		{
+			suite		= spell_proc_rapid_attack;
+			description = "Chance on Hit: Rapid Attack";
+		}
+	}
+
+	[ofrapidattack_major]
+	{
+		specializes	= ofrapidattack_minor;
+		screen_name	= "of Major Rapid Attack";
+		level       = 60;
+
+		[rapidattack_chance_melee]
+		{
+			suite		= spell_proc_rapid_attack_major;
+			description = "Chance on Hit: Rapid Attack";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Rapid Attack for X Seconds (ranged)
+	[ofrapidattack_minor_ranged]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Rapid Attack";
+		level         = 20;
+		object_types  = ranged;
+		skill_types   = ranger;
+
+		[rapidattack_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_rapid_attack_minor;
+			value               = 0.10;
+			description         = "Chance on Hit: Rapid Attack";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "mana_steal";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_mana_steal_sword
+									  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+		}
+	}
+	[ofrapidattack_ranged]
+	{
+		specializes		= ofrapidattack_minor_ranged;
+		screen_name		= "of Rapid Attack";
+	  	level       	= 40;
+
+		[rapidattack_chance_ranged]
+		{
+			suite       = spell_proc_rapid_attack;
+			description = "Chance on Hit: Rapid Attack";
+		}
+	}
+	[ofrapidattack_major_ranged]
+	{
+		specializes		= ofrapidattack_minor_ranged;
+		screen_name		= "of Major Rapid Attack";
+	  	level       	= 60;
+
+		[rapidattack_chance_ranged]
+		{
+			suite       = spell_proc_rapid_attack_major;
+			description = "Chance on Hit: Rapid Attack";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Berserk for X Seconds
+	[ofberserking_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Berserking";
+		level         = 25;
+		object_types  = melee;
+		skill_types   = fighter;
+
+		[berserk_chance_melee]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_berserk_minor;
+			value               = 0.10;
+			description         = "Chance on Hit: Minor Berserk";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "stat_strength";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_str_bonus_sword
+								  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+		}
+	}
+	[ofberserking_lesser]
+	{
+		specializes	= ofberserking_minor;
+		screen_name   = "of Lesser Berserking";
+		level         = 37;
+
+		[berserk_chance_melee]
+		{
+			suite		= spell_proc_berserk_lesser;
+			description = "Chance on Hit: Lesser Berserk";
+		}
+	}
+	[ofberserking]
+	{
+		specializes	= ofberserking_minor;
+		screen_name   = "of Berserking";
+		level         = 49;
+
+		[berserk_chance_melee]
+		{
+			suite		= spell_proc_berserk;
+			description = "Chance on Hit: Berserk";
+		}
+	}
+	[ofberserking_major]
+	{
+		specializes	= ofberserking_minor;
+		screen_name   = "of Major Berserking";
+		level         = 61;
+
+		[berserk_chance_melee]
+		{
+			suite		= spell_proc_berserk_major;
+			description = "Chance on Hit: Major Berserk";
+		}
+	}
+	[ofberserking_superior]
+	{
+		specializes	= ofberserking_minor;
+		screen_name   = "of Superior Berserking";
+		level         = 73;
+
+		[berserk_chance_melee]
+		{
+			suite		= spell_proc_berserk_superior;
+			description = "Chance on Hit: Superior Berserk";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Shockwave for X-Y Damage (ranged)
+	[ofshockwave_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Shockwave";
+		level         = 30;
+		object_types  = ranged;
+		skill_types   = ranger;
+
+		[shockwave_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_shockwave_minor;
+			value				= 0.10;
+			description         = "Chance on Hit: Shockwave for 25 - 35 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "skills";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+								  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+		}
+	}
+	[ofshockwave_lesser]
+	{
+		specializes	= ofshockwave_minor;
+		screen_name   = "of Lesser Shockwave";
+		level         = 42;
+
+		[shockwave_chance_ranged]
+		{
+			suite		= spell_proc_shockwave_lesser;
+			description = "Chance on Hit: Shockwave for 40 - 60 Damage";
+		}
+	}
+	[ofshockwave]
+	{
+		specializes	= ofshockwave_minor;
+		screen_name   = "of Shockwave";
+		level         = 54;
+
+		[shockwave_chance_ranged]
+		{
+			suite		= spell_proc_shockwave;
+			description = "Chance on Hit: Shockwave for 60 - 95 Damage";
+		}
+	}
+	[ofshockwave_major]
+	{
+		specializes	= ofshockwave_minor;
+		screen_name   = "of Major Shockwave";
+		level         = 66;
+
+		[shockwave_chance_ranged]
+		{
+			suite		= spell_proc_shockwave_major;
+			description = "Chance on Hit: Shockwave for 90 - 130 Damage";
+		}
+	}
+	[ofshockwave_superior]
+	{
+		specializes	= ofshockwave_minor;
+		screen_name   = "of Superior Shockwave";
+		level         = 78;
+
+		[shockwave_chance_ranged]
+		{
+			suite		= spell_proc_shockwave_superior;
+			description = "Chance on Hit: Shockwave for 120 - 180 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Penetrate
+	[ofpenetration]
+	{
+		type          = suffix;
+		screen_name   = "of Penetration";
+		level         = 10;
+		object_types  = ranged;
+		skill_types   = ranger;
+
+		[penetrate_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_PENETRATE;
+			value               = 0.10;
+			description         = "Chance on Hit: Penetrating Projectile";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "stat_dexterity";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+								  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+		}
+	}
+
+	[ofpenetration_1]
+	{
+		specializes	= ofpenetration;
+		screen_name   = "of Penetration";
+		level         = 25;
+	}
+
+	[ofpenetration_2]
+	{
+		specializes	= ofpenetration;
+		screen_name   = "of Penetration";
+		level         = 45;
+	}
+
+	[ofpenetration_3]
+	{
+		specializes	= ofpenetration;
+		screen_name   = "of Penetration";
+		level         = 70;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Fire: Silence (ranged)
+	[ofsilencing_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Silencing";
+		level         = 18;
+		object_types  = ranged;
+		skill_types   = ranger;
+
+		[silence_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite				= spell_proc_silence;
+			value               = 0.10;
+			description         = "Chance on Hit: Silence Enemy for 5 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "health_steal";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_skill_bonus_sword;
+		}
+	}
+	[ofsilencing]
+	{
+		specializes	= ofsilencing_minor;
+		screen_name   = "of Silencing";
+		level         = 33;
+	}
+	[ofsilencing_major]
+	{
+		specializes	= ofsilencing_minor;
+		screen_name   = "of Silencing";
+		level         = 48;
+	}
+	[ofsilencing_superior]
+	{
+		specializes	= ofsilencing_minor;
+		screen_name   = "of Silencing";
+		level         = 63;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Fire Burst for X-Y Damage (melee)
+	[offireburst_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Fire Burst";
+		level         = 13;
+		object_types  = melee;
+		skill_types   = fighter;
+
+		[fireburst_chance_melee]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_fire_burst_minor;
+			value				= 0.10;
+			description         = "Chance on Hit: Fire Burst for 30 - 40 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_fire";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_fire_sword
+								  &projectile_ffx	= ffx_spell_fire_arrow;
+		}
+	}
+	[offireburst_lesser]
+	{
+		specializes	= offireburst_minor;
+		screen_name   = "of Lesser Fire Burst";
+		level         = 25;
+
+		[fireburst_chance_melee]
+		{
+			suite         = spell_proc_fire_burst_lesser;
+			description = "Chance on Hit: Fire Burst for 80 - 95 Damage";
+		}
+	}
+	[offireburst]
+	{
+		specializes	= offireburst_minor;
+		screen_name   = "of Fire Burst";
+		level         = 37;
+
+		[fireburst_chance_melee]
+		{
+			suite         = spell_proc_fire_burst;
+			description = "Chance on Hit: Fire Burst for 145 - 180 Damage";
+		}
+	}
+	[offireburst_major]
+	{
+		specializes	= offireburst_minor;
+		screen_name   = "of Major Fire Burst";
+		level         = 49;
+
+		[fireburst_chance_melee]
+		{
+			suite         = spell_proc_fire_burst_major;
+			description = "Chance on Hit: Fire Burst for 235 - 285 Damage";
+		}
+	}
+	[offireburst_superior]
+	{
+		specializes	= offireburst_minor;
+		screen_name   = "of Superior Fire Burst";
+		level         = 61;
+
+		[fireburst_chance_melee]
+		{
+			suite         = spell_proc_fire_burst_superior;
+			description = "Chance on Hit: Fire Burst for 345 - 420 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Fire Burst for X-Y Damage (ranged)
+	[offireburst_minor_ranged]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Fire Burst";
+		level         = 13;
+		object_types  = ranged;
+		skill_types   = ranger;
+
+		[fireburst_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_fire_burst_minor;
+			value				= 0.10;
+			description         = "Chance on Hit: Fire Burst for 30 - 40 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "ranged_fire";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_fire_arrow;
+		}
+	}
+	[offireburst_lesser_ranged]
+	{
+		specializes	= offireburst_minor_ranged;
+		screen_name   = "of Lesser Fire Burst";
+		level         = 25;
+
+		[fireburst_chance_ranged]
+		{
+			suite       = spell_proc_fire_burst_lesser;
+			description = "Chance on Hit: Fire Burst for 80 - 95 Damage";
+		}
+	}
+	[offireburst_ranged]
+	{
+		specializes	= offireburst_minor_ranged;
+		screen_name   = "of Fire Burst";
+		level         = 37;
+
+		[fireburst_chance_ranged]
+		{
+			suite       = spell_proc_fire_burst;
+			description = "Chance on Hit: Fire Burst for 145 - 180 Damage";
+		}
+	}
+	[offireburst_major_ranged]
+	{
+		specializes	= offireburst_minor_ranged;
+		screen_name   = "of Major Fire Burst";
+		level         = 49;
+
+		[fireburst_chance_ranged]
+		{
+			suite       = spell_proc_fire_burst_major;
+			description = "Chance on Hit: Fire Burst for 235 - 285 Damage";
+		}
+	}
+	[offireburst_superior_ranged]
+	{
+		specializes	= offireburst_minor_ranged;
+		screen_name   = "of Superior Fire Burst";
+		level         = 61;
+
+		[fireburst_chance_ranged]
+		{
+			suite       = spell_proc_fire_burst_superior;
+			description = "Chance on Hit: Fire Burst for 345 - 420 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Ice Burst for X-Y Damage (melee)
+	[oficeburst_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Ice Burst";
+		level         = 17;
+		object_types  = melee;
+		skill_types   = fighter;
+
+		[iceburst_chance_melee]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_ice_burst_minor;
+			value				= 0.10;
+			description         = "Chance on Hit: Ice Burst for 35 - 60 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_ice";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_ice_sword
+								  &projectile_ffx	= ffx_spell_ice_arrow;
+		}
+	}
+	[oficeburst_lesser]
+	{
+		specializes	= oficeburst_minor;
+		screen_name   = "of Lesser Ice Burst";
+		level         = 29;
+
+		[iceburst_chance_melee]
+		{
+			suite       = spell_proc_ice_burst_lesser;
+			description = "Chance on Hit: Ice Burst for 80 - 135 Damage";
+		}
+	}
+	[oficeburst]
+	{
+		specializes	= oficeburst_minor;
+		screen_name   = "of Ice Burst";
+		level         = 41;
+
+		[iceburst_chance_melee]
+		{
+			suite       = spell_proc_ice_burst;
+			description = "Chance on Hit: Ice Burst for 145 - 240 Damage";
+		}
+	}
+	[oficeburst_major]
+	{
+		specializes	= oficeburst_minor;
+		screen_name   = "of Major Ice Burst";
+		level         = 53;
+
+		[iceburst_chance_melee]
+		{
+			suite        = spell_proc_ice_burst_major;
+			description = "Chance on Hit: Ice Burst for 225 - 375 Damage";
+		}
+	}
+	[oficeburst_superior]
+	{
+		specializes	= oficeburst_minor;
+		screen_name   = "of Superior Ice Burst";
+		level         = 65;
+
+		[iceburst_chance_melee]
+		{
+			suite        = spell_proc_ice_burst_superior;
+			description = "Chance on Hit: Ice Burst for 320 - 535 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Ice Burst for X-Y Damage (ranged)
+	[oficeburst_minor_ranged]
+	{
+	  type          = suffix;
+	  screen_name   = "of Minor Ice Burst";
+	  level         = 17;
+	  object_types  = ranged;
+	  skill_types   = ranger;
+
+		[iceburst_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_ice_burst_minor;
+			value				= 0.10;
+			description         = "Chance on Hit: Ice Burst for 35 - 60 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "ranged_ice";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx	= ffx_spell_ice_arrow;
+		}
+	}
+	[oficeburst_lesser_ranged]
+	{
+	  specializes	= oficeburst_minor_ranged;
+	  screen_name   = "of Lesser Ice Burst";
+	  level         = 29;
+
+	  [iceburst_chance_ranged]
+	  {
+	  	suite        = spell_proc_ice_burst_lesser;
+	    description = "Chance on Hit: Ice Burst for 80 - 135 Damage";
+	  }
+	}
+	[oficeburst_ranged]
+	{
+	  specializes	= oficeburst_minor_ranged;
+	  screen_name   = "of Ice Burst";
+	  level         = 41;
+
+	  [iceburst_chance_ranged]
+	  {
+	  	suite        = spell_proc_ice_burst;
+	    description = "Chance on Hit: Ice Burst for 145 - 240 Damage";
+	  }
+	}
+	[oficeburst_major_ranged]
+	{
+	  specializes	= oficeburst_minor_ranged;
+	  screen_name   = "of Major Ice Burst";
+	  level         = 53;
+
+	  [iceburst_chance_ranged]
+	  {
+	  	suite        = spell_proc_ice_burst_major;
+	    description = "Chance on Hit: Ice Burst for 225 - 375 Damage";
+	  }
+	}
+	[oficeburst_superior_ranged]
+	{
+	  specializes	= oficeburst_minor_ranged;
+	  screen_name   = "of Superior Ice Burst";
+	  level         = 65;
+
+	  [iceburst_chance_ranged]
+	  {
+	  	suite        = spell_proc_ice_burst_superior;
+	    description = "Chance on Hit: Ice Burst for 320 - 535 Damage";
+	  }
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Lightning Burst for X-Y Damage (melee)
+	[oflightningburst_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Lightning Burst";
+		level         = 19;
+		object_types  = melee;
+		skill_types   = fighter;
+
+		[lightningburst_chance_melee]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_lightning_burst_minor;
+			value				= 0.10;
+			description         = "Chance on Hit: Lightning Burst for 30 - 85 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_lightning";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_lightning_sword
+								  &projectile_ffx	= ffx_spell_lightning_arrow;
+		}
+	}
+	[oflightningburst_lesser]
+	{
+		specializes	= oflightningburst_minor;
+		screen_name   = "of Lesser Lightning Burst";
+		level         = 31;
+
+		[lightningburst_chance_melee]
+		{
+			suite       = spell_proc_lightning_burst_lesser;
+			description = "Chance on Hit: Lightning Burst for 60 - 185 Damage";
+		}
+	}
+	[oflightningburst]
+	{
+		specializes	= oflightningburst_minor;
+		screen_name   = "of Lightning Burst";
+		level         = 43;
+
+		[lightningburst_chance_melee]
+		{
+			suite       = spell_proc_lightning_burst;
+			description = "Chance on Hit: Lightning Burst for 105 - 315 Damage";
+		}
+	}
+	[oflightningburst_major]
+	{
+		specializes	= oflightningburst_minor;
+		screen_name   = "of Major Lightning Burst";
+		level         = 55;
+
+		[lightningburst_chance_melee]
+		{
+			suite       = spell_proc_lightning_burst_major;
+			description = "Chance on Hit: Lightning Burst for 160 - 480 Damage";
+		}
+	}
+	[oflightningburst_superior]
+	{
+		specializes	= oflightningburst_minor;
+		screen_name   = "of Superior Lightning Burst";
+		level         = 67;
+
+		[lightningburst_chance_melee]
+		{
+			suite       = spell_proc_lightning_burst_superior;
+			description = "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Lightning Burst for X-Y Damage (ranged)
+	[oflightningburst_minor_ranged]
+	{
+		type 		= suffix;
+		screen_name   = "of Minor Lightning Burst";
+		level         = 19;
+		object_types  = ranged;
+		skill_types   = ranger;
+
+		[lightningburst_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite				= spell_proc_lightning_burst_minor;
+			value				= 0.10;
+			description         = "Chance on Hit: Lightning Burst for 30 - 85 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "ranged_lightning";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_lightning_arrow;
+
+		}
+	}
+	[oflightningburst_lesser_ranged]
+	{
+		specializes	= oflightningburst_minor_ranged;
+		screen_name   = "of Lesser Lightning Burst";
+		level         = 31;
+
+		[lightningburst_chance_ranged]
+		{
+			suite		= spell_proc_lightning_burst_lesser;
+			description = "Chance on Hit: Lightning Burst for 60 - 180 Damage";
+		}
+	}
+	[oflightningburst_ranged]
+	{
+		specializes	= oflightningburst_minor_ranged;
+		screen_name   = "of Lightning Burst";
+		level         = 43;
+
+		[lightningburst_chance_ranged]
+		{
+			suite		= spell_proc_lightning_burst;
+			description = "Chance on Hit: Lightning Burst for 105 - 315 Damage";
+		}
+	}
+	[oflightningburst_major_ranged]
+	{
+		specializes	= oflightningburst_minor_ranged;
+		screen_name   = "of Major Lightning Burst";
+		level         = 55;
+
+		[lightningburst_chance_ranged]
+		{
+			suite		= spell_proc_lightning_burst_major;
+			description = "Chance on Hit: Lightning Burst for 160 - 480 Damage";
+		}
+	}
+	[oflightningburst_superior_ranged]
+	{
+		specializes	= oflightningburst_minor_ranged;
+		screen_name   = "of Superior Lightning Burst";
+		level         = 67;
+
+		[lightningburst_chance_ranged]
+		{
+			suite		= spell_proc_lightning_burst_superior;
+			description = "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Death Burst for X-Y Damage (melee)
+	[ofdeathburst_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Death Burst";
+		level         = 23;
+		object_types  = melee;
+		skill_types   = fighter;
+
+		[deathburst_chance_melee]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_death_burst_minor;
+			value				= 0.10;
+			description         = "Chance on Hit: Death Burst for 60 - 95 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "melee_death";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_death_sword
+								  &projectile_ffx	= ffx_spell_death_arrow;
+		}
+	}
+	[ofdeathburst_lesser]
+	{
+		specializes	= ofdeathburst_minor;
+		screen_name   = "of Lesser Death Burst";
+		level         = 35;
+
+		[deathburst_chance_melee]
+		{
+			suite       = spell_proc_death_burst_lesser;
+			description = "Chance on Hit: Death Burst for 110 - 185 Damage";
+		}
+	}
+	[ofdeathburst]
+	{
+		specializes	= ofdeathburst_minor;
+		screen_name   = "of Death Burst";
+		level         = 47;
+
+		[deathburst_chance_melee]
+		{
+			suite       = spell_proc_death_burst;
+			description = "Chance on Hit: Death Burst for 180 - 305 Damage";
+		}
+	}
+	[ofdeathburst_major]
+	{
+		specializes	= ofdeathburst_minor;
+		screen_name   = "of Major Death Burst";
+		level         = 59;
+
+		[deathburst_chance_melee]
+		{
+			suite       = spell_proc_death_burst_major;
+			description = "Chance on Hit: Death Burst for 270 - 450 Damage";
+		}
+	}
+	[ofdeathburst_superior]
+	{
+		specializes	= ofdeathburst_minor;
+		screen_name   = "of Superior Death Burst";
+		level         = 71;
+
+		[deathburst_chance_melee]
+		{
+			suite       = spell_proc_death_burst_superior;
+			description = "Chance on Hit: Death Burst for 375 - 625 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance on Hit: Death Burst for X-Y Damage (ranged)
+	[ofdeathburst_minor_ranged]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Death Burst";
+		level         = 25;
+		object_types  = ranged;
+		skill_types   = ranger;
+
+		[deathburst_chance_ranged]
+		{
+			alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_death_burst_minor;
+			value				= 0.10;
+			description         = "Chance on Hit: Death Burst for 60 - 95 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+			custom_effect		= "ranged_death";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_death_arrow;
+
+		}
+	}
+	[ofdeathburst_lesser_ranged]
+	{
+		specializes	= ofdeathburst_minor_ranged;
+		screen_name   = "of Lesser Death Burst";
+		level         = 37;
+
+		[deathburst_chance_ranged]
+		{
+			suite       = spell_proc_death_burst_lesser;
+			description = "Chance on Hit: Death Burst for 110 - 185 Damage";
+		}
+	}
+	[ofdeathburst_ranged]
+	{
+		specializes	= ofdeathburst_minor_ranged;
+		screen_name   = "of Death Burst";
+		level         = 49;
+
+		[deathburst_chance_ranged]
+		{
+			suite       = spell_proc_death_burst;
+			description = "Chance on Hit: Death Burst for 180 - 305 Damage";
+		}
+	}
+	[ofdeathburst_major_ranged]
+	{
+		specializes	= ofdeathburst_minor_ranged;
+		screen_name   = "of Major Death Burst";
+		level         = 61;
+
+		[deathburst_chance_ranged]
+		{
+			suite       = spell_proc_death_burst_major;
+			description = "Chance on Hit: Death Burst for 270 - 450 Damage";
+		}
+	}
+	[ofdeathburst_superior_ranged]
+	{
+		specializes	= ofdeathburst_minor_ranged;
+		screen_name   = "of Superior Death Burst";
+		level         = 73;
+
+		[deathburst_chance_ranged]
+		{
+			suite       = spell_proc_death_burst_superior;
+			description = "Chance on Hit: Death Burst for 375 - 625 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Damage Taken Goes to Mana
+	[absorbing]
+	{
+		type          = prefix;
+		screen_name   = "Absorbing";
+		level         = 15;
+		object_types  = armor,shield;
+		skill_types   = fighter,ranger,nmage,cmage;
+
+		[percent_damage_to_mana]
+		{
+			alteration          = ALTER_DAMAGE_TO_MANA_PERCENT;
+			value               = 0.05;
+			description         = "5% Damage Goes to Mana";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[channeling]
+	{
+		specializes	= absorbing;
+		screen_name   = "Channeling";
+		level         = 30;
+
+		[percent_damage_to_mana]
+		{
+			value       = 0.08;
+			description = "8% Damage Goes to Mana";
+		}
+	}
+	[redirecting]
+	{
+		specializes	= absorbing;
+		screen_name   = "Redirecting";
+		level         = 45;
+
+		[percent_damage_to_mana]
+		{
+			value       = 0.10;
+			description = "10% Damage Goes to Mana";
+		}
+	}
+	[assimilating]
+	{
+		specializes	= absorbing;
+		screen_name   = "Assimilating";
+		level         = 60;
+
+		[percent_damage_to_mana]
+		{
+			value       = 0.12;
+			description = "12% Damage Goes to Mana";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Repulsion Blast
+	[ofrepulsionblast_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Repulsion Blast";
+		level         = 25;
+		object_types  = armor;
+		skill_types   = nmage,cmage;
+
+		[repulsionblast_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_repulsion_blast;
+			value               = 0.06;
+			description         = "Chance when Hit: Repulsion Blast";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[ofrepulsionblast]
+	{
+		specializes		= ofrepulsionblast_minor;
+		screen_name		= "of Repulsion Blast";
+		level			= 40;
+	}
+	[ofrepulsionblast_major]
+	{
+		specializes		= ofrepulsionblast_minor;
+		screen_name		= "of Major Repulsion Blast";
+		level			= 55;
+	}
+	[ofrepulsionblast_superior]
+	{
+		specializes		= ofrepulsionblast_minor;
+		screen_name		= "of Superior Repulsion Blast";
+		level			= 70;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Stun Attacker for X Seconds
+	[dazing]
+	{
+		type          = prefix;
+		screen_name   = "Dazing";
+		level         = 25;
+		object_types  = shield;
+		skill_types   = fighter;
+
+		[stun_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_stun;
+			value               = 0.03;
+			description         = "Chance When Hit: Stun Opponent for 3 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[defying]
+	{
+		specializes		= dazing;
+		screen_name		= "Defying";
+		level			= 40;
+	}
+	[stunning]
+	{
+		specializes		= dazing;
+		screen_name		= "Stunning";
+		level			= 40;
+	}
+	[stupefying]
+	{
+		specializes		= dazing;
+		screen_name		= "Stupefying";
+		level			= 40;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Freeze Attacker for X Seconds
+	[freezing_minor]
+	{
+		type          = prefix;
+		screen_name   = "Freezing";
+		level         = 15;
+		object_types  = armor;
+		skill_types   = nmage,cmage;
+
+		[stun_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_freeze;
+			value               = 0.06;
+			description         = "Chance When Hit: Freeze Attacker for 3 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[freezing]
+	{
+		specializes		= freezing_minor;
+		screen_name		= "Freezing";
+		level			= 30;
+	}
+	[freezing_major]
+	{
+		specializes		= freezing_minor;
+		screen_name		= "Freezing";
+		level			= 45;
+	}
+	[freezing_superior]
+	{
+		specializes		= freezing_minor;
+		screen_name		= "Freezing";
+		level			= 60;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Petrify Attacker for X Seconds
+	[petrifying_minor]
+	{
+		type          = prefix;
+		screen_name   = "Petrifying";
+		level         = 15;
+		object_types  = armor;
+		skill_types   = nmage,cmage;
+
+		[petrify_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_petrify;
+			value               = 0.06;
+			description         = "Chance When Hit: Petrify Attacker for 3 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[petrifying]
+	{
+		specializes		= petrifying_minor;
+		screen_name		= "Petrifying";
+		level			= 30;
+	}
+	[petrifying_major]
+	{
+		specializes		= petrifying_minor;
+		screen_name		= "Petrifying";
+		level			= 45;
+	}
+	[petrifying_superior]
+	{
+		specializes		= petrifying_minor;
+		screen_name		= "Petrifying";
+		level			= 60;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Cast Level X Decay Armor
+	[rotting]
+	{
+		type          = prefix;
+		screen_name   = "Rotting";
+		level         = 10;
+		object_types  = armor,shield;
+		skill_types   = fighter,ranger,nmage,cmage;
+
+		[decayarmor_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_decay_armor;
+			value               = 0.03;
+			description         = "Chance When Hit: Decay Armor";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[decaying]
+	{
+		specializes		= rotting;
+		screen_name		= "Decaying";
+		level			= 25;
+	}
+	[spoiling]
+	{
+		specializes		= rotting;
+		screen_name		= "Spoiling";
+		level			= 40;
+	}
+	[putrefying]
+	{
+		specializes		= rotting;
+		screen_name		= "Putrefying";
+		level			= 55;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Cast Level X Drown
+	[submersing]
+	{
+		type          = prefix;
+		screen_name   = "Submersing";
+		level         = 20;
+		object_types  = armor,shield;
+		skill_types   = fighter,ranger,nmage,cmage;
+
+		[drown_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_drown_minor;
+			value               = 0.03;
+			description         = "Chance When Hit: Minor Drown";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[suffocating]
+	{
+		specializes		= submersing;
+		screen_name		= "Suffocating";
+		level			= 35;
+
+		[drown_chance]
+		{
+			suite       = spell_proc_armor_drown;
+			description = "Chance When Hit: Drown";
+		}
+	}
+	[inundating]
+	{
+		specializes		= submersing;
+		screen_name		= "Inundating";
+		level			= 50;
+
+		[drown_chance]
+		{
+			suite		= spell_proc_armor_drown_major;
+			description = "Chance When Hit: Major Drown";
+		}
+	}
+	[asphyxiating]
+	{
+		specializes		= submersing;
+		screen_name		= "Asphyxiating";
+		level			= 65;
+
+		[drown_chance]
+		{
+			suite       = spell_proc_armor_drown_superior;
+			description = "Chance When Hit: Superior Drown";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Cast Level X Infect
+	[polluting]
+	{
+		type          = prefix;
+		screen_name   = "Polluting";
+		level         = 15;
+
+		[infect_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_infect_minor;
+			value               = 0.03;
+			description         = "Chance When Hit: Minor Infect";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[infecting]
+	{
+		specializes		= polluting;
+		screen_name		= "Infecting";
+		level			= 30;
+
+		[infect_chance]
+		{
+			suite       = spell_proc_armor_infect;
+			description = "Chance When Hit: Infect";
+		}
+	}
+	[corrupting]
+	{
+		specializes		= polluting;
+		screen_name		= "Corrupting";
+		level			= 45;
+
+		[infect_chance]
+		{
+			suite       = spell_proc_armor_infect_major;
+			description = "Chance When Hit: Major Infect";
+		}
+	}
+	[defiling]
+	{
+		specializes		= polluting;
+		screen_name		= "Defiling";
+		level			= 60;
+
+		[infect_chance]
+		{
+			suite       = spell_proc_armor_infect_superior;
+			description = "Chance When Hit: Superior Infect";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Gain X Armor for Y Seconds
+	[guarding]
+	{
+		type          = prefix;
+		screen_name   = "Guarding";
+		level         = 15;
+		object_types  = armor;
+		skill_types   = nmage,cmage;
+
+		[gainarmor_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_armor_minor;
+			value               = 0.06;
+			description         = "Chance When Hit: +35 Armor for 10 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[protecting]
+	{
+		specializes		= guarding;
+		screen_name		= "Protecting";
+		level			= 30;
+
+		[gainarmor_chance]
+		{
+			suite       = spell_proc_armor_armor;
+			description = "Chance When Hit: +100 Armor for 10 Seconds";
+		}
+	}
+	[thwarting]
+	{
+		specializes		= guarding;
+		screen_name		= "Thwarting";
+		level			= 45;
+
+		[gainarmor_chance]
+		{
+			suite       = spell_proc_armor_armor_major;
+			description = "Chance When Hit: +180 Armor for 10 Seconds";
+		}
+	}
+	[preserving]
+	{
+		specializes		= guarding;
+		screen_name		= "Preserving";
+		level			= 60;
+
+		[gainarmor_chance]
+		{
+			suite       = spell_proc_armor_armor_superior;
+			description = "Chance When Hit: +300 Armor for 10 Seconds";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Become Invulnerable for X Seconds
+	[ofinvulnerability_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Invulnerablilty";
+		level         = 25;
+		object_types  = armor;
+		skill_types   = nmage,cmage;
+
+		[invulnerable_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_invulnerability_minor;
+			value               = 0.06;
+			description         = "Chance When Hit: Invulnerable for 3 Seconds";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[ofinvulnerability]
+	{
+		specializes		= ofinvulnerability_minor;
+		screen_name		= "of Invulnerablilty";
+		level			= 40;
+
+		[invulnerable_chance]
+		{
+			suite       = spell_proc_armor_invulnerability;
+			description = "Chance When Hit: Invulnerable for 5 Seconds";
+		}
+	}
+	[ofinvulnerability_major]
+	{
+		specializes		= ofinvulnerability_minor;
+		screen_name		= "of Major Invulnerablilty";
+		level			= 55;
+
+		[invulnerable_chance]
+		{
+			suite       = spell_proc_armor_invulnerability_major;
+			description = "Chance When Hit: Invulnerable for 6 Seconds";
+		}
+	}
+	[ofinvulnerability_superior]
+	{
+		specializes		= ofinvulnerability_minor;
+		screen_name		= "of Superior Invulnerablilty";
+		level			= 70;
+
+		[invulnerable_chance]
+		{
+			suite       = spell_proc_armor_invulnerability_superior;
+			description = "Chance When Hit: Invulnerable for 8 Seconds";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Fire Wave for X-Y Damage
+	[offirewave_minor]
+	{
+	  type          = suffix;
+	  screen_name   = "of Minor Fire Wave";
+	  level         = 25;
+	  object_types  = armor,shield;
+	  skill_types   = fighter,ranger,nmage,cmage;
+
+	  [firewave_chance]
+	  {
+	    alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+	    suite               = spell_proc_armor_firewave_minor;
+	    value               = 0.03;
+	    description         = "Chance When Hit: Fire Wave for 40 - 65 Damage";
+	    duration            = #infinite;
+	    is_permanent        = true;
+	    is_single_instance  = false;
+	  }
+	}
+	[offirewave]
+	{
+	  specializes	= offirewave_minor;
+	  screen_name   = "of Fire Wave";
+	  level         = 40;
+
+	  [firewave_chance]
+	  {
+	  	suite       = spell_proc_armor_firewave;
+	    description = "Chance When Hit: Fire Wave for 115 - 195 Damage";
+	  }
+	}
+	[offirewave_major]
+	{
+	  specializes	= offirewave_minor;
+	  screen_name   = "of Major Fire Wave";
+	  level         = 60;
+
+	  [firewave_chance]
+	  {
+	  	suite       = spell_proc_armor_firewave_major;
+	    description = "Chance When Hit: Fire Wave for 230 - 385 Damage";
+	  }
+	}
+	[offirewave_superior]
+	{
+	  specializes	= offirewave_minor;
+	  screen_name   = "of Superior Fire Wave";
+	  level         = 75;
+
+	  [firewave_chance]
+	  {
+	  	suite       = spell_proc_armor_firewave_superior;
+	    description = "Chance When Hit: Fire Wave for 345 - 575 Damage";
+	  }
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Plasma Globes for X-Y Damage
+	[ofplasmaglobes_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Plasma Globes";
+		level         = 20;
+		object_types  = armor,shield;
+		skill_types   = fighter,ranger,nmage,cmage;
+
+		[plasmaglobes_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_plasma_globes_minor;
+			value               = 0.03;
+			description         = "Chance When Hit: Plasma Globes for 80 - 130 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[ofplasmaglobes]
+	{
+		specializes		= ofplasmaglobes_minor;
+		screen_name		= "of Plasma Globes";
+		level			= 35;
+
+		[plasmaglobes_chance]
+		{
+			suite		= spell_proc_armor_plasma_globes;
+			description	= "Chance When Hit: Plasma Globes for 185 - 310 Damage";
+		}
+	}
+	[ofplasmaglobes_major]
+	{
+		specializes		= ofplasmaglobes_minor;
+		screen_name		= "of Major Plasma Globes";
+		level			= 50;
+
+		[plasmaglobes_chance]
+		{
+			suite		= spell_proc_armor_plasma_globes_major;
+			description = "Chance When Hit: Plasma Globes for 340 - 565 Damage";
+		}
+	}
+	[ofplasmaglobes_superior]
+	{
+		specializes		= ofplasmaglobes_minor;
+		screen_name		= "of Superior Plasma Globes";
+		level			= 65;
+
+		[plasmaglobes_chance]
+		{
+			suite		= spell_proc_armor_plasma_globes_superior;
+			description = "Chance When Hit: Plasma Globes for 535 - 890 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Grave Beam for X-Y Damage
+	[ofgravebeam_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Grave Beam";
+		level         = 25;
+		object_types  = armor,shield;
+		skill_types   = fighter,ranger,nmage,cmage;
+
+		[gravebeam_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_grave_beam_minor;
+			value               = 0.03;
+			description         = "Chance When Hit: Grave Beam for 155 - 260 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[ofgravebeam]
+	{
+		specializes		= ofgravebeam_minor;
+		screen_name		= "of Grave Beam";
+		level			= 40;
+
+		[gravebeam_chance]
+		{
+			suite       = spell_proc_armor_grave_beam;
+			description = "Chance When Hit: Grave Beam for 370 - 620 Damage";
+		}
+	}
+	[ofgravebeam_major]
+	{
+		specializes		= ofgravebeam_minor;
+		screen_name		= "of Major Grave Beam";
+		level			= 60;
+
+		[gravebeam_chance]
+		{
+			suite       = spell_proc_armor_grave_beam_major;
+			description = "Chance When Hit: Grave Beam for 675 - 1125 Damage";
+		}
+	}
+	[ofgravebeam_superior]
+	{
+		specializes		= ofgravebeam_minor;
+		screen_name		= "of Superior Grave Beam";
+		level			= 75;
+
+		[gravebeam_chance]
+		{
+			suite       = spell_proc_armor_grave_beam_superior;
+			description = "Chance When Hit: Grave Beam for 1070 - 1785 Damage";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Impale for X-Y Damage
+	[ofimpale_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Impale";
+		level         = 20;
+		object_types  = armor,shield;
+		skill_types   = fighter,ranger,nmage,cmage;
+
+		[impale_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_impale_minor;
+			value               = 0.03;
+			description         = "Chance When Hit: Impale for 40 - 65 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[ofimpale]
+	{
+		specializes		= ofimpale_minor;
+		screen_name		= "of Impale";
+		level			= 35;
+
+		[impale_chance]
+		{
+			suite 		= spell_proc_armor_impale;
+			description = "Chance When Hit: Impale for 95 - 155 Damage";
+		}
+	}
+	[ofimpale_major]
+	{
+		specializes		= ofimpale_minor;
+		screen_name		= "of Major Impale";
+		level			= 50;
+
+		[impale_chance]
+		{
+			suite		= spell_proc_armor_impale_major;
+			description = "Chance When Hit: Impale for 170 - 280 Damage";
+		}
+	}
+	[ofimpale_superior]
+	{
+		specializes		= ofimpale_minor;
+		screen_name		= "of Superior Impale";
+		level			= 75;
+
+		[impale_chance]
+		{
+			suite		= spell_proc_armor_impale_superior;
+			description = "Chance When Hit: Impale for 265 - 445 Damage";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Call Lightning for X-Y Damage
+	[ofcalllightning_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Call Lightning";
+		level         = 20;
+		object_types  = armor,shield;
+		skill_types   = fighter,ranger,nmage,cmage;
+
+		[calllightning_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_call_lightning_minor;
+			value               = 0.03;
+			description         = "Chance When Hit: Call Lightning for 50 - 155 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[ofcalllightning]
+	{
+		specializes	= ofcalllightning_minor;
+		screen_name   = "of Call Lightning";
+		level         = 40;
+
+		[calllightning_chance]
+		{
+			suite		= spell_proc_armor_call_lightning;
+			description = "Chance When Hit: Call Lightning for 155 - 460 Damage";
+		}
+	}
+	[ofcalllightning_major]
+	{
+		specializes		= ofcalllightning_minor;
+		screen_name		= "of Major Call Lightning";
+		level			= 55;
+
+		[calllightning_chance]
+		{
+			suite		= spell_proc_armor_call_lightning_major;
+			description = "Chance When Hit: Call Lightning for 265 - 765 Damage";
+		}
+	}
+	[ofcalllightning_superior]
+	{
+		specializes		= ofcalllightning_minor;
+		screen_name		= "of Superior Call Lightning";
+		level			= 70;
+
+		[calllightning_chance]
+		{
+			suite		= spell_proc_armor_call_lightning_superior;
+			description = "Chance When Hit: Call Lightning for 405 - 1220 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Multispark for X-Y Damage
+	[ofmultispark_minor]
+	{
+		type          = suffix;
+		screen_name   = "of Minor Multispark";
+		level         = 10;
+		object_types  = armor,shield;
+		skill_types   = fighter,ranger,nmage,cmage;
+
+		[multispark_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_multispark_minor;
+			value               = 0.03;
+			description         = "Chance When Hit: Multispark for 20 - 35 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[ofmultispark]
+	{
+		specializes		= ofmultispark_minor;
+		screen_name		= "of Multispark";
+		level			= 20;
+
+		[multispark_chance]
+		{
+			suite       = spell_proc_armor_multispark;
+			description = "Chance When Hit: Multispark for 50 - 85 Damage";
+		}
+	}
+	[ofmultispark_major]
+	{
+		specializes		= ofmultispark_minor;
+		screen_name		= "of Major Multispark";
+		level			= 35;
+
+		[multispark_chance]
+		{
+			suite       = spell_proc_armor_multispark_major;
+			description = "Chance When Hit: Multispark for 125 - 205 Damage";
+		}
+	}
+	[ofmultispark_superior]
+	{
+		specializes		= ofmultispark_minor;
+		screen_name		= "of Superior Multispark";
+		level			= 50;
+
+		[multispark_chance]
+		{
+			suite       = spell_proc_armor_multispark_superior;
+			description = "Chance When Hit: Multispark for 225 - 375 Damage";
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Grasping Vine for X-Y Damage
+	[rooting]
+	{
+		type          = prefix;
+		screen_name   = "Rooting";
+		level         = 25;
+		object_types  = armor,shield;
+		skill_types   = fighter,ranger,nmage,cmage;
+
+		[graspingvines_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_grasping_vine_minor;
+			value               = 0.03;
+			description         = "Chance When Hit: Grasping Vines for 155 - 260 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[grasping]
+	{
+		specializes		= rooting;
+		screen_name		= "Grasping";
+		level			= 40;
+
+		[graspingvines_chance]
+		{
+			suite		= spell_proc_armor_grasping_vine;
+			description = "Chance When Hit: Grasping Vines for 290 - 480 Damage";
+		}
+	}
+	[grounding]
+	{
+		specializes		= rooting;
+		screen_name		= "Grounding";
+		level			= 60;
+
+		[graspingvines_chance]
+		{
+			suite		= spell_proc_armor_grasping_vine_major;
+			description = "Chance When Hit: Grasping Vines for 565 - 940 Damage";
+		}
+	}
+	[ensnaring]
+	{
+		specializes		= rooting;
+		screen_name		= "Ensnaring";
+		level			= 75;
+
+		[graspingvines_chance]
+		{
+			suite		= spell_proc_armor_grasping_vine_superior;
+			description = "Chance When Hit: Grasping Vines for 930 - 1545 Damage";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Chance when Hit: Cold Snap for X-Y Damage
+	[chilly]
+	{
+		type          = prefix;
+		screen_name   = "Chilly";
+		level         = 15;
+		object_types  = armor;
+		skill_types   = nmage,cmage;
+
+		[coldsnap_chance]
+		{
+			alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			suite               = spell_proc_armor_cold_snap_minor;
+			value               = 0.06;
+			description         = "Chance When Hit: Cold Snap for 25 - 45 Damage";
+			duration            = #infinite;
+			is_permanent        = true;
+			is_single_instance  = false;
+		}
+	}
+	[wintry]
+	{
+		specializes		= chilly;
+		screen_name		= "Hibernal";
+		level			= 30;
+
+		[coldsnap_chance]
+		{
+			suite       = spell_proc_armor_cold_snap;
+			description = "Chance When Hit: Cold Snap for 70 - 120 Damage";
+		}
+	}
+	[numbing]
+	{
+		specializes		= chilly;
+		screen_name		= "Numbing";
+		level			= 45;
+
+		[coldsnap_chance]
+		{
+			suite       = spell_proc_armor_cold_snap_major;
+			description = "Chance When Hit: Cold Snap for 140 - 235 Damage";
+		}
+	}
+	[icebound]
+	{
+		specializes		= chilly;
+		screen_name		= "Icebound";
+		level			= 60;
+
+		[coldsnap_chance]
+		{
+			suite       = spell_proc_armor_cold_snap_superior;
+			description = "Chance When Hit: Cold Snap for 230 - 385 Damage";
+		}
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// +X to Fist of Stone Skills
+	[disciples]
+	{
+	  type          = prefix;
+	  screen_name   = "Disciple's";
+	  level         = 40;
+	  object_types  = melee,amulet;
+	  skill_types   = fighter;
+
+	  [fistofstone_skills]
+	  {
+	    alteration          = ALTER_SKILL_SUITE;
+	    suite               = fos_suite_all;
+	    value               = 1;
+	    description         = "+<value> to Fist of Stone Skills";
+	    duration            = #infinite;
+	    is_permanent        = true;
+	    is_single_instance  = false;
+	    custom_effect       = "skills"; // must be unique to effect
+	    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+	                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+	                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+	  }
+	}
+	[justicars]
+	{
+	  specializes	= disciples;
+	  screen_name   = "Justicar's";
+	  level         = 65;
+
+	  [fistofstone_skills]
+	  {
+	    value       = 2;
+	    description = "+<value> to Fist of Stone Skills";
+
+	  }
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// +X to Blood Assassin Skills
+	[defilers]
+	{
+	  type          = prefix;
+	  screen_name   = "Defiler's";
+	  level         = 40;
+	  object_types  = ranged,amulet;
+	  skill_types   = ranger;
+
+	  [bloodassassin_skills]
+	  {
+	    alteration          = ALTER_SKILL_SUITE;
+	    value               = 1;
+	    suite				= ba_suite_all;
+	    description			= "+<value> to Blood Assassin Skills";
+	    duration            = #infinite;
+	    is_permanent        = true;
+	    is_single_instance  = false;
+	    custom_effect       = "skills"; // must be unique to effect
+	    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+	                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+	                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+	  }
+	}
+	[reapers]
+	{
+	  specializes	= defilers;
+	  screen_name   = "Reaper's";
+	  level         = 65;
+
+	  [bloodassassin_skills]
+	  {
+	    value       = 2;
+	    description = "+<value> to Blood Assassin Skills";
+	  }
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// +X to Tremor and Soul of Strength
+	[stoneshapers]
+	{
+	  type          = prefix;
+	  screen_name   = "Stone Shaper's";
+	  level         = 30;
+	  object_types  = melee,amulet;
+	  skill_types   = fighter;
+
+	  [fistofstone_skills_set1]
+	  {
+	    alteration          = ALTER_SKILL_SUITE;
+	    suite               = fos_suite_1;
+	    value               = 2;
+	    description         = "+<value> to Tremor and Soul of Strength";
+	    duration            = #infinite;
+	    is_permanent        = true;
+	    is_single_instance  = false;
+	    custom_effect       = "skills"; // must be unique to effect
+	    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+	                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+	                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+	  }
+	}
+	[earthcallers]
+	{
+	  specializes	= stoneshapers;
+	  screen_name   = "Earth Caller's";
+	  level         = 50;
+
+	  [fistofstone_skills_set1]
+	  {
+	    value       = 3;
+	    description = "+<value> to Tremor and Soul of Strength";
+	  }
+	}
+	[terraformers]
+	{
+	  specializes	= stoneshapers;
+	  screen_name   = "Terraformer's";
+	  level         = 70;
+
+	  [fistofstone_skills_set1]
+	  {
+	    value       = 4;
+	    description = "+<value> to Tremor and Soul of Strength";
+	  }
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// +X to Stone Affinity and Soul of Protection"
+	[defenders]
+	{
+	  type          = prefix;
+	  screen_name   = "Defender's";
+	  level         = 30;
+	  object_types  = melee,amulet;
+	  skill_types   = fighter;
+
+	  [fistofstone_skills_set2]
+	  {
+	    alteration          = ALTER_SKILL_SUITE;
+	    suite               = fos_suite_2;
+	    value               = 2;
+	    description         = "+<value> to Chant of Stone and Soul of Protection";
+	    duration            = #infinite;
+	    is_permanent        = true;
+	    is_single_instance  = false;
+	    custom_effect       = "skills"; // must be unique to effect
+	    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+	                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+	                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+	  }
+	}
+	[guardians]
+	{
+	  specializes	= defenders;
+	  screen_name   = "Guardian's";
+	  level         = 50;
+
+	  [fistofstone_skills_set2]
+	  {
+	    value       = 3;
+	    description = "+<value> to Chant of Stone and Soul of Protection";
+	  }
+	}
+	[warders]
+	{
+	  specializes	= defenders;
+	  screen_name   = "Warder's";
+	  level         = 70;
+
+	  [fistofstone_skills_set2]
+	  {
+	    value       = 3;
+	    description = "+<value> to Chant of Stone and Soul of Protection";
+	  }
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// +X to Exsanguinate and Bloodshots
+	[inquisitors]
+	{
+	  type          = prefix;
+	  screen_name   = "Inquisitor's";
+	  level         = 30;
+	  object_types  = ranged, amulet;
+	  skill_types   = ranger;
+
+	  [bloodassassin_skills_set1]
+	  {
+	    alteration          = ALTER_SKILL_SUITE;
+	    suite               = ba_suite_1;
+	    value               = 2;
+	    description         = "+<value> to Shred Blood and Bloodsoaked Shots";
+	    duration            = #infinite;
+	    is_permanent        = true;
+	    is_single_instance  = false;
+	    custom_effect       = "skills"; // must be unique to effect
+	    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+	                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+	                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+	  }
+	}
+	[murders]
+	{
+	  specializes	= inquisitors;
+	  screen_name   = "Murderer's";
+	  level         = 50;
+
+	  [bloodassassin_skills_set1]
+	  {
+	    value       = 3;
+	    description = "+<value> to Shred Blood and Bloodsoaked Shots";
+	  }
+	}
+	[slaughterers]
+	{
+	  specializes	= inquisitors;
+	  screen_name   = "Slaughterer's";
+	  level         = 70;
+	  object_types  = ranged, amulet;
+	  skill_types   = ranger;
+
+	  [bloodassassin_skills_set1]
+	  {
+	    value       = 4;
+	    description = "+<value> to Shred Blood and Bloodsoaked Shots";
+	  }
+	}
+	//////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// +X to Mark and Rune Mastery
+	[trappers]
+	{
+	  type          = prefix;
+	  screen_name   = "Trapper's";
+	  level         = 30;
+	  object_types  = ranged, amulet;
+	  skill_types   = ranger;
+
+	  [bloodassassin_skills_set2]
+	  {
+	    alteration          = ALTER_SKILL_SUITE;
+	    suite               = ba_suite_2;
+	    value               = 2;
+	    description         = "+<value> to Mark and Rune Mastery";
+	    duration            = #infinite;
+	    is_permanent        = true;
+	    is_single_instance  = false;
+	    custom_effect       = "skills"; // must be unique to effect
+	    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+	                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+	                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+	  }
+	}
+	[hunters]
+	{
+	  specializes	= trappers;
+	  screen_name   = "Hunter's";
+	  level         = 50;
+
+	  [bloodassassin_skills_set2]
+	  {
+	    value       = 3;
+	    description = "+<value> to Mark and Rune Mastery";
+	  }
+	}
+
+	[ambushers]
+	{
+	  specializes	= trappers;
+	  screen_name   = "Ambusher's";
+	  level         = 70;
+
+	  [bloodassassin_skills_set2]
+	  {
+	    value       = 4;
+	    description = "+<value> to Mark and Rune Mastery";
+	  }
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Movement Speed
+	[pacing]
+	{
+		type          = suffix;
+		screen_name   = "of Pacing";
+		level         = 10;
+		object_types  = boots;
+		skill_types	  = fighter,ranger,mage,nmage,cmage;
+
+		[movespeed]
+		{
+			alteration           = ALTER_MOVE_SPEED;
+			value                = 0.10;
+			description          = "+10% Movement Speed";
+			duration             = #infinite;
+			is_permanent         = true;
+			is_single_instance   = false;
+		}
+	}
+
+	[haste]
+	{
+		specializes	  = pacing;
+		screen_name   = "of Haste";
+		level         = 25;
+
+		[movespeed]
+		{
+			value       = 0.13;
+			description = "+13% Movement Speed";
+		}
+	}
+
+	[speed]
+	{
+		specializes	  = pacing;
+		screen_name   = "of Speed";
+		level         = 40;
+
+		[movespeed]
+		{
+			value       = 0.18;
+			description = "+18% Movement Speed";
+		}
+	}
+
+    [acceleration]
+	{
+		specializes	  = pacing;
+		screen_name   = "of Acceleration";
+		level         = 55;
+
+		[movespeed]
+		{
+			value       = 0.25;
+			description = "+25% Movement Speed";
+		}
+	}
+
+    //////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Attack Speed
+
+    // armor, weapon, amulet, ring, spellbook, body, helm, gloves, boots, shield
+    // melee, ranged
+
+	[readiness]
+	{
+		type          = suffix;
+		screen_name   = "of Readiness";
+		level         = 40;
+		object_types  = weapon,gloves;
+		skill_types	  = fighter,ranger;
+
+        [meleeattackspeed]
+        {
+            alteration			= ALTER_MELEE_SPEED;
+            value				= 0.08;
+            description			= "+8% Melee and Ranged Attack Speed";
+            duration			= #infinite;
+            is_permanent		= true;
+            is_single_instance	= false;
+        }
+        [rangedattackspeed]
+        {
+            alteration			= ALTER_RANGED_SPEED;
+            value				= 0.08;
+            duration			= #infinite;
+            is_permanent		= true;
+            is_single_instance	= false;
+        }
+	}
+
+	[alacrity]
+	{
+		specializes	  = readiness;
+		screen_name   = "of Alacrity";
+		level         = 50;
+
+		[meleeattackspeed]
+		{
+			value       = 0.11;
+            description	= "+11% Melee and Ranged Attack Speed";
+		}
+        [rangedattackspeed]
+		{
+			value       = 0.11;
+		}
+	}
+
+	[swiftness]
+	{
+		specializes	  = readiness;
+		screen_name   = "of Swiftness";
+		level         = 60;
+		object_types  = weapon;
+
+		[meleeattackspeed]
+		{
+			value       = 0.15;
+            description	= "+15% Melee and Ranged Attack Speed";
+		}
+        [rangedattackspeed]
+		{
+			value       = 0.15;
+		}
+	}
+
+    [quickness]
+	{
+		specializes	  = readiness;
+		screen_name   = "of Quickness";
+		level         = 75;
+		object_types  = weapon;
+
+		[meleeattackspeed]
+		{
+			value       = 0.20;
+            description	= "+20% Melee and Ranged Attack Speed";
+		}
+        [rangedattackspeed]
+		{
+			value       = 0.20;
+		}
+	}
+
+    //////////////////////////////////////////////////////////////////////////////
+	//----------------------------------------------------------------------------
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase Cast Rate
+
+	[apprentice]
+	{
+		type          = suffix;
+		screen_name   = "of the Apprentice";
+		level         = 40;
+		object_types  = amulet,ring,melee;
+		skill_types	  = mage,nmage,cmage;
+
+        [castspeed]
+        {
+            alteration			= ALTER_CAST_SPEED;
+            value				= 0.10;
+            multiply_value      = true;
+            description			= "+10% Increased Cast Speed";
+            duration			= #infinite;
+            is_permanent		= true;
+            is_single_instance	= false;
+        }
+	}
+
+	[magus]
+	{
+		specializes	  = apprentice;
+		screen_name   = "of the Magus";
+		level         = 70;
+		object_types  = melee;
+
+		[castspeed]
+		{
+			value       = 0.15;
+            description	= "+15% Increased Cast Speed";
+		}
+	}
+}

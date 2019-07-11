@@ -1,0 +1,6055 @@
+///////////////////////
+///////
+//////	Crafted Items - Act IV (Normal) Weapons
+/////
+////
+///
+
+[t:template,n:wpn_a4_nor_crafted_1]
+{
+	specializes = base_hammer_template;
+	doc 		= "wpn_a1_nor_crafted_1";
+	[aspect]
+	{
+		model = m_w_hmr_310-a;
+		[textures]
+		{
+			0 =  b_w_hmr_310-a;
+		}
+
+		/***/gold_value = 7060;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Ironwood Hammer";
+		base_screen_name	= "Dryad Hammer";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:#item_level - 6.0;
+		inventory_icon 		= b_gui_ig_i_w_hmr_310-a;
+		inventory_height	= 3;
+		inventory_width		= 1;
+		item_level			= 44;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_melee_damage_source_percent;
+				value				= 0.40;
+				description			= "+40% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_damage";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+									  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_CHANCE_MELEE_BONUS_PERCENT;
+			    value               = 0.06;
+			    description         = "+6% Melee Critical Hit Chance";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_petrify;
+				value               = 0.10;
+				description         = "Chance on Hit: Petrify Enemy for 2 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_power_reload;
+				value				= 0.05;
+				description			= "+5% Power Recharge Rate";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:wpn_a4_nor_crafted_2]
+{
+	specializes = base_bow_template;
+	doc 		= "wpn_a1_nor_crafted_2";
+	[aspect]
+	{
+		model = m_w_bow_312-a;
+		[textures]
+		{
+			0 =  b_w_bow_312-a;
+		}
+
+		/***/gold_value = 6727;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Sharktooth Dryad Bow";
+		base_screen_name	= "Dryad Bow";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level - 6.0;
+		inventory_icon		= b_gui_ig_i_w_bow_312-a;
+		inventory_height	= 4;
+		inventory_width		= 1;
+		item_level			= 44;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 10;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_CHANCE_RANGED_BONUS_PERCENT;
+			    value               = 0.08;
+			    description         = "+8% Ranged Critical Hit Chance";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_DAMAGE_RANGED_BONUS_PERCENT;
+			    value               = 0.25;
+			    description         = "+25% Ranged Critical Hit Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_lightning;
+				value				= 6;
+				max_value			= 20;
+				description			= "Adds 6 to 20 Lightning Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "ranged_lightning";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?projectile_ffx		= ffx_spell_lightning_arrow
+									  &hit_ffx				= ffx_spell_lightning_sword_hit;
+			}
+		}
+	}
+}
+
+[t:template,n:wpn_a4_nor_crafted_3]
+{
+	specializes = base_mage_staff_template;
+	doc 		= "wpn_a1_nor_crafted_3";
+	[aspect]
+	{
+		model = m_w_stf_318-a;
+		[textures]
+		{
+			0 =  b_w_stf_318-a;
+		}
+
+		/***/gold_value = 7592;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Preserver Stave";
+		base_screen_name	= "Ritual Staff";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level-6.0;
+		inventory_icon = b_gui_ig_i_w_stf_318-a;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level = 44;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 81;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 60;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_HEALING_BONUS_PERCENT;
+			    value               = 0.10;
+			    description         = "+10% Healing Effectiveness";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_ICE_DAMAGE_PERCENT;
+			    value               = 0.21;
+			    description         = "+21% Ice Magic Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+				custom_effect		= "melee_ice";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_ice_sword
+									  &projectile_ffx	= ffx_spell_ice_arrow
+									  &hit_ffx			= ffx_spell_ice_sword_hit;
+			}
+		}
+	}
+}
+
+[t:template,n:wpn_a4_nor_crafted_4]
+{
+	specializes = base_thrown;
+	doc = "throwing_knife";
+	[aspect]
+	{
+		model = m_w_thn_001;
+		[textures]
+		{
+			0 =  b_w_thn_001;
+		}
+
+		/***/gold_value = 8258;
+		use_pcontent_gold_value = false;
+	}
+	[attack]
+	{
+		is_wielded_weapon = false;
+		ammo_template = throwing_knife_projectile;
+	}
+	[common]
+	{
+		/***/screen_name = "Hunter's Knife";
+		base_screen_name	= "Throwing Knife";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_w_knife-01;
+		equip_requirements = ranged:#item_level - 6.0,quick_draw:1;
+		inventory_icon = b_gui_ig_i_w_thn_001;
+		inventory_height = 2;
+		inventory_width = 1;
+		item_level = 44;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 45;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ranged_damage_max;
+				value				= 11;
+				description			= "+<value> Max Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_life_bonus;
+				value				= 4;
+				description			= "Restores <value> Health Per Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "health_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_health_steal_sword
+										  &projectile_ffx	= ffx_spell_health_steal_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_shockwave_lesser;
+				value				= 0.10;
+				description         = "Chance on Hit: Shockwave for 40 - 60 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+///////////////////////////////
+// Mercenary - Act IV - Armor
+///////////////////////////////
+[t:template,n:amr_a4_nor_crafted_1]
+{
+	doc = "amr_a4_nor_crafted_1";
+	specializes = base_boots_fighter;
+
+	[aspect]
+	{
+		material = mediumleather;
+
+		/***/gold_value = 4555;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Studded Plain Striders";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 013;
+		armor_type = type02;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_boot_type02_013;
+		inventory_height = 2;
+		inventory_width = 1;
+		item_level = 44;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 35;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.22;
+				description			= "+22% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_physical_resistance;
+				value				= 0.05;
+				description			= "+5% Melee and Ranged Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite				= spell_proc_armor_grasping_vine;
+				value       		= 0.05;
+				description 		= "Chance When Hit: Grasping Vines for 170 - 290 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:amr_a4_nor_crafted_2]
+{
+	doc = "amr_a4_nor_crafted_2";
+	specializes = base_body_ranger;
+
+	[aspect]
+	{
+		/***/gold_value = 15984;
+		use_pcontent_gold_value = false;
+		material = mediumsteel;
+		[armor_ornaments]{*=type01_shoulder_05,b_c_gah_amr_orn_type01_shoulder_005;}
+	}
+	[common]
+	{
+		/***/screen_name = "Watcher Chestguard";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 017;
+		armor_type = a1;
+	}
+	[gui]
+	{
+		equip_requirements = ranged:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a1_017;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 44;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 60;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.14;
+				description			= "+14% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_resistance;
+				value				= 0.11;
+				description			= "+11% Melee Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ranged_resistance;
+				value				= 0.12;
+				description			= "+12% Ranged Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:amr_a4_nor_crafted_3]
+{
+	doc = "amr_a4_nor_crafted_3";
+	specializes = base_body_nmage;
+
+	[aspect]
+	{
+		material = mediumlightcloth;
+
+		/***/gold_value = 19847;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Tribal Vestments";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 008;
+		armor_type = a2;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a2_008;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 44;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 90;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor_source_percent;
+				value				= 0.40;
+				description			= "+40% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_resistance;
+				value				= 0.11;
+				description			= "+11% Melee Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_invulnerability_minor;
+				value               = 0.06;
+				description         = "Chance When Hit: Invulnerable for 2 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:mgc_a4_nor_crafted_1]
+{
+	doc = "mgc_a4_nor_crafted_1";
+	specializes = ring;
+
+	[aspect]
+	{
+		/***/gold_value = 10390;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Silver Ring";
+		/***/screen_name = "Silver Ring of the Storm";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_041;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 44;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 81;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor;
+				value				= 12;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ice_resistance;
+				value				= 0.22;
+				description			= "+22% Ice Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_lightning_resistance;
+				value				= 0.22;
+				description			= "+22% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+
+[t:template,n:mgc_a4_nor_crafted_2]
+{
+	doc = "mgc_a4_nor_crafted_2";
+	specializes = amulet;
+
+	[aspect]
+	{
+		/***/gold_value = 8059;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Jeweled Pendant";
+		/***/screen_name = "Elemental Jeweled Pendant";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_020;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 44;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 27;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ice_resistance;
+				value				= 0.22;
+				description			= "+22% Ice Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_lightning_resistance;
+				value				= 0.22;
+				description			= "+22% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= melee_suite_3;
+				value				= 2;
+				description			= "+<value> to Critical Strike, Dual Wield, and Alacrity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+///////////////////////
+///////
+//////	Crafted Items - Act IV (Veteran) Weapons
+/////
+////
+///
+
+[t:template,n:wpn_a4_vet_crafted_1]
+{
+	specializes = base_hammer_template;
+	doc 		= "wpn_a1_vet_crafted_1";
+	[aspect]
+	{
+		model = m_w_hmr_310-a;
+		[textures]
+		{
+			0 =  b_w_hmr_310-a;
+		}
+
+		/***/gold_value = 17286;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Sentinel Hammer";
+		base_screen_name	= "Dryad Hammer";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:#item_level - 6.0;
+		inventory_icon 		= b_gui_ig_i_w_hmr_310-a;
+		inventory_height	= 3;
+		inventory_width		= 1;
+		item_level			= 73;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 20;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_DAMAGE_MELEE_BONUS_PERCENT;
+			    value               = 0.10;
+			    description         = "+10% Melee Critical Hit Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_ice;
+				value				= 19;
+				max_value			= 32;
+				description			= "Adds <value> to <max_value> Ice Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_ice";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_ice_sword
+									  &projectile_ffx	= ffx_spell_ice_arrow
+									  &hit_ffx			= ffx_spell_ice_sword_hit;
+			}
+			[*]
+			{
+				alteration			= alter_power_reload;
+				value				= 0.07;
+				description			= "+7% Power Recharge Rate";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:wpn_a4_vet_crafted_2]
+{
+	specializes = base_bow_template;
+	doc 		= "wpn_a1_vet_crafted_2";
+	[aspect]
+	{
+		model = m_w_bow_312-a;
+		[textures]
+		{
+			0 =  b_w_bow_312-a;
+		}
+
+		/***/gold_value = 19708;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Reinforced Watcher Bow";
+		base_screen_name	= "Dryad Bow";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level - 6.0;
+		inventory_icon		= b_gui_ig_i_w_bow_312-a;
+		inventory_height	= 4;
+		inventory_width		= 1;
+		item_level			= 73;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 40;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_petrify;
+				value               = 0.10;
+				description         = "Chance on Hit: Petrify Enemy for 2 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite       		= spell_proc_lightning_burst_superior;
+				value				= 0.10;
+				description 		= "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "melee_lightning";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_lightning_sword
+									  &projectile_ffx	= ffx_spell_lightning_arrow
+									  &hit_ffx			= ffx_spell_lightning_sword_hit;
+			}
+			[*]
+			{
+				alteration			= alter_power_reload;
+				value				= 0.05;
+				description			= "+5% Power Recharge Rate";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:wpn_a4_vet_crafted_3]
+{
+	specializes = base_mage_staff_template;
+	doc 		= "wpn_a1_vet_crafted_3";
+	[aspect]
+	{
+		model = m_w_stf_318-a;
+		[textures]
+		{
+			0 =  b_w_stf_318-a;
+		}
+
+		/***/gold_value = 20038;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Feral Guardian Staff";
+		base_screen_name	= "Ritual Staff";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level-6.0;
+		inventory_icon = b_gui_ig_i_w_stf_318-a;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 73;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 18;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 107;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_gold_dropped;
+				value				= 0.40;
+				description			= "+40% Gold Dropped";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SUMMON_DAMAGE_BONUS_PERCENT;
+			    value               = 0.52;
+			    description         = "+52% Summoned Creature Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_SUMMON_ATTACK_SPEED_BONUS_PERCENT;
+				value               = 0.08;
+				description         = "+8% Summoned Creature Attack Speed";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:wpn_a4_vet_crafted_4]
+{
+	specializes = base_thrown;
+	doc = "throwing_knife";
+	[aspect]
+	{
+		model = m_w_thn_001;
+		[textures]
+		{
+			0 =  b_w_thn_001;
+		}
+
+		/***/gold_value = 15194;
+		use_pcontent_gold_value = false;
+	}
+	[attack]
+	{
+		is_wielded_weapon = false;
+		ammo_template = throwing_knife_projectile;
+	}
+	[common]
+	{
+		/***/screen_name = "Magehunter's Knife";
+		base_screen_name	= "Throwing Knife";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_w_knife-01;
+		equip_requirements = ranged:#item_level - 6.0,quick_draw:1;
+		inventory_icon = b_gui_ig_i_w_thn_001;
+		inventory_height = 2;
+		inventory_width = 1;
+		item_level = 73;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = ALTER_CRITICAL_CHANCE_RANGED_BONUS_PERCENT;
+				value               = 0.16;
+				description         = "+16% Ranged Critical Hit Chance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_petrify;
+				value               = 0.10;
+				description         = "Chance on Hit: Petrify Enemy for 2 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite				= spell_proc_silence;
+				value               = 0.10;
+				description         = "Chance on Hit: Silence Enemy for 5 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "health_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= ranged_suite_1;
+				value				= 3;
+				description			= "+<value> to Critical Shot, Dodge, and Survival";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+
+///////////////////////////////
+// Veteran - Act IV - Armor
+///////////////////////////////
+[t:template,n:amr_a4_vet_crafted_1]
+{
+	doc = "amr_a4_vet_crafted_1";
+	specializes = base_boots_fighter;
+
+	[aspect]
+	{
+		material = mediumleather;
+
+		/***/gold_value = 11164;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Greater Plain Striders";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 013;
+		armor_type = type02;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_boot_type02_013;
+		inventory_height = 2;
+		inventory_width = 1;
+		item_level = 73;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 80;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.22;
+				description			= "+22% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_physical_resistance;
+				value				= 0.08;
+				description			= "+8% Melee and Ranged Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite       		= spell_proc_armor_cold_snap_major;
+				value       		= 0.05;
+				description 		= "Chance When Hit: Cold Snap for 140 - 235 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:amr_a4_vet_crafted_2]
+{
+	doc = "amr_a4_vet_crafted_2";
+	specializes = base_body_ranger;
+
+	[aspect]
+	{
+		/***/gold_value = 28626;
+		use_pcontent_gold_value = false;
+		[armor_ornaments]{*=type01_shoulder_05,b_c_gah_amr_orn_type01_shoulder_005;}
+	}
+	[common]
+	{
+		/***/screen_name = "Forest Stalker Breastplate";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 017;
+		armor_type = a1;
+	}
+	[gui]
+	{
+		equip_requirements = ranged:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a1_017;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 73;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 100;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_decay_armor;
+				value               = 0.03;
+				description         = "Chance When Hit: Decay Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite 				= spell_proc_armor_impale;
+				value       		= 0.05;
+				description 		= "Chance When Hit: Impale for 95 - 155 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite 				= spell_proc_armor_impale_major;
+				value       		= 0.05;
+				description 		= "Chance When Hit: Impale for 170 - 280 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:amr_a4_vet_crafted_3]
+{
+	doc = "amr_a4_vet_crafted_3";
+	specializes = base_body_nmage;
+
+	[aspect]
+	{
+		material = mediumlightcloth;
+
+		/***/gold_value = 22460;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Preserver Armor";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 008;
+		armor_type = a2;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a2_008;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 73;
+	}
+[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 90;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor_source_percent;
+				value				= 0.40;
+				description			= "+40% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_resistance;
+				value				= 0.11;
+				description			= "+11% Melee Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_invulnerability_minor;
+				value               = 0.06;
+				description         = "Chance When Hit: Invulnerable for 2 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:mgc_a4_vet_crafted_1]
+{
+	doc = "mgc_a4_vet_crafted_1";
+	specializes = ring;
+
+	[aspect]
+	{
+		/***/gold_value = 16185;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Silver Ring";
+		/***/screen_name = "Ice Ring of Luck";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_041;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 73;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 12;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 10;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ice_resistance;
+				value				= 0.25;
+				description			= "+25% Ice Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_magic_find_chance;
+				value				= 15;	// Average value 16%
+				min_value_ceiling	= 17;
+				description			= "+<value>% Chance to Find Magic Items";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:mgc_a4_vet_crafted_2]
+{
+	doc = "mgc_a4_vet_crafted_2";
+	specializes = amulet;
+
+	[aspect]
+	{
+		/***/gold_value = 9799;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Jeweled Pendant";
+		/***/screen_name = "Watcher Pendant";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_010;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 73;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 75;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_DAMAGE_RANGED_BONUS_PERCENT;
+			    value               = 0.20;
+			    description         = "+20% Ranged Critical Hit Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= ranged_suite_1;
+				value				= 2;
+				description			= "+<value> to Critical Shot, Dodge, and Survival";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= ranged_suite_3;
+				value				= 2;
+				description			= "+<value> to Quick Draw, Bleed, and Penetrate";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+
+///////////////////////
+///////
+//////	Crafted Items - Act IV (Elite) Weapons
+/////
+////
+///
+[t:template,n:wpn_a4_elt_crafted_1]
+{
+	specializes = base_bow_template;
+	doc 		= "wpn_a1_elt_crafted_1";
+	[aspect]
+	{
+		model = m_w_bow_312-a;
+		[textures]
+		{
+			0 =  b_w_bow_312-a;
+		}
+
+		/***/gold_value = 19474;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Corrupted Dryad Bow";
+		base_screen_name	= "Dryad Bow";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level - 6.0;
+		inventory_icon		= b_gui_ig_i_w_bow_312-a;
+		inventory_height	= 4;
+		inventory_width		= 1;
+		item_level			= 94;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 20;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 13;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_melee_damage_min;
+				value				= 6;
+				description			= "+<value> Min Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_damage";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+									  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_ice_burst_superior;
+				value				= 0.10;
+				description         = "Chance on Hit: Ice Burst for 320 - 535 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:wpn_a4_elt_crafted_2]
+{
+	specializes = base_mage_staff_template;
+	doc 		= "wpn_a1_elt_crafted_2";
+	[aspect]
+	{
+		model = m_w_stf_318-a;
+		[textures]
+		{
+			0 =  b_w_stf_318-a;
+		}
+
+		/***/gold_value = 27460;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Frostbound Staff";
+		base_screen_name	= "Ritual Staff";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level-6.0;
+		inventory_icon = b_gui_ig_i_w_stf_318-a;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 94;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 25;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_ICE_DAMAGE_PERCENT;
+			    value               = 0.20;
+			    description         = "+20% Ice Magic Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_power_reload;
+				value				= 0.10;
+				description			= "+10% Power Recharge Rate";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= nmagic_suite_2;
+				value				= 3;
+				description			= "+<value> to Aquatic Affinity, Arctic Mastery, and Freezing";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_ice";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_ice_sword
+									  &projectile_ffx	= ffx_spell_ice_arrow
+									  &hit_ffx			= ffx_spell_ice_sword_hit;
+			}
+		}
+	}
+}
+
+[t:template,n:wpn_a4_elt_crafted_3]
+{
+	specializes = base_thrown;
+	doc = "throwing_knife";
+	[aspect]
+	{
+		model = m_w_thn_001;
+		[textures]
+		{
+			0 =  b_w_thn_001;
+		}
+
+		/***/gold_value = 25638;
+		use_pcontent_gold_value = false;
+	}
+	[attack]
+	{
+		is_wielded_weapon = false;
+		ammo_template = throwing_knife_projectile;
+	}
+	[common]
+	{
+		/***/screen_name = "Razored Throwing Knife";
+		base_screen_name	= "Throwing Knife";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_w_knife-01;
+		equip_requirements = ranged:#item_level - 6.0,quick_draw:1;
+		inventory_icon = b_gui_ig_i_w_thn_001;
+		inventory_height = 2;
+		inventory_width = 1;
+		item_level = 93;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_ranged_damage_max;
+				value				= 45;
+				description			= "+<value> Max Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_CHANCE_RANGED_BONUS_PERCENT;
+			    value               = 0.16;
+			    description         = "+16% Ranged Critical Hit Chance";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_rapid_attack;
+				value               = 0.10;
+				description         = "Chance on Hit: Rapid Attack";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "mana_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_mana_steal_sword
+										  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_life_steal;
+				value				= 7;
+				description			= "<value>% Health Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "health_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_health_steal_sword
+										  &projectile_ffx	= ffx_spell_health_steal_arrow;
+			}
+		}
+	}
+}
+///////////////////////////////
+// Elite - Act IV - Armor
+///////////////////////////////
+[t:template,n:amr_a4_elt_crafted_1]
+{
+	doc = "amr_a4_elt_crafted_1";
+	specializes = base_body_ranger;
+
+	[aspect]
+	{
+		/***/gold_value = 34745;
+		use_pcontent_gold_value = false;
+		[armor_ornaments]{*=type01_shoulder_05,b_c_gah_amr_orn_type01_shoulder_005;}
+	}
+	[common]
+	{
+		/***/screen_name = "Plains Runner Chestguard";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 017;
+		armor_type = a1;
+	}
+	[gui]
+	{
+		equip_requirements = ranged:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a1_017;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 94;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 15;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor;
+				value				= 15;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ice_resistance;
+				value				= 0.18;
+				description			= "+18% Ice Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_petrify;
+				value               = 0.03;
+				description         = "Chance When Hit: Petrify Attacker for 3 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:amr_a4_elt_crafted_2]
+{
+	doc = "amr_a4_elt_crafted_2";
+	specializes = base_body_nmage;
+
+	[aspect]
+	{
+		material = mediumlightcloth;
+
+		/***/gold_value = 56881;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Unyielding Preserver Vestments";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 008;
+		armor_type = a2;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a2_008;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 94;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 30;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_armor;
+				value				= 25;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor_source_percent;
+				value				= 0.40;
+				description			= "+40% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor_source_percent;
+				value				= 0.26;
+				description			= "+26% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:mgc_a4_elt_crafted_1]
+{
+	doc = "mgc_a4_elt_crafted_1";
+	specializes = ring;
+
+	[aspect]
+	{
+		/***/gold_value = 11909;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Adorned Ring";
+		/***/screen_name = "Ruby Ring";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_020;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 94;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 20;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 15;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 30;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_death_resistance;
+				value				= 0.10;
+				description			= "+10% Death Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:mgc_a4_elt_crafted_2]
+{
+	doc = "mgc_a4_elt_crafted_2";
+	specializes = amulet;
+
+	[aspect]
+	{
+		/***/gold_value = 20034;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Intricate Amulet";
+		/***/screen_name = "Verdant Amulet";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_024;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 94;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 25;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor;
+				value				= 10;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= nmagic_suite_3;
+				value				= 3;
+				description			= "+<value> to Nurturing Gift, Enveloping Embrace, and Feral Wrath";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SKILL_SUITE;
+			    suite               = fos_suite_2;
+			    value               = 2;
+			    description         = "+<value> to Chant of Stone and Soul of Protection";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			    custom_effect       = "skills"; // must be unique to effect
+			    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+			                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+			                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+///////////////////////
+///////
+//////	Crafted Items - Act V (Normal) Weapons
+/////
+////
+///
+
+[t:template,n:gen_a5_nor_crafted_1]
+{
+	specializes = base_axe_template;
+	doc 		= "gen_a1_nor_crafted_1";
+	[aspect]
+	{
+		model = m_w_axe_312-a;
+		[textures]
+		{
+			0 =  b_w_axe_310-a;
+		}
+
+		/***/gold_value = 8930;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Estelath Razor";
+		base_screen_name	= "Elven Axe";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_w_axe_312-a;
+		inventory_height = 3;
+		inventory_width = 1;
+		item_level			= 48;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 14;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 9;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_melee_damage_max;
+				value				= 25;
+				description			= "+<value> Max Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_damage";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+									  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_CRITICAL_CHANCE_MELEE_BONUS_PERCENT;
+				value               = 0.04;
+				description         = "+4% Melee Critical Hit Chance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_berserk_lesser;
+				value               = 0.10;
+				description         = "Chance on Hit: Lesser Berserk";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_nor_crafted_2]
+{
+	specializes = base_bow_template;
+	doc 		= "gen_a1_nor_crafted_2";
+	[aspect]
+	{
+		model = m_w_bow_310-a;
+		[textures]
+		{
+			0 =  b_w_bow_310-a;
+		}
+
+		/***/gold_value = 8567;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Tarith Scout Bow";
+		base_screen_name	= "Elven Longbow";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_w_bow_310-a;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 48;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 14;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 9;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_ice_burst_lesser;
+				value				= 0.10;
+				description         = "Chance on Hit: Ice Burst for 80 - 140 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+			    suite               = spell_proc_death_burst_minor;
+			    value				= 0.10;
+			    description         = "Chance on Hit: Death Burst for 60 - 100 Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+				custom_effect		= "ranged_death";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?projectile_ffx		= ffx_spell_death_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_power_reload;
+				value				= 0.05;
+				description			= "+5% Power Recharge Rate";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_nor_crafted_3]
+{
+	specializes = base_mage_staff_template;
+	doc 		= "gen_a1_nor_crafted_3";
+	[aspect]
+	{
+		model = m_w_stf_soldier;
+		[textures]
+		{
+			0 =  b_w_stf_soldier;
+		}
+
+		/***/gold_value = 10454;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Istauri Guardian staff";
+		base_screen_name	= "Istauri Staff";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level-6.0;
+		inventory_icon = b_gui_ig_i_w_stf_soldier;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 48;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 20;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 50;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_life_bonus;
+				value				= 6;
+				description			= "Restores <value> Health Per Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "health_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_health_steal_sword
+										  &projectile_ffx	= ffx_spell_health_steal_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= cmagic_suite_1;
+				value				= 2;
+				description			= "+<value> to Debilitation, Grim Necromancy, and Vampirism";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+[t:template,n:gen_a5_nor_crafted_9]
+{
+	specializes = base_2h_hammer_template;
+	doc = "sledge";
+	[aspect]
+	{
+		model = m_w_hmr_303-a;
+		[textures]
+		{
+			0 =  b_w_hmr_303-a;
+		}
+
+		/***/gold_value = 10890;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Enforcer's Hammer";
+		base_screen_name	= "Sledge";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 6.0,overbear:1;
+		inventory_icon = b_gui_ig_i_w_hmr_303-a;
+		inventory_height = 4;
+		inventory_width = 2;
+		item_level = 48;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 20;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_fire;
+				value				= 10;
+				max_value			= 12;
+				description			= "Adds <value> to <max_value> Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_fire";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_fire_sword
+									  &projectile_ffx	= ffx_spell_fire_arrow
+									  &hit_ffx			= ffx_spell_fire_sword_hit;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_rapid_attack;
+				value               = 0.10;
+				description         = "Chance on Hit: Rapid Attack";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "mana_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_mana_steal_sword
+										  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= melee_suite_2;
+				value				= 2;
+				description			= "+<value> to Fortitude, Overbear, and Smite";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+///////////////////////////////
+// Mercenary - Act IV - Armor
+///////////////////////////////
+[t:template,n:gen_a5_nor_crafted_4]
+{
+	doc = "gen_a5_nor_crafted_4";
+	specializes = base_body_fighter;
+
+	[aspect]
+	{
+		material = mediummythril; //jmc_armor (mythril body)
+		[armor_ornaments]{*=type04_shoulder_02,b_c_gah_amr_orn_type04_shoulder_003;}
+
+		/***/gold_value = 18295;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Maegril Plate";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 011;
+		armor_type = a4;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_amr_suit_a4_011;
+		inventory_height = 3;
+		inventory_width = 2;
+		equip_requirements = melee:#item_level-6.0;
+		item_level = 48;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 10;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_life_recovery_unit;
+				value				= 0.10;
+				description			= "+10% Health Regeneration";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ranged_resistance;
+				value				= 0.15;
+				description			= "+15% Ranged Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_multispark;
+				value               = 0.03;
+				description         = "Chance When Hit: Multispark for 30 - 50 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_nor_crafted_5]
+{
+	doc = "gen_a5_nor_crafted_5";
+	specializes = base_body_ranger;
+
+	[aspect]
+	{
+		/***/gold_value = 20473;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Tarith Ranger Vest";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 015;
+		armor_type = a2;
+	}
+	[gui]
+	{
+		equip_requirements = ranged:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a2_015;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 48;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 20;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 100;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ranged_resistance;
+				value				= 0.18;
+				description			= "+18% Ranged Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_freeze;
+				value               = 0.06;
+				description         = "Chance When Hit: Freeze Attacker for 3 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_nor_crafted_6]
+{
+	doc = "gen_a5_nor_crafted_6";
+	specializes = base_body_cmage;
+
+	[aspect]
+	{
+		material = mediummagiccloth;
+
+		/***/gold_value = 17424;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Istauri Robes";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 015;
+		armor_type = a5;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a5_015;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 48;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 20;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_reflect_damage;
+				value				= 10;
+				description			= "<value>% of Physical Damage Reflected to Enemy";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DAMAGE_TO_MANA_PERCENT;
+				value               = 0.05;
+				description         = "5% Damage Goes to Mana";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_armor_source_percent;
+				value				= 0.52;
+				description			= "+52% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_nor_crafted_7]
+{
+	doc = "gen_a5_nor_crafted_7";
+	specializes = ring;
+
+	[aspect]
+	{
+		/***/gold_value = 8350;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Silver Ring";
+		/***/screen_name = "Moon-silver Ring";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_036;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 48;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 14;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 12;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 9;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 15;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.14;
+				description			= "+14% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+
+[t:template,n:gen_a5_nor_crafted_8]
+{
+	doc = "gen_a5_nor_crafted_8";
+	specializes = amulet;
+
+	[aspect]
+	{
+		/***/gold_value = 7841;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Jeweled Pendant";
+		/***/screen_name = "Corrupted Tarith Pendant";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_007;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 48;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 8;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 6;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_DEATH_DAMAGE_PERCENT;
+			    value               = 0.22;
+			    description         = "+22% Death Magic Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SKILL_SUITE;
+			    suite               = ba_suite_2;
+			    value               = 2;
+			    description         = "+<value> to Mark and Rune Mastery";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			    custom_effect       = "skills"; // must be unique to effect
+			    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+			                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+			                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+
+///////////////////////
+///////
+//////	Crafted Items - Act V (Veteran) Weapons
+/////
+////
+///
+[t:template,n:gen_a5_vet_crafted_1]
+{
+	specializes = base_axe_template;
+	doc 		= "gen_a1_vet_crafted_1";
+	[aspect]
+	{
+		model = m_w_axe_312-a;
+		[textures]
+		{
+			0 =  b_w_axe_310-a;
+		}
+
+		/***/gold_value = 20513;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Estelath Flame Razor";
+		base_screen_name	= "Elven Axe";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_w_axe_312-a;
+		inventory_height = 3;
+		inventory_width = 1;
+		item_level			= 76;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 20;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_fire;
+				value				= 16;
+				max_value			= 20;
+				description			= "Adds <value> to <max_value> Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_fire";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_fire_sword
+									  &projectile_ffx	= ffx_spell_fire_arrow
+									  &hit_ffx			= ffx_spell_fire_sword_hit;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_berserk_major;
+				value               = 0.10;
+				description         = "Chance on Hit: Major Berserk";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_life_recovery_unit;
+				value				= 0.06;
+				description			= "+6% Health Regeneration";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_vet_crafted_2]
+{
+	specializes = base_bow_template;
+	doc 		= "gen_a1_vet_crafted_2";
+	[aspect]
+	{
+		model = m_w_bow_310-a;
+		[textures]
+		{
+			0 =  b_w_bow_310-a;
+		}
+
+		/***/gold_value = 21316;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Tarith Icy Longbow";
+		base_screen_name	= "Elven Longbow";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_w_bow_310-a;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 76;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 188;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_freeze;
+				value               = 0.10;
+				description         = "Chance on Hit: Freeze Enemy for 2 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_PENETRATE;
+				suite               = spell_proc_penetrate;
+				value               = 0.10;
+				description         = "Chance on Hit: Penetrating Projectile";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_life_steal;
+				value				= 8;
+				description			= "<value>% Health Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "health_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_health_steal_sword
+										  &projectile_ffx	= ffx_spell_health_steal_arrow;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_vet_crafted_3]
+{
+	specializes = base_mage_staff_template;
+	doc 		= "gen_a1_vet_crafted_3";
+	[aspect]
+	{
+		model = m_w_stf_soldier;
+		[textures]
+		{
+			0 =  b_w_stf_soldier;
+		}
+
+		/***/gold_value = 19826;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Fiery Stave of the Istauri";
+		base_screen_name	= "Istauri Staff";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level-6.0;
+		inventory_icon = b_gui_ig_i_w_stf_soldier;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 76;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 25;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 80;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_FIRE_DAMAGE_PERCENT;
+				value               = 0.22;
+				description         = "+22% Fire Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_life_bonus;
+				value				= 8;
+				description			= "Restores <value> Health Per Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "health_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_health_steal_sword
+										  &projectile_ffx	= ffx_spell_health_steal_arrow;
+			}
+		}
+	}
+}
+[t:template,n:gen_a5_vet_crafted_9]
+{
+	specializes = base_2h_hammer_template;
+	doc = "sledge";
+	[aspect]
+	{
+		model = m_w_hmr_303-a;
+		[textures]
+		{
+			0 =  b_w_hmr_303-a;
+		}
+
+		/***/gold_value = 17992;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Bladeguard's Sledge";
+		base_screen_name	= "Sledge";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 6.0,overbear:1;
+		inventory_icon = b_gui_ig_i_w_hmr_303-a;
+		inventory_height = 4;
+		inventory_width = 2;
+		item_level = 76;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 120;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_life_bonus;
+				value				= 7;
+				description			= "Restores <value> Health Per Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "health_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_health_steal_sword
+										  &projectile_ffx	= ffx_spell_health_steal_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_freeze;
+				value               = 0.10;
+				description         = "Chance on Hit: Freeze Enemy for 2 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "melee_ice";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_ice_sword
+									  &projectile_ffx	= ffx_spell_ice_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= melee_suite_1;
+				value				= 2;
+				description			= "+<value> to Barricade, Toughness, and Reinforced Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+///////////////////////////////
+// Veteran - Act V - Armor
+///////////////////////////////
+[t:template,n:gen_a5_vet_crafted_4]
+{
+	doc = "gen_a5_vet_crafted_4";
+	specializes = base_body_fighter;
+
+	[aspect]
+	{
+		material = mediummythril; //jmc_armor (mythril body)
+		[armor_ornaments]{*=type04_shoulder_02,b_c_gah_amr_orn_type04_shoulder_003;}
+
+		/***/gold_value = 20857;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Mythril Maegril Plate";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 011;
+		armor_type = a4;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_amr_suit_a4_011;
+		inventory_height = 3;
+		inventory_width = 2;
+		equip_requirements = melee:#item_level-6.0;
+		item_level = 76;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 22;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_armor_source_percent;
+				value				= 0.26;
+				description			= "+26% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ice_resistance;
+				value				= 0.14;
+				description			= "+14% Ice Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_resistance;
+				value				= 0.05;
+				description			= "+5% Melee Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_vet_crafted_5]
+{
+	doc = "gen_a5_vet_crafted_5";
+	specializes = base_body_ranger;
+
+	[aspect]
+	{
+		/***/gold_value = 34609;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Warped Tarith Chestguard";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 015;
+		armor_type = a2;
+	}
+	[gui]
+	{
+		equip_requirements = ranged:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a2_015;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 76;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 15;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 10;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_lightning_resistance;
+				value				= 0.25;
+				description			= "+25% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_resistance;
+				value				= 0.05;
+				description			= "+5% Melee Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_vet_crafted_6]
+{
+	doc = "gen_a5_vet_crafted_6";
+	specializes = base_body_cmage;
+
+	[aspect]
+	{
+		material = mediummagiccloth;
+
+		/***/gold_value = 43777;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Flash Woven Istauri Robes";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 015;
+		armor_type = a5;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a5_015;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 76;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 100;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor;
+				value				= 22;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_lightning_resistance;
+				value				= 0.14;
+				description			= "+14% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_resistance;
+				value				= 0.14;
+				description			= "+14% Melee Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_vet_crafted_7]
+{
+	doc = "gen_a5_vet_crafted_7";
+	specializes = ring;
+
+	[aspect]
+	{
+		/***/gold_value = 22691;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Elaborate Ring";
+		/***/screen_name = "Lightning Forged Ring";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_006;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 76;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 274;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 81;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor;
+				value				= 15;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_lightning_resistance;
+				value				= 0.22;
+				description			= "+22% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+
+[t:template,n:gen_a5_vet_crafted_8]
+{
+	doc = "gen_a5_vet_crafted_8";
+	specializes = amulet;
+
+	[aspect]
+	{
+		/***/gold_value = 22691;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Jeweled Pendant";
+		/***/screen_name = "Hearty Pendant";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_029;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 76;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 274;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 30;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 218;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_SKILL_SUITE;
+				suite               = fos_suite_1;
+				value               = 2;
+				description         = "+<value> to Tremor and Soul of Strength";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect       = "skills"; // must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+				                      ?weapon_ffx   = ffx_spell_skill_bonus_sword
+				                      &projectile_ffx = ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+
+///////////////////////
+///////
+//////	Crafted Items - Act V (Elite) Weapons
+/////
+////
+///
+[t:template,n:gen_a5_elt_crafted_1]
+{
+	specializes = base_bow_template;
+	doc 		= "gen_a1_elt_crafted_1";
+	[aspect]
+	{
+		model = m_w_bow_310-a;
+		[textures]
+		{
+			0 =  b_w_bow_310-a;
+		}
+
+		/***/gold_value = 28160;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Runetraced Longbow";
+		base_screen_name	= "Elven Longbow";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_w_bow_310-a;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 93;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 15;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_death_burst_major;
+				value				= 0.10;
+				description         = "Chance on Hit: Death Burst for 270 - 450 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SKILL_SUITE;
+			    suite               = ba_suite_2;
+			    value               = 2;
+			    description         = "+<value> to Mark and Rune Mastery";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			    custom_effect       = "skills"; // must be unique to effect
+			    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+			                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+			                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_SKILL_SUITE;
+				suite               = ba_suite_1;
+				value               = 4;
+				description         = "+<value> to Shred Blood and Bloodsoaked Shots";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect       = "skills"; // must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+				                      ?weapon_ffx   = ffx_spell_skill_bonus_sword
+				                      &projectile_ffx = ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_elt_crafted_2]
+{
+	specializes = base_mage_staff_template;
+	doc 		= "gen_a1_elt_crafted_2";
+	[aspect]
+	{
+		model = m_w_stf_soldier;
+		[textures]
+		{
+			0 =  b_w_stf_soldier;
+		}
+
+		/***/gold_value = 26200;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Fireseared Istauri Stave";
+		base_screen_name	= "Istauri Staff";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level-6.0;
+		inventory_icon = b_gui_ig_i_w_stf_soldier;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 93;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 56;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_FIRE_DAMAGE_PERCENT;
+				value               = 0.21;
+				description         = "+22% Fire Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_DEATH_DAMAGE_PERCENT;
+			    value               = 0.22;
+			    description         = "+22% Death Magic Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_life_steal;
+				value				= 8;
+				description			= "<value>% Health Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "health_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_health_steal_sword
+										  &projectile_ffx	= ffx_spell_health_steal_arrow;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_elt_crafted_7]
+{
+	specializes = base_2h_hammer_template;
+	doc = "sledge";
+	[aspect]
+	{
+		model = m_w_hmr_303-a;
+		[textures]
+		{
+			0 =  b_w_hmr_303-a;
+		}
+
+		/***/gold_value = 30542;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Berserker's Maul";
+		base_screen_name	= "Sledge";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 6.0,overbear:1;
+		inventory_icon = b_gui_ig_i_w_hmr_303-a;
+		inventory_height = 4;
+		inventory_width = 2;
+		item_level = 76;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 30;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_berserk_major;
+				value               = 0.10;
+				description         = "Chance on Hit: Major Berserk";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_fire_burst_major;
+				value				= 0.10;
+				description         = "Chance on Hit: Fire Burst for 235 - 285 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "melee_fire";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_fire_sword
+									  &projectile_ffx	= ffx_spell_fire_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= melee_suite_3;
+				value				= 3;
+				description			= "+<value> to Critical Strike, Dual Wield, and Alacrity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+///////////////////////////////
+// Elite - Act V - Armor
+///////////////////////////////
+[t:template,n:gen_a5_elt_crafted_3]
+{
+	doc = "gen_a5_elt_crafted_3";
+	specializes = base_body_ranger;
+
+	[aspect]
+	{
+		/***/gold_value = 41189;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Blasted Leather Vest";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 015;
+		armor_type = a2;
+	}
+	[gui]
+	{
+		equip_requirements = ranged:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a2_015;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 93;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_armor_source_percent;
+				value				= 0.78;
+				description			= "+78% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.14;
+				description			= "+14% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_drown_minor;
+				value               = 0.03;
+				description         = "Chance When Hit: Minor Drown";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_firewave_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Fire Wave for 40 - 65 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_elt_crafted_4]
+{
+	doc = "gen_a5_elt_crafted_4";
+	specializes = base_body_cmage;
+
+	[aspect]
+	{
+		material = mediummagiccloth;
+
+		/***/gold_value = 53238;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Gambler's Robes";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 015;
+		armor_type = a5;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_suit_a5_015;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 93;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_decay_armor;
+				value               = 0.03;
+				description         = "Chance When Hit: Decay Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_plasma_globes_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Plasma Globes for 340 - 565 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_grave_beam_superior;
+				value               = 0.03;
+				description         = "Chance When Hit: Grave Beam for 1070 - 1785 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_cold_snap_superior;
+				value               = 0.03;
+				description         = "Chance When Hit: Cold Snap for 40 - 66 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_elt_crafted_5]
+{
+	doc = "gen_a5_elt_crafted_5";
+	specializes = ring;
+
+	[aspect]
+	{
+		/***/gold_value = 22696;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Elaborate Ring";
+		/***/screen_name = "Granite Forger's Ring";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_014;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 93;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 20;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 20;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 12;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 237;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a5_elt_crafted_6]
+{
+	doc = "gen_a5_elt_crafted_6";
+	specializes = amulet;
+
+	[aspect]
+	{
+		/***/gold_value = 19194;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Jeweled Pendant";
+		/***/screen_name = "Ranger's Pendant";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_007;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 76;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_DAMAGE_RANGED_BONUS_PERCENT;
+			    value               = 0.08;
+			    description         = "+8% Ranged Critical Hit Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_DAMAGE_RANGED_BONUS_PERCENT;
+			    value               = 0.25;
+			    description         = "+25% Ranged Critical Hit Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= ranged_suite_1;
+				value				= 3;
+				description			= "+<value> to Critical Shot, Dodge, and Survival";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= ranged_suite_3;
+				value				= 2;
+				description			= "+<value> to Quick Draw, Bleed, and Penetrate";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+
+///////////////////////
+///////
+//////	Crafted Items - Act VI (Normal) Weapons
+/////
+////
+///
+
+[t:template,n:gen_a6_nor_crafted_1]
+{
+	specializes = base_hammer_template;
+	doc 		= "gen_a6_nor_crafted_1";
+
+	[aspect]
+	{
+		model = m_w_hmr_302;
+		[textures]
+		{
+			0 =  b_w_xhmr_302-a;
+		}
+
+		/***/gold_value = 14032;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Dwarven Rock Pounder";
+		base_screen_name	= "Hammer";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:#item_level - 6.0;
+		inventory_icon		= b_gui_ig_i_w_xhmr_302-a;
+		inventory_height	= 3;
+		inventory_width		= 2;
+		item_level			= 51;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 20;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_DAMAGE_MELEE_BONUS_PERCENT;
+			    value               = 0.43;
+			    description         = "+43% Melee Critical Hit Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_damage_source_percent;
+				value				= 0.32;
+				description			= "+32% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_damage";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+									  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite       		= spell_proc_lightning_burst_superior;
+				value				= 0.10;
+				description 		= "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "melee_lightning";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_lightning_sword
+									  &projectile_ffx	= ffx_spell_lightning_arrow
+									  &hit_ffx			= ffx_spell_lightning_sword_hit;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_nor_crafted_2]
+{
+	specializes = base_axe_template;
+	doc 		= "gen_a6_nor_crafted_2";
+	[aspect]
+	{
+		model = m_w_axe_308-a;
+		[textures]
+		{
+			0 =  b_w_axe_308-a;
+		}
+
+		/***/gold_value = 10794;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Cobalt Slicer";
+		base_screen_name	= "Dwarven Axe";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 10.0,nature magic:#item_level-18;
+		inventory_icon = b_gui_ig_i_w_axe_308-a;
+		inventory_height = 3;
+		inventory_width = 1;
+		item_level			= 51;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 14;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 10;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_CHANCE_MELEE_BONUS_PERCENT;
+			    value               = 0.06;
+			    description         = "+6% Melee Critical Hit Chance";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_lightning;
+				value				= 6;
+				max_value			= 20;
+				description			= "Adds 6 to 20 Lightning Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_lightning";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_lightning_sword
+									  &hit_ffx			= ffx_spell_lightning_sword_hit;
+			}
+			[*]
+			{
+				alteration			= alter_mana_bonus;
+				value				= 6;
+				description			= "Restores <value> Mana Per Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "mana_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_mana_steal_sword
+										  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_nor_crafted_3]
+{
+	specializes = base_mage_staff_template;
+	doc 		= "gen_a1_nor_crafted_3";
+	[aspect]
+	{
+		model = m_w_stf_soldier;
+		[textures]
+		{
+			0 =  b_w_stf_soldier;
+		}
+
+		/***/gold_value = 8789;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Moss Encrusted Staff";
+		base_screen_name	= "Yearling Staff";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level-6.0;
+		inventory_icon = b_gui_ig_i_w_stf_soldier;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 51;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 115;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_nmagic_damage_percent;
+				value				= 0.12;
+				description			= "+12% Nature Magic Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_HEALING_BONUS_PERCENT;
+			    value               = 0.12;
+			    description         = "+12% Healing Effectiveness";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+				value				= 2;
+				description			= "+<value> to Nature Magic Skills";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+
+///////////////////////////////
+// Mercenary - Act VI - Armor
+///////////////////////////////
+[t:template,n:gen_a6_nor_crafted_4]
+{
+	doc = "gen_a6_nor_crafted_4";
+	specializes = base_body_fos_ds2x;
+
+	[aspect]
+	{
+		material = mediumleather;
+
+		/***/gold_value = 20817;
+		use_pcontent_gold_value = false;
+		[armor_ornaments]{*=type01_shoulder_03, b_c_gah_amr_orn_type01_shoulder_003;}
+	}
+	[common]
+	{
+		/***/screen_name = "Defender's Plate";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 015;
+		armor_type = a1;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 10.0,nature magic:#item_level-18;
+		inventory_icon = b_gui_ig_i_amr_suit_a1_015;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 51;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 25;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 24;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor_source_percent;
+				value				= 0.26;
+				description			= "+26% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_plasma_globes_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Plasma Globes for 340 - 565 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_nor_crafted_5]
+{
+	doc = "gen_a6_nor_crafted_5";
+	specializes = base_helm_fighter;
+
+	[aspect]
+	{
+		/***/gold_value = 5983;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Plate Visor";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 01;
+		armor_type = type28;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_hlmt_type28_01;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 51;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 48;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DAMAGE_TO_MANA_PERCENT;
+				value               = 0.06;
+				description         = "6% Damage Goes to Mana";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.10;
+				description			= "+10% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_death_resistance;
+				value				= 0.18;
+				description			= "+18% Death Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_nor_crafted_6]
+{
+	doc = "gen_a6_nor_crafted_6";
+	specializes = base_helm_nmage;
+
+	[aspect]
+	{
+		material = mediumlightcloth;
+
+		/***/gold_value = 11164;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Dragoneer's Helm";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 06;
+		armor_type = type20;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_hlmt_type20_06;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 51;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 10;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_lightning_resistance;
+				value				= 0.22;
+				description			= "+22% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_drown_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Major Drown";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_firewave_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Fire Wave for 230 - 385 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_nor_crafted_7]
+{
+	doc = "gen_a6_nor_crafted_7";
+	specializes = ring;
+
+	[aspect]
+	{
+		/***/gold_value = 10563;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Ornate Ring";
+		/***/screen_name = "Stone Carved Ring";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_052;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 51;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 16;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 10;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_life_recovery_unit;
+				value				= 0.06;
+				description			= "+6% Health Regeneration";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_death_resistance;
+				value				= 0.10;
+				description			= "+10% Death Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_magic_find_chance;
+				value				= 25;	// Average value 30%
+				min_value_ceiling	= 35;
+				description			= "+<value>% Chance to Find Magic Items";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+
+[t:template,n:gen_a6_nor_crafted_8]
+{
+	doc = "gen_a6_nor_crafted_8";
+	specializes = amulet;
+
+	[aspect]
+	{
+		/***/gold_value = 10254;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Gold Amulet";
+		/***/screen_name = "Gold Inlaid Amulet";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_023;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 51;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 20;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 16;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_mana_recovery_unit;
+				value				= 0.10;
+				description			= "+10% Mana Regeneration";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SKILL_SUITE;
+			    value               = 1;
+			    suite				= ba_suite_all;
+			    description			= "+<value> to Blood Assassin Skills";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			    custom_effect       = "skills"; // must be unique to effect
+			    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+			                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+			                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+
+///////////////////////
+///////
+//////	Crafted Items - Act VI (Veteran) Weapons
+/////
+////
+///
+
+[t:template,n:gen_a6_vet_crafted_1]
+{
+	specializes = base_hammer_template;
+	doc 		= "gen_a6_vet_crafted_1";
+	[aspect]
+	{
+		model = m_w_hmr_302;
+		[textures]
+		{
+			0 =  b_w_hmr_302;
+		}
+
+		/***/gold_value = 17405;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Lightning Chisel";
+		base_screen_name	= "Hammer";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_w_hmr_302;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level			= 78;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 40;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_melee_damage_max;
+				value				= 12;
+				description			= "+<value> Max Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_damage";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+									  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_lightning;
+				value				= 4;
+				max_value			= 12;
+				description			= "Adds 4 to 12 Lightning Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_lightning";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_lightning_sword
+									  &hit_ffx			= ffx_spell_lightning_sword_hit;
+			}
+			[*]
+			{
+				alteration			= alter_life_bonus;
+				value				= 6;
+				description			= "Restores <value> Health Per Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "health_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_health_steal_sword
+										  &projectile_ffx	= ffx_spell_health_steal_arrow;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_vet_crafted_2]
+{
+	specializes = base_axe_template;
+	doc 		= "gen_a6_vet_crafted_2";
+	[aspect]
+	{
+		model = m_w_axe_308-a;
+		[textures]
+		{
+			0 =  b_w_axe_308-a;
+		}
+
+		/***/gold_value = 13406;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Stone Cleaver";
+		base_screen_name	= "Dwarven Axe";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 10.0,nature magic:#item_level-18;
+		inventory_icon = b_gui_ig_i_w_axe_308-a;
+		inventory_height = 3;
+		inventory_width = 1;
+		item_level			= 78;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 36;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 24;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_CHANCE_MELEE_BONUS_PERCENT;
+			    value               = 0.10;
+			    description         = "+10% Melee Critical Hit Chance";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_damage_source_percent;
+				value				= 0.10;
+				description			= "+10% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_mana_bonus;
+				value				= 4;
+				description			= "Restores <value> Mana Per Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "mana_steal";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+										  ?weapon_ffx		= ffx_spell_mana_steal_sword
+										  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_vet_crafted_3]
+{
+	specializes = base_mage_staff_template;
+	doc 		= "gen_a1_vet_crafted_3";
+	[aspect]
+	{
+		model = m_w_stf_soldier;
+		[textures]
+		{
+			0 =  b_w_stf_soldier;
+		}
+
+		/***/gold_value = 15641;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Mana Infused Staff";
+		base_screen_name	= "Yearling Staff";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level-6.0;
+		inventory_icon = b_gui_ig_i_w_stf_soldier;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 78;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 25;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 81;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 13;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_HEALING_BONUS_PERCENT;
+			    value               = 0.28;
+			    description         = "+28% Healing Effectiveness";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+		}
+	}
+}
+
+///////////////////////////////
+// Veteran - Act VI - Armor
+///////////////////////////////
+[t:template,n:gen_a6_vet_crafted_4]
+{
+	doc = "gen_a6_vet_crafted_4";
+	specializes = base_body_fos_ds2x;
+
+	[aspect]
+	{
+		material = mediumleather;
+		[armor_ornaments]{*=type01_shoulder_03, b_c_gah_amr_orn_type01_shoulder_003;}
+		/***/gold_value = 48216;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Traveler's Chestplate";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 015;
+		armor_type = a1;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 10.0,nature magic:#item_level-18;
+		inventory_icon = b_gui_ig_i_amr_suit_a1_015;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 78;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_drown_superior;
+				value               = 0.03;
+				description         = "Chance When Hit: Superior Drown";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_plasma_globes_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Plasma Globes for 340 - 565 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_call_lightning_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Call Lightning for 32 - 54 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite       		= spell_proc_armor_cold_snap_major;
+				value       		= 0.05;
+				description 		= "Chance When Hit: Cold Snap for 140 - 235 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_vet_crafted_5]
+{
+	doc = "gen_a6_vet_crafted_5";
+	specializes = base_helm_fighter;
+
+	[aspect]
+	{
+		/***/gold_value = 13077;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Stonedelver's Helm";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 01;
+		armor_type = type28;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_hlmt_type28_01;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 78;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 40;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 25;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_ranged_resistance;
+				value				= 0.20;
+				description			= "+20% Ranged Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ranged_resistance;
+				value				= 0.15;
+				description			= "+15% Ranged Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_vet_crafted_6]
+{
+	doc = "gen_a6_vet_crafted_6";
+	specializes = base_helm_nmage;
+
+	[aspect]
+	{
+		material = mediumlightcloth;
+
+		/***/gold_value = 13924;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Channeler's Helm";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 06;
+		armor_type = type20;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_hlmt_type20_06;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 78;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 30;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_DAMAGE_TO_MANA_PERCENT;
+				value               = 0.08;
+				description         = "8% Damage Goes to Mana";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_lightning_resistance;
+				value				= 0.10;
+				description			= "+18% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite				= spell_proc_armor_grasping_vine;
+				value       		= 0.05;
+				description 		= "Chance When Hit: Grasping Vines for 290 - 480 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_vet_crafted_7]
+{
+	doc = "gen_a6_vet_crafted_7";
+	specializes = ring;
+
+	[aspect]
+	{
+		/***/gold_value = 14935;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Ornate Ring";
+		/***/screen_name = "Mythril Forged Ring";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_052;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 78;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 24;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 9;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 81;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_armor;
+				value				= 10;
+				description			= "+<value> Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+
+[t:template,n:gen_a6_vet_crafted_8]
+{
+	doc = "gen_a6_vet_crafted_8";
+	specializes = amulet;
+
+	[aspect]
+	{
+		/***/gold_value = 20815;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Gold Amulet";
+		/***/screen_name = "Obsidian Inlaid Amulet";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_023;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 78;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 36;
+				description			= "+<value> Dexterity";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 24;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_ice_resistance;
+				value				= 0.22;
+				description			= "+22% Ice Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= ranged_suite_2;
+				value				= 3;
+				description			= "+<value> to Biting Arrow, Far Shot, and Shockwave";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "skills";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_skill_bonus_sword
+									  &projectile_ffx	= ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}
+
+///////////////////////
+///////
+//////	Crafted Items - Act VI (Elite) Weapons
+/////
+////
+///
+
+[t:template,n:gen_a6_elt_crafted_1]
+{
+	specializes = base_axe_template;
+	doc 		= "gen_a6_elt_crafted_1";
+	[aspect]
+	{
+		model = m_w_axe_308-a;
+		[textures]
+		{
+			0 =  b_w_axe_308-a;
+		}
+
+		/***/gold_value = 37407;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Storm Caller";
+		base_screen_name	= "Dwarven Axe";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 10.0,nature magic:#item_level-18;
+		inventory_icon = b_gui_ig_i_w_axe_308-a;
+		inventory_height = 3;
+		inventory_width = 1;
+		item_level			= 93;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 80;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_death;
+				value				= 16;
+				max_value			= 28;
+				description			= "Adds <value> to <max_value> Death Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_death";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_death_sword
+									  &projectile_ffx	= ffx_spell_death_arrow
+									  &hit_ffx			= ffx_spell_death_sword_hit;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite       		= spell_proc_lightning_burst_superior;
+				value				= 0.10;
+				description 		= "Chance on Hit: Lightning Burst for 225 - 680 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "melee_lightning";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_lightning_sword
+									  &projectile_ffx	= ffx_spell_lightning_arrow
+									  &hit_ffx			= ffx_spell_lightning_sword_hit;
+			}
+			[*]
+			{
+				alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+				suite       		= spell_proc_lightning_burst_major;
+				value				= 0.10;
+				description 		= "Chance on Hit: Lightning Burst for 159 - 478 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect		= "melee_lightning";
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_elt_crafted_2]
+{
+	specializes = base_mage_staff_template;
+	doc 		= "gen_a1_elt_crafted_2";
+	[aspect]
+	{
+		model = m_w_stf_soldier;
+		[textures]
+		{
+			0 =  b_w_stf_soldier;
+		}
+
+		/***/gold_value = 27600;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Staff of Enlightenment";
+		base_screen_name	= "Yearling Staff";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level-6.0;
+		inventory_icon = b_gui_ig_i_w_stf_soldier;
+		inventory_height = 4;
+		inventory_width = 1;
+		item_level			= 93;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 56;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 16;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_nmagic_damage_percent;
+				value				= 0.20;
+				description			= "+20% Nature Magic Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_SUMMON_ATTACK_SPEED_BONUS_PERCENT;
+				value               = 0.08;
+				description         = "+8% Summoned Creature Attack Speed";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+///////////////////////////////
+// Elite - Act VI - Armor
+///////////////////////////////
+[t:template,n:gen_a6_elt_crafted_3]
+{
+	doc = "gen_a6_elt_crafted_3";
+	specializes = base_body_fos_ds2x;
+
+	[aspect]
+	{
+		material = mediummythril;
+		[armor_ornaments]{*=type04_shoulder_04,b_c_gah_amr_orn_type04_shoulder_009;}
+		/***/gold_value = 56320;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Dwarven Forged Plate";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 018;
+		armor_type = a4;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 10.0,nature magic:#item_level-18;
+		inventory_icon = b_gui_ig_i_amr_suit_a4_018;
+		inventory_height = 3;
+		inventory_width = 2;
+		item_level = 93;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 150;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_life_recovery_unit;
+				value				= 0.12;
+				description			= "+12% Health Regeneration";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ice_resistance;
+				value				= 0.22;
+				description			= "+22% Ice Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ranged_resistance;
+				value				= 0.18;
+				description			= "+18% Ranged Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_elt_crafted_4]
+{
+	doc = "gen_a6_elt_crafted_4";
+	specializes = base_helm_nmage;
+
+	[aspect]
+	{
+		material = mediumlightcloth;
+
+		/***/gold_value = 17709;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		/***/screen_name = "Traveler's Helm";
+		rarity				= CRAFTED;
+		allow_modifiers 	= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 06;
+		armor_type = type20;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level - 6.0;
+		inventory_icon = b_gui_ig_i_amr_hlmt_type20_06;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 93;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.14;
+				description			= "+14% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_decay_armor;
+				value               = 0.03;
+				description         = "Chance When Hit: Decay Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_firewave_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Fire Wave for 230 - 385 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_multispark_superior;
+				value               = 0.03;
+				description         = "Chance When Hit: Multispark for 135 - 225 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+[t:template,n:gen_a6_elt_crafted_5]
+{
+	doc = "gen_a6_elt_crafted_5";
+	specializes = ring;
+
+	[aspect]
+	{
+		/***/gold_value = 23817;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Ornate Ring";
+		/***/screen_name = "Earthen Ring";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_ring_052;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 93;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 20;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 5;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_strength";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 13;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 3;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_intelligence";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+				alteration			= alter_max_life;
+				value				= 50;
+				description			= "+<value> Health";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_max_mana;
+				value				= 218;
+				description			= "+<value> Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+
+[t:template,n:gen_a6_elt_crafted_6]
+{
+	doc = "gen_a6_elt_crafted_6";
+	specializes = amulet;
+
+	[aspect]
+	{
+		/***/gold_value = 25358;
+		use_pcontent_gold_value = false;
+	}
+	[common]
+	{
+		base_screen_name = "Gold Amulet";
+		/***/screen_name = "Runed Amulet";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_it_amulet_007;
+		equip_requirements = uber:#item_level - 6.0;
+		use_class = IST_ALL;
+		item_level = 93;
+	}
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 40;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "stat_dexterity";	// must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_int_bonus_sword
+									  &projectile_ffx	= ffx_spell_int_bonus_arrow;
+			}
+			[*]
+			{
+			    alteration          = ALTER_CRITICAL_DAMAGE_RANGED_BONUS_PERCENT;
+			    value               = 0.43;
+			    description         = "+43% Ranged Critical Hit Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SKILL_SUITE;
+			    suite               = ba_suite_2;
+			    value               = 2;
+			    description         = "+<value> to Mark and Rune Mastery";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			    custom_effect       = "skills"; // must be unique to effect
+			    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+			                          ?weapon_ffx   = ffx_spell_skill_bonus_sword
+			                          &projectile_ffx = ffx_spell_skill_bonus_arrow;
+			}
+			[*]
+			{
+				alteration          = ALTER_SKILL_SUITE;
+				suite               = ba_suite_1;
+				value               = 3;
+				description         = "+<value> to Shred Blood and Bloodsoaked Shots";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+				custom_effect       = "skills"; // must be unique to effect
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+				                      ?weapon_ffx   = ffx_spell_skill_bonus_sword
+				                      &projectile_ffx = ffx_spell_skill_bonus_arrow;
+			}
+		}
+	}
+}

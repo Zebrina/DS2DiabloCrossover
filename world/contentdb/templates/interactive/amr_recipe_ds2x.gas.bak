@@ -1,0 +1,2233 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  world\contentdb\templates\interactive\wpn_unique_ds2x.gas
+// Author(s):  Tristan Hall, Mike Marr
+//
+// Summary  : Unique Weapon Templates for DS2X
+//
+// Copyright � 2005 Gas Powered Games, Inc.  All rights reserved.
+//////////////////////////////////////////////////////////////////////////////
+/****************************************************************************/
+/*                      Recipe Armor in DS2X                                */
+/*                      Set recipe items are in the set gas files           */
+/****************************************************************************/
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Body Armor
+
+
+// TEMPLATE:  amr_bdy_fos_rcp_01_ds2x
+// ITEM: Lava Plate
+[t:template,n:amr_bdy_fos_rcp_01_ds2x]
+{
+	doc = "Lava Plate";
+	specializes = base_body_fighter;
+
+	[aspect]
+	{
+		material = mediumsteel; //jmc_armor (resplendent mail -- plate armor)
+	}
+	[common]
+	{
+		screen_name			= "Lava Plate";
+		base_screen_name	= "Full Plate";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 014;
+		armor_type = a3;
+	}
+	[gui]
+	{
+		equip_requirements 	= melee: 34, nature magic: 27;
+		inventory_icon		= b_gui_ig_i_amr_suit_a3_014;
+		inventory_height	= 3;
+		inventory_width		= 2;
+		item_level			= 40.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 14;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 9;
+				description			= "+<value> Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.22;
+				description			= "+22% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_plasma_globes;
+				value               = 0.03;
+				description         = "Chance When Hit: Plasma Globes for 185 - 310 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_SKILL_SUITE;
+				suite               = fos_suite_all;
+				value               = 1;
+				description         = "+<value> to Fist of Stone Skills";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_bdy_rng_rcp_01_ds2x
+// ITEM: Vagabond's Garb
+[t:template,n:amr_bdy_rng_rcp_01_ds2x]
+{
+	doc = "Vagabond's Garb";
+	specializes = base_body_ranger;
+
+	[common]
+	{
+		screen_name			= "Vagabond's Garb";
+		base_screen_name	= "Explorer Armor";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 010;
+		armor_type	= a1;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_amr_suit_a1_010;
+		inventory_height	= 2;
+		inventory_width		= 2;
+		item_level			= 35.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_dexterity;
+				value               = 28;
+				description         = "+<value> Dexterity";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_armor_source_percent;
+				value               = 0.44;
+				description         = "+44% Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_max_life;
+				value               = 75;
+				description         = "+<value> Health";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = ranged_suite_3;
+				value               = 2;
+				description         = "+<value> to Quick Draw, Bleed, and Penetrate";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_bdy_rng_rcp_02
+// ITEM: Elven Hero's Regalia
+[t:template,n:amr_bdy_rng_rcp_02_ds2x]
+{
+	doc = "Elven Hero's Regalia";
+	specializes = base_body_ranger;
+
+	[common]
+	{
+		screen_name			= "Elven Hero's Regalia";
+		base_screen_name	= "Elven Armor";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 017;
+		armor_type	= a2;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_amr_suit_a2_017;
+		inventory_height	= 3;
+		inventory_width		= 2;
+		item_level			= 70.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_dexterity;
+				value               = 80;
+				description         = "+<value> Dexterity";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_power_reload;
+				value               = 0.12;
+				description         = "+12% Power Recharge Rate";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_armor_superior;
+				value               = 0.06;
+				description         = "Chance When Hit: +300 Armor for 10 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= ranged_suite_1;
+				value 				= 3;
+				description			= "+<value> to Critical Shot, Dodge, and Survival";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_bdy_ba_rcp_01_ds2x
+// ITEM: Runemaster's Chain
+[t:template,n:amr_bdy_ba_rcp_01_ds2x]
+{
+	doc = "Runemaster's Chain";
+	specializes = base_body_ranger;
+
+	[aspect]
+	{
+		material = mediumspiritual; //jmc_armor (the ageless hunter)
+	}
+	[common]
+	{
+		screen_name			= "Runemaster's Chain";
+		base_screen_name	= "Twilight Armor";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style	= 008;
+		armor_type	= a4;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:44, combat magic: 36;
+		inventory_icon		= b_gui_ig_i_amr_suit_a4_008;
+		inventory_height	= 3;
+		inventory_width		= 2;
+		item_level			= 50.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_dexterity;
+				value               = 17;
+				description         = "+<value> Dexterity";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 12;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_armor_source_percent;
+				value				= 0.55;
+				description			= "+55% Armor";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_repulsion_blast;
+				value               = 0.06;
+				description         = "Chance when Hit: Repulsion Blast";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SKILL_SUITE;
+			    suite               = ba_suite_2;
+			    value               = 3;
+			    description         = "+<value> to Mark and Rune Mastery";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_bdy_nmg_rcp_01_ds2x
+// ITEM: Robe of the Frozen North
+[t:template,n:amr_bdy_nmg_rcp_01_ds2x]
+{
+	doc = "Robe of the Frozen North";
+	specializes = base_body_nmage;
+
+	[aspect]
+	{
+		material = mediummagiccloth; // jmc_armor (wildclaw)
+	}
+	[common]
+	{
+		screen_name			= "Robe of the Frozen North";
+		base_screen_name	= "Ancestral Armor";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 018;
+		armor_type = a5;
+	}
+	[gui]
+	{
+		equip_requirements	= nature magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_amr_suit_a5_018;
+		inventory_height	= 3;
+		inventory_width		= 2;
+		item_level			= 40.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 18;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_ICE_DAMAGE_PERCENT;
+				value               = 0.25;
+				description         = "+25% Ice Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_freeze;
+				value               = 0.06;
+				description         = "Chance when Hit: Freeze Enemy for 2 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = nmagic_suite_2;
+				value               = 2;
+				description         = "+<value> to Aquatic Affinity, Arctic Mastery, and Freezing";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_bdy_nmg_rcp_02
+// ITEM: Cultivation Robes
+[t:template,n:amr_bdy_nmg_rcp_02_ds2x]
+{
+	doc = "Cultivation Robes";
+	specializes = base_body_nmage;
+
+	[aspect]
+	{
+		material = mediummagiccloth; //jmc_armor (prongtotem)
+	}
+	[common]
+	{
+		screen_name			= "Cultivation Robes";
+		base_screen_name	= "Tribal Armor";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 017;
+		armor_type = a5;
+	}
+	[gui]
+	{
+		equip_requirements	= nature magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_amr_suit_a5_017;
+		inventory_height	= 3;
+		inventory_width		= 2;
+		item_level			= 60.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_max_mana;
+				value               = 225;
+				description         = "+<value> Mana";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_HEALING_BONUS_PERCENT;
+				value               = 0.40;
+				description         = "+40% Healing Effectiveness";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_grasping_vine_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Grasping Vines for 565 - 940 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = nmagic_suite_3;
+				value               = 3;
+				description         = "+<value> to Nurturing Gift, Enveloping Embrace, and Feral Wrath";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_bdy_cmg_rcp_01_ds2x
+// ITEM: Chromatic Robe
+[t:template,n:amr_bdy_cmg_rcp_01_ds2x]
+{
+	doc = "Chromatic Robe";
+	specializes = base_body_cmage;
+
+	[aspect]
+	{
+		material = mediummagiccloth; //jmc_armor (entropy - archmage robe)
+	}
+	[common]
+	{
+		screen_name			= "Chromatic Robe";
+		base_screen_name	= "Archmage Robe";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 019;
+		armor_type = a5;
+	}
+	[gui]
+	{
+		equip_requirements	= combat magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_amr_suit_a5_019;
+		inventory_height	= 3;
+		inventory_width		= 2;
+		item_level			= 40.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration         = alter_max_life;
+				value               = 90;
+				description         = "+<value> Health";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_lightning_resistance;
+				value				= 0.15;
+				description			= "+15% Lightning Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.15;
+				description			= "+15% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_ice_resistance;
+				value				= 0.15;
+				description			= "+15% Ice Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			    suite               = spell_proc_armor_firewave;
+			    value               = 0.03;
+			    description         = "Chance When Hit: Fire Wave for 115 - 195 Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_call_lightning;
+				value               = 0.03;
+				description         = "Chance When Hit: Call Lightning for 155 - 460 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_cold_snap;
+				value               = 0.06;
+				description         = "Chance When Hit: Cold Snap for 70 - 120 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_bdy_cmg_rcp_02
+// ITEM: Statesman's Robe
+[t:template,n:amr_bdy_cmg_rcp_02_ds2x]
+{
+	doc = "Statesman's Robe";
+	specializes = base_body_cmage;
+
+	[aspect]
+	{
+		material = mediummagiccloth; //jmc_armor (bloodspeaker robe)
+		[armor_ornaments]{*=type05_shoulder_02,b_c_gah_amr_orn_type05_shoulder_005;}
+	}
+	[common]
+	{
+		screen_name			= "Statesman's Robe";
+		base_screen_name	= "Warlock Robe";
+		rarity				= CRAFTED;
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 014;
+		armor_type = a5;
+	}
+	[gui]
+	{
+		equip_requirements	= combat magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_amr_suit_a5_014;
+		inventory_height	= 3;
+		inventory_width		= 2;
+		item_level			= 70.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 50;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_cmagic_damage_percent;
+				value               = 0.32;
+				description         = "+32% Combat Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_invulnerability_superior;
+				value               = 0.06;
+				description         = "Chance When Hit: Invulnerable for 5 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+				value               = 2;
+				description         = "+<value> to Combat Magic Skills";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Gloves
+
+// TEMPLATE:  amr_glv_ftr_rcp_01
+// ITEM: Storm Gauntlets
+[t:template,n:amr_glv_ftr_rcp_01_ds2x]
+{
+	doc = "Storm Gauntlets";
+	specializes = base_gloves_fighter;
+
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Storm Gauntlets";
+		base_screen_name = "Chain Gloves";
+		rarity = CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 005;
+		armor_type = type06;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2.0;
+		inventory_icon = b_gui_ig_i_amr_gntl_type06_005;
+		item_level = 35.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_strength;
+				value               = 20;
+				description         = "+<value> Strength";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_life_recovery_unit;
+				value               = 0.1;
+				description         = "+10% Health Regeneration";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_lightning_resistance;
+				value               = 0.20;
+				description         = "+20% Lightning Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_power_reload;
+				value               = 0.08;
+				description         = "+8% Power Recharge Rate";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_call_lightning_minor;
+				value               = 0.03;
+				description         = "Chance When Hit: Call Lightning for 50 - 155 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+
+		}
+	}
+}
+
+// TEMPLATE:  amr_glv_cmg_rcp_01
+// ITEM: Gloves of Command
+[t:template,n:amr_glv_cmg_rcp_01_ds2x]
+{
+	doc = "Gloves of Command";
+	specializes = base_gloves_cmage;
+
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Gloves of Command";
+		base_screen_name	= "Archmage Gloves";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 023;
+		armor_type = type03;
+	}
+	[gui]
+	{
+		equip_requirements	= combat magic:#item_level-2.0|nature magic:#item_level-2.0;
+		inventory_icon		= b_gui_ig_i_amr_gntl_type03_023;
+		item_level			= 50.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+			    alteration          = ALTER_SUMMON_DAMAGE_BONUS_PERCENT;
+			    value               = 0.64;
+			    description         = "+64% Summoned Creature Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_petrify;
+				value               = 0.06;
+				description         = "Chance When Hit: Petrify Attacker for 3 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = special_suite_1;
+				value               = 3;
+				description         = "+<value> to Summon Alacrity and Quickened Casting";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = nmagic_suite_1;
+				value               = 4;
+				description         = "+<value> to Summon Fortitude, Summon Might, and Summon Bond";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Boots
+
+// TEMPLATE:  amr_bot_fos_rcp_01
+// ITEM: Volcano Boots
+[t:template,n:amr_bot_fos_rcp_01_ds2x]
+{
+	doc = "Volcano Boots";
+	specializes = base_boots_fighter;
+
+	[common]
+	{
+		screen_name = "Volcano Boots";
+		base_screen_name = "Plate Greaves";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 005;
+		armor_type = type06;
+	}
+	[gui]
+	{
+		equip_requirements = melee:32, nature magic:25;
+		inventory_icon = b_gui_ig_i_amr_boot_type06_005;
+		inventory_height = 2;
+		inventory_width = 1;
+		item_level = 38.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_armor;
+				value               = 12;
+				description         = "+<value> Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_damage_min;
+				value				= 25;
+				description			= "Adds 25 to 30 Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_melee_damage_max;
+				value				= 30;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+			    suite               = spell_proc_armor_firewave;
+			    value               = 0.03;
+			    description         = "Chance When Hit: Fire Wave for 115 - 195 Damage";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SKILL_SUITE;
+			    suite               = fos_suite_2;
+			    value               = 2;
+			    description         = "+<value> to Chant of Stone and Soul of Protection";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_bot_nmg_rcp_01
+// ITEM: Flowing Stride
+[t:template,n:amr_bot_nmg_rcp_01_ds2x]
+{
+	doc = "Flowing Stride";
+	specializes = base_boots_nmage;
+
+	[common]
+	{
+		screen_name = "Flowing Stride";
+		base_screen_name = "Woven Boots";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 024;
+		armor_type = type02;
+	}
+	[gui]
+	{
+		equip_requirements = nature magic:#item_level-2.0;
+		inventory_icon = b_gui_ig_i_amr_boot_type02_024;
+		inventory_height = 2;
+		inventory_width = 1;
+		item_level = 65.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_max_mana;
+				value               = 275;
+				description         = "+<value> Mana";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_mana_recovery_unit;
+				value               = 0.15;
+				description         = "+15% Mana Regeneration";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_cold_snap_superior;
+				value               = 0.06;
+				description         = "Chance When Hit: Cold Snap for 230 - 385 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+				value               = 2;
+				description         = "+<value> to Nature Magic Skills";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_bot_cmg_rcp_01
+// ITEM: Arclight Boots
+[t:template,n:amr_bot_cmg_rcp_01_ds2x]
+{
+	doc = "Arclight Boots";
+	specializes = base_boots_cmage;
+
+	[common]
+	{
+		screen_name = "Arclight Boots";
+		base_screen_name = "Elementalist Boots";
+		rarity = CRAFTED;
+		allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 014;
+		armor_type = type02;
+	}
+	[gui]
+	{
+		equip_requirements = combat magic:#item_level-2.0;
+		inventory_icon = b_gui_ig_i_amr_boot_type02_014;
+		inventory_height = 2;
+		inventory_width = 1;
+		item_level = 40.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_armor;
+				value               = 12;
+				description         = "+<value> Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_power_reload;
+				value               = 0.05;
+				description         = "+5% Power Recharge Rate";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_LIGHTNING_DAMAGE_PERCENT;
+				value               = 0.17;
+				description         = "+17% Lightning Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_multispark_superior;
+				value               = 0.03;
+				description         = "Chance When Hit: Multispark for 135 - 225 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = cmagic_suite_2;
+				value               = 2;
+				description         = "+<value> to Brilliance, Amplified Lightning, and Arcing";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Helmets
+
+// TEMPLATE:  amr_hlm_ftr_rcp_01
+// ITEM: Helm of Nobility
+[t:template,n:amr_hlm_ftr_rcp_01_ds2x]
+{
+	doc = "Helm of Nobility";
+	specializes = base_helm_fighter;
+
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Helm of Nobility";
+		base_screen_name = "Mythril Helmet";
+		rarity = CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 04;
+		armor_type = type09;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 2.0;
+		inventory_icon = b_gui_ig_i_amr_hlmt_type09_04;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 38.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_strength;
+				value               = 22;
+				description         = "+<value> Strength";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_life_bonus;
+				value               = 10;
+				description         = "Restores <value> Health Per Hit";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_stun;
+				value               = 0.03;
+				description         = "Chance When Hit: Stun Opponent for 3 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MELEE_PASSIVE_SKILLS;
+				value               = 1;
+				description         = "+<value> to Melee Skills";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_hlm_ftr_rcp_02
+// ITEM: Bone Helm
+[t:template,n:amr_hlm_ftr_rcp_02_ds2x]
+{
+	doc = "Bone Helm";
+	specializes = base_helm_fighter;
+
+	[common]
+	{
+		allow_modifiers = false;
+		screen_name = "Bone Helm";
+		base_screen_name = "Obsidian Helmet";
+		rarity = CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 02;
+		armor_type = type18;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level - 2.0;
+		inventory_icon = b_gui_ig_i_amr_hlmt_type18_02;
+		inventory_height = 2;
+		inventory_width = 2;
+		item_level = 42.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_armor;
+				value               = 12;
+				description         = "+<value> Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_infect_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Major Infect";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_decay_armor;
+				value               = 0.03;
+				description         = "Chance When Hit: Decay Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[impale_chance]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_impale_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Impale for 170 - 280 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_hlm_rng_rcp_01
+// ITEM: Forester Cowl
+[t:template,n:amr_hlm_rng_rcp_01_ds2x]
+{
+	doc = "Forester Cowl";
+	specializes = base_helm_ranger;
+
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Forester Cowl";
+		base_screen_name	= "Elven Helm";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style	= 10;
+		armor_type	= type01;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:#item_level - 2.0;
+		inventory_icon		= b_gui_ig_i_amr_hlmt_type01_10;
+		inventory_height	= 2;
+		inventory_width		= 2;
+		item_level			= 55.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_armor;
+				value               = 15;
+				description         = "+<value> Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_life_bonus;
+				value               = 14;
+				description         = "Restores <value> Health Per Hit";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_magical_resistance;
+				value               = 0.16;
+				description         = "+16% Magic Damage Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_grasping_vine_major;
+				value               = 0.03;
+				description         = "Chance When Hit: Grasping Vines for 565 - 940 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_hlm_ba_rcp_01
+// ITEM: Shadow Assassin Mask
+[t:template,n:amr_hlm_ba_rcp_01_ds2x]
+{
+	doc = "Shadow Assassin Mask";
+	specializes = base_helm_ranger;
+
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Shadow Assassin Mask";
+		base_screen_name	= "Twilight Hood";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style	= 04;
+		armor_type	= type03;
+	}
+	[gui]
+	{
+		equip_requirements	= ranged:36, combat magic:29;
+		inventory_icon		= b_gui_ig_i_amr_hlmt_type03_04;
+		inventory_height	= 2;
+		inventory_width		= 2;
+		item_level			= 42.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_dexterity;
+				value               = 14;
+				description         = "+<value> Dexterity";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 10;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_mana_steal;
+				value               = 7;
+				description         = "<value>% Mana Steal";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_chance_to_dodge_hit_melee;
+				value               = 0.10;
+				description         = "+10% Chance to Dodge Melee Attacks";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_SKILL_SUITE;
+			    suite				= ba_suite_all;
+				value               = 1;
+				description         = "+<value> to Blood Assassin Skills";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_hlm_nmg_rcp_01
+// ITEM: Storm Hood
+[t:template,n:amr_hlm_nmg_rcp_01_ds2x]
+{
+	doc = "Storm Hood";
+	specializes = base_helm_nmage;
+
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Storm Hood";
+		base_screen_name	= "Raven Cap";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style	= 08;
+		armor_type	= type01;
+	}
+	[gui]
+	{
+		equip_requirements	= nature magic:#item_level - 2.0;
+		inventory_icon		= b_gui_ig_i_amr_hlmt_type01_08;
+		inventory_height	= 2;
+		inventory_width		= 2;
+		item_level			= 35.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_nmagic_damage_percent;
+				value               = 0.20;
+				description         = "+20% Nature Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_lightning_resistance;
+				value               = 0.20;
+				description         = "+20% Lightning Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_power_reload;
+				value               = 0.08;
+				description         = "+8% Power Recharge Rate";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_call_lightning;
+				value               = 0.03;
+				description         = "Chance When Hit: Call Lightning for 155 - 460 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_hlm_nmg_rcp_02
+// ITEM:  Helm of the Wild
+[t:template,n:amr_hlm_nmg_rcp_02_ds2x]
+{
+	doc = "Helm of the Wild";
+	specializes = base_helm_nmage;
+
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Helm of the Wild";
+		base_screen_name	= "Ancestral Helm";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style	= 01;
+		armor_type	= type15;
+	}
+	[gui]
+	{
+		equip_requirements	= nature magic:#item_level - 2.0;
+		inventory_icon		= b_gui_ig_i_amr_hlmt_type15_01;
+		inventory_height	= 2;
+		inventory_width		= 2;
+		item_level			= 45.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 24;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_max_life;
+				value               = 100;
+				description         = "+<value> Health";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_SUMMON_DAMAGE_BONUS_PERCENT;
+				value               = 0.60;
+				description         = "+60% Summoned Creature Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = nmagic_suite_1;
+				value               = 2;
+				description         = "+<value> to Summon Fortitude, Summon Might, and Summon Bond";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_hlm_cmg_rcp_01
+// ITEM:  Dragon Crest
+[t:template,n:amr_hlm_cmg_rcp_01_ds2x]
+{
+	doc = "Dragon Crest";
+	specializes = base_helm_cmage;
+
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Dragon Crest";
+		base_screen_name	= "Sorcerer Cowl";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+		armor_style = 02;
+		armor_type	= type04;
+	}
+	[gui]
+	{
+		equip_requirements	= combat magic:#item_level - 2.0;
+		inventory_icon		= b_gui_ig_i_amr_hlmt_type04_02;
+		inventory_height	= 2;
+		inventory_width		= 2;
+		item_level			= 60.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 36;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_FIRE_DAMAGE_PERCENT;
+				value               = 0.25;
+				description         = "+25% Fire Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_fire_resistance;
+				value               = 0.26;
+				description         = "+26% Fire Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_repulsion_blast;
+				value               = 0.06;
+				description         = "Chance when Hit: Repulsion Blast";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = cmagic_suite_3;
+				value               = 3;
+				description         = "+<value> to Devastation, Searing Flames, and Ignite";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Shields
+
+// TEMPLATE:  amr_shd_rcp_01
+// ITEM:  Meteoric Shield
+[t:template,n:amr_shd_rcp_01_ds2x]
+{
+	doc = "Meteoric Shield";
+	specializes = base_shield;
+
+	[aspect]
+	{
+		material	= largesteel; //jmc_shield
+		model		= m_w_shd_razormane;
+		[textures]
+		{
+			0 =  b_w_shd_razormane;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Meteoric Shield";
+		base_screen_name	= "Kite Shield";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:#item_level-2.0,aegis:1;
+		inventory_icon		= b_gui_ig_i_w_shd_razormane;
+		inventory_height	= 4;
+		inventory_width		= 2;
+		item_level			= 40.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_max_life;
+				value               = 90;
+				description         = "+<value> Health";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_fire_resistance;
+				value				= 0.15;
+				description			= "+15% Fire Resistance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_repulsion_blast;
+				value               = 0.06;
+				description         = "Chance when Hit: Repulsion Blast";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = melee_suite_1;
+				value               = 2;
+				description         = "+<value> to Barricade, Toughness, and Reinforced Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE:  amr_shd_rcp_02
+// ITEM:  Coral-Encrusted Shield
+[t:template,n:amr_shd_rcp_02_ds2x]
+{
+	doc = "Coral-Encrusted Shield";
+	specializes = base_shield;
+
+	[aspect]
+	{
+		material = largesteel; //jmc_shield
+		model = m_w_shd_justicar;
+		[textures]
+		{
+			0 =  b_w_shd_justicar;
+		}
+	}
+	[common]
+	{
+		allow_modifiers		= false;
+		screen_name			= "Coral-Encrusted Shield";
+		base_screen_name	= "Ceremonial Shield";
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		equip_requirements	= melee:64, nature magic:56, aegis:1;
+		inventory_icon		= b_gui_ig_i_w_shd_justicar;
+		inventory_height	= 4;
+		inventory_width		= 2;
+		item_level			= 70.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = ALTER_DAMAGE_TO_MANA_PERCENT;
+				value               = 0.12;
+				description         = "12% Damage Goes to Mana";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_drown_superior;
+				value               = 0.03;
+				description         = "Chance When Hit: Superior Drown";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_cold_snap_superior;
+				value               = 0.06;
+				description         = "Chance When Hit: Cold Snap for 230 - 385 Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_SKILL_SUITE;
+			    suite               = fos_suite_all;
+				value               = 2;
+				description         = "+<value> to Fist of Stone Skills";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Amulets
+
+// TEMPLATE: amulet_rcp_01
+// ITEM:  Treasure Seeker
+[t:template,n:amulet_rcp_01_ds2x]
+{
+	doc = "Treasure Seeker";
+	specializes = amulet;
+
+	[common]
+	{
+		base_screen_name	= "Talisman";
+		screen_name			= "Treasure Seeker";
+		allow_modifiers		= false;
+		rarity				= CRAFTED;
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_amulet_040;
+		item_level			= 30;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_max_life;
+				value               = 55;
+				description         = "+<value> Health";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_life_recovery_unit;
+				value               = 0.08;
+				description         = "+8% Health Regeneration";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration        = alter_magic_find_chance;
+				value             = 22;	// 25% Chance
+				min_value_ceiling = 28;
+				description       = "+<value>% Chance to Find Magic Items";
+				duration          = #infinite;
+				is_permanent      = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_gold_dropped;
+				value               = 0.45;
+				description         = "+45% Gold Dropped";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE: amulet_rcp_02
+// ITEM:  Archmage's Amulet
+[t:template,n:amulet_rcp_02_ds2x]
+{
+	doc = "Archmage's Amulet";
+	specializes = amulet;
+
+	[common]
+	{
+		base_screen_name	= "Talisman";
+		screen_name			= "Archmage's Amulet";
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+		rarity				= CRAFTED;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_amulet_026;
+		item_level			= 50;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_intelligence;
+				value               = 26;
+				description         = "+<value> Intelligence";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_melee_resistance;
+				value               = 0.13;
+				description         = "+13% Melee Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_power_reload;
+				value               = 0.10;
+				description         = "+10% Power Recharge Rate";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_nmagic_damage_percent;
+				value               = 0.24;
+				description         = "+24% Nature Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_cmagic_damage_percent;
+				value               = 0.27;
+				description         = "+27% Combat Magic Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE: amulet_rcp_03
+// ITEM:  Amulet of Kings
+[t:template,n:amulet_rcp_03_ds2x]
+{
+	doc = "Amulet of Kings";
+	specializes = amulet;
+
+	[common]
+	{
+		base_screen_name	= "Talisman";
+		screen_name			= "Amulet of Kings";
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+		rarity				= CRAFTED;
+	}
+	[gui]
+	{
+		inventory_icon		= b_gui_ig_i_it_amulet_029;
+		item_level			= 78;
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = ALTER_SKILL_SUITE;
+			    suite               = fos_suite_all;
+			    value               = 1;
+			    description         = "+<value> to Fist of Stone Skills";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+			    alteration          = ALTER_SKILL_SUITE;
+			    value               = 1;
+			    suite				= ba_suite_all;
+			    description			= "+<value> to Blood Assassin Skills";
+			    duration            = #infinite;
+			    is_permanent        = true;
+			    is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+				value				= 1;
+				description			= "+<value> to Ranged Skills";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+				value				= 1;
+				description			= "+<value> to Melee Skills";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+				value				= 2;
+				description			= "+<value> to Nature Magic Skills";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+				value				= 2;
+				description			= "+<value> to Combat Magic Skills";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = alter_physical_resistance;
+				value               = 0.15;
+				description         = "+15% Melee and Ranged Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_invulnerability_superior;
+				value               = 0.03;
+				description         = "Chance When Hit: Superior Invulnerability";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//   Rings
+
+// TEMPLATE: ring_rcp_01
+// ITEM: Marksman's Ring
+[t:template,n:ring_rcp_01_ds2x]
+{
+	doc = "Marksman's Ring";
+	specializes = ring;
+
+	[common]
+	{
+		base_screen_name	= "Ornate Ring";
+		screen_name			= "Marksman's Ring";
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+		rarity				= CRAFTED;
+	}
+	[gui]
+	{
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+		inventory_icon		= b_gui_ig_i_it_ring_037;
+		item_level			= 36;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_dexterity;
+				value               = 65;
+				description         = "+<value> Dexterity";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration			= alter_skill_suite;
+				suite				= ranged_suite_1;
+				value 				= 2;
+				description			= "+<value> to Critical Shot, Dodge, and Survival";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_skill_suite;
+				suite               = ranged_suite_2;
+				value               = 2;
+				description         = "+<value> to Biting Arrow, Far Shot, and Shockwave";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+
+// TEMPLATE: ring_rcp_02
+// ITEM: Lumilla's Cooling Band
+[t:template,n:ring_rcp_02_ds2x]
+{
+	doc = "Lumilla's Cooling Band";
+	specializes = ring;
+
+	[common]
+	{
+		base_screen_name	= "Ornate Ring";
+		screen_name			= "Lumilla's Cooling Band";
+		allow_modifiers		= false;
+		is_pcontent_allowed	= false;
+		rarity				= CRAFTED;
+	}
+	[gui]
+	{
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+		inventory_icon		= b_gui_ig_i_it_ring_036;
+		item_level			= 40;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_max_life;
+				value               = 90;
+				description         = "+<value> Health";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_armor;
+				value               = 12;
+				description         = "+<value> Armor";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_life_recovery_unit;
+				value               = 0.11;
+				description         = "+11% Health Regeneration";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_fire_resistance;
+				value               = 0.22;
+				description         = "+22% Fire Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}
+
+// TEMPLATE: ring_rcp_03
+// ITEM: Stone of Greilyn
+[t:template,n:ring_rcp_03_ds2x]
+{
+	doc = "Stone of Greilyn";
+	specializes = ring;
+
+	[common]
+	{
+		base_screen_name	= "Ornate Ring";
+		screen_name			= "Stone of Greilyn";
+		allow_modifiers		= false;
+		is_pcontent_allowed = false;
+		rarity				= CRAFTED;
+	}
+	[gui]
+	{
+		equip_requirements	= uber:#item_level-2;
+		use_class			= IST_ALL;
+		inventory_icon		= b_gui_ig_i_it_ring_065;
+		item_level			= 60;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_melee_damage_max;
+				value               = 50;
+				description         = "+<value> Max Damage";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_mana_recovery_unit;
+				value               = 0.15;
+				description         = "+15% Mana Regeneration";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = alter_death_resistance;
+				value               = 0.25;
+				description         = "+25% Death Resistance";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_DEFEND_CHANCE_TO_CAST_TEMPLATE;
+				suite               = spell_proc_armor_petrify;
+				value               = 0.03;
+				description         = "Chance When Hit: Petrify Attacker for 3 Seconds";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+		}
+	}
+}

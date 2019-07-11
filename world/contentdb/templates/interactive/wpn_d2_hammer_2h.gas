@@ -1,0 +1,273 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : hm_2h_rnwd_d2_cranium_basher
+//// SPECIALIZES    : base_2h_hammer_template
+//// FULL NAME      : The Cranium Basher (Unique Thunder Maul)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:hm_2h_rnwd_d2_cranium_basher]
+{
+	specializes = base_2h_hammer_template;
+	doc = "Diablo 2 The Cranium Basher Thunder Maul";
+	[aspect]
+	{
+        model = m_w_hmr_diligence; // PH
+		tracer_texture = b_sfx_tra_generic-23; // PH
+		[textures]
+		{
+			0 = b_w_hmr_diligence; // PH
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_sword_putdown; // PH
+			}
+		}
+	}
+	[common]
+	{
+        allow_modifiers = false;
+		screen_name = "The Cranium Basher";
+		base_screen_name = "Thunder Maul";
+		rarity = UNIQUE;
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2;
+        inventory_icon = b_gui_ig_i_w_hmr_d2_cranium_basher;
+		inventory_height = 4;
+		inventory_width = 2;
+        item_level = 89;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 1;
+				description			= "Indestructible";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+    		{
+                alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+                suite               = spell_proc_d2_amplify_damage;
+                value               = 0.04;
+    			description         = "Chance on Hit: Amplify Damage";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_amplify_damage";
+    		}
+            [*]
+			{
+				alteration			= ALTER_MELEE_DAMAGE_SOURCE_PERCENT;
+				value				= 0.24;
+				description			= "+24% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_MELEE_DAMAGE_MIN;
+				value				= 20;
+				description			= "+<value> Min Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+                // The +20 max damage stat is hidden for whatever reason.
+                // ------------------------------------------------------
+				alteration			= ALTER_MELEE_DAMAGE_MAX;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+
+			}
+            [*]
+    		{
+                alteration          = ALTER_GENERIC;
+                value               = 0.75; // Must be non-zero.
+    			description         = "Chance on Hit: Crushing Blow";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_crushing_blow";
+                custom_effect_skrit = world\global\enchantments\weapon_d2_crushing_blow.skrit
+                                      ?chance = 0.175;
+    		}
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 25;
+				description			= "+<value> Strength";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                custom_effect		= "stat_strength";
+			    custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+                                      ?weapon_ffx=ffx_spell_str_bonus_sword;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : hm_2h_rnwd_d2_call_to_arms
+//// SPECIALIZES    : base_2h_hammer_template
+//// FULL NAME      : Call to Arms (Runeword Ogre Maul)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:hm_2h_rnwd_d2_call_to_arms]
+{
+	specializes = base_2h_hammer_template;
+	doc = "Diablo 2 Call to Arms Ogre Maul";
+	[aspect]
+	{
+        model = m_w_hmr_diligence; // PH
+		tracer_texture = b_sfx_tra_generic-23; // PH
+		[textures]
+		{
+			0 = b_w_hmr_diligence; // PH
+		}
+        [voice]
+		{
+			[put_down]
+			{
+				* = s_ui_d2_sword_putdown; // PH
+			}
+		}
+	}
+	[common]
+	{
+        allow_modifiers = false;
+		screen_name = "Call to Arms";
+		base_screen_name = "Ogre Maul";
+        description = "<c:0xFFADA156>'AmnRalMalIstOhm'</c>";
+		rarity = RUNEWORD;
+		is_pcontent_allowed = true; // TODO: Change to false when done testing.
+	}
+	[gui]
+	{
+		equip_requirements = melee:#item_level-2;
+        inventory_icon = b_gui_ig_i_w_hmr_d2_call_to_arms;
+		inventory_height = 4;
+		inventory_width = 2;
+        item_level = 59;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 1;
+                description			= "+<value> to Melee Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+			{
+				alteration			= ALTER_MELEE_DAMAGE_SOURCE_PERCENT;
+				value				= 0.29;
+				description			= "+29% Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= ALTER_CUSTOM_DAMAGE_FIRE;
+				value				= 5;
+				max_value			= 30;
+				description			= "Adds <value> to <max_value> Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				custom_effect		= "melee_fire";
+				custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx  = ffx_spell_fire_sword
+									  &hit_ffx	   = ffx_spell_fire_sword_hit;
+			}
+            [*]
+			{
+				alteration			= ALTER_LIFE_STEAL;
+				value				= 7;
+				description			= "<value>% Health Steal";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+    		{
+                alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+                suite               = spell_proc_d2_battle_command;
+                value               = 0.05;
+    			description         = "Chance on Hit: Battle Command";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_battle_command";
+    		}
+            [*]
+    		{
+                alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+                suite               = spell_proc_d2_battle_orders;
+                value               = 0.05;
+    			description         = "Chance on Hit: Battle Orders";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_battle_orders";
+    		}
+            [*]
+    		{
+                alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+                suite               = spell_proc_d2_battle_cry;
+                value               = 0.05;
+    			description         = "Chance on Hit: Battle Cry";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_battle_cry";
+    		}
+            [*]
+    		{
+                alteration          = ALTER_ATTACK_CHANCE_TO_CAST_TEMPLATE;
+                suite               = spell_proc_d2_prevent_monster_heal;
+                value               = 1.0; // 100%
+    			description         = "Prevent Monster Heal";
+    			duration            = #infinite;
+    			is_permanent        = true;
+    			is_single_instance  = false;
+    			custom_effect		= "d2_prevent_monster_heal";
+    		}
+			[*]
+			{
+				alteration			= ALTER_LIFE_RECOVERY_UNIT;
+				value				= 0.12;
+				description			= "+12% Health Regeneration";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+            {
+                alteration			= ALTER_MAGIC_FIND_CHANCE;
+                value				= 30;
+                description			= "+<value>% Chance to Find Magic Items";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+		}
+	}
+}

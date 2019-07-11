@@ -1,0 +1,2168 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  world\contentdb\reagents.gas
+// Author(s):  Chad Queen
+//
+// Summary  :  Contains a big happy fun pile of rules for building
+//             parameterized content.
+//
+// Copyright � 2004 Gas Powered Games, Inc.  All rights reserved.
+//----------------------------------------------------------------------------
+//  The reagent enchantment definitions are used by the magical reagent objects.
+//  Just place whatever enchantments you want within a block that you name,
+//  and those enchantments will be attached to the reagent object that points to
+//  that definitions in the [magic] block.
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+[reagent_definitions]
+{
+	[reagent_test]
+	{
+		object_types = weapon;		// Can be any of the pcontent base or specfic types.
+		skill_types = fighter;		// fighter, ranger, mage, nmage, cmage
+		[strength]
+		{
+			alteration			= alter_strength;
+			value				= 1;
+			min_value_ceiling	= 5;
+			description			= "+<value> Strength";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_strength";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Strength Bonus
+	[reagent_pine_splinter]
+	{
+		object_types	= weapon,armor,ring,amulet;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+		[strength]
+	    {
+			alteration			= alter_strength;
+			value				= 3;
+			description			= "+<value> Strength";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_strength";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+		}
+	}
+	[reagent_oak_branch]
+	{
+		object_types	= weapon,armor,ring,amulet;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+		[strength]
+	    {
+			alteration			= alter_strength;
+			value				= 7;
+			description			= "+<value> Strength";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_strength";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+		}
+	}
+	[reagent_ironwood_timber]
+	{
+		object_types	= weapon,armor,ring,amulet;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+		[strength]
+	    {
+			alteration			= alter_strength;
+			value				= 18;
+			description			= "+<value> Strength";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_strength";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_str_bonus_sword
+									  &projectile_ffx	= ffx_spell_str_bonus_arrow;
+		}
+	}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Dexterity Bonus
+	[reagent_dryad_bead]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+		[dexterity]
+	    {
+			alteration			= alter_dexterity;
+			value				= 3;
+			description			= "+<value> Dexterity";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_dexterity";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+		}
+	}
+	[reagent_elven_oil]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+		[dexterity]
+	    {
+			alteration			= alter_dexterity;
+			value				= 7;
+			description			= "+<value> Dexterity";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_dexterity";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+		}
+	}
+	[reagent_quicksilver_oil]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+		[dexterity]
+	    {
+			alteration			= alter_dexterity;
+			value				= 18;
+			description			= "+<value> Dexterity";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_dexterity";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+		}
+	}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Intelligence Bonus
+	[reagent_gral_eye]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+		[intelligence]
+	    {
+			alteration			= alter_intelligence;
+			value				= 2;
+			description			= "+<value> Intelligence";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_intelligence";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+		}
+	}
+	[reagent_malachite_powder]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+		[intelligence]
+	    {
+			alteration			= alter_intelligence;
+			value				= 5;
+			description			= "+<value> Intelligence";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_intelligence";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+		}
+	}
+	[reagent_spectral_dust]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,mage,nmage,cmage;
+		[intelligence]
+	    {
+			alteration			= alter_intelligence;
+			value				= 12;
+			description			= "+<value> Intelligence";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_intelligence";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_dex_bonus_sword
+									  &projectile_ffx	= ffx_spell_dex_bonus_arrow;
+		}
+	}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Health Bonus
+	[reagent_nettle_cluster]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[health]
+	    {
+			alteration			= alter_max_life;
+			value				= 6;
+			description			= "+<value> Health";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_mandrake_root]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[health]
+	    {
+			alteration			= alter_max_life;
+			value				= 14;
+			description			= "+<value> Health";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_ash_leaves]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[health]
+	    {
+			alteration			= alter_max_life;
+			value				= 34;
+			description			= "+<value> Health";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_rowan_leaves]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[health]
+	    {
+			alteration			= alter_max_life;
+			value				= 70;
+			description			= "+<value> Health";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_angelica_root]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[health]
+	    {
+			alteration			= alter_max_life;
+			value				= 130;
+			description			= "+<value> Health";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Mana Bonus
+	[reagent_henbane_leaves]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= nmage,cmage;
+		[mana]
+	    {
+			alteration			= alter_max_mana;
+			value				= 8;
+			description			= "+<value> Mana";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_gardenia_leaves]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= nmage,cmage;
+		[mana]
+	    {
+			alteration			= alter_max_mana;
+			value				= 22;
+			description			= "+<value> Mana";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_valerian_root]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= nmage,cmage;
+		[mana]
+	    {
+			alteration			= alter_max_mana;
+			value				= 50;
+			description			= "+<value> Mana";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_wormwood_essence]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= nmage,cmage;
+		[mana]
+	    {
+			alteration			= alter_max_mana;
+			value				= 85;
+			description			= "+<value> Mana";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_verbena_flowers]
+	{
+		object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+		skill_types		= nmage,cmage;
+		[mana]
+	    {
+			alteration			= alter_max_mana;
+			value				= 150;
+			description			= "+<value> Mana";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X to Max Damage
+
+// Melee
+	[reagent_raptor_tooth]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_damage_max]
+	    {
+			alteration			= alter_melee_damage_max;
+			value				= 2;
+			description			= "+<value> Max Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_melee_max";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+	[reagent_rhinock_horn]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_damage_max]
+	    {
+			alteration			= alter_melee_damage_max;
+			value				= 8;
+			description			= "+<value> Max Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_melee_max";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+	[reagent_trilisk_fang]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_damage_max]
+	    {
+			alteration			= alter_melee_damage_max;
+			value				= 50;
+			description			= "+<value> Max Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_melee_max";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+// Ranged
+	[reagent_jagged_arrowheads]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_damage_max]
+	    {
+			alteration			= alter_ranged_damage_max;
+			value				= 2;
+			description			= "+<value> Max Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ranged_max";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_damage_bonus_arrow;
+		}
+	}
+	[reagent_serrated_arrowheads]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_damage_max]
+	    {
+			alteration			= alter_ranged_damage_max;
+			value				= 7;
+			description			= "+<value> Max Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ranged_max";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_damage_bonus_arrow;
+		}
+	}
+	[reagent_keen_arrowheads]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_damage_max]
+	    {
+			alteration			= alter_ranged_damage_max;
+			value				= 50;
+			description			= "+<value> Max Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ranged_max";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_damage_bonus_arrow;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Adds X to Damage
+
+	// Melee
+	[reagent_whetstone]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_damage_min]
+	    {
+			alteration			= alter_melee_damage_min;
+			value				= 2;
+			description			= "+<value> Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_melee_min";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+		[melee_damage_max]
+	    {
+			alteration			= alter_melee_damage_max;
+			value				= 2;
+			description			= "";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+	[reagent_mythril_alloy]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_damage_min]
+	    {
+			alteration			= alter_melee_damage_min;
+			value				= 5;
+			description			= "+<value> Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_melee_min";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+		[melee_damage_max]
+	    {
+			alteration			= alter_melee_damage_max;
+			value				= 5;
+			description			= "";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+	[reagent_meteoric_alloy]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_damage_min]
+	    {
+			alteration			= alter_melee_damage_min;
+			value				= 25;
+			description			= "+<value> Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_melee_min";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_damage_bonus_sword
+								  &projectile_ffx	= ffx_spell_damage_bonus_arrow;
+		}
+		[melee_damage_max]
+	    {
+			alteration			= alter_melee_damage_max;
+			value				= 25;
+			description			= "";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+	// Ranged
+	[reagent_hawk_feather]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_damage_min]
+	    {
+			alteration			= alter_ranged_damage_min;
+			value				= 1;
+			description			= "+<value> Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ranged_min";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_damage_bonus_arrow;
+		}
+		[ranged_damage_max]
+	    {
+			alteration			= alter_ranged_damage_max;
+			value				= 1;
+			description			= "";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+	[reagent_griffon_feather]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_damage_min]
+	    {
+			alteration			= alter_ranged_damage_min;
+			value				= 3;
+			description			= "+<value> Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ranged_min";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_damage_bonus_arrow;
+		}
+		[ranged_damage_max]
+	    {
+			alteration			= alter_ranged_damage_max;
+			value				= 3;
+			description			= "";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+	[reagent_phoenix_feather]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_damage_min]
+	    {
+			alteration			= alter_ranged_damage_min;
+			value				= 22;
+			description			= "+<value> Min Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ranged_min";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_damage_bonus_arrow;
+		}
+		[ranged_damage_max]
+	    {
+			alteration			= alter_ranged_damage_max;
+			value				= 22;
+			description			= "";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Ice Damage
+
+	// Melee
+	[reagent_sapphire_splinter]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_ice_damage]
+	    {
+			alteration			= alter_custom_damage_ice;
+			value				= 2;
+			max_value			= 3;
+			description			= "Adds <value> to <max_value> Ice Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ice";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_ice_sword;
+		}
+	}
+	[reagent_sapphire_pommelstone]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_ice_damage]
+	    {
+			alteration			= alter_custom_damage_ice;
+			value				= 4;
+			max_value			= 6;
+			description			= "Adds <value> to <max_value> Ice Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ice";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_ice_sword;
+		}
+	}
+	[reagent_sapphire_ornament]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_ice_damage]
+	    {
+			alteration			= alter_custom_damage_ice;
+			value				= 19;
+			max_value			= 31;
+			description			= "Adds <value> to <max_value> Ice Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ice";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_ice_sword;
+		}
+	}
+
+// Ranged
+	[reagent_coral_fragment]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_ice_damage]
+	    {
+			alteration			= alter_custom_damage_ice;
+			value				= 2;
+			max_value			= 3;
+			description			= "Adds <value> to <max_value> Ice Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ice";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_ice_arrow;
+		}
+	}
+	[reagent_coral_spangle]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_ice_damage]
+	    {
+			alteration			= alter_custom_damage_ice;
+			value				= 5;
+			max_value			= 8;
+			description			= "Adds <value> to <max_value> Ice Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ice";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_ice_arrow;
+		}
+	}
+	[reagent_coral_filament]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_ice_damage]
+	    {
+			alteration			= alter_custom_damage_ice;
+			value				= 15;
+			max_value			= 25;
+			description			= "Adds <value> to <max_value> Ice Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ice";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_ice_arrow;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Fire Damage
+
+// Melee
+	[reagent_ruby_splinter]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_fire_damage]
+	    {
+			alteration			= alter_custom_damage_fire;
+			value				= 2;
+			max_value			= 3;
+			description			= "Adds <value> to <max_value> Fire Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_fire";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_fire_sword
+								  &hit_ffx			= ffx_spell_fire_sword_hit;
+		}
+	}
+	[reagent_ruby_pommelstone]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_fire_damage]
+	    {
+			alteration			= alter_custom_damage_fire;
+			value				= 3;
+			max_value			= 5;
+			description			= "Adds <value> to <max_value> Fire Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_fire";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_fire_sword
+								  &hit_ffx			= ffx_spell_fire_sword_hit;
+		}
+	}
+	[reagent_ruby_ornament]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_fire_damage]
+	    {
+			alteration			= alter_custom_damage_fire;
+			value				= 18;
+			max_value			= 22;
+			description			= "Adds <value> to <max_value> Fire Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_fire";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_fire_sword
+								  &hit_ffx			= ffx_spell_fire_sword_hit;
+		}
+	}
+
+// Ranged
+	[reagent_amber_fragment]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_fire_damage]
+	    {
+			alteration			= alter_custom_damage_fire;
+			value				= 2;
+			max_value			= 3;
+			description			= "Adds <value> to <max_value> Fire Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_fire";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_fire_arrow
+								  &hit_ffx				= ffx_spell_fire_sword_hit;
+		}
+	}
+	[reagent_amber_spangle]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_fire_damage]
+	    {
+			alteration			= alter_custom_damage_fire;
+			value				= 2;
+			max_value			= 6;
+			description			= "Adds <value> to <max_value> Fire Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_fire";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_fire_arrow
+								  &hit_ffx				= ffx_spell_fire_sword_hit;
+		}
+	}
+	[reagent_amber_filament]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_fire_damage]
+	    {
+			alteration			= alter_custom_damage_fire;
+			value				= 16;
+			max_value			= 20;
+			description			= "Adds <value> to <max_value> Fire Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_fire";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_fire_arrow
+								  &hit_ffx				= ffx_spell_fire_sword_hit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Lightning Damage
+
+// Melee
+	[reagent_crystal_splinter]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_lightning_damage]
+	    {
+			alteration			= alter_custom_damage_lightning;
+			value				= 1;
+			max_value			= 3;
+			description			= "Adds <value> to <max_value> Lightning Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_lightning";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_lightning_sword
+								  &hit_ffx			= ffx_spell_lightning_sword_hit;
+		}
+	}
+	[reagent_crystal_pommelstone]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_lightning_damage]
+	    {
+			alteration			= alter_custom_damage_lightning;
+			value				= 3;
+			max_value			= 8;
+			description			= "Adds <value> to <max_value> Lightning Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_lightning";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_lightning_sword
+								  &hit_ffx			= ffx_spell_lightning_sword_hit;
+		}
+	}
+	[reagent_crystal_ornament]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_lightning_damage]
+	    {
+			alteration			= alter_custom_damage_lightning;
+			value				= 11;
+			max_value			= 33;
+			description			= "Adds <value> to <max_value> Lightning Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_lightning";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_lightning_sword
+								  &hit_ffx			= ffx_spell_lightning_sword_hit;
+		}
+	}
+
+// Ranged
+	[reagent_diamond_fragment]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_lightning_damage]
+	    {
+			alteration			= alter_custom_damage_lightning;
+			value				= 1;
+			max_value			= 2;
+			description			= "Adds <value> to <max_value> Lightning Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_lightning";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_lightning_arrow
+								  &hit_ffx				= ffx_spell_lightning_sword_hit;
+		}
+	}
+	[reagent_diamond_spangle]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_lightning_damage]
+	    {
+			alteration			= alter_custom_damage_lightning;
+			value				= 2;
+			max_value			= 6;
+			description			= "Adds <value> to <max_value> Lightning Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_lightning";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_lightning_arrow
+								  &hit_ffx				= ffx_spell_lightning_sword_hit;
+		}
+	}
+	[reagent_diamond_filament]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_lightning_damage]
+	    {
+			alteration			= alter_custom_damage_lightning;
+			value				= 8;
+			max_value			= 23;
+			description			= "Adds <value> to <max_value> Lightning Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_lightning";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_lightning_arrow
+								  &hit_ffx				= ffx_spell_lightning_sword_hit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Death Damage
+
+// Melee
+	[reagent_jet_splinter]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_death_damage]
+	    {
+			alteration			= alter_custom_damage_death;
+			value				= 3;
+			max_value			= 5;
+			description			= "Adds <value> to <max_value> Death Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_death_sword;
+		}
+	}
+	[reagent_jet_pommelstone]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_death_damage]
+	    {
+			alteration			= alter_custom_damage_death;
+			value				= 5;
+			max_value			= 8;
+			description			= "Adds <value> to <max_value> Death Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_death_sword;
+		}
+	}
+	[reagent_jet_ornament]
+	{
+		object_types	= melee;
+		skill_types		= fighter;
+		[melee_death_damage]
+	    {
+			alteration			= alter_custom_damage_death;
+			value				= 23;
+			max_value			= 38;
+			description			= "Adds <value> to <max_value> Death Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?weapon_ffx		= ffx_spell_death_sword;
+		}
+	}
+
+// Ranged
+	[reagent_onyx_fragment]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_death_damage]
+	    {
+			alteration			= alter_custom_damage_death;
+			value				= 3;
+			max_value			= 5;
+			description			= "Adds <value> to <max_value> Death Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_death_arrow;
+		}
+	}
+	[reagent_onyx_spangle]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_death_damage]
+	    {
+			alteration			= alter_custom_damage_death;
+			value				= 5;
+			max_value			= 8;
+			description			= "Adds <value> to <max_value> Death Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_death_arrow;
+		}
+	}
+	[reagent_onyx_filament]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_death_damage]
+	    {
+			alteration			= alter_custom_damage_death;
+			value				= 18;
+			max_value			= 30;
+			description			= "Adds <value> to <max_value> Death Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_death_arrow;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// X% Damage Reflected to Attacker
+	[reagent_ivory_thorns]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[reflect]
+	    {
+			alteration			= alter_reflect_damage;
+			value				= 8;
+			description			= "<value>% of Physical Damage Reflected to Enemy";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_reflect";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_diamond_thorns]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[reflect]
+	    {
+			alteration			= alter_reflect_damage;
+			value				= 15;
+			description			= "<value>% of Physical Damage Reflected to Enemy";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_reflect";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_ensorcelled_thorns]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[reflect]
+	    {
+			alteration			= alter_reflect_damage;
+			value				= 35;
+			description			= "<value>% of Physical Damage Reflected to Enemy";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_reflect";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// X% Health Stolen
+	[reagent_wolf_jaw]
+	{
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+		[health_steal]
+	    {
+			alteration			= alter_life_steal;
+			value				= 3;
+			description			= "<value>% Health Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health_steal";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_health_steal_sword
+									  &projectile_ffx	= ffx_spell_health_steal_arrow;
+		}
+	}
+	[reagent_vampire_jaw]
+	{
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+		[health_steal]
+	    {
+			alteration			= alter_life_steal;
+			value				= 4;
+			description			= "<value>% Health Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health_steal";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_health_steal_sword
+									  &projectile_ffx	= ffx_spell_health_steal_arrow;
+		}
+	}
+	[reagent_demon_jaw]
+	{
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+		[health_steal]
+	    {
+			alteration			= alter_life_steal;
+			value				= 6;
+			description			= "<value>% Health Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health_steal";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_health_steal_sword
+									  &projectile_ffx	= ffx_spell_health_steal_arrow;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// X% Mana Stolen
+	[reagent_eagle_talon]
+	{
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+		[mana_steal]
+	    {
+			alteration			= alter_mana_steal;
+			value				= 3;
+			description			= "<value>% Mana Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana_steal";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_mana_steal_sword
+									  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+		}
+	}
+	[reagent_raven_talon]
+	{
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+		[mana_steal]
+	    {
+			alteration			= alter_mana_steal;
+			value				= 4;
+			description			= "<value>% Mana Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana_steal";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_mana_steal_sword
+									  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+		}
+	}
+	[reagent_owl_talon]
+	{
+		object_types	= weapon;
+		skill_types		= fighter,ranger,mage;
+		[mana_steal]
+	    {
+			alteration			= alter_mana_steal;
+			value				= 6;
+			description			= "<value>% Mana Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana_steal";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_mana_steal_sword
+									  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Life Recovery
+	[reagent_betony_salve]
+	{
+		object_types	= armor,ring,amulet;
+		skill_types		= fighter,ranger;
+		[health_regen]
+	    {
+			alteration			= alter_life_recovery_unit;
+			value				= 0.05;
+			description			= "+5% Health Regeneration";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health_regen";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_sandalvine_tincture]
+	{
+		object_types	= armor,ring,amulet;
+		skill_types		= fighter,ranger;
+		[health_regen]
+	    {
+			alteration			= alter_life_recovery_unit;
+			value				= 0.12;
+			description			= "+12% Health Regeneration";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health_regen";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Mana Recovery
+	[reagent_yarrow_balm]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= nmage,cmage;
+		[mana_regen]
+	    {
+			alteration			= alter_mana_recovery_unit;
+			value				= 0.05;
+			description			= "+5% Mana Regeneration";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana_regen";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_sage_liniment]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= nmage,cmage;
+		[mana_regen]
+	    {
+			alteration			= alter_mana_recovery_unit;
+			value				= 0.12;
+			description			= "+12% Mana Regeneration";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana_regen";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// +X Armor
+	[reagent_hide_fragment]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[armor]
+	    {
+			alteration			= alter_armor;
+			value				= 1;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_armor";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_tanned_skin]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[armor]
+	    {
+			alteration			= alter_armor;
+			value				= 2;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_armor";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_patterned_shell]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[armor]
+	    {
+			alteration			= alter_armor;
+			value				= 3;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_armor";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_carved_carapace]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[armor]
+	    {
+			alteration			= alter_armor;
+			value				= 5;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_armor";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_etched_chrysalis]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[armor]
+	    {
+			alteration			= alter_armor;
+			value				= 8;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_armor";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_scarab_husk]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[armor]
+	    {
+			alteration			= alter_armor;
+			value				= 10;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_armor";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_engraved_plating]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[armor]
+	    {
+			alteration			= alter_armor;
+			value				= 12;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_armor";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_dragon_scale]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[armor]
+	    {
+			alteration			= alter_armor;
+			value				= 15;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_armor";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Ice Magic Damage Reduced
+	[reagent_cobalt_bead]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_ice]
+	    {
+			alteration			= alter_ice_resistance;
+			value				= 0.04;
+			description			= "+4% Ice Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_ice";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_frost_charm]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_ice]
+	    {
+			alteration			= alter_ice_resistance;
+			value				= 0.08;
+			description			= "+8% Ice Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_ice";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_icicle_talisman]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_ice]
+	    {
+			alteration			= alter_ice_resistance;
+			value				= 0.24;
+			description			= "+24% Ice Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_ice";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Fire Magic Damage Reduced
+	[reagent_branded_rune]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_fire]
+	    {
+			alteration			= alter_fire_resistance;
+			value				= 0.04;
+			description			= "+4% Fire Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_fire";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_smoldering_rune]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_fire]
+	    {
+			alteration			= alter_fire_resistance;
+			value				= 0.08;
+			description			= "+8% Fire Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_fire";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_igneous_rune]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_fire]
+	    {
+			alteration			= alter_fire_resistance;
+			value				= 0.24;
+			description			= "+24% Fire Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_fire";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Lightning Magic Damage Reduced
+	[reagent_yellow_strand]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_lightning]
+	    {
+			alteration			= alter_lightning_resistance;
+			value				= 0.04;
+			description			= "+4% Lightning Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_lightning";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_amber_thread]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_lightning]
+	    {
+			alteration			= alter_lightning_resistance;
+			value				= 0.08;
+			description			= "+7% Lightning Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_lightning";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_gold_ribbon]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_lightning]
+	    {
+			alteration			= alter_lightning_resistance;
+			value				= 0.24;
+			description			= "+24% Lightning Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_lightning";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Death Magic Damage Reduced
+	[reagent_skull_fragment]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_death]
+	    {
+			alteration			= alter_death_resistance;
+			value				= 0.04;
+			description			= "+4% Death Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_vaikesh_figurine]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_death]
+	    {
+			alteration			= alter_death_resistance;
+			value				= 0.08;
+			description			= "+8% Death Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_korven_fetish]
+	{
+		object_types	= armor,ring,amulet,spellbook;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_death]
+	    {
+			alteration			= alter_death_resistance;
+			value				= 0.24;
+			description			= "+24% Death Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Melee Damage Reduced
+	[reagent_aegis_symbol]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_melee]
+	    {
+			alteration			= alter_melee_resistance;
+			value				= 0.03;
+			description			= "+3% Melee Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_melee";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_azunai_insignia]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_melee]
+	    {
+			alteration			= alter_melee_resistance;
+			value				= 0.04;
+			description			= "+4% Melee Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_melee";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Ranged Damage Reduced
+	[reagent_halfgiant_pennant]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_ranged]
+	    {
+			alteration			= alter_ranged_resistance;
+			value				= 0.04;
+			description			= "+4% Ranged Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_ranged";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_agallan_standard]
+	{
+		object_types	= armor;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[resist_ranged]
+	    {
+			alteration			= alter_ranged_resistance;
+			value				= 0.06;
+			description			= "+6% Ranged Resistance";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_resist_ranged";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// X% Chance to Block Melee
+	[reagent_stag_crest]
+	{
+		object_types	= shield;
+		skill_types		= fighter;
+		[block_melee]
+	    {
+			alteration			= alter_chance_to_block_melee_damage;
+			value				= 6;
+			description			= "+<value>% Chance to Block Melee Attack";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_block_melee";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_lion_crest]
+	{
+		object_types	= shield;
+		skill_types		= fighter;
+		[block_melee]
+	    {
+			alteration			= alter_chance_to_block_melee_damage;
+			value				= 10;
+			description			= "+<value>% Chance to Block Melee Attack";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_block_melee";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// X% Chance to Block Ranged
+	[reagent_griffon_crest]
+	{
+		object_types	= shield;
+		skill_types		= fighter;
+		[block_ranged]
+	    {
+			alteration			= alter_chance_to_block_ranged_damage;
+			value				= 8;
+			description			= "+<value>% Chance to Block Ranged Attack";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_block_ranged";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_phoenix_crest]
+	{
+		object_types	= shield;
+		skill_types		= fighter;
+		[block_ranged]
+	    {
+			alteration			= alter_chance_to_block_ranged_damage;
+			value				= 12;
+			description			= "+<value>% Chance to Block Ranged Attack";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_block_ranged";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// X% Magic Find
+	[reagent_rainbow_trinket]
+	{
+		object_types	= ring,amulet,spellbook;
+		[magic_find]
+	    {
+			alteration			= alter_magic_find_chance;
+			value				= 5;
+			min_value_ceiling	= 35;
+			description			= "+<value>% Chance to Find Magic Items";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_magic_find";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_prismatic_bauble]
+	{
+		object_types	= ring,amulet,spellbook;
+		[magic_find]
+	    {
+			alteration			= alter_magic_find_chance;
+			value				= 15;
+			min_value_ceiling	= 50;
+			description			= "+<value>% Chance to Find Magic Items";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_magic_find";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////
+// Quest Reagents
+	[reagent_lumillas_salve]
+	{
+		object_types	= armor,ring,amulet;
+		skill_types		= fighter,ranger,nmage,cmage;
+		[health]
+	    {
+			alteration			= alter_max_life;
+			value				= 10;
+			description			= "+<value> Health";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health";			// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+		[health_regen]
+	    {
+			alteration			= alter_life_recovery_unit;
+			value				= 0.04;
+			description			= "+5% Health Regeneration";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health_regen";	// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+	}
+	[reagent_viperclaw]
+	{
+		object_types	= ranged;
+		skill_types		= ranger;
+		[ranged_damage_min]
+	    {
+			alteration			= alter_ranged_damage_min;
+			value				= 15;
+			description			= "+<value> Min Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ranged_min";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_damage_bonus_arrow;
+		}
+		[ranged_damage_max]
+	    {
+			alteration			= alter_ranged_damage_max;
+			value				= 15;
+			description			= "+<value> Max Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_ranged_max";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+		[ranged_death_damage]
+	    {
+			alteration			= alter_custom_damage_death;
+			value				= 8;
+			max_value			= 12;
+			description			= "Adds <value> to <max_value> Death Damage";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_death";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+								  ?projectile_ffx		= ffx_spell_death_arrow;
+		}
+	}
+
+////////////////////////////////////////////////////////////////////////////////
+// Diablo 2 Runes
+    [reagent_d2_rune_el]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+        [armor]
+	    {
+			alteration			= alter_armor;
+			value				= 4;
+			description			= "+<value> Armor";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_armor";
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+    }
+    [reagent_d2_rune_eld]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+        [block_melee]
+	    {
+			alteration			= alter_chance_to_block_melee_damage;
+			value				= 3;
+			description			= "+<value>% Chance to Block";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_block_melee";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+		[block_ranged]
+	    {
+			alteration			= alter_chance_to_block_ranged_damage;
+			value				= 3;
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_block_ranged";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit;
+		}
+    }
+    [reagent_d2_rune_tir]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+        [mana_steal]
+	    {
+			alteration			= alter_mana_steal;
+			value				= 2;
+			description			= "<value>% Mana Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_mana_steal";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_mana_steal_sword
+									  &projectile_ffx	= ffx_spell_mana_steal_arrow;
+		}
+    }
+    [reagent_d2_rune_nef]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_eth]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_ith]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_ral]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_ort]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_thul]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_amn]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+        [health_steal]
+	    {
+			alteration			= alter_life_steal;
+			value				= 2;
+			description			= "<value>% Health Steal";
+			duration			= #infinite;
+			is_permanent		= true;
+			is_single_instance	= false;
+			custom_effect		= "rgt_health_steal";		// must be unique to effect
+			custom_effect_skrit = world\global\enchantments\weapon_enchant.skrit
+									  ?weapon_ffx		= ffx_spell_health_steal_sword
+									  &projectile_ffx	= ffx_spell_health_steal_arrow;
+		}
+    }
+    [reagent_d2_rune_sol]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_shael]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_dol]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_hel]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_io]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_lum]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_ko]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_fal]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_lem]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_pul]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_um]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_mal]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_ist]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_gul]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_vex]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_ohm]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_lo]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_sur]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_ber]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_jah]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_cham]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+    [reagent_d2_rune_zod]
+    {
+        object_types	= weapon,body,helm,gloves,boots,ring,amulet,spellbook;
+        skill_types		= fighter,ranger,mage,nmage,cmage;
+    }
+}

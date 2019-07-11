@@ -1,0 +1,363 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : book_glb_unq_d2_hellfire_codex_melee
+//// SPECIALIZES    : base_book_spell
+//// FULL NAME      : Hellfire Codex (Unique Spell Book)
+//// NOTES          : Hellfire torch reimagined. Melee version.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:book_glb_unq_d2_hellfire_codex_melee]
+{
+	doc = "Diablo 2 Hellfire Codex (Melee)";
+	specializes = base_book_spell;
+	[common]
+	{
+		screen_name = "Hellfire Codex";
+        base_screen_name = "Spell Book";
+        rarity = UNIQUE;
+		allow_modifiers = false;
+	}
+	[gui]
+	{
+        inventory_icon = b_gui_ig_i_it_spellbook_d2_hellfire_codex;
+		equip_requirements = melee:#item_level-1;
+		item_level = 96;
+	}
+    [magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_MELEE_PASSIVE_SKILLS;
+                value				= 3;
+                description			= "+<value> to Melee Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 20;
+				description			= "+<value> All Attributes";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_DEXTERITY;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_INTELLIGENCE;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_PHYSICAL_RESISTANCE;
+				value               = 0.10;
+				description         = "+10% All Resistances";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MAGICAL_RESISTANCE;
+				value               = 0.10;
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 8;
+				description			= "+<value> Light Radius";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : book_glb_unq_d2_hellfire_codex_ranged
+//// SPECIALIZES    : base_book_spell
+//// FULL NAME      : Hellfire Codex (Unique Spell Book)
+//// NOTES          : Hellfire torch reimagined. Ranged version.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:book_glb_unq_d2_hellfire_codex_ranged]
+{
+	doc = "Diablo 2 Hellfire Codex (Ranged)";
+	specializes = base_book_spell;
+	[common]
+	{
+		screen_name = "Hellfire Codex";
+        base_screen_name = "Spell Book";
+        rarity = UNIQUE;
+		allow_modifiers = false;
+	}
+	[gui]
+	{
+        inventory_icon = b_gui_ig_i_it_spellbook_d2_hellfire_codex;
+        equip_requirements = ranged:#item_level-1;
+		item_level = 96;
+	}
+    [magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_RANGED_PASSIVE_SKILLS;
+                value				= 3;
+                description			= "+<value> to Ranged Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+            }
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 20;
+				description			= "+<value> All Attributes";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_DEXTERITY;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_INTELLIGENCE;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_PHYSICAL_RESISTANCE;
+				value               = 0.10;
+				description         = "+10% All Resistances";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MAGICAL_RESISTANCE;
+				value               = 0.10;
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 8;
+				description			= "+<value> Light Radius";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : book_glb_unq_d2_hellfire_codex_nmagic
+//// SPECIALIZES    : base_book_spell
+//// FULL NAME      : Hellfire Codex (Unique Spell Book)
+//// NOTES          : Hellfire torch reimagined. Nature Magic version.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:book_glb_unq_d2_hellfire_codex_nmagic]
+{
+	doc = "Diablo 2 Hellfire Codex (Nature Magic)";
+	specializes = base_book_spell;
+	[common]
+	{
+		screen_name = "Hellfire Codex";
+        base_screen_name = "Spell Book";
+        rarity = UNIQUE;
+		allow_modifiers = false;
+	}
+	[gui]
+	{
+        inventory_icon = b_gui_ig_i_it_spellbook_d2_hellfire_codex;
+		equip_requirements = nature magic:#item_level-1;
+		item_level = 96;
+	}
+    [magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_NATURE_MAGIC_PASSIVE_SKILLS;
+                value				= 3;
+                description			= "+<value> to Nature Magic Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 20;
+				description			= "+<value> All Attributes";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_DEXTERITY;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_INTELLIGENCE;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_PHYSICAL_RESISTANCE;
+				value               = 0.10;
+				description         = "+10% All Resistances";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MAGICAL_RESISTANCE;
+				value               = 0.10;
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 8;
+				description			= "+<value> Light Radius";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// TEMPLATE       : book_glb_unq_d2_hellfire_codex_mcmagic
+//// SPECIALIZES    : base_book_spell
+//// FULL NAME      : Hellfire Codex (Unique Spell Book)
+//// NOTES          : Hellfire torch reimagined. Combat Magic version.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[t:template,n:book_glb_unq_d2_hellfire_codex_cmagic]
+{
+	doc = "Diablo 2 Hellfire Codex (Combat Magic)";
+	specializes = base_book_spell;
+	[common]
+	{
+		screen_name = "Hellfire Codex";
+        base_screen_name = "Spell Book";
+        rarity = UNIQUE;
+		allow_modifiers = false;
+	}
+	[gui]
+	{
+        inventory_icon = b_gui_ig_i_it_spellbook_d2_hellfire_codex;
+		equip_requirements = combat magic:#item_level-1;
+		item_level = 96;
+	}
+    [magic]
+	{
+		[enchantments]
+		{
+            [*]
+            {
+                alteration			= ALTER_COMBAT_MAGIC_PASSIVE_SKILLS;
+                value				= 3;
+                description			= "+<value> to Combat Magic Skills";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance  = false;
+            }
+            [*]
+			{
+				alteration			= ALTER_STRENGTH;
+				value				= 20;
+				description			= "+<value> All Attributes";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_DEXTERITY;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+            [*]
+			{
+				alteration			= ALTER_INTELLIGENCE;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration          = ALTER_PHYSICAL_RESISTANCE;
+				value               = 0.10;
+				description         = "+10% All Resistances";
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+			[*]
+			{
+				alteration          = ALTER_MAGICAL_RESISTANCE;
+				value               = 0.10;
+				duration            = #infinite;
+				is_permanent        = true;
+				is_single_instance  = false;
+			}
+            [*]
+			{
+				alteration			= ALTER_GENERIC;
+				value				= 8;
+				description			= "+<value> Light Radius";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}

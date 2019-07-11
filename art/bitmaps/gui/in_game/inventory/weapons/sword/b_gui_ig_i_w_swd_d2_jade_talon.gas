@@ -1,0 +1,7 @@
+[t:tsd,n:b_gui_ig_i_w_ces_d2_chaos]
+{
+  b dither = true;
+  b hasalpha = true;
+	layer1texture1 = b_gui_ig_i_w_ces_d2_chaos;
+  i texturedetail = 0;
+}

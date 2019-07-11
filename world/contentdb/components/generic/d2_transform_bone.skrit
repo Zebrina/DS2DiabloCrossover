@@ -1,0 +1,38 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// FILE: d2_transform_bone.skrit
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+property bool   _server_only$   = false;
+property string _doc$           = "";
+
+property string bone$   = ""    doc = "";
+property float  x$      = 0.0   doc = "";
+property float  y$      = 0.0   doc = "";
+property float  z$      = 0.0   doc = "";
+property float  rx$     = 0.0   doc = "";
+property float  ry$     = 0.0   doc = "";
+property float  rz$     = 0.0   doc = "";
+
+owner = GoSkritComponent;
+
+event OnGoHandleMessage$(eWorldEvent e$, WorldMessage msg$) {
+    if (e$ == WE_ENTERED_WORLD) {
+        this.CreateTimer(1, 2.0);
+    }
+}
+
+trigger OnTimer$(1) {
+    Report.Screen("OnTimer!");
+    Aspect asp$ = owner.Go.Aspect.AspectHandle;
+    if (asp$ != NULL) {
+        Report.ScreenF("Num bones: %i", asp$.GetNumBones());
+        Report.ScreenF("AP_grip bone index: %i", asp$.GetBoneIndex("AP_grip"));
+        Report.ScreenF("grip bone index: %i", asp$.GetBoneIndex("grip"));
+        asp$.TranslateBoneX(bone$, x$, true);
+        asp$.TranslateBoneY(bone$, y$, true);
+        asp$.TranslateBoneZ(bone$, z$, true);
+        asp$.RotateBoneX(bone$, rx$, true);
+        asp$.RotateBoneY(bone$, ry$, true);
+        asp$.RotateBoneZ(bone$, rz$, true);
+        //asp$.ForceDeformation(true);
+    }
+}

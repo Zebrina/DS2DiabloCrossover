@@ -1,0 +1,7 @@
+[ffx_hide_weapon]
+{
+	thread main
+	{
+		RunEffect "efct_hide_weapon", wait;
+	}
+}
